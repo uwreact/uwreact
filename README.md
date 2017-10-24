@@ -1,22 +1,3 @@
-# uwri3d.com
+# ‹ uwri3d.com › [![GitHub version](https://badge.fury.io/gh/uwri3d%2Fuwri3d.com.svg)](https://github.com/uwri3d/uwri3d.com/releases/latest) [![Stability: Stable](https://img.shields.io/badge/stability-stable-green.svg)](https://github.com/uwri3d/uwri3d.com/releases/latest)
 
-> UWRi3D Public Website and Application Portal
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ npm install # Or yarn install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+UWRi3D Public Website and Application Portal

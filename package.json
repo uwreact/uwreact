@@ -1,18 +1,17 @@
 {
   "name": "uwri3d.com",
   "version": "1.0.0",
-  "description": "UWRi3D Public Website and Application Portal",
+  "description": "UWRi3D",
   "author": "Michael Midura <michael@midura.io>",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "start": "nuxt",
+    "start:prod": "nuxt start"
   },
   "dependencies": {
+    "element-ui": "^2.0.0-beta.1",
     "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {
