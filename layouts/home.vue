@@ -8,15 +8,15 @@
       text-color="#FFFFFF"
       active-text-color="#E4B429"
       class="nav-menu">
-      <el-menu-item index="0">
-        <img class="logo" src="~/assets/whiteHoriz.svg"/>
+      <el-menu-item index="home">
+        <a href="#home" v-scroll-to="'#home'"><img class="logo" src="~/assets/uwri3dLogos/logoWhiteHoriz.svg"/></a>
       </el-menu-item>
       <div class="nav-right">
-        <el-menu-item index="1">About</el-menu-item>
-        <el-menu-item index="2">Teams</el-menu-item>
-        <el-menu-item index="3">Sponsors</el-menu-item>
-        <el-menu-item index="4">Contact</el-menu-item>
-        <el-button class="button" round>APPLY {{countdown}}</el-button>
+        <el-menu-item index="about"><a href="#about" v-scroll-to="'#about'">About</a></el-menu-item>
+        <el-menu-item index="teams"><a href="#teams" v-scroll-to="'#teams'">Teams</a></el-menu-item>
+        <el-menu-item index="sponsors"><a href="#sponsors" v-scroll-to="'#sponsors'">Sponsors</a></el-menu-item>
+        <el-menu-item index="contact"><a href="#contact" v-scroll-to="'#contact'">Contact</a></el-menu-item>
+        <countdown-apply-button/>
       </div>
     </el-menu>
     <nuxt/>
@@ -24,33 +24,17 @@
 </template>
 
 <script>
+  import CountdownApplyButton from '~/components/CountdownApplyButton.vue'
+
   export default {
     data() {
       return {
-        activeIndex: '0',
-        countdown: "..."
-      };
+        activeIndex: 0
+      }
     },
 
-    mounted() {
-      const applicationsOpenDate = new Date("Oct 26, 2017 20:00:00").getTime();
-
-      const timer = setInterval(() => {
-        const delta = applicationsOpenDate - new Date().getTime();
-
-        const days = Math.floor(delta / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((delta % (1000 * 60)) / 1000);
-
-        this.countdown = "IN " + days + "D " + hours + "H "
-          + minutes + "M " + seconds + "S ";
-
-        if (delta < 0) {
-          clearInterval(timer);
-          this.countdown = "NOW";
-        }
-      }, 1000);
+    components: {
+      CountdownApplyButton
     },
 
     methods: {
@@ -78,11 +62,25 @@
     box-sizing: border-box;
     margin: 0;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  /*darker: #252525;*/
+  /*dark: #444444;*/
+  /*light: #d5d5d3;*/
+  /*white: #ffffff;*/
+  /*gold: #e4b429;*/
+
 </style>
 
 <style scoped>
   .nav-menu {
+    z-index: 100;
     display: flex;
+    border-color: #252525;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
   }
 
   .nav-right {
@@ -93,17 +91,5 @@
 
   .logo {
     width: 200px;
-  }
-
-  .button {
-    background-color: #E4B429;
-    border-color: #E4B429;
-    color: #FFFFFF;
-    height: 40px;
-    width: 300px;
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700;
-    margin-left: 20px;
-    margin-right: 20px;
   }
 </style>
