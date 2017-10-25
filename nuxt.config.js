@@ -20,7 +20,7 @@ module.exports = {
   },
 
   plugins: [
-    'plugins/element-ui'
+    '~plugins/element-ui'
   ],
 
   css: [
