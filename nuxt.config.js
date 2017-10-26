@@ -12,6 +12,8 @@ module.exports = {
     ]
   },
 
+  mode: "spa",
+
   loading: { color: '#3B8070' },
 
   build: {

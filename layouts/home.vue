@@ -81,6 +81,7 @@
       },
 
       handleResize() {
+        console.log(document.documentElement.clientWidth);
         if (!process.browser)
           this.screenSize = 992;
         else
