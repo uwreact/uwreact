@@ -334,10 +334,10 @@
         <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
           <div class="footer-row">
             <a href="https://github.com/uwri3d"><i class="footer-icon fa fa-github fa-lg"></i></a>
-            <a href="fb.me/uwri3d"><i class="footer-icon fa fa-facebook fa-lg"></i></a>
-            <a><i class="footer-icon fa fa-twitter fa-lg"></i></a>
-            <a><i class="footer-icon fa fa-instagram fa-lg"></i></a>
-            <a><i class="footer-icon fa fa-youtube-play fa-lg"></i></a>
+            <a href="https://fb.me/uwri3d"><i class="footer-icon fa fa-facebook fa-lg"></i></a>
+            <a href="https://twitter.com/uwri3d"><i class="footer-icon fa fa-twitter fa-lg"></i></a>
+            <a href="https://instagram.com/uwri3d"><i class="footer-icon fa fa-instagram fa-lg"></i></a>
+            <a href="https://goo.gl/ns5r5g"><i class="footer-icon fa fa-youtube-play fa-lg"></i></a>
           </div>
         </el-col>
       </el-row>
