@@ -1,5 +1,7 @@
 <template>
-  <el-button class="button" round>APPLY {{countdown}}</el-button>
+  <p class="button" round>
+    APPLY {{countdown}}
+  </p>
 </template>
 
 <script>
@@ -10,12 +12,12 @@
       return {
         date: null,
         now: new Date().getTime() / 1000,
-        delta: new Date("Oct 26, 2017 20:00:00").getTime() / 1000 - new Date().getTime() / 1000,
+        delta: new Date("Oct 27, 2017 00:00:00").getTime() / 1000 - new Date().getTime() / 1000,
       };
     },
 
     mounted() {
-      this.date = new Date("Oct 26, 2017 20:00:00").getTime() / 1000;
+      this.date = new Date("Oct 27, 2017 00:00:00").getTime() / 1000;
 
       interval = setInterval(() => {
         this.now = new Date().getTime() / 1000;
@@ -55,15 +57,5 @@
 </script>
 
 <style scoped>
-  .button {
-    background-color: #E4B429;
-    border-color: #E4B429;
-    color: #FFFFFF;
-    height: 40px;
-    width: 300px;
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+
 </style>

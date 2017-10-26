@@ -1,22 +1,54 @@
 <template>
   <div>
     <el-menu
-      :default-active="activeIndex"
       mode="horizontal"
       @select="handleSelect"
       background-color="#252525"
       text-color="#FFFFFF"
       active-text-color="#E4B429"
       class="nav-menu">
-      <el-menu-item index="home">
-        <a href="#home" v-scroll-to="'#home'"><img class="logo" src="~/assets/uwri3dLogos/logoWhiteHoriz.svg"/></a>
-      </el-menu-item>
-      <div class="nav-right">
-        <el-menu-item index="about"><a href="#about" v-scroll-to="'#about'">About</a></el-menu-item>
-        <el-menu-item index="teams"><a href="#teams" v-scroll-to="'#teams'">Teams</a></el-menu-item>
-        <el-menu-item index="sponsors"><a href="#sponsors" v-scroll-to="'#sponsors'">Sponsors</a></el-menu-item>
-        <el-menu-item index="contact"><a href="#contact" v-scroll-to="'#contact'">Contact</a></el-menu-item>
-        <countdown-apply-button/>
+
+      <a href="#home" v-scroll-to="'#home'">
+        <el-menu-item index="home">
+          <img class="logo" src="~/assets/logos/uwri3d/logoWhiteHoriz.svg"/>
+        </el-menu-item>
+      </a>
+      <div class="nav-right" v-if="screenSize >= 992">
+        <a href="#about" v-scroll-to="'#about'">
+          <el-menu-item index="about">About</el-menu-item>
+        </a>
+        <a href="#teams" v-scroll-to="'#teams'">
+          <el-menu-item index="teams">Teams</el-menu-item>
+        </a>
+        <a href="#sponsors" v-scroll-to="'#sponsors'">
+          <el-menu-item index="sponsors">Sponsors</el-menu-item>
+        </a>
+        <a href="#contact" v-scroll-to="'#contact'">
+          <el-menu-item index="contact">Contact</el-menu-item>
+        </a>
+        <el-button class="apply-button" round>
+          <apply-countdown/>
+        </el-button>
+      </div>
+      <div class="nav-right" v-if="screenSize > 0 && screenSize < 992">
+        <el-submenu class="submenu" index="submenu">
+          <template slot="title"><i class="el-icon-menu menu-icon"></i></template>
+          <a href="#about" v-scroll-to="'#about'">
+            <el-menu-item index="about">About</el-menu-item>
+          </a>
+          <a href="#teams" v-scroll-to="'#teams'">
+            <el-menu-item index="teams">Teams</el-menu-item>
+          </a>
+          <a href="#sponsors" v-scroll-to="'#sponsors'">
+            <el-menu-item index="sponsors">Sponsors</el-menu-item>
+          </a>
+          <a href="#contact" v-scroll-to="'#contact'">
+            <el-menu-item index="contact">Contact</el-menu-item>
+          </a>
+          <el-menu-item index="apply">
+            <apply-countdown class="apply-menu-item"/>
+          </el-menu-item>
+        </el-submenu>
       </div>
     </el-menu>
     <nuxt/>
@@ -24,22 +56,35 @@
 </template>
 
 <script>
-  import CountdownApplyButton from '~/components/CountdownApplyButton.vue'
+  import ApplyCountdown from '~/components/ApplyCountdown.vue'
+  import VueScrollTo from 'vue-scrollto'
 
   export default {
     data() {
       return {
-        activeIndex: 0
+        screenSize: -1
       }
     },
 
+    mounted() {
+      window.addEventListener('resize', this.handleResize);
+      this.screenSize = document.documentElement.clientWidth;
+    },
+
     components: {
-      CountdownApplyButton
+      ApplyCountdown
     },
 
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+      },
+
+      handleResize() {
+        if (!process.browser)
+          this.screenSize = 992;
+        else
+          this.screenSize = document.documentElement.clientWidth;
       }
     }
   }
@@ -48,6 +93,7 @@
 <style>
   html {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #252525;
     font-size: 14px;
     word-spacing: 1px;
     -ms-text-size-adjust: 100%;
@@ -80,16 +126,40 @@
     z-index: 100;
     display: flex;
     border-color: #252525;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
   }
 
   .nav-right {
     margin-left: auto;
+    margin-right: 20px;
     display: flex;
     align-items: center;
   }
 
   .logo {
     width: 200px;
+  }
+
+  .apply-button {
+    background-color: #E4B429;
+    border-color: #E4B429;
+    color: #FFFFFF;
+    height: 40px;
+    width: 300px;
+    margin-left: 20px;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  .submenu {
+    font-weight: 700;
+  }
+
+  .menu-icon {
+    margin-left: 70px;
+  }
+
+  .apply-menu-item {
+    font-size: 12px;
   }
 </style>
