@@ -1,6 +1,5 @@
 <template>
   <div class="page">
-
     <div class="hero" id="home">
       <el-row>
         <el-col :sm="24" :md="12">
@@ -42,7 +41,7 @@
         </el-row>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 14, offset: 5}">
-            <div class="about-gray-line"/>
+            <div class="about-gray-line"></div>
           </el-col>
         </el-row>
         <el-row>
@@ -104,7 +103,7 @@
         </el-row>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 14, offset: 5}">
-            <div class="about-gray-line"/>
+            <div class="about-gray-line"></div>
           </el-col>
         </el-row>
         <el-row>
@@ -125,9 +124,9 @@
                 <el-collapse class="accordion-question" accordion>
                   <el-collapse-item class="accordion-question" name="2">
                     <template slot="title">
-                        <p class="accordion-question">
-                          What is the FIRST Robotics Competition?
-                        </p>
+                      <p class="accordion-question">
+                        What is the FIRST Robotics Competition?
+                      </p>
                     </template>
                     <p class="accordion-answer">
                       The FIRST Robotics Competition is an important part of the high school careers of many University
@@ -268,7 +267,7 @@
             <p class="about-buzz-header">
               TEAM 1
             </p>
-            <div class="hero-yellow-line"/>
+            <div class="hero-yellow-line"></div>
             <p class="hero-date">30 Students</p>
             <p class="hero-applications">Currently recruiting</p>
           </el-col>
@@ -276,7 +275,7 @@
             <p class="about-buzz-header team-2-header">
               TEAM 2
             </p>
-            <div class="hero-yellow-line"/>
+            <div class="hero-yellow-line"></div>
             <p class="hero-date">30 Students</p>
             <p class="hero-applications">Currently recruiting</p>
           </el-col>
@@ -330,16 +329,25 @@
       </div>
     </div>
 
-    <el-footer>
-
-    </el-footer>
-
+    <div class="footer">
+      <el-row>
+        <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+          <div class="footer-row">
+            <a href="https://github.com/uwri3d"><i class="footer-icon fa fa-github fa-lg"></i></a>
+            <a href="fb.me/uwri3d"><i class="footer-icon fa fa-facebook fa-lg"></i></a>
+            <a><i class="footer-icon fa fa-twitter fa-lg"></i></a>
+            <a><i class="footer-icon fa fa-instagram fa-lg"></i></a>
+            <a><i class="footer-icon fa fa-youtube-play fa-lg"></i></a>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    layout: 'home'
+    layout: 'home',
   }
 </script>
 
@@ -544,5 +552,31 @@
     .hero-text {
       margin-top: 16px;
     }
+  }
+
+  .footer {
+    width: 100%;
+    height: 60px;
+    margin-top: 72px;
+    color: #ffffff;
+    background-color: #e4b429;
+  }
+
+  .footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .footer-row {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-icon {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 </style>

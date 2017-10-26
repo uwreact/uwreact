@@ -9,6 +9,9 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700' }
+    ],
+    script: [
+      { src: 'https://use.fontawesome.com/f9245cfd63.js' }
     ]
   },
 
@@ -19,11 +22,7 @@ module.exports = {
     vendor: ['element-ui']
   },
 
-  plugins: [
-    '~plugins/element-ui'
-  ],
+  plugins: ['~plugins/element-ui'],
 
-  css: [
-    'element-ui/lib/theme-chalk/index.css'
-  ]
+  css: ['element-ui/lib/theme-chalk/index.css']
 }
