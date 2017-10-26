@@ -7,8 +7,8 @@
   "scripts": {
     "build": "nuxt build",
     "generate": "nuxt generate",
+    "publish": "nuxt start",
     "start": "nuxt",
-    "start:prod": "nuxt start"
   },
   "dependencies": {
     "element-ui": "^2.0.0-beta.1",

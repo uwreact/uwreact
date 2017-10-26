@@ -12,9 +12,7 @@ module.exports = {
     ]
   },
 
-  mode: "spa",
-
-  loading: { color: '#3B8070' },
+  loading: { color: '#e4b429' },
 
   build: {
     analyze: false,
