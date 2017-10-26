@@ -157,10 +157,10 @@
   }
 
   .menu-icon {
-    margin-left: 70px;
+    margin-left: 50px;
   }
 
   .apply-menu-item {
-    font-size: 12px;
+    font-size: 10px;
   }
 </style>

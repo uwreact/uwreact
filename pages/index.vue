@@ -14,13 +14,15 @@
               THE UNIVERSITY OF WATERLOO
             </p>
             </p>
-            <div class="hero-yellow-line"/>
+            <div class="hero-yellow-line"></div>
             <p class="hero-date">January 6 - 9, 2018</p>
             <p class="hero-applications">Applications open October 28, 2017</p>
           </div>
         </el-col>
       </el-row>
-      <img class="hero-bottom" src="~/assets/home/hero/heroBottom.svg"/>
+      <div class="hero-bottom">
+        <div></div>
+      </div>
     </div>
 
     <div class="body about" id="about">
@@ -123,9 +125,9 @@
                 <el-collapse class="accordion-question" accordion>
                   <el-collapse-item class="accordion-question" name="2">
                     <template slot="title">
-                      <p class="accordion-question">
-                        What is the FIRST Robotics Competition?
-                      </p>
+                        <p class="accordion-question">
+                          What is the FIRST Robotics Competition?
+                        </p>
                     </template>
                     <p class="accordion-answer">
                       The FIRST Robotics Competition is an important part of the high school careers of many University
@@ -141,8 +143,8 @@
                       <i>Under strict rules, limited resources, and an intense six-week time limit, teams of students
                         are challenged to raise funds, design a team "brand," hone teamwork skills, and build and
                         program industrial-size robots to play a difficult field game against like-minded competitors.
-                        It’s as close to real-world engineering as a student can get. Volunteer professional mentors
-                        lend their time and talents to guide each team."</i>
+                        It’s as close to real-world engineering as a student can get.
+                        "</i>
                       <br/>
                       <br/>
                       Read more at <a href="https://www.firstinspires.org/">firstinspires.org</a>
@@ -169,7 +171,7 @@
                       </p>
                     </template>
                     <p class="accordion-answer">
-                      Robot in 3 Days will be recruiting it's build teams throughout the month of November. Prior to the build
+                      Robot in 3 Days will be recruiting its build teams throughout the month of November. Prior to the build
                       season, regular meetings will help bring the team up to speed with goals following kickoff. From January
                       6 to 9, the build teams will be in the Sedra Student Design Centre for 72 hours straight completing the
                       Robot in 3 Days challenge. Food will be provided throughout the event to all build team members. Following
@@ -184,15 +186,15 @@
                       </p>
                     </template>
                     <p class="accordion-answer">
-                      Any undergraduate or graduate students currently enrolled at the University of Waterloo, regardless of
-                      faculty, are welcome to apply to join the Robot in 3 Days team, regardless of faculty.
+                      Any undergraduate or graduate students currently enrolled at the University of Waterloo are welcome
+                      to apply to join the Robot in 3 Days team, regardless of faculty.
                     </p>
                   </el-collapse-item>
 
                   <el-collapse-item class="accordion-question" name="6">
                     <template slot="title">
                       <p class="accordion-question">
-                        I'm not a FIRST alumnus! I don't have any technical experience! Can I still apply?
+                        I'm not an alumnus! I don't have experience! Can I still apply?
                       </p>
                     </template>
                     <p class="accordion-answer">
@@ -235,7 +237,9 @@
           </el-col>
         </el-row>
       </div>
-      <img class="about-bottom" src="~/assets/home/about/aboutBottom.svg"/>
+      <div class="about-bottom">
+        <div></div>
+      </div>
     </div>
 
     <div class="body" id="teams">
@@ -326,6 +330,10 @@
       </div>
     </div>
 
+    <el-footer>
+
+    </el-footer>
+
   </div>
 </template>
 
@@ -396,10 +404,24 @@
   }
 
   .hero-bottom {
-    top: 0px;
-    margin-top: 0px;
-    display: block;
     width: 100%;
+    height: 0;
+    padding-left: 50%;
+    padding-top: 10%;
+    overflow: hidden;
+  }
+
+  .hero-bottom div {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -10000px;
+    margin-top: -2000px;
+
+    border-left: 10000px solid transparent;
+    border-right: 10000px solid transparent;
+    border-top: 2000px solid #444444;
     background-color: #d5d5d3;
   }
 
@@ -468,16 +490,44 @@
   }
 
   .about-bottom {
-    top: 0px;
-    margin-top: 0px;
-    display: block;
     width: 100%;
+    height: 0;
+    padding-left: 50%;
+    padding-top: 10%;
+    overflow: hidden;
+  }
+
+  .about-bottom div {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -10000px;
+    margin-top: -2000px;
+
+    border-left: 10000px solid transparent;
+    border-right: 10000px solid transparent;
+    border-top: 2000px solid #d5d5d3;
     background-color: #ffffff;
   }
 
   .sponsor-image {
     padding: 2%;
     width: 100%;
+  }
+
+  @media all and (max-width: 568px) {
+    .accordion-header {
+      font-size: 13px;
+    }
+
+    .accordion-question {
+      font-size: 10px;
+    }
+
+    .accordion-answer {
+      font-size: 10px;
+    }
   }
 
   @media all and (max-width: 768px) {
@@ -489,6 +539,10 @@
   @media all and (max-width: 996px) {
     .team-2-header {
       margin-top: 48px;
+    }
+
+    .hero-text {
+      margin-top: 16px;
     }
   }
 </style>
