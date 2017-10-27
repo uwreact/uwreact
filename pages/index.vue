@@ -56,7 +56,7 @@
             </p>
             <p class="about-buzz-desc">
               For many University of Waterloo students, FIRST Robotics was a high school lifestyle. Entering university,
-              many FIRST alumni desire a way to stay engaged in the FRC community. Through alumni groups and volunteering
+              many FIRST alumni search for a way to stay engaged in the FRC community. Through alumni groups and volunteering
               at local events, they are able to continue their passion for robotics throughout their university careers.
               However, these events lack the same intense experience as the authentic FIRST Robotics Competition. With
               Robot in 3 Days, alumni have the opportunity to experience the vigorous joys of FIRST all over again.
