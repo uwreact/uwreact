@@ -181,7 +181,7 @@
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
             <p class="team-applications">
               We are recruiting for our 2018 build teams! FIRST Alumni or not, as a University of Waterloo student, you can
-              join the Robot in 3 Days team and experience the one of the most exciting engineering design challenges in the
+              join the Robot in 3 Days team and experience one of the most exciting engineering design challenges in the
               world. There are 60 positions available, and all students are welcome!
             </p>
             <br/>
