@@ -77,11 +77,12 @@
               EDUCATE
             </p>
             <p class="about-buzz-desc">
-              Across the world, FIRST Robotics Competition teams look towards Robot in 3 Days builds to spawn ideas,
-              survey designs, and review their own plans. We build towards this initiative by live streaming both teams
-              throughout the 72 hour challenge, and focusing not only on the mechanical design process, but all aspects
-              of the FIRST build. Through programming webcasts detailing vision solutions, design sprints, and detailed
-              sensor breakdowns, we provide FRC students with a plethora of resources as they enter build season.
+              The mission of FIRST is to inspire young people to be science and technology leaders and innovators.
+              UWRi3D proudly carries a similar mantra. In higher education, students have the resources they need to
+              think and create the inventions that will shape our future. We help inspire students on campus to take the
+              skills they learn through Robot in 3 Days and apply them in undiscovered fields of science and technology.
+              Through our live stream, we aim to inspire enthusiasm for hard work and intensive innovation on an international
+              scale.
             </p>
           </el-col>
         </el-row>
@@ -97,31 +98,100 @@
               INSPIRE
             </p>
             <p class="about-buzz-desc">
-              The mission of FIRST is to inspire young people to be science and technology leaders and innovators. In higher
-              education, students have the resources they need to think and create the inventions that will shape our future.
-              We help inspire students on campus to take the skills they learn through Robot in 3 Days and apply them in undiscovered
-              fields of science and technology. While pursuing this goal, we help motivate FIRST Robotics Competition teams around
-              the world by live streaming a full design process detailing the concepts they will need to succeed.
+              The mission of FIRST is to inspire young people to be science and technology leaders and innovators.
+              UWRi3D proudly carries a similar mantra. In higher education, students have the resources they need to
+              think and create the inventions that will shape our future. We help inspire students on campus to take the
+              skills they learn through Robot in 3 Days and apply them in undiscovered fields of science and technology.
+              Through our live stream, we aim to inspire enthusiasm for hard work and intensive innovation on an international
+              scale.
+            </p>
+          </el-col>
+        </el-row>
+      </div>
+      <div class="grey-arrow">
+        <div></div>
+      </div>
+    </div>
+
+    <div class="body teams" id="teams">
+      <div class="body-text">
+        <el-row>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+            <p class="body-header">
+              Our teams
             </p>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :sm="{span: 22, offset: 1}" :md="{span: 14, offset: 5}">
-            <div class="about-gray-line"></div>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+            <p>
+              Thanks to our sponsors, we have the privilege of hosting <b>two</b>
+              Robot in 3 Days teams at the University
+              of Waterloo in 2018. More details about the build teams will be released throughout the application process
+              as the selections are made.
+            </p>
+          </el-col>
+        </el-row>
+        <br/>
+        <br/>
+        <el-row>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 4}">
+            <div class="team-container">
+              <p class="about-buzz-header">
+                TEAM ELSIE
+              </p>
+              <img class="team-image" src="~/assets/home/teams/elsie.jpg"/>
+              <div class="hero-yellow-line"></div>
+              <p class="team-information">Team Elsie is one of our Robot in 3 Days teams here at the University of
+                Waterloo, recruiting 30 students from across campus.</p>
+              <el-button class="team-button" @click="elsieVisible = true" round>
+                MEET TEAM ELSIE
+              </el-button>
+              <el-dialog
+                :visible.sync="elsieVisible"
+                fullscreen="true">
+                <p style="text-align: center; line-height: 48px" class="about-buzz-header">
+                  TEAM ELSIE IS CURRENTLY RECRUITING!
+                </p>
+              </el-dialog>
+            </div>
+          </el-col>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 2}">
+            <div class="team-container">
+              <p class="about-buzz-header team-2-header">
+                TEAM ELIJAH
+              </p>
+              <img class="team-image" src="~/assets/home/teams/elijah.jpg"/>
+              <div class="hero-yellow-line"></div>
+              <p class="team-information">Team Elijah is one of our Robot in 3 Days teams here at the University of
+                Waterloo, recruiting 30 students from across campus.</p>
+              <el-button class="team-button" @click="elijahVisible = true" round>
+                MEET TEAM ELIJAH
+              </el-button>
+              <el-dialog
+                :visible.sync="elijahVisible"
+                fullscreen="true">
+                <p style="text-align: center; line-height: 48px" class="about-buzz-header">
+                  TEAM ELIJAH IS CURRENTLY RECRUITING!
+                </p>
+              </el-dialog>
+            </div>
           </el-col>
         </el-row>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
-            We are recruiting for our 2018 build teams! FIRST Alumni or not, as a University of Waterloo student, you can
-            join the Robot in 3 Days team and experience the one of the most exciting engineering design challenges in the
-            world. There are 60 positions available, and all students are welcome!
+            <p class="team-applications">
+              We are recruiting for our 2018 build teams! FIRST Alumni or not, as a University of Waterloo student, you can
+              join the Robot in 3 Days team and experience the one of the most exciting engineering design challenges in the
+              world. There are 60 positions available, and all students are welcome!
+            </p>
             <br/>
             <br/>
             <el-collapse class="accordion-header" accordion>
               <el-collapse-item class="accordion-header-text" name="1">
                 <template slot="title">
                   <p class="accordion-header-text">
-                    Questions and Answers for Applicants
+                    QUESTIONS AND ANSWERS FOR APPLICANTS
                   </p>
                 </template>
 
@@ -146,8 +216,7 @@
                       <i>Under strict rules, limited resources, and an intense six-week time limit, teams of students
                         are challenged to raise funds, design a team "brand," hone teamwork skills, and build and
                         program industrial-size robots to play a difficult field game against like-minded competitors.
-                        It’s as close to real-world engineering as a student can get.
-                        "</i>
+                        It’s as close to real-world engineering as a student can get."</i>
                       <br/>
                       <br/>
                       Read more at <a href="https://www.firstinspires.org/">firstinspires.org</a>
@@ -237,77 +306,6 @@
                 </el-collapse>
               </el-collapse-item>
             </el-collapse>
-          </el-col>
-        </el-row>
-      </div>
-      <div class="grey-arrow">
-        <div></div>
-      </div>
-    </div>
-
-    <div class="body teams" id="teams">
-      <div class="body-text">
-        <el-row>
-          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
-            <p class="body-header">
-              Our teams
-            </p>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
-            <p>
-              Thanks to our sponsors, we have the privilege of hosting <b>two</b>
-              Robot in 3 Days teams at the University
-              of Waterloo in 2018. More details about the build teams will be released throughout the application process
-              as the selections are made.
-            </p>
-          </el-col>
-        </el-row>
-        <br/>
-        <br/>
-        <el-row>
-          <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 4}">
-            <div class="team-container">
-              <p class="about-buzz-header">
-                TEAM ELSIE
-              </p>
-              <img class="team-image" src="~/assets/home/teams/elsie.jpg"/>
-              <div class="hero-yellow-line"></div>
-              <p class="team-information">Team Elsie is one of our Robot in 3 Days teams here at the University of
-                Waterloo, recruiting 30 students from across campus.</p>
-              <el-button class="team-button" @click="elsieVisible = true" round>
-                MEET TEAM ELSIE
-              </el-button>
-              <el-dialog
-                :visible.sync="elsieVisible"
-                fullscreen="true">
-                <p style="text-align: center; line-height: 48px" class="about-buzz-header">
-                  TEAM ELSIE IS CURRENTLY RECRUITING!
-                </p>
-              </el-dialog>
-            </div>
-          </el-col>
-          <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 2}">
-            <div class="team-container">
-              <p class="about-buzz-header team-2-header">
-                TEAM ELIJAH
-              </p>
-              <img class="team-image" src="~/assets/home/teams/elijah.jpg"/>
-              <div class="hero-yellow-line"></div>
-              <p class="team-information">Team Elijah is one of our Robot in 3 Days teams here at the University of
-                Waterloo, recruiting 30 students from across campus.</p>
-              <el-button class="team-button" @click="elijahVisible = true" round>
-                MEET TEAM ELIJAH
-              </el-button>
-              <el-dialog
-                :visible.sync="elijahVisible"
-                fullscreen="true">
-                <p style="text-align: center; line-height: 48px" class="about-buzz-header">
-                  TEAM ELIJAH IS CURRENTLY RECRUITING!
-                </p>
-              </el-dialog>
-            </div>
           </el-col>
         </el-row>
       </div>
@@ -486,7 +484,7 @@
     font-style: italic;
     width: 100%;
     text-align: center;
-    border-bottom: 8px solid #444444;
+    border-bottom: 8px solid #e4b429;
     line-height: 0.01em;
     margin-top: 72px;
     margin-bottom: 72px;
@@ -494,15 +492,8 @@
 
   .about-mission span {
     background: #d5d5d3;
-    padding: 0 10px;
-  }
-
-  .about-gray-line {
-    background-color: #444444;
-    width: 100%;
-    height: 8px;
-    margin-top: 72px;
-    margin-bottom: 72px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .about-buzz-header {
@@ -516,36 +507,6 @@
 
   .about-image {
     width: 100%;
-  }
-
-  .accordion-header {
-    border-width: 0px;
-    background-color: #ffffff;
-    font-weight: 500;
-    font-size: 16px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  }
-
-  .accordion-header-text {
-    border-width: 0px;
-    background-color: #ffffff;
-    font-weight: 500;
-    font-size: 16px;
-    margin-left: 8px;
-  }
-
-  .accordion-question {
-    border-color: #d5d5d3;
-    background-color: #ffffff;
-    padding-left: 4px;
-    font-weight: 500;
-    font-size: 16px;
-  }
-
-  .accordion-answer {
-    padding-left: 16px;
-    font-weight: 400;
-    font-size: 15px;
   }
 
   .teams {
@@ -578,6 +539,44 @@
     margin-top: 20px;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 700;
+  }
+
+  .team-applications {
+    margin-top: 48px;
+  }
+
+  .accordion-header {
+    text-align: center;
+    border-width: 0px;
+    color: #ffffff;
+    background-color: #e4b429;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  .accordion-header-text {
+    text-align: center;
+    border-width: 0px;
+    color: #ffffff;
+    background-color: #e4b429;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .accordion-question {
+    text-align: left;
+    border-color: #d5d5d3;
+    background-color: #ffffff;
+    padding-left: 4px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .accordion-answer {
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 15px;
   }
 
   .sponsors {
