@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-menu
+      :default-active="activeIndex"
       mode="horizontal"
       @select="handleSelect"
       background-color="#252525"
@@ -26,26 +27,30 @@
         <a href="#contact" v-scroll-to="'#contact'">
           <el-menu-item index="contact">Contact</el-menu-item>
         </a>
-        <el-button class="apply-button" round>
-          <apply-countdown/>
-        </el-button>
+        <a>
+          <el-menu-item index="apply">
+            <el-button class="apply-button" round>
+              <apply-countdown/>
+            </el-button>
+          </el-menu-item>
+        </a>
       </div>
       <div class="nav-right" v-if="screenSize > 0 && screenSize < 992">
         <el-submenu class="submenu" index="submenu">
           <template slot="title"><i class="el-icon-menu menu-icon"></i></template>
           <a href="#about" v-scroll-to="'#about'">
-            <el-menu-item index="about">About</el-menu-item>
+            <el-menu-item index="about-sub">About</el-menu-item>
           </a>
           <a href="#teams" v-scroll-to="'#teams'">
-            <el-menu-item index="teams">Teams</el-menu-item>
+            <el-menu-item index="teams-sub">Teams</el-menu-item>
           </a>
           <a href="#sponsors" v-scroll-to="'#sponsors'">
-            <el-menu-item index="sponsors">Sponsors</el-menu-item>
+            <el-menu-item index="sponsors-sub">Sponsors</el-menu-item>
           </a>
           <a href="#contact" v-scroll-to="'#contact'">
-            <el-menu-item index="contact">Contact</el-menu-item>
+            <el-menu-item index="contact-sub">Contact</el-menu-item>
           </a>
-          <el-menu-item index="apply">
+          <el-menu-item index="apply-sub">
             <apply-countdown class="apply-menu-item"/>
           </el-menu-item>
         </el-submenu>
@@ -62,6 +67,7 @@
   export default {
     data() {
       return {
+        activeIndex: "",
         screenSize: -1
       }
     },
@@ -77,11 +83,10 @@
 
     methods: {
       handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+        this.activeIndex = "";
       },
 
       handleResize() {
-        console.log(document.documentElement.clientWidth);
         if (!process.browser)
           this.screenSize = 992;
         else
@@ -147,7 +152,6 @@
     color: #FFFFFF;
     height: 40px;
     width: 300px;
-    margin-left: 20px;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 700;
   }
