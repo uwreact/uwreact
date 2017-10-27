@@ -119,9 +119,9 @@
             <br/>
             <br/>
             <el-collapse class="accordion-header" accordion>
-              <el-collapse-item class="accordion-header" name="1">
+              <el-collapse-item class="accordion-header-text" name="1">
                 <template slot="title">
-                  <p class="accordion-header">
+                  <p class="accordion-header-text">
                     Questions and Answers for Applicants
                   </p>
                 </template>
@@ -510,10 +510,19 @@
   }
 
   .accordion-header {
-    border-color: #444444;
-    background-color: #d5d5d3;
+    border-width: 0px;
+    background-color: #ffffff;
     font-weight: 500;
     font-size: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  .accordion-header-text {
+    border-width: 0px;
+    background-color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    margin-left: 8px;
   }
 
   .accordion-question {
@@ -690,6 +699,10 @@
 
   @media all and (max-width: 568px) {
     .accordion-header {
+      font-size: 13px;
+    }
+
+    .accordion-header-text {
       font-size: 13px;
     }
 
