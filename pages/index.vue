@@ -19,7 +19,7 @@
           </div>
         </el-col>
       </el-row>
-      <div class="hero-bottom">
+      <div class="dark-grey-arrow">
         <div></div>
       </div>
     </div>
@@ -241,12 +241,12 @@
           </el-col>
         </el-row>
       </div>
-      <div class="about-bottom">
+      <div class="grey-arrow">
         <div></div>
       </div>
     </div>
 
-    <div class="body" id="teams">
+    <div class="body teams" id="teams">
       <div class="body-text">
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
@@ -269,26 +269,55 @@
         <br/>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 4}">
-            <p class="about-buzz-header">
-              TEAM 1
-            </p>
-            <div class="hero-yellow-line"></div>
-            <p class="hero-date">30 Students</p>
-            <p class="hero-applications">Currently recruiting</p>
+            <div class="team-container">
+              <p class="about-buzz-header">
+                TEAM ELSIE
+              </p>
+              <img class="team-image" src="~/assets/home/teams/elsie.jpg"/>
+              <div class="hero-yellow-line"></div>
+              <p class="team-information">Team Elsie is one of our Robot in 3 Days teams here at the University of
+                Waterloo, recruiting 30 students from across campus.</p>
+              <el-button class="team-button" @click="elsieVisible = true" round>
+                MEET TEAM ELSIE
+              </el-button>
+              <el-dialog
+                :visible.sync="elsieVisible"
+                fullscreen="true">
+                <p style="text-align: center; line-height: 48px" class="about-buzz-header">
+                  TEAM ELSIE IS CURRENTLY RECRUITING!
+                </p>
+              </el-dialog>
+            </div>
           </el-col>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 2}">
-            <p class="about-buzz-header team-2-header">
-              TEAM 2
-            </p>
-            <div class="hero-yellow-line"></div>
-            <p class="hero-date">30 Students</p>
-            <p class="hero-applications">Currently recruiting</p>
+            <div class="team-container">
+              <p class="about-buzz-header team-2-header">
+                TEAM ELIJAH
+              </p>
+              <img class="team-image" src="~/assets/home/teams/elijah.jpg"/>
+              <div class="hero-yellow-line"></div>
+              <p class="team-information">Team Elijah is one of our Robot in 3 Days teams here at the University of
+                Waterloo, recruiting 30 students from across campus.</p>
+              <el-button class="team-button" @click="elijahVisible = true" round>
+                MEET TEAM ELIJAH
+              </el-button>
+              <el-dialog
+                :visible.sync="elijahVisible"
+                fullscreen="true">
+                <p style="text-align: center; line-height: 48px" class="about-buzz-header">
+                  TEAM ELIJAH IS CURRENTLY RECRUITING!
+                </p>
+              </el-dialog>
+            </div>
           </el-col>
         </el-row>
       </div>
+      <div class="white-arrow">
+        <div></div>
+      </div>
     </div>
 
-    <div class="body" id="sponsors">
+    <div class="body sponsors" id="sponsors">
       <div class="body-text">
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
@@ -316,9 +345,12 @@
           </el-col>
         </el-row>
       </div>
+      <div class="grey-arrow">
+        <div></div>
+      </div>
     </div>
 
-    <div class="body" id="contact">
+    <div class="body contact" id="contact">
       <div class="body-text">
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
@@ -331,6 +363,9 @@
             </p>
           </el-col>
         </el-row>
+      </div>
+      <div class="yellow-arrow">
+        <div></div>
       </div>
     </div>
 
@@ -353,6 +388,13 @@
 <script>
   export default {
     layout: 'home',
+
+    data() {
+      return {
+        elsieVisible: false,
+        elijahVisible: false
+      };
+    },
   }
 </script>
 
@@ -414,28 +456,6 @@
   .hero-applications {
     font-size: 16px;
     font-weight: 300;
-  }
-
-  .hero-bottom {
-    width: 100%;
-    height: 0;
-    padding-left: 50%;
-    padding-top: 10%;
-    overflow: hidden;
-  }
-
-  .hero-bottom div {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    margin-left: -10000px;
-    margin-top: -2000px;
-
-    border-left: 10000px solid transparent;
-    border-right: 10000px solid transparent;
-    border-top: 2000px solid #444444;
-    background-color: #d5d5d3;
   }
 
   .about {
@@ -510,7 +530,77 @@
     font-size: 15px;
   }
 
-  .about-bottom {
+  .teams {
+    background-color: #ffffff;
+  }
+
+  .team-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  .team-information {
+    text-align: justify;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .team-image {
+    width: 50%;
+    margin-top: 12px;
+  }
+
+  .team-button {
+    background-color: #E4B429;
+    border-color: #E4B429;
+    color: #FFFFFF;
+    height: 40px;
+    width: 200px;
+    margin-top: 20px;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  .sponsors {
+    background-color: #d5d5d3;
+  }
+
+  .sponsor-image {
+    padding: 2%;
+    width: 100%;
+  }
+
+  .contact {
+    background-color: #ffffff;
+  }
+
+  .footer {
+    width: 100%;
+    height: 60px;
+    color: #ffffff;
+    background-color: #e4b429;
+  }
+
+  .footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .footer-row {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-icon {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dark-grey-arrow {
     width: 100%;
     height: 0;
     padding-left: 50%;
@@ -518,7 +608,29 @@
     overflow: hidden;
   }
 
-  .about-bottom div {
+  .dark-grey-arrow div {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -10000px;
+    margin-top: -2000px;
+
+    border-left: 10000px solid transparent;
+    border-right: 10000px solid transparent;
+    border-top: 2000px solid #444444;
+    background-color: #d5d5d3;
+  }
+
+  .grey-arrow {
+    width: 100%;
+    height: 0;
+    padding-left: 50%;
+    padding-top: 10%;
+    overflow: hidden;
+  }
+
+  .grey-arrow div {
     content: "";
     display: block;
     width: 0;
@@ -532,9 +644,48 @@
     background-color: #ffffff;
   }
 
-  .sponsor-image {
-    padding: 2%;
+  .white-arrow {
     width: 100%;
+    height: 0;
+    padding-left: 50%;
+    padding-top: 10%;
+    overflow: hidden;
+  }
+
+  .white-arrow div {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -10000px;
+    margin-top: -2000px;
+
+    border-left: 10000px solid transparent;
+    border-right: 10000px solid transparent;
+    border-top: 2000px solid #ffffff;
+    background-color: #d5d5d3;
+  }
+
+  .yellow-arrow {
+    width: 100%;
+    height: 0;
+    padding-left: 50%;
+    padding-top: 10%;
+    overflow: hidden;
+  }
+
+  .yellow-arrow div {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -10000px;
+    margin-top: -2000px;
+
+    border-left: 10000px solid transparent;
+    border-right: 10000px solid transparent;
+    border-top: 2000px solid #ffffff;
+    background-color: #e4b429;
   }
 
   @media all and (max-width: 568px) {
@@ -559,37 +710,15 @@
 
   @media all and (max-width: 996px) {
     .team-2-header {
-      margin-top: 48px;
+      margin-top: 72px;
+    }
+
+    .team-image {
+      width: 200px;
     }
 
     .hero-text {
       margin-top: 16px;
     }
-  }
-
-  .footer {
-    width: 100%;
-    height: 60px;
-    margin-top: 72px;
-    color: #ffffff;
-    background-color: #e4b429;
-  }
-
-  .footer a {
-    color: #ffffff;
-    text-decoration: none;
-  }
-
-  .footer-row {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .footer-icon {
-    padding-left: 16px;
-    padding-right: 16px;
   }
 </style>
