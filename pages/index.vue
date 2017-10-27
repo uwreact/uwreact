@@ -41,12 +41,9 @@
         </el-row>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 14, offset: 5}">
-            <div style="text-align: center">
-              <p class="body-header about-mission">
-                Our mission
-              </p>
-            </div>
-            <div class="about-gray-line about-top-line"></div>
+            <p class="body-header about-mission">
+              <span>OUR MISSION</span>
+            </p>
           </el-col>
         </el-row>
         <el-row>
@@ -58,11 +55,13 @@
               ENGAGE
             </p>
             <p class="about-buzz-desc">
-              For many University of Waterloo students, FIRST Robotics was a lifestyle. Entering university, many of us
-              desired a way to stay engaged in the FIRST challenge. Through alumni groups and volunteering at local
-              events, FIRST alumni are able to continue their passion for robotics throughout their university careers.
-              However, for the same intense experience as the real FIRST Robotics Competition, students are out of luck.
-              With Robot in 3 Days, alumni have the opportunity to experience FIRST all over again.
+              For many University of Waterloo students, FIRST Robotics was a high school lifestyle. Entering university,
+              many FIRST alumni desire a way to stay engaged in the FRC community. Through alumni groups and volunteering
+              at local events, they are able to continue their passion for robotics throughout their university careers.
+              However, these events lack the same intense experience as the authentic FIRST Robotics Competition. With
+              Robot in 3 Days, alumni have the opportunity to experience the vigorous joys of FIRST all over again.
+              Through live streaming these activities, UWRi3D is able to engage not only its own participants, but also
+              passionate creative-minded individuals around the world.
             </p>
           </el-col>
         </el-row>
@@ -373,11 +372,13 @@
       <el-row>
         <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
           <div class="footer-row">
+            <!--<a href="mailto:hello@uwri3d.com/"><i class="footer-icon fa fa-envelope fa-lg"></i></a>-->
             <a href="https://github.com/uwri3d"><i class="footer-icon fa fa-github fa-lg"></i></a>
             <a href="https://fb.me/uwri3d"><i class="footer-icon fa fa-facebook fa-lg"></i></a>
             <a href="https://twitter.com/uwri3d"><i class="footer-icon fa fa-twitter fa-lg"></i></a>
             <a href="https://instagram.com/uwri3d"><i class="footer-icon fa fa-instagram fa-lg"></i></a>
             <a href="https://goo.gl/ns5r5g"><i class="footer-icon fa fa-youtube-play fa-lg"></i></a>
+            <!--<a href="https://www.flickr.com/people/140193081@N06/"><i class="footer-icon fa fa-flickr fa-lg"></i></a>-->
           </div>
         </el-col>
       </el-row>
@@ -481,7 +482,19 @@
   }
 
   .about-mission {
+    font-weight: 300;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+    border-bottom: 8px solid #444444;
+    line-height: 0.01em;
     margin-top: 72px;
+    margin-bottom: 72px;
+  }
+
+  .about-mission span {
+    background: #d5d5d3;
+    padding: 0 10px;
   }
 
   .about-gray-line {
@@ -490,10 +503,6 @@
     height: 8px;
     margin-top: 72px;
     margin-bottom: 72px;
-  }
-
-  .about-top-line {
-    margin-top: 0;
   }
 
   .about-buzz-header {
