@@ -281,9 +281,9 @@
                     </template>
                     <p class="accordion-answer">
                       Of course! In fact, a limited number of positions are being made available specifically for students
-                      who are not FIRST alumni and/or do not have any previous technical experience. We are serious about
-                      our objectives - we are here to inspire science and technology leaders and innovators, and are always
-                      on the look out for enthusiastic individuals.
+                      who are not FIRST alumni and/or do not have any previous technical experience. Holding steadfast to
+                      our mission statement, we are here to inspire science and technology leaders and innovators, and are
+                      always on the look out for enthusiastic and curious individuals above all else.
                     </p>
                   </el-collapse-item>
 
