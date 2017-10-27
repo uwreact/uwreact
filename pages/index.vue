@@ -77,12 +77,11 @@
               EDUCATE
             </p>
             <p class="about-buzz-desc">
-              The mission of FIRST is to inspire young people to be science and technology leaders and innovators.
-              UWRi3D proudly carries a similar mantra. In higher education, students have the resources they need to
-              think and create the inventions that will shape our future. We help inspire students on campus to take the
-              skills they learn through Robot in 3 Days and apply them in undiscovered fields of science and technology.
-              Through our live stream, we aim to inspire enthusiasm for hard work and intensive innovation on an international
-              scale.
+              Across the world, FIRST Robotics Competition teams look towards Robot in 3 Days builds to spawn ideas,
+              survey designs, and review their own plans. By live streaming both teams throughout the 72-hour challenge,
+              UWRi3D aspires to educate high school students on programming webcasts, vision solutions, design sprints,
+              detailed sensor breakdowns, mechanical and electrical systems, and the true nature of team work and perseverance
+              in order to provide FRC members with a plethora of resources as they enter build season.
             </p>
           </el-col>
         </el-row>
