@@ -345,7 +345,7 @@
         <br/>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 4}">
-            <img class="sponsor-image" src="~/assets/logos/sponsors/logoFacultyOfEngineering.png"/>
+            <img class="sponsor-image" src="~/assets/logos/sponsors/logoUWEng.png"/>
           </el-col>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 2}">
             <img class="sponsor-image" src="~/assets/logos/sponsors/logoFirstCanada.png"/>
