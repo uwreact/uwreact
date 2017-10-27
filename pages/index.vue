@@ -41,7 +41,12 @@
         </el-row>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 14, offset: 5}">
-            <div class="about-gray-line"></div>
+            <div style="text-align: center">
+              <p class="body-header about-mission">
+                Our mission
+              </p>
+            </div>
+            <div class="about-gray-line about-top-line"></div>
           </el-col>
         </el-row>
         <el-row>
@@ -455,12 +460,20 @@
     margin-bottom: 18px;
   }
 
+  .about-mission {
+    margin-top: 72px;
+  }
+
   .about-gray-line {
     background-color: #444444;
     width: 100%;
     height: 8px;
     margin-top: 72px;
     margin-bottom: 72px;
+  }
+
+  .about-top-line {
+    margin-top: 0;
   }
 
   .about-buzz-header {
