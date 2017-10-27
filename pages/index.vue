@@ -238,19 +238,30 @@
                   <el-collapse-item class="accordion-question" name="4">
                     <template slot="title">
                       <p class="accordion-question">
-                        How is Ri3D running at the UW?
+                        When does UWRi3D recruit each year?
                       </p>
                     </template>
                     <p class="accordion-answer">
-                      Robot in 3 Days will be recruiting its build teams throughout the month of November. Prior to the build
-                      season, regular meetings will help bring the team up to speed with goals following kickoff. From January
-                      6 to 9, the build teams will be in the Sedra Student Design Centre for 72 hours straight completing the
-                      Robot in 3 Days challenge. Food will be provided throughout the event to all build team members. Following
-                      the build season, the team will meet sparsely to prepare for next years challenge.
+                      Robot in 3 Days will be recruiting its build teams throughout the month of November.
                     </p>
                   </el-collapse-item>
 
                   <el-collapse-item class="accordion-question" name="5">
+                    <template slot="title">
+                      <p class="accordion-question">
+                        How often and where do UWRi3D team members meet?
+                      </p>
+                    </template>
+                    <p class="accordion-answer">
+                      Prior to the build season, regular meetings will help bring the team up to speed with goals following
+                      kickoff. From January 6 to 9, the build teams will be in the Sedra Student Design Centre for 72 hours
+                      straight completing the Robot in 3 Days challenge. Food will be provided throughout the event to all
+                      build team members. Following the build season, the team will meet sparsely to prepare for next
+                      year’s challenge.
+                    </p>
+                  </el-collapse-item>
+
+                  <el-collapse-item class="accordion-question" name="6">
                     <template slot="title">
                       <p class="accordion-question">
                         Who can apply to join UWRi3D?
@@ -262,7 +273,7 @@
                     </p>
                   </el-collapse-item>
 
-                  <el-collapse-item class="accordion-question" name="6">
+                  <el-collapse-item class="accordion-question" name="7">
                     <template slot="title">
                       <p class="accordion-question">
                         I'm not an alumnus! I don't have experience! Can I still apply?
@@ -276,7 +287,7 @@
                     </p>
                   </el-collapse-item>
 
-                  <el-collapse-item class="accordion-question" name="7">
+                  <el-collapse-item class="accordion-question" name="8">
                     <template slot="title">
                       <p class="accordion-question">
                         I'm not on campus during the winter term! Can I still apply?
@@ -290,7 +301,7 @@
                     </p>
                   </el-collapse-item>
 
-                  <el-collapse-item class="accordion-question" name="8">
+                  <el-collapse-item class="accordion-question" name="9">
                     <template slot="title">
                       <p class="accordion-question">
                         I have a question that isn't answered here!
