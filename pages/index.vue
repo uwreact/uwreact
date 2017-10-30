@@ -15,7 +15,7 @@
             </p>
             <div class="hero-yellow-line"></div>
             <p class="hero-date">January 6 - 9, 2018</p>
-            <p class="hero-applications">Applications open October 30, 2017</p>
+            <p class="hero-applications">Applications open October 31, 2017</p>
           </div>
         </el-col>
       </el-row>
