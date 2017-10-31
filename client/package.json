@@ -1,7 +1,7 @@
 {
-  "name": "uwri3d.com",
+  "name": "client",
   "version": "0.1.0",
-  "description": "UWRi3D Public Website and Application Portal",
+  "description": "UWRi3D Public Website and Application Portal Client",
   "author": "UWRi3D <admin@uwri3d.com>",
   "license": "UNLICENSED",
   "private": true,
