@@ -13,27 +13,12 @@
         <img class="logo" src="~/assets/logos/uwri3d/logoWhiteHoriz.svg"/>
       </el-menu-item>
       <div class="nav-right" v-if="screenSize >= 992">
-        <el-menu-item index="about">About</el-menu-item>
-        <el-menu-item index="teams">Teams</el-menu-item>
-        <el-menu-item index="sponsors">Sponsors</el-menu-item>
-        <el-menu-item index="contact">Contact</el-menu-item>
-        <el-menu-item index="apply">
-          <el-button class="apply-button" round>
-            <apply-countdown/>
-          </el-button>
-        </el-menu-item>
-        </a>
+        <el-menu-item index="contact">Sign Out</el-menu-item>
       </div>
       <div class="nav-right" v-if="screenSize > 0 && screenSize < 992">
         <el-submenu class="submenu" index="submenu">
           <template slot="title"><i class="el-icon-menu menu-icon"></i></template>
-          <el-menu-item index="about-sub">About</el-menu-item>
-          <el-menu-item index="teams-sub">Teams</el-menu-item>
-          <el-menu-item index="sponsors-sub">Sponsors</el-menu-item>
-          <el-menu-item index="contact-sub">Contact</el-menu-item>
-          <el-menu-item index="apply-sub">
-            <apply-countdown class="apply-menu-item"/>
-          </el-menu-item>
+          <el-menu-item index="contact-sub">Sign Out</el-menu-item>
         </el-submenu>
       </div>
     </el-menu>

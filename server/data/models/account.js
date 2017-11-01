@@ -10,8 +10,9 @@ const schema = mongoose.Schema({
   graduationYear: String,
   winterTerm: String,
   buildTeamApplication: {
-    acknowledgements: {
-      acknowledgeScope: Boolean,
+    general: {
+      howHeard: String,
+      acknowledgeCommitment: Boolean,
       acknowledgeMedia: Boolean,
       interestVolunteer: Boolean,
       interestNonBuild: Boolean,
@@ -28,7 +29,7 @@ const schema = mongoose.Schema({
       github: String,
       otherURI: String,
     },
-    questions: {
+    inquiry: {
       whyInterest: String,
       timeLearnedSkill: String,
       timeWorkedProject: String,
