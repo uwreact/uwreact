@@ -14,6 +14,10 @@ class App {
 
   logger;
 
+  data;
+
+  mail;
+
   constructor() {
     if (App.instance !== undefined) {
       return App.instance;
