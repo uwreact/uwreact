@@ -1,12 +1,12 @@
 import express from 'express';
 import config from 'dotenv';
 import helmet from 'helmet';
-import Logger from '../middleware/logger/index';
+import Logger from '../middleware/logger';
+import Data from '../data';
+import Mail from '../utilities/mail';
 
 class App {
   instance;
-
-  production;
 
   port;
 
@@ -24,15 +24,18 @@ class App {
     }
 
     config.config();
-    this.production = (process.env.NODE_ENV === 'production');
     this.port = process.env.PORT;
+    const production = (process.env.NODE_ENV === 'production');
+    const dbURI = process.env.DB_URI;
 
     this.server = express();
 
     this.server.use(helmet());
 
-    this.logger = new Logger(this.production);
+    this.logger = new Logger(production);
     this.server.use(this.logger.log());
+
+    this.data = new Data(production, dbURI);
 
     App.instance = this;
     Object.freeze(App.instance);
