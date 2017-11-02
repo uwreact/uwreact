@@ -24,5 +24,15 @@ module.exports = {
 
   plugins: ['~plugins/element-ui'],
 
-  css: ['element-ui/lib/theme-chalk/index.css']
-}
+  css: ['element-ui/lib/theme-chalk/index.css'],
+
+  modules: [
+    '@nuxtjs/axios'
+  ],
+
+  axios: {
+    baseURL: 'http://localhost:3001/api',
+    browserBaseURL: '/api',
+    proxyHeaders: false
+  }
+};

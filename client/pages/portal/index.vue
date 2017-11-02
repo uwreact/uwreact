@@ -1,266 +1,625 @@
 <template>
   <div class="page">
     <div v-if="signedIn">
+      <div class="hero" id="home">
+        <el-row>
+          <el-col :sm="24" :md="12">
+            <img class="hero-logo" src="~/assets/home/hero/heroLogo.jpg"/>
+          </el-col>
+          <el-col :sm="24" :md="12">
+            <div class="hero-text">
+              <p class="hero-header">
+                WELCOME BACK,
+              <p class="hero-header-small">
+                <span class="hero-yellow-text">MICHAEL</span>
+              </p>
+              </p>
+              <div class="hero-yellow-line"></div>
+            </div>
+          </el-col>
+        </el-row>
+        <div class="dark-grey-arrow">
+          <div></div>
+        </div>
+      </div>
 
-      <el-row>
-        <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
-          Welcome,
-          <p>
-            With 60 students at the University of Waterloo, we inspire FIRST Robotics Competition teams around the
-            world by building a robot in 3 days.
-            For 72 hours, we investigate the FIRST challenge, prepare a design, manufacture a chassis, wire
-            electromechanical systems, and program an entire FRC robot - 40 days before bag and tag.
-          </p>
-        </el-col>
-      </el-row>
+      <div class="body about" id="about">
+        <div class="body-text">
+          <el-row>
+            <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+              <p class="body-header">
+                Account Information
+              </p>
+            </el-col>
+          </el-row>
+          <div>
+            <el-row>
+              <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+                <el-card class="box-card">
+                  <el-form
+                    ref="general"
+                    :label-position="'top'"
+                    size="mini">
+                    <el-form-item label="Email">
+                      <el-input v-model="email" :disabled="true">
+                        <template slot="append">@edu.uwaterloo.com</template>
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="First Name" :disabled="true">
+                      <el-input v-model="firstName">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="Last Name" :disabled="true">
+                      <el-input v-model="lastName">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="Program" prop="region">
+                      <el-select v-model="program" placeholder="Program">
+                        <el-option
+                          label="Accounting and Financial Management"
+                          value="Accounting and Financial Management"></el-option>
+                        <el-option
+                          label="Architecture"
+                          value="Architecture"></el-option>
+                        <el-option
+                          label="Biomedical Engineering"
+                          value="Biomedical Engineering"></el-option>
+                        <el-option
+                          label="Biotechnology and Chartered Professional Accountancy"
+                          value="Biotechnology and Chartered Professional Accountancy"></el-option>
+                        <el-option
+                          label="Biotechnology and Economics"
+                          value="Biotechnology and Economics"></el-option>
+                        <el-option
+                          label="Business Administration and Computer Science"
+                          value="Business Administration and Computer Science"></el-option>
+                        <el-option
+                          label="Business Administration and Mathematics"
+                          value="Business Administration and Mathematics"></el-option>
+                        <el-option
+                          label="Chemical Engineering"
+                          value="Chemical Engineering"></el-option>
+                        <el-option
+                          label="Civil Engineering"
+                          value="Civil Engineering"></el-option>
+                        <el-option
+                          label="Computer Engineering"
+                          value="Computer Engineering"></el-option>
+                        <el-option
+                          label="Computer Science"
+                          value="Computer Science"></el-option>
+                        <el-option
+                          label="Computing and Financial Management"
+                          value="Computing and Financial Management"></el-option>
+                        <el-option
+                          label="Electrical Engineering"
+                          value="Electrical Engineering"></el-option>
+                        <el-option
+                          label="Environmental Engineering"
+                          value="Environmental Engineering"></el-option>
+                        <el-option
+                          label="Environmental Science"
+                          value="Environmental Science"></el-option>
+                        <el-option
+                          label="Environment and Business"
+                          value="Environment and Business"></el-option>
+                        <el-option
+                          label="Environment, Resources and Sustainability"
+                          value="Environment, Resources and Sustainability"></el-option>
+                        <el-option
+                          label="Geography and Aviation"
+                          value="Geography and Aviation"></el-option>
+                        <el-option
+                          label="Geography and Environmental Management"
+                          value="Geography and Environmental Management"></el-option>
+                        <el-option
+                          label="Geological Engineering"
+                          value="Geological Engineering"></el-option>
+                        <el-option
+                          label="Geomatics"
+                          value="Geomatics"></el-option>
+                        <el-option
+                          label="Global Business and Digital Arts"
+                          value="Global Business and Digital Arts"></el-option>
+                        <el-option
+                          label="Health Studies"
+                          value="Health Studies"></el-option>
+                        <el-option
+                          label="Honours Arts"
+                          value="Honours Arts"></el-option>
+                        <el-option
+                          label="Honours Arts and Business"
+                          value="Honours Arts and Business"></el-option>
+                        <el-option
+                          label="Honours Science"
+                          value="Honours Science"></el-option>
+                        <el-option
+                          label="International Development"
+                          value="International Development"></el-option>
+                        <el-option
+                          label="Kinesiology"
+                          value="Kinesiology"></el-option>
+                        <el-option
+                          label="Knowledge Integration"
+                          value="Knowledge Integration"></el-option>
+                        <el-option
+                          label="Life Sciences"
+                          value="Life Sciences"></el-option>
+                        <el-option
+                          label="Management Engineering"
+                          value="Management Engineering"></el-option>
+                        <el-option
+                          label="Mathematics and Business Administration"
+                          value="Mathematics and Business Administration"></el-option>
+                        <el-option
+                          label="Mathematics and Chartered Professional Accountancy"
+                          value="Mathematics and Chartered Professional Accountancy"></el-option>
+                        <el-option
+                          label="Mathematics and Financial Analysis and Risk Management"
+                          value="Mathematics and Financial Analysis and Risk Management"></el-option>
+                        <el-option
+                          label="Mathematics"
+                          value="Mathematics"></el-option>
+                        <el-option
+                          label="Mechanical Engineering"
+                          value="Mechanical Engineering"></el-option>
+                        <el-option
+                          label="Mechatronics Engineering"
+                          value="Mechatronics Engineering"></el-option>
+                        <el-option
+                          label="Nanotechnology Engineering"
+                          value="Nanotechnology Engineering"></el-option>
+                        <el-option
+                          label="Physical Sciences"
+                          value="Physical Sciences"></el-option>
+                        <el-option
+                          label="Planning"
+                          value="Planning"></el-option>
+                        <el-option
+                          label="Public Health"
+                          value="Public Health"></el-option>
+                        <el-option
+                          label="Recreation and Leisure Studies"
+                          value="Recreation and Leisure Studies"></el-option>
+                        <el-option
+                          label="Science and Aviation"
+                          value="Science and Aviation"></el-option>
+                        <el-option
+                          label="Science and Business"
+                          value="Science and Business"></el-option>
+                        <el-option
+                          label="Software Engineering"
+                          value="Software Engineering"></el-option>
+                        <el-option
+                          label="Systems Design Engineering"
+                          value="Systems Design Engineering"></el-option>
+                      </el-select>
+                    </el-form-item>
 
-      <el-row>
-        <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
-          <el-card class="box-card">
-            <el-tabs :tab-position='"left"'>
-              <el-tab-pane label="General">
-                <el-form
-                  ref="general"
-                  :model="buildTeamApplication.general"
-                  :label-position="'top'"
-                  size="mini">
-                  <el-form-item label="I acknowledge.">
-                    <el-switch v-model="buildTeamApplication.general.acknowledgeCommitment"></el-switch>
-                  </el-form-item>
-                  <el-form-item label="I acknowledge.">
-                    <el-switch v-model="buildTeamApplication.general.acknowledgeMedia"></el-switch>
-                  </el-form-item>
-                  <el-form-item label="I'm interested!">
-                    <el-switch v-model="buildTeamApplication.general.interestVolunteer"></el-switch>
-                  </el-form-item>
-                  <el-form-item label="I'm interested!">
-                    <el-switch v-model="buildTeamApplication.general.interestNonBuild"></el-switch>
-                  </el-form-item>
-                </el-form>
-              </el-tab-pane>
+                    <el-form-item label="Term" prop="region">
+                      <el-select v-model="term" placeholder="Term">
+                        <el-option label="1A" value="1A"></el-option>
+                        <el-option label="1B" value="1B"></el-option>
+                        <el-option label="2A" value="2A"></el-option>
+                        <el-option label="2B" value="2B"></el-option>
+                        <el-option label="3A" value="3A"></el-option>
+                        <el-option label="3B" value="3B"></el-option>
+                        <el-option label="4A" value="4A"></el-option>
+                        <el-option label="4B" value="4B"></el-option>
+                        <el-option label="Other" value="Other"></el-option>
+                      </el-select>
+                    </el-form-item>
 
-              <el-tab-pane label="Techical">
-                <el-form
-                  ref="technical"
-                  :model="buildTeamApplication.technical"
-                  :label-position="'top'"
-                  size="mini">
-                  <el-form-item label="What's your focus?">
-                    <el-checkbox-group v-model="buildTeamApplication.technical.foci" size="mini">
-                      <el-checkbox label="Design" name="foci" border></el-checkbox>
-                      <el-checkbox label="Manufacturing" name="foci" border></el-checkbox>
-                      <el-checkbox label="Electrical" name="foci" border></el-checkbox>
-                      <el-checkbox label="Software" name="foci" border></el-checkbox>
-                    </el-checkbox-group>
-                  </el-form-item>
-                  <el-form-item label="What's your main focus?">
-                    <el-radio-group v-model="buildTeamApplication.technical.mainFocus" size="mini">
-                      <el-radio label="Design" name="mainFocus" border></el-radio>
-                      <el-radio label="Manufacturing" name="mainFocus" border></el-radio>
-                      <el-radio label="Electrical" name="mainFocus" border></el-radio>
-                      <el-radio label="Software" name="mainFocus" border></el-radio>
-                    </el-radio-group>
-                  </el-form-item>
-                  <el-form-item label="Why would you like to focus on this?">
-                    {{1000 - buildTeamApplication.technical.whyFocus.length}} characters remaining
-                    <el-input
-                      type="textarea"
-                      :autosize="{ minRows: 4 }"
-                      maxlength="1000"
-                      placeholder="I would consider software my main focus because..."
-                      v-model="buildTeamApplication.technical.whyFocus">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item label="What are your skills?">
-                    <el-checkbox-group v-model="buildTeamApplication.technical.skills" size="mini">
-                      <el-checkbox label="Design" name="skills" border></el-checkbox>
-                      <el-checkbox label="Drafting" name="skills" border></el-checkbox>
-                      <el-checkbox label="Solidworks" name="skills" border></el-checkbox>
-                      <el-checkbox label="AutoCAD" name="skills" border></el-checkbox>
-                      <el-checkbox label="Manufacturing" name="skills" border></el-checkbox>
-                      <el-checkbox label="Machining" name="skills" border></el-checkbox>
-                      <el-checkbox label="Electronics" name="skills" border></el-checkbox>
-                      <el-checkbox label="CAN Bus" name="skills" border></el-checkbox>
-                      <el-checkbox label="I2C" name="skills" border></el-checkbox>
-                      <el-checkbox label="Software" name="skills" border></el-checkbox>
-                      <el-checkbox label="C++" name="skills" border></el-checkbox>
-                      <el-checkbox label="Java" name="skills" border></el-checkbox>
-                      <el-checkbox label="LabVIEW" name="skills" border></el-checkbox>
-                    </el-checkbox-group>
-                  </el-form-item>
-                  <el-form-item label="What's your main skill?">
-                    <el-radio-group v-model="buildTeamApplication.technical.mainSkill" size="mini">
-                      <el-radio label="Design" name="mainSkill" border></el-radio>
-                      <el-radio label="Drafting" name="mainSkill" border></el-radio>
-                      <el-radio label="Solidworks" name="mainSkill" border></el-radio>
-                      <el-radio label="AutoCAD" name="mainSkill" border></el-radio>
-                      <el-radio label="Manufacturing" name="mainSkill" border></el-radio>
-                      <el-radio label="Machining" name="mainSkill" border></el-radio>
-                      <el-radio label="Electronics" name="mainSkill" border></el-radio>
-                      <el-radio label="CAN Bus" name="mainSkill" border></el-radio>
-                      <el-radio label="I2C" name="mainSkill" border></el-radio>
-                      <el-radio label="Software" name="mainSkill" border></el-radio>
-                      <el-radio label="C++" name="mainSkill" border></el-radio>
-                      <el-radio label="Java" name="mainSkill" border></el-radio>
-                      <el-radio label="LabVIEW" name="mainSkill" border></el-radio>
-                    </el-radio-group>
-                  </el-form-item>
-                  <el-form-item label="Why do you consider this your main skill?">
-                    {{1000 - buildTeamApplication.technical.whyMainSkill.length}} characters remaining
-                    <el-input
-                      v-model="buildTeamApplication.technical.whyMainSkill"
-                      type="textarea"
-                      :autosize="{ minRows: 4 }"
-                      placeholder="I would consider software my main skill because..."
-                      maxlength="1000">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item label="Do you have a resume online?">
-                    <el-input
-                      v-model="buildTeamApplication.technical.resume"
-                      placeholder="https://michael.midura.io">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item label="Do you have a LinkedIn?">
-                    <el-input
-                      v-model="buildTeamApplication.technical.linkedin"
-                      placeholder="https://linkedin.com/in/miduramichael">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item label="Do you have a GitHub?">
-                    <el-input
-                      v-model="buildTeamApplication.technical.github"
-                      placeholder="https://github.com/michaelwm">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item label="Do you have anything else you want to show us?">
-                    <el-input
-                      v-model="buildTeamApplication.technical.otherURI"
-                      placeholder="https://uwri3d.ca">
-                    </el-input>
-                  </el-form-item>
-                </el-form>
-              </el-tab-pane>
+                    <el-form-item label="Graduation Year" prop="region">
+                      <el-select v-model="graduationYear" placeholder="Graduation Year">
+                        <el-option label="2018" value="2018"></el-option>
+                        <el-option label="2019" value="2019"></el-option>
+                        <el-option label="2020" value="2020"></el-option>
+                        <el-option label="2021" value="2021"></el-option>
+                        <el-option label="2022" value="2022"></el-option>
+                        <el-option label="Other" value="Other"></el-option>
+                      </el-select>
+                    </el-form-item>
 
-              <el-tab-pane label="Inquiry">
-                <el-form
-                  ref="inquiry"
-                  :model="buildTeamApplication.inquiry"
-                  :label-position="'top'"
-                  size="mini">
-                  <el-form-item
-                    label="Why are you interested in joining the Robot in 3 Days team at the university of Waterloo?">
-                    {{1000 - buildTeamApplication.inquiry.whyInterest.length}} characters remaining
-                    <el-input
-                      v-model="buildTeamApplication.inquiry.whyInterest"
-                      type="textarea"
-                      :autosize="{ minRows: 4 }"
-                      placeholder="I'm interested in joining Robot in 3 Days at the University of Waterloo because..."
-                      maxlength="1000">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item
-                    label="Tell us about a time you learned a new skill. It doesn't have to be a technical skill! Who taught you? What were you doing? Why did you learn? How have you used it since then?">
-                    {{2000 - buildTeamApplication.inquiry.timeLearnedSkill.length}} characters remaining
-                    <el-input
-                      v-model="buildTeamApplication.inquiry.timeLearnedSkill"
-                      type="textarea"
-                      :autosize="{ minRows: 8 }"
-                      placeholder="While on my swim team last year, I learned how to..."
-                      maxlength="2000">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item
-                    label="Tell us about a project you've worked on in the past 6 months. It doesn't have to be technical project! What were you working on? Why were you working on it? How did it end up?">
-                    {{2000 - buildTeamApplication.inquiry.timeWorkedProject.length}} characters remaining
-                    <el-input
-                      v-model="buildTeamApplication.inquiry.timeWorkedProject"
-                      type="textarea"
-                      :autosize="{ minRows: 8 }"
-                      placeholder="For the past few months, I've been working on..."
-                      maxlength="2000">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item
-                    label="Teach us something new. It can be anything!">
-                    {{2000 - buildTeamApplication.inquiry.teachUsSomething.length}} characters remaining
-                    <el-input
-                      v-model="buildTeamApplication.inquiry.teachUsSomething"
-                      type="textarea"
-                      :autosize="{ minRows: 8 }"
-                      placeholder="Go grab a standard deck of playing cards, I'm teaching you a magic trick..."
-                      maxlength="2000">
-                    </el-input>
-                  </el-form-item>
-                </el-form>
-              </el-tab-pane>
-              <el-tab-pane label="FIRST">
-                <el-form
-                  ref="inquiry"
-                  :model="buildTeamApplication.first"
-                  :label-position="'top'"
-                  size="mini">
-                  <el-form-item label="Are you a FIRST Alumnus?">
-                    <el-switch v-model="buildTeamApplication.first.firstAlumnus"></el-switch>
-                  </el-form-item>
-                  <el-form-item label="What's your old team number?">
-                    <el-input
-                      v-model="buildTeamApplication.first.teamNumber"
-                      :disabled="!buildTeamApplication.first.firstAlumnus"
-                      placeholder="4976">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item label="What role did you play?">
-                    <el-input
-                      v-model="buildTeamApplication.first.teamRole"
-                      :disabled="!buildTeamApplication.first.firstAlumnus"
-                      placeholder="Software Lead">
-                    </el-input>
-                  </el-form-item>
-                  <el-form-item
-                    label="Tell us about a time you managed a stressful situation during a FIRST Robotics Competition tournament. What happened? Why was it stressful? How did you manage it?">
-                    {{2000 - buildTeamApplication.first.timeDealtStress.length}} characters remaining
-                    <el-input
-                      v-model="buildTeamApplication.first.timeDealtStress"
-                      type="textarea"
-                      :autosize="{ minRows: 8 }"
-                      :disabled="!buildTeamApplication.first.firstAlumnus"
-                      placeholder="At our second district competition..."
-                      maxlength="2000">
-                    </el-input>
-                  </el-form-item>
-                </el-form>
-              </el-tab-pane>
-            </el-tabs>
-          </el-card>
-        </el-col>
-      </el-row>
+                    <el-form-item label="What term are you on for Winter 2018?">
+                      <el-radio-group v-model="winterTerm" size="mini">
+                        <el-radio label="Study" name="winterTerm" border></el-radio>
+                        <el-radio label="Work" name="winterTerm" border></el-radio>
+                      </el-radio-group>
+                    </el-form-item>
+                  </el-form>
+                </el-card>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
+        <div class="grey-arrow">
+          <div></div>
+        </div>
+      </div>
 
-      <el-row>
-        <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
-          Welcome,
-          <p>
-            With 60 students at the University of Waterloo, we inspire FIRST Robotics Competition teams around the
-            world by building a robot in 3 days.
-            For 72 hours, we investigate the FIRST challenge, prepare a design, manufacture a chassis, wire
-            electromechanical systems, and program an entire FRC robot - 40 days before bag and tag.
-          </p>
-        </el-col>
-      </el-row>
+      <div class="body-text">
+        <el-row>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+            <p class="body-header">
+              Build Team Application
+            </p>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+            <el-card class="box-card">
+              <el-tabs :tab-position='"left"'>
+                <el-tab-pane label="General">
+                  <el-form
+                    ref="general"
+                    :model="buildTeamApplication.general"
+                    :label-position="'top'"
+                    size="mini">
+                    <p>
+                      I acknowledge that the Robot in 3 Days team at the University of Waterloo is a significant time
+                      commitment, and that I understand the scope of the project. I acknowledge that I will be able to
+                      attend the Sedra Student Design Centre for 72 hours from January 6 to 9 for the main build.
+                      I acknowledge that if I am on a work term in Winter 2018, I will, by pushing my start dates back,
+                      or through other means, be able to attend the main build.
+                    </p>
+                    <el-form-item>
+                      <el-switch v-model="buildTeamApplication.general.acknowledgeCommitment"></el-switch>
+                    </el-form-item>
+                    <br/>
+                    <p>
+                      I acknowledge that photo and video media, including recap videos, live streams, and webcasts, will
+                      be taken throughout the main build, and that I agree to this. I acknowledge that my photo may be
+                      used in future promotional material for Robot in 3 Days at the Univesity of Waterloo.
+                    </p>
+                    <el-form-item>
+                      <el-switch v-model="buildTeamApplication.general.acknowledgeMedia"></el-switch>
+                    </el-form-item>
+                    <br/>
+                    <p>
+                      Did you know that we have a FIRST Alumni Group here on campus, and that the University of Waterloo
+                      runs FIRST Robotics Competition and FIRST Lego League events every year? Following Robot in 3 Days,
+                      you can join the FIRST Alumni Group and help with the events on campus. Would you be interested in
+                      joining the FIRST Alumni Group or volunteering for events on campus?
+                    </p>
+                    <el-form-item>
+                      <el-switch v-model="buildTeamApplication.general.interestVolunteer"></el-switch>
+                    </el-form-item>
+                    <br/>
+                    <p>
+                      Would you be interested in applying for a non-build role, including media, sponsorship, web
+                      development, and more?
+                    </p>
+                    <el-form-item>
+                      <el-switch v-model="buildTeamApplication.general.interestNonBuild"></el-switch>
+                    </el-form-item>
+                  </el-form>
+                </el-tab-pane>
+
+                <el-tab-pane label="Techical">
+                  <el-form
+                    ref="technical"
+                    :model="buildTeamApplication.technical"
+                    :label-position="'top'"
+                    size="mini">
+                    <el-form-item label="What's your focus?">
+                      <el-checkbox-group v-model="buildTeamApplication.technical.foci" size="mini">
+                        <el-checkbox label="Design" name="foci" border></el-checkbox>
+                        <el-checkbox label="Manufacturing" name="foci" border></el-checkbox>
+                        <el-checkbox label="Electrical" name="foci" border></el-checkbox>
+                        <el-checkbox label="Software" name="foci" border></el-checkbox>
+                      </el-checkbox-group>
+                    </el-form-item>
+                    <el-form-item label="What's your main focus?">
+                      <el-radio-group v-model="buildTeamApplication.technical.mainFocus" size="mini">
+                        <el-radio label="Design" name="mainFocus" border></el-radio>
+                        <el-radio label="Manufacturing" name="mainFocus" border></el-radio>
+                        <el-radio label="Electrical" name="mainFocus" border></el-radio>
+                        <el-radio label="Software" name="mainFocus" border></el-radio>
+                      </el-radio-group>
+                    </el-form-item>
+                    <el-form-item label="Why would you like to focus on this?">
+                      {{1000 - buildTeamApplication.technical.whyFocus.length}} characters remaining
+                      <el-input
+                        type="textarea"
+                        :autosize="{ minRows: 4 }"
+                        maxlength="1000"
+                        placeholder="I would consider software my main focus because..."
+                        v-model="buildTeamApplication.technical.whyFocus">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="What are your skills?">
+                      <el-checkbox-group v-model="buildTeamApplication.technical.skills" size="mini">
+                        <el-checkbox label="Design" name="skills" border></el-checkbox>
+                        <el-checkbox label="Drafting" name="skills" border></el-checkbox>
+                        <el-checkbox label="Solidworks" name="skills" border></el-checkbox>
+                        <el-checkbox label="AutoCAD" name="skills" border></el-checkbox>
+                        <el-checkbox label="Manufacturing" name="skills" border></el-checkbox>
+                        <el-checkbox label="Machining" name="skills" border></el-checkbox>
+                        <el-checkbox label="Electronics" name="skills" border></el-checkbox>
+                        <el-checkbox label="CAN Bus" name="skills" border></el-checkbox>
+                        <el-checkbox label="I2C" name="skills" border></el-checkbox>
+                        <el-checkbox label="Software" name="skills" border></el-checkbox>
+                        <el-checkbox label="C++" name="skills" border></el-checkbox>
+                        <el-checkbox label="Java" name="skills" border></el-checkbox>
+                        <el-checkbox label="LabVIEW" name="skills" border></el-checkbox>
+                      </el-checkbox-group>
+                    </el-form-item>
+                    <el-form-item label="What's your main skill?">
+                      <el-radio-group v-model="buildTeamApplication.technical.mainSkill" size="mini">
+                        <el-radio label="Design" name="mainSkill" border></el-radio>
+                        <el-radio label="Drafting" name="mainSkill" border></el-radio>
+                        <el-radio label="Solidworks" name="mainSkill" border></el-radio>
+                        <el-radio label="AutoCAD" name="mainSkill" border></el-radio>
+                        <el-radio label="Manufacturing" name="mainSkill" border></el-radio>
+                        <el-radio label="Machining" name="mainSkill" border></el-radio>
+                        <el-radio label="Electronics" name="mainSkill" border></el-radio>
+                        <el-radio label="CAN Bus" name="mainSkill" border></el-radio>
+                        <el-radio label="I2C" name="mainSkill" border></el-radio>
+                        <el-radio label="Software" name="mainSkill" border></el-radio>
+                        <el-radio label="C++" name="mainSkill" border></el-radio>
+                        <el-radio label="Java" name="mainSkill" border></el-radio>
+                        <el-radio label="LabVIEW" name="mainSkill" border></el-radio>
+                      </el-radio-group>
+                    </el-form-item>
+                    <el-form-item label="Why do you consider this your main skill?">
+                      {{1000 - buildTeamApplication.technical.whyMainSkill.length}} characters remaining
+                      <el-input
+                        v-model="buildTeamApplication.technical.whyMainSkill"
+                        type="textarea"
+                        :autosize="{ minRows: 4 }"
+                        placeholder="I would consider software my main skill because..."
+                        maxlength="1000">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="Do you have a resume online?">
+                      <el-input
+                        v-model="buildTeamApplication.technical.resume"
+                        placeholder="https://michael.midura.io">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="Do you have a LinkedIn?">
+                      <el-input
+                        v-model="buildTeamApplication.technical.linkedin"
+                        placeholder="https://linkedin.com/in/miduramichael">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="Do you have a GitHub?">
+                      <el-input
+                        v-model="buildTeamApplication.technical.github"
+                        placeholder="https://github.com/michaelwm">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="Do you have anything else you want to show us?">
+                      <el-input
+                        v-model="buildTeamApplication.technical.otherURI"
+                        placeholder="https://uwri3d.com">
+                      </el-input>
+                    </el-form-item>
+                  </el-form>
+                </el-tab-pane>
+
+                <el-tab-pane label="Inquiry">
+                  <el-form
+                    ref="inquiry"
+                    :model="buildTeamApplication.inquiry"
+                    :label-position="'top'"
+                    size="mini">
+                    <el-form-item
+                      label="Why are you interested in joining the Robot in 3 Days team at the university of Waterloo?">
+                      {{1000 - buildTeamApplication.inquiry.whyInterest.length}} characters remaining
+                      <el-input
+                        v-model="buildTeamApplication.inquiry.whyInterest"
+                        type="textarea"
+                        :autosize="{ minRows: 4 }"
+                        placeholder="I'm interested in joining Robot in 3 Days at the University of Waterloo because..."
+                        maxlength="1000">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item
+                      label="Tell us about a time you learned a new skill. It doesn't have to be a technical skill! Who taught you? What were you doing? Why did you learn? How have you used it since then?">
+                      {{2000 - buildTeamApplication.inquiry.timeLearnedSkill.length}} characters remaining
+                      <el-input
+                        v-model="buildTeamApplication.inquiry.timeLearnedSkill"
+                        type="textarea"
+                        :autosize="{ minRows: 8 }"
+                        placeholder="While on my swim team last year, I learned how to..."
+                        maxlength="2000">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item
+                      label="Tell us about a project you've worked on in the past 6 months. It doesn't have to be technical project! What were you working on? Why were you working on it? How did it end up?">
+                      {{2000 - buildTeamApplication.inquiry.timeWorkedProject.length}} characters remaining
+                      <el-input
+                        v-model="buildTeamApplication.inquiry.timeWorkedProject"
+                        type="textarea"
+                        :autosize="{ minRows: 8 }"
+                        placeholder="For the past few months, I've been working on..."
+                        maxlength="2000">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item
+                      label="Teach us something new. It can be anything!">
+                      {{2000 - buildTeamApplication.inquiry.teachUsSomething.length}} characters remaining
+                      <el-input
+                        v-model="buildTeamApplication.inquiry.teachUsSomething"
+                        type="textarea"
+                        :autosize="{ minRows: 8 }"
+                        placeholder="Go grab a standard deck of playing cards, I'm teaching you a magic trick..."
+                        maxlength="2000">
+                      </el-input>
+                    </el-form-item>
+                  </el-form>
+                </el-tab-pane>
+                <el-tab-pane label="FIRST">
+                  <el-form
+                    ref="inquiry"
+                    :model="buildTeamApplication.first"
+                    :label-position="'top'"
+                    size="mini">
+                    <el-form-item label="Are you a FIRST Alumnus?">
+                      <el-switch v-model="buildTeamApplication.first.firstAlumnus"></el-switch>
+                    </el-form-item>
+                    <el-form-item label="What's your old team number?">
+                      <el-input
+                        v-model="buildTeamApplication.first.teamNumber"
+                        :disabled="!buildTeamApplication.first.firstAlumnus"
+                        placeholder="4976">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item label="What role did you play?">
+                      <el-input
+                        v-model="buildTeamApplication.first.teamRole"
+                        :disabled="!buildTeamApplication.first.firstAlumnus"
+                        placeholder="Software Lead">
+                      </el-input>
+                    </el-form-item>
+                    <el-form-item
+                      label="Tell us about a time you managed a stressful situation during a FIRST Robotics Competition tournament. What happened? Why was it stressful? How did you manage it?">
+                      {{2000 - buildTeamApplication.first.timeDealtStress.length}} characters remaining
+                      <el-input
+                        v-model="buildTeamApplication.first.timeDealtStress"
+                        type="textarea"
+                        :autosize="{ minRows: 8 }"
+                        :disabled="!buildTeamApplication.first.firstAlumnus"
+                        placeholder="At our second district competition..."
+                        maxlength="2000">
+                      </el-input>
+                    </el-form-item>
+                  </el-form>
+                </el-tab-pane>
+              </el-tabs>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
     </div>
     <div v-else>
+      <div class="hero" id="home">
+        <el-row>
+          <el-col :sm="24" :md="12">
+            <img class="hero-logo" src="~/assets/home/hero/heroLogo.jpg"/>
+          </el-col>
+          <el-col :sm="24" :md="12">
+            <div class="hero-text">
+              <p class="hero-header">
+                APPLICATIONS ARE <span class="hero-yellow-text">OPEN</span>
+              <p class="hero-header-small">
+                APPLY NOW
+              </p>
+              </p>
+              <div class="hero-yellow-line"></div>
+            </div>
+          </el-col>
+        </el-row>
+        <div class="dark-grey-arrow">
+          <div></div>
+        </div>
+      </div>
 
+      <div class="body about" id="about">
+        <div class="body-text">
+          <el-row>
+            <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+              <p class="body-header">
+                Coming Back? Sign In!
+              </p>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+              <el-card class="box-card">
+                <el-form
+                  ref="general"
+                  :label-position="'top'"
+                  size="mini">
+                  <el-form-item label="Email">
+                    <el-input v-model="email">
+                      <template slot="append">@edu.uwaterloo.com</template>
+                    </el-input>
+                  </el-form-item>
+                  <el-form-item label="Password">
+                    <el-input v-model="password" type="password">
+                    </el-input>
+                  </el-form-item>
+                  <el-form-item>
+                    <el-button type="primary">Sign In</el-button>
+                  </el-form-item>
+                </el-form>
+              </el-card>
+            </el-col>
+          </el-row>
+        </div>
+        <div class="grey-arrow">
+          <div></div>
+        </div>
+      </div>
+
+      <div class="body-text">
+        <el-row>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+            <p class="body-header">
+              New Applicant? Sign Up!
+            </p>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+            <el-card class="box-card">
+              <el-form
+                ref="general"
+                :label-position="'top'"
+                size="mini">
+                <el-form-item label="Email">
+                  <el-input v-model="email">
+                    <template slot="append">@edu.uwaterloo.com</template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="Password">
+                  <el-input v-model="password" type="password">
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="Confirm Password">
+                  <el-input v-model="passwordConfirmation" type="password">
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="First Name">
+                  <el-input v-model="firstName">
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="Last Name">
+                  <el-input v-model="lastName">
+                  </el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary">Sign Up</el-button>
+                </el-form-item>
+              </el-form>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
   export default {
     layout: 'portal',
 
     data() {
       return {
-        signedIn: true,
+        signedIn: false,
+        email: '',
+        password: '',
+        passwordConfirmation: '',
+        firstName: '',
+        lastName: '',
+        program: '',
+        term: '',
+        graduationYear: '',
+        winterTerm: '',
         buildTeamApplication: {
           general: {
             howHeard: '',
@@ -297,6 +656,20 @@
         },
       };
     },
+
+    async mounted() {
+      this.$axios.setHeader('Accept', 'application/json');
+      this.$axios.setHeader('Content-Type', 'application/json');
+      this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
+
+      const signedIn = await app.$axios.$get('signedIn');
+    },
+
+    methods: {
+      onSignIn() {
+        this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
+      }
+    }
   }
 </script>
 
