@@ -1,6 +1,7 @@
 import {startsWith, upperFirst} from 'lodash';
 import moment from 'moment';
 import jwt from 'jsonwebtoken';
+import App from '../../app';
 import Auth from './auth';
 
 const authErrorHandler = async (err, req, res, next) => {
@@ -12,7 +13,7 @@ const authErrorHandler = async (err, req, res, next) => {
     if (header !== undefined && startsWith(header, 'Bearer')) {
       const tokenToVerify = header.substring(7);
 
-      await Auth.verifyAsync(tokenToVerify, this.secret).catch((jwtErr) => {
+      await Auth.verifyAsync(tokenToVerify, new App().auth.secret).catch((jwtErr) => {
         if (jwtErr.name === 'TokenExpiredError') {
           const token = jwt.decode(tokenToVerify);
 
@@ -20,7 +21,7 @@ const authErrorHandler = async (err, req, res, next) => {
             const renewedToken = jwt.sign({
               name: token.name,
               exp: moment().clone().add(30, 'm').unix()
-            }, this.secret);
+            }, new App().auth.secret);
 
             res.set('Authorization', `Bearer ${renewedToken}`);
             errors.push({message: `${err.name}->${jwtErr.name}: Token renewed.`});

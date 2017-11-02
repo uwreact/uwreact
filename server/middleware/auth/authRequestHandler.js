@@ -1,6 +1,7 @@
 import {startsWith} from 'lodash';
 import moment from 'moment';
 import jwt from 'jsonwebtoken';
+import App from '../../app';
 import Auth from './auth';
 
 const authRequestHandler = async (req, res, next) => {
@@ -17,8 +18,8 @@ const authRequestHandler = async (req, res, next) => {
       if (await Auth.authorizeUserAccount(...credentials)) {
         const token = jwt.sign({
           name: credentials[0],
-          exp: moment().clone().add(this.expiry, 's').unix(),
-        }, this.secret);
+          exp: moment().clone().add(new App().auth.expiry, 's').unix(),
+        }, new App().auth.secret);
 
         res.set('Authorization', `Bearer ${token}`);
 

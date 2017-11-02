@@ -1,7 +1,6 @@
 import {startsWith} from 'lodash';
-import moment from 'moment';
-import jwt from 'jsonwebtoken';
-import Auth from './auth';
+import bcrypt from 'bcrypt';
+import Account from '../../data/models/account';
 
 const authNewHandler = async (req, res, next) => {
   const errors = [];
@@ -11,26 +10,27 @@ const authNewHandler = async (req, res, next) => {
   if (header !== undefined && startsWith(header, 'Basic')) {
     const credentialsString = Buffer(header.substring(6), 'base64').toString('utf8');
 
-    if ((credentialsString.match(/:/g) || []).length === 1) {
+    if ((credentialsString.match(/:/g) || []).length === 3) {
       const credentials = credentialsString.split(':');
 
-      if (await Auth.authorizeUserAccount(...credentials)) {
-        const token = jwt.sign({
-          name: credentials[0],
-          exp: moment().clone().add(this.expiry, 's').unix(),
-        }, this.secret);
+      if (!Account.find({email: credentials[0]}, (err, accounts) => accounts.length <= 0)) {
+        let newUser = new Account({
+          email: credentials[0],
+          passwordHash: await bcrypt.hash(credentials[1], 10),
+          firstName: credentials[2],
+          lastName: credentials[3],
+        });
+        newUser.save();
 
-        res.set('Authorization', `Bearer ${token}`);
-
-        success.push({message: 'Success: Authorization token issued'});
+        success.push({message: 'Success: Signed up'});
       } else {
-        errors.push({message: 'AuthorizationError: Credentials incorrect'});
+        errors.push({message: 'SignUpError: Already signed up'});
       }
     } else {
-      errors.push({message: 'AuthorizationError: Credentials malformed'});
+      errors.push({message: 'SignUpError: Credentials malformed'});
     }
   } else {
-    errors.push({message: 'AuthorizationError: Credentials missing.'});
+    errors.push({message: 'SignUpError: Credentials missing.'});
   }
 
   res.set('Content-Type', 'application/json');

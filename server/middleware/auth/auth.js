@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import jwtProtect from 'express-jwt';
+import bcrypt from 'bcrypt';
 import authErrorHandler from './authErrorHandler';
 import authRequestHandler from './authRequestHandler';
 import authNewHandler from './authNewHandler';
@@ -34,7 +35,8 @@ class Auth {
   }
 
   static authorizeUserAccount(email, password) {
-    Account.find({email}, account => bcrypt.compare(password, account.passwordHash)).catch(err => false);
+    console.log(password);
+    return Account.find({email}, (err, accounts) => bcrypt.compare(password, accounts[0].passwordHash)).catch(err => false);
   }
 
   protectAllRoutesExcept(pathsToExclude) {

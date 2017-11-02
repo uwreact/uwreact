@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Account from './models/account';
 
 class Data {
   production;
