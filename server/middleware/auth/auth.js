@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import authErrorHandler from './authErrorHandler';
 import authRequestHandler from './authRequestHandler';
 import authNewHandler from './authNewHandler';
+import authVerifyHandler from './authVerifyHandler';
 import Account from '../../data/models/account';
 
 class Auth {
@@ -16,6 +17,8 @@ class Auth {
   authRequestHandler = authRequestHandler;
 
   authNewHandler = authNewHandler;
+
+  authVerifyHandler = authVerifyHandler;
 
   constructor(secret, expiry) {
     this.secret = secret;
@@ -34,11 +37,6 @@ class Auth {
     });
   }
 
-  static authorizeUserAccount(email, password) {
-    console.log(password);
-    return Account.find({email}, (err, accounts) => bcrypt.compare(password, accounts[0].passwordHash)).catch(err => false);
-  }
-
   protectAllRoutesExcept(pathsToExclude) {
     return jwtProtect({secret: this.secret}).unless({path: pathsToExclude});
   }
@@ -53,6 +51,10 @@ class Auth {
 
   handleAuthNew() {
     return this.authNewHandler;
+  }
+
+  handleAuthVerify() {
+    return this.authVerifyHandler;
   }
 }
 

@@ -1,10 +1,10 @@
-import {startsWith} from 'lodash';
+import {startsWith, toLower, times, random} from 'lodash';
 import bcrypt from 'bcrypt';
+import sgMail from '@sendgrid/mail';
 import Account from '../../data/models/account';
 
 const authNewHandler = async (req, res, next) => {
-  const errors = [];
-  const success = [];
+  let response = {};
   const header = req.get('Authorization');
 
   if (header !== undefined && startsWith(header, 'Basic')) {
@@ -12,33 +12,81 @@ const authNewHandler = async (req, res, next) => {
 
     if ((credentialsString.match(/:/g) || []).length === 3) {
       const credentials = credentialsString.split(':');
+      const email = toLower(credentials[0]);
+      const notEmpty = email.length > 0 && credentials[1].length > 0 && credentials[2].length > 0 && credentials[3].length > 0;
+      const doesntExist = (await Account.find({email}, (err, accounts) => accounts).catch(err => [])).length <= 0;
+      const verify = times(32, () => random(35).toString(36)).join('');
 
-      if (!Account.find({email: credentials[0]}, (err, accounts) => accounts.length <= 0)) {
+      if (notEmpty && doesntExist) {
         let newUser = new Account({
-          email: credentials[0],
+          email,
           passwordHash: await bcrypt.hash(credentials[1], 10),
-          firstName: credentials[2],
-          lastName: credentials[3],
+          verify,
+          information: {
+            firstName: credentials[2],
+            lastName: credentials[3],
+            program: '',
+            term: '',
+            graduationYear: '',
+            winterTerm: '',
+          },
+          buildTeamApplication: {
+            general: {
+              howHeard: '',
+              acknowledgeCommitment: false,
+              acknowledgeMedia: false,
+              interestVolunteer: false,
+              interestNonBuild: false,
+            },
+            technical: {
+              foci: [''],
+              mainFocus: '',
+              whyFocus: '',
+              skills: [''],
+              mainSkill: '',
+              whyMainSkill: '',
+              resume: '',
+              linkedin: '',
+              github: '',
+              otherURI: '',
+            },
+            inquiry: {
+              whyInterest: '',
+              timeLearnedSkill: '',
+              timeWorkedProject: '',
+              teachUsSomething: '',
+              otherInfo: '',
+            },
+            first: {
+              firstAlumnus: false,
+              teamNumber: '',
+              teamRole: '',
+              timeDealtStress: '',
+            },
+          },
         });
         newUser.save();
 
-        success.push({message: 'Success: Signed up'});
+        sgMail.send({
+          to: `${email}@edu.uwaterloo.ca`,
+          from: 'admin@uwri3d.com',
+          subject: 'Verify UWRi3D account',
+          text: `Click this link to verify: https://uwri3d.com/api/verify?uri=${verify}`,
+        });
+
+        response = {type: 'success', message: 'Signed up! Confirm your email before signing in.'};
       } else {
-        errors.push({message: 'SignUpError: Already signed up'});
+        response = {type: 'error', message: 'Already signed up.'};
       }
     } else {
-      errors.push({message: 'SignUpError: Credentials malformed'});
+      response = {type: 'error', message: 'Credentials malformed.'};
     }
   } else {
-    errors.push({message: 'SignUpError: Credentials missing.'});
+    response = {type: 'error', message: 'Credentials missing.'};
   }
 
   res.set('Content-Type', 'application/json');
-  if (success.length > 0) {
-    res.status(401).send(JSON.stringify({success}));
-  } else {
-    res.status(401).send(JSON.stringify({errors}));
-  }
+  res.status(200).send(JSON.stringify(response));
 };
 
 export default authNewHandler;

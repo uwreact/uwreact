@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page" v-loading="!downloaded">
     <div v-if="signedIn">
       <div class="hero" id="home">
         <el-row>
@@ -11,7 +11,7 @@
               <p class="hero-header">
                 WELCOME BACK,
               <p class="hero-header-small">
-                <span class="hero-yellow-text">MICHAEL</span>
+                <span class="hero-yellow-text">{{account.information.firstName}}</span>
               </p>
               </p>
               <div class="hero-yellow-line"></div>
@@ -47,15 +47,15 @@
                       </el-input>
                     </el-form-item>
                     <el-form-item label="First Name" :disabled="true">
-                      <el-input v-model="account.firstName">
+                      <el-input v-model="account.information.firstName" :maxlength="128">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Last Name" :disabled="true">
-                      <el-input v-model="account.lastName">
+                      <el-input v-model="account.information.lastName" :maxlength="128">
                       </el-input>
                     </el-form-item>
-                    <el-form-item label="Program" prop="region">
-                      <el-select v-model="account.program" placeholder="Program">
+                    <el-form-item label="Program">
+                      <el-select v-model="account.information.program" placeholder="Program">
                         <el-option
                           label="Accounting and Financial Management"
                           value="Accounting and Financial Management"></el-option>
@@ -197,8 +197,8 @@
                       </el-select>
                     </el-form-item>
 
-                    <el-form-item label="Term" prop="region">
-                      <el-select v-model="account.term" placeholder="Term">
+                    <el-form-item label="Term">
+                      <el-select v-model="account.information.term" placeholder="Term">
                         <el-option label="1A" value="1A"></el-option>
                         <el-option label="1B" value="1B"></el-option>
                         <el-option label="2A" value="2A"></el-option>
@@ -211,8 +211,8 @@
                       </el-select>
                     </el-form-item>
 
-                    <el-form-item label="Graduation Year" prop="region">
-                      <el-select v-model="account.graduationYear" placeholder="Graduation Year">
+                    <el-form-item label="Graduation Year">
+                      <el-select v-model="account.information.graduationYear" placeholder="Graduation Year">
                         <el-option label="2018" value="2018"></el-option>
                         <el-option label="2019" value="2019"></el-option>
                         <el-option label="2020" value="2020"></el-option>
@@ -223,10 +223,14 @@
                     </el-form-item>
 
                     <el-form-item label="What term are you on for Winter 2018?">
-                      <el-radio-group v-model="account.winterTerm" size="mini">
+                      <el-radio-group v-model="account.information.winterTerm" size="mini">
                         <el-radio label="Study" name="winterTerm" border></el-radio>
                         <el-radio label="Work" name="winterTerm" border></el-radio>
                       </el-radio-group>
+                    </el-form-item>
+
+                    <el-form-item>
+                      <el-button type="primary" @click="uploadData">Save</el-button>
                     </el-form-item>
                   </el-form>
                 </el-card>
@@ -257,6 +261,17 @@
                     :model="account.buildTeamApplication.general"
                     :label-position="'top'"
                     size="mini">
+                    <el-form-item label="How did you hear about Robot in 3 Days at the University of Waterloo?">
+                      <el-select v-model="account.buildTeamApplication.general.howHeard"
+                                 placeholder="I heard through...">
+                        <el-option label="Classmates" value="Classmates"></el-option>
+                        <el-option label="Friends" value="Friends"></el-option>
+                        <el-option label="Social Media" value="Social Media"></el-option>
+                        <el-option label="Email" value="Email"></el-option>
+                        <el-option label="News" value="News"></el-option>
+                        <el-option label="Other" value="Other"></el-option>
+                      </el-select>
+                    </el-form-item>
                     <p>
                       I acknowledge that the Robot in 3 Days team at the University of Waterloo is a significant time
                       commitment, and that I understand the scope of the project. I acknowledge that I will be able to
@@ -294,6 +309,9 @@
                     <el-form-item>
                       <el-switch v-model="account.buildTeamApplication.general.interestNonBuild"></el-switch>
                     </el-form-item>
+                    <el-form-item>
+                      <el-button type="primary" @click="uploadData">Save</el-button>
+                    </el-form-item>
                   </el-form>
                 </el-tab-pane>
 
@@ -324,7 +342,7 @@
                       <el-input
                         type="textarea"
                         :autosize="{ minRows: 4 }"
-                        maxlength="1000"
+                        :maxlength="1000"
                         placeholder="I would consider software my main focus because..."
                         v-model="account.buildTeamApplication.technical.whyFocus">
                       </el-input>
@@ -344,6 +362,11 @@
                         <el-checkbox label="C++" name="skills" border></el-checkbox>
                         <el-checkbox label="Java" name="skills" border></el-checkbox>
                         <el-checkbox label="LabVIEW" name="skills" border></el-checkbox>
+                        <el-checkbox label="Problem Solving" name="skills" border></el-checkbox>
+                        <el-checkbox label="Time Management" name="skills" border></el-checkbox>
+                        <el-checkbox label="Initiative" name="skills" border></el-checkbox>
+                        <el-checkbox label="Teamwork" name="skills" border></el-checkbox>
+                        <el-checkbox label="Adaptable" name="skills" border></el-checkbox>
                       </el-checkbox-group>
                     </el-form-item>
                     <el-form-item label="What's your main skill?">
@@ -361,6 +384,11 @@
                         <el-radio label="C++" name="mainSkill" border></el-radio>
                         <el-radio label="Java" name="mainSkill" border></el-radio>
                         <el-radio label="LabVIEW" name="mainSkill" border></el-radio>
+                        <el-radio label="Problem Solving" name="mainSkill" border></el-radio>
+                        <el-radio label="Time Management" name="mainSkill" border></el-radio>
+                        <el-radio label="Initiative" name="mainSkill" border></el-radio>
+                        <el-radio label="Teamwork" name="mainSkill" border></el-radio>
+                        <el-radio label="Adaptable" name="mainSkill" border></el-radio>
                       </el-radio-group>
                     </el-form-item>
                     <el-form-item label="Why do you consider this your main skill?">
@@ -370,10 +398,10 @@
                         type="textarea"
                         :autosize="{ minRows: 4 }"
                         placeholder="I would consider software my main skill because..."
-                        maxlength="1000">
+                        :maxlength="1000">
                       </el-input>
                     </el-form-item>
-                    <el-form-item label="Do you have a resume online?">
+                    <el-form-item label="Do you have a resume online?" :maxlength="256">
                       <el-input
                         v-model="account.buildTeamApplication.technical.resume"
                         placeholder="https://michael.midura.io">
@@ -382,20 +410,23 @@
                     <el-form-item label="Do you have a LinkedIn?">
                       <el-input
                         v-model="account.buildTeamApplication.technical.linkedin"
-                        placeholder="https://linkedin.com/in/miduramichael">
+                        placeholder="https://linkedin.com/in/miduramichael" :maxlength="256">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Do you have a GitHub?">
                       <el-input
                         v-model="account.buildTeamApplication.technical.github"
-                        placeholder="https://github.com/michaelwm">
+                        placeholder="https://github.com/michaelwm" :maxlength="256">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Do you have anything else you want to show us?">
                       <el-input
                         v-model="account.buildTeamApplication.technical.otherURI"
-                        placeholder="https://uwri3d.com">
+                        placeholder="https://uwri3d.com" :maxlength="256">
                       </el-input>
+                    </el-form-item>
+                    <el-form-item>
+                      <el-button type="primary" @click="uploadData">Save</el-button>
                     </el-form-item>
                   </el-form>
                 </el-tab-pane>
@@ -414,7 +445,7 @@
                         type="textarea"
                         :autosize="{ minRows: 4 }"
                         placeholder="I'm interested in joining Robot in 3 Days at the University of Waterloo because..."
-                        maxlength="1000">
+                        :maxlength="1000">
                       </el-input>
                     </el-form-item>
                     <el-form-item
@@ -425,7 +456,7 @@
                         type="textarea"
                         :autosize="{ minRows: 8 }"
                         placeholder="While on my swim team last year, I learned how to..."
-                        maxlength="2000">
+                        :maxlength="2000">
                       </el-input>
                     </el-form-item>
                     <el-form-item
@@ -436,7 +467,7 @@
                         type="textarea"
                         :autosize="{ minRows: 8 }"
                         placeholder="For the past few months, I've been working on..."
-                        maxlength="2000">
+                        :maxlength="2000">
                       </el-input>
                     </el-form-item>
                     <el-form-item
@@ -447,8 +478,11 @@
                         type="textarea"
                         :autosize="{ minRows: 8 }"
                         placeholder="Go grab a standard deck of playing cards, I'm teaching you a magic trick..."
-                        maxlength="2000">
+                        :maxlength="2000">
                       </el-input>
+                    </el-form-item>
+                    <el-form-item>
+                      <el-button type="primary" @click="uploadData">Save</el-button>
                     </el-form-item>
                   </el-form>
                 </el-tab-pane>
@@ -465,14 +499,14 @@
                       <el-input
                         v-model="account.buildTeamApplication.first.teamNumber"
                         :disabled="!account.buildTeamApplication.first.firstAlumnus"
-                        placeholder="4976">
+                        placeholder="4976" :maxlength="32">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="What role did you play?">
                       <el-input
                         v-model="account.buildTeamApplication.first.teamRole"
                         :disabled="!account.buildTeamApplication.first.firstAlumnus"
-                        placeholder="Software Lead">
+                        placeholder="Software Lead" :maxlength="128">
                       </el-input>
                     </el-form-item>
                     <el-form-item
@@ -484,8 +518,11 @@
                         :autosize="{ minRows: 8 }"
                         :disabled="!account.buildTeamApplication.first.firstAlumnus"
                         placeholder="At our second district competition..."
-                        maxlength="2000">
+                        :maxlength="2000">
                       </el-input>
+                    </el-form-item>
+                    <el-form-item>
+                      <el-button type="primary" @click="uploadData">Save</el-button>
                     </el-form-item>
                   </el-form>
                 </el-tab-pane>
@@ -495,7 +532,7 @@
         </el-row>
       </div>
     </div>
-    <div v-else>
+    <div v-else-if="downloaded">
       <div class="hero" id="home">
         <el-row>
           <el-col :sm="24" :md="12">
@@ -531,21 +568,21 @@
             <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
               <el-card class="box-card">
                 <el-form
-                  ref="general"
-                  :model="account"
+                  ref="signIn"
+                  :model="signIn"
                   :label-position="'top'"
                   size="mini">
                   <el-form-item label="Email">
-                    <el-input v-model="account.email">
+                    <el-input v-model="signIn.email" :maxlength="128">
                       <template slot="append">@edu.uwaterloo.com</template>
                     </el-input>
                   </el-form-item>
                   <el-form-item label="Password">
-                    <el-input v-model="account.password" type="password">
+                    <el-input v-model="signIn.password" type="password" :maxlength="256">
                     </el-input>
                   </el-form-item>
                   <el-form-item>
-                    <el-button type="primary" @click="signedIn=true">Sign In</el-button>
+                    <el-button type="primary" @click="onSignIn">Sign In</el-button>
                   </el-form-item>
                 </el-form>
               </el-card>
@@ -569,32 +606,34 @@
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
             <el-card class="box-card">
               <el-form
-                ref="general"
+                ref="signUp"
+                :model="signUp"
+                :rules="rules.signUp"
                 :label-position="'top'"
                 size="mini">
-                <el-form-item label="Email">
-                  <el-input v-model="account.email">
+                <el-form-item label="Email" prop="email">
+                  <el-input v-model="signUp.email" :maxlength="128">
                     <template slot="append">@edu.uwaterloo.com</template>
                   </el-input>
                 </el-form-item>
-                <el-form-item label="Password">
-                  <el-input v-model="account.password" type="password">
+                <el-form-item label="Password" prop="password">
+                  <el-input v-model="signUp.password" type="password" :maxlength="256">
                   </el-input>
                 </el-form-item>
-                <el-form-item label="Confirm Password">
-                  <el-input v-model="account.passwordConfirmation" type="password">
+                <el-form-item label="Confirm Password" prop="passwordConfirmation">
+                  <el-input v-model="signUp.passwordConfirmation" type="password" :maxlength="256">
                   </el-input>
                 </el-form-item>
-                <el-form-item label="First Name">
-                  <el-input v-model="account.firstName">
+                <el-form-item label="First Name" prop="firstName">
+                  <el-input v-model="signUp.firstName" :maxlength="128">
                   </el-input>
                 </el-form-item>
-                <el-form-item label="Last Name">
-                  <el-input v-model="account.lastName">
+                <el-form-item label="Last Name" prop="lastName">
+                  <el-input v-model="signUp.lastName" :maxlength="128">
                   </el-input>
                 </el-form-item>
                 <el-form-item>
-                  <el-button type="primary" @click="signedIn=true">Sign Up</el-button>
+                  <el-button type="primary" @click="onSignUp">Sign Up</el-button>
                 </el-form-item>
               </el-form>
             </el-card>
@@ -612,17 +651,18 @@
 
     data() {
       return {
+        downloaded: false,
         signedIn: false,
         account: {
           email: '',
-          password: '',
-          passwordConfirmation: '',
-          firstName: '',
-          lastName: '',
-          program: '',
-          term: '',
-          graduationYear: '',
-          winterTerm: '',
+          information: {
+            firstName: '',
+            lastName: '',
+            program: '',
+            term: '',
+            graduationYear: '',
+            winterTerm: '',
+          },
           buildTeamApplication: {
             general: {
               howHeard: '',
@@ -658,21 +698,185 @@
             },
           },
         },
+        signIn: {
+          email: '',
+          password: '',
+        },
+        signUp: {
+          email: '',
+          password: '',
+          passwordConfirmation: '',
+          firstName: '',
+          lastName: '',
+        },
+        rules: {
+          signUp: {
+            email: [
+              {
+                validator: (rule, value, callback) => {
+                  if (value === '') {
+                    callback(new Error('Please input your email.'))
+                  } else if (value.match('[^A-Za-z\\d]')) {
+                    callback(new Error('Please input a proper email.'));
+                  } else {
+                    callback();
+                  }
+                },
+                trigger: 'blur',
+              }
+            ],
+            password: [
+              {
+                validator: (rule, value, callback) => {
+                  if (value === '') {
+                    callback(new Error('Please input a password.'));
+                  } else {
+                    if (this.signUp.passwordConfirmation !== '') {
+                      this.$refs.signUp.validateField('passwordConfirmation');
+                    }
+                    callback();
+                  }
+                },
+                trigger: 'blur',
+              }
+            ],
+            passwordConfirmation: [
+              {
+                validator: (rule, value, callback) => {
+                  if (value === '') {
+                    callback(new Error('Please input your password again.'));
+                  } else if (value !== this.signUp.password) {
+                    callback(new Error('Your passwords don\'t match!'));
+                  } else {
+                    callback();
+                  }
+                },
+                trigger: 'blur',
+              }
+            ],
+            firstName: [
+              {
+                validator: (rule, value, callback) => {
+                  if (value === '') {
+                    callback(new Error('Please input your first name.'));
+                  } else {
+                    callback();
+                  }
+                },
+                trigger: 'blur',
+              }
+            ],
+            lastName: [
+              {
+                validator: (rule, value, callback) => {
+                  if (value === '') {
+                    callback(new Error('Please input your last name.'));
+                  } else {
+                    callback();
+                  }
+                },
+                trigger: 'blur',
+              }
+            ]
+          }
+        }
       };
     },
 
     async mounted() {
-      this.$axios.setHeader('Accept', 'application/json');
-      this.$axios.setHeader('Content-Type', 'application/json');
-      this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
-//      const account = await this.$axios.$get('getAccount').catch(this.signedIn = false);
-//      this.signedIn = true;
-//      this.account = account;
+      await this.downloadData();
+      setInterval(() => {
+        if (this.downloaded && this.signedIn)
+          this.uploadData();
+      }, 60000);
     },
 
     methods: {
-      onSignIn() {
+      async onSignIn() {
+        this.$axios.setToken(btoa(this.signIn.email + ':' + this.signIn.password), 'Basic');
+        const response = await this.$axios.$get('signIn');
+        if (response !== undefined) {
+          this.$notify({
+            title: response.type === 'success' ? 'Success' : 'Error',
+            message: response.message,
+            type: response.type,
+          });
+        }
+        if (response.token !== undefined) {
+          localStorage.setItem('jwt', response.token);
+          this.signIn.email = '';
+          this.signIn.password = '';
+          this.downloadData();
+        }
+      },
+      async onSignUp() {
+        let signUpValid = true;
+        this.$refs.signUp.validate((valid) => {
+            if (!valid) signUpValid = false;
+          }
+        );
+
+        if (signUpValid) {
+          this.$axios.setToken(btoa(this.signUp.email + ':' + this.signUp.password + ':' + this.signUp.firstName + ':' + this.signUp.lastName), 'Basic');
+          const response = await this.$axios.$get('signUp');
+          if (response !== undefined) {
+            this.$notify({
+              title: response.type === 'success' ? 'Success' : 'Error',
+              message: response.message,
+              type: response.type,
+            });
+          }
+          this.signUp.email = '';
+          this.signUp.password = '';
+          this.signUp.passwordConfirmation = '';
+          this.signUp.firstName = '';
+          this.signUp.lastName = '';
+        }
+      },
+      async downloadData() {
+        this.$axios.setHeader('Accept', 'application/json');
+        this.$axios.setHeader('Content-Type', 'application/json');
         this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
+
+        const response = await this.$axios.$get('getAccount');
+        if (response !== undefined) {
+          if (response.account !== undefined) {
+            this.account = response.account;
+            this.signedIn = true;
+            this.downloaded = true;
+          } else if (response.token !== undefined) {
+            localStorage.setItem('jwt', response.token);
+            this.downloadData();
+          } else {
+            this.signedIn = false;
+            this.downloaded = true;
+          }
+        } else {
+          this.signedIn = false;
+          this.downloaded = false;
+        }
+      },
+      async uploadData() {
+        console.log('upload start');
+        this.$axios.setHeader('Accept', 'application/json');
+        this.$axios.setHeader('Content-Type', 'application/json');
+        this.$axios.setHeader('Payload', JSON.stringify({account: this.account}));
+        console.log('set payload');
+        this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
+        const response = await this.$axios.$get('updateAccount');
+        console.log(response);
+        if (response !== undefined) {
+          if (response.token !== undefined) {
+            localStorage.setItem('jwt', response.token);
+            this.uploadData();
+          } else {
+            this.$notify({
+              title: response.type === 'success' ? 'Success' : 'Error',
+              message: response.message,
+              type: response.type,
+            });
+          }
+        }
       }
     }
   }

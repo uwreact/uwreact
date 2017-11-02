@@ -5,7 +5,7 @@ import App from '../../app';
 import Auth from './auth';
 
 const authErrorHandler = async (err, req, res, next) => {
-  const errors = [];
+  let response = {};
 
   if (err.name === 'UnauthorizedError') {
     const header = req.get('Authorization');
@@ -20,27 +20,24 @@ const authErrorHandler = async (err, req, res, next) => {
           if (token.iat > 0) {
             const renewedToken = jwt.sign({
               name: token.name,
-              exp: moment().clone().add(30, 'm').unix()
+              exp: moment().clone().add(new App().auth.expiry, 's').unix(),
             }, new App().auth.secret);
 
-            res.set('Authorization', `Bearer ${renewedToken}`);
-            errors.push({message: `${err.name}->${jwtErr.name}: Token renewed.`});
+            response = {type: 'error', message: 'Token renewed.', token: renewedToken};
           } else {
-            errors.push({message: `${err.name}->${jwtErr.name}: Reauthorization required.`});
+            response = {type: 'error', message: 'Reauthentication required.'};
           }
         } else {
-          errors.push({
-            message: `${err.name}->${jwtErr.name}: ${upperFirst(jwtErr.message)}`
-          });
+          response = {type: 'error', message: upperFirst(jwtErr.message)};
         }
       });
     } else {
-      errors.push({message: `${err.name}: Jwt missing.`});
+      response = {type: 'error', message: 'Jwt missing.'};
     }
   }
 
   res.set('Content-Type', 'application/json');
-  res.status(401).send(JSON.stringify({errors}));
+  res.status(200).send(JSON.stringify(response));
 };
 
 export default authErrorHandler;

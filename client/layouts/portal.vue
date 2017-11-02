@@ -15,12 +15,16 @@
         </el-menu-item>
       </a>
       <div class="nav-right" v-if="screenSize >= 992">
-        <el-menu-item index="contact">Sign Out</el-menu-item>
+        <el-menu-item index="apply">
+          <el-button class="apply-button" round @click="signOut">
+            SIGN OUT
+          </el-button>
+        </el-menu-item>
       </div>
       <div class="nav-right" v-if="screenSize > 0 && screenSize < 992">
         <el-submenu class="submenu" index="submenu">
           <template slot="title"><i class="el-icon-menu menu-icon"></i></template>
-          <el-menu-item index="contact-sub">Sign Out</el-menu-item>
+          <el-menu-item index="contact-sub" @click="signOut">Sign Out</el-menu-item>
         </el-submenu>
       </div>
     </el-menu>
@@ -43,6 +47,11 @@
     },
 
     methods: {
+      signOut() {
+        localStorage.setItem('jwt', '');
+        location.href = "/";
+      },
+
       handleSelect(key, keyPath) {
         this.activeIndex = "";
       },

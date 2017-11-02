@@ -1,12 +1,13 @@
-import {startsWith} from 'lodash';
+import {startsWith, toLower} from 'lodash';
+import bcrypt from 'bcrypt';
 import moment from 'moment';
 import jwt from 'jsonwebtoken';
 import App from '../../app';
 import Auth from './auth';
+import Account from '../../data/models/account';
 
 const authRequestHandler = async (req, res, next) => {
-  const errors = [];
-  const success = [];
+  let response = {};
   const header = req.get('Authorization');
 
   if (header !== undefined && startsWith(header, 'Basic')) {
@@ -14,32 +15,36 @@ const authRequestHandler = async (req, res, next) => {
 
     if ((credentialsString.match(/:/g) || []).length === 1) {
       const credentials = credentialsString.split(':');
+      const email = toLower(credentials[0]);
 
-      if (await Auth.authorizeUserAccount(...credentials)) {
-        const token = jwt.sign({
-          name: credentials[0],
-          exp: moment().clone().add(new App().auth.expiry, 's').unix(),
-        }, new App().auth.secret);
+      const accounts = await Account.find({email}, async (err, accounts) => accounts);
+      let correctCredentials = false;
+      if (accounts[0] !== undefined)
+        correctCredentials = await bcrypt.compare(credentials[1], accounts[0].passwordHash);
 
-        res.set('Authorization', `Bearer ${token}`);
+      if (correctCredentials) {
+        if (accounts[0].verify === 'verified') {
+          const token = jwt.sign({
+            name: email,
+            exp: moment().clone().add(new App().auth.expiry, 's').unix(),
+          }, new App().auth.secret);
 
-        success.push({message: 'Success: Authorization token issued'});
+          response = {type: 'success', message: 'Signed in!', token};
+        } else {
+          response = {type: 'error', message: 'Account Unverified.'};
+        }
       } else {
-        errors.push({message: 'AuthorizationError: Credentials incorrect'});
+        response = {type: 'error', message: 'Credentials incorrect.'};
       }
     } else {
-      errors.push({message: 'AuthorizationError: Credentials malformed'});
+      response = {type: 'error', message: 'Credentials malformed.'};
     }
   } else {
-    errors.push({message: 'AuthorizationError: Credentials missing.'});
+    response = {type: 'error', message: 'Credentials missing.'};
   }
 
   res.set('Content-Type', 'application/json');
-  if (success.length > 0) {
-    res.status(401).send(JSON.stringify({success}));
-  } else {
-    res.status(401).send(JSON.stringify({errors}));
-  }
+  res.status(200).send(JSON.stringify(response));
 };
 
 export default authRequestHandler;

@@ -27,10 +27,10 @@
         <a href="#contact" v-scroll-to="'#contact'">
           <el-menu-item index="contact">Contact</el-menu-item>
         </a>
-        <a>
+        <a href="/portal">
           <el-menu-item index="apply">
             <el-button class="apply-button" round>
-              <apply-countdown/>
+              APPLY NOW
             </el-button>
           </el-menu-item>
         </a>
@@ -50,9 +50,11 @@
           <a href="#contact" v-scroll-to="'#contact'">
             <el-menu-item index="contact-sub">Contact</el-menu-item>
           </a>
-          <el-menu-item index="apply-sub">
-            <apply-countdown class="apply-menu-item"/>
-          </el-menu-item>
+          <a href="/portal">
+            <el-menu-item index="apply-sub">
+              Apply Now
+            </el-menu-item>
+          </a>
         </el-submenu>
       </div>
     </el-menu>
@@ -61,7 +63,6 @@
 </template>
 
 <script>
-  import ApplyCountdown from '~/components/ApplyCountdown.vue'
   import VueScrollTo from 'vue-scrollto'
 
   export default {
@@ -75,10 +76,6 @@
     mounted() {
       window.addEventListener('resize', this.handleResize);
       this.screenSize = document.documentElement.clientWidth;
-    },
-
-    components: {
-      ApplyCountdown
     },
 
     methods: {

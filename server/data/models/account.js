@@ -3,12 +3,15 @@ import mongoose from 'mongoose';
 const schema = mongoose.Schema({
   email: String,
   passwordHash: String,
-  firstName: String,
-  lastName: String,
-  program: String,
-  term: String,
-  graduationYear: String,
-  winterTerm: String,
+  verify: String,
+  information: {
+    firstName: String,
+    lastName: String,
+    program: String,
+    term: String,
+    graduationYear: String,
+    winterTerm: String,
+  },
   buildTeamApplication: {
     general: {
       howHeard: String,
