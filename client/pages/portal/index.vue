@@ -39,22 +39,23 @@
                   <el-form
                     ref="general"
                     :label-position="'top'"
+                    :model="account"
                     size="mini">
                     <el-form-item label="Email">
-                      <el-input v-model="email" :disabled="true">
+                      <el-input v-model="account.email" :disabled="true">
                         <template slot="append">@edu.uwaterloo.com</template>
                       </el-input>
                     </el-form-item>
                     <el-form-item label="First Name" :disabled="true">
-                      <el-input v-model="firstName">
+                      <el-input v-model="account.firstName">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Last Name" :disabled="true">
-                      <el-input v-model="lastName">
+                      <el-input v-model="account.lastName">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Program" prop="region">
-                      <el-select v-model="program" placeholder="Program">
+                      <el-select v-model="account.program" placeholder="Program">
                         <el-option
                           label="Accounting and Financial Management"
                           value="Accounting and Financial Management"></el-option>
@@ -197,7 +198,7 @@
                     </el-form-item>
 
                     <el-form-item label="Term" prop="region">
-                      <el-select v-model="term" placeholder="Term">
+                      <el-select v-model="account.term" placeholder="Term">
                         <el-option label="1A" value="1A"></el-option>
                         <el-option label="1B" value="1B"></el-option>
                         <el-option label="2A" value="2A"></el-option>
@@ -211,7 +212,7 @@
                     </el-form-item>
 
                     <el-form-item label="Graduation Year" prop="region">
-                      <el-select v-model="graduationYear" placeholder="Graduation Year">
+                      <el-select v-model="account.graduationYear" placeholder="Graduation Year">
                         <el-option label="2018" value="2018"></el-option>
                         <el-option label="2019" value="2019"></el-option>
                         <el-option label="2020" value="2020"></el-option>
@@ -222,7 +223,7 @@
                     </el-form-item>
 
                     <el-form-item label="What term are you on for Winter 2018?">
-                      <el-radio-group v-model="winterTerm" size="mini">
+                      <el-radio-group v-model="account.winterTerm" size="mini">
                         <el-radio label="Study" name="winterTerm" border></el-radio>
                         <el-radio label="Work" name="winterTerm" border></el-radio>
                       </el-radio-group>
@@ -544,7 +545,7 @@
                     </el-input>
                   </el-form-item>
                   <el-form-item>
-                    <el-button type="primary">Sign In</el-button>
+                    <el-button type="primary" @click="signedIn=true">Sign In</el-button>
                   </el-form-item>
                 </el-form>
               </el-card>
@@ -593,7 +594,7 @@
                   </el-input>
                 </el-form-item>
                 <el-form-item>
-                  <el-button type="primary">Sign Up</el-button>
+                  <el-button type="primary" @click="signedIn=true">Sign Up</el-button>
                 </el-form-item>
               </el-form>
             </el-card>
@@ -664,9 +665,9 @@
       this.$axios.setHeader('Accept', 'application/json');
       this.$axios.setHeader('Content-Type', 'application/json');
       this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
-      const account = await this.$axios.$get('getAccount').catch(this.signedIn = false);
-      this.signedIn = true;
-      this.account = account;
+//      const account = await this.$axios.$get('getAccount').catch(this.signedIn = false);
+//      this.signedIn = true;
+//      this.account = account;
     },
 
     methods: {

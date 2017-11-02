@@ -12,12 +12,12 @@
       return {
         date: null,
         now: new Date().getTime() / 1000,
-        delta: new Date("Nov 1, 2017 23:00:00").getTime() / 1000 - new Date().getTime() / 1000,
+        delta: new Date("Nov 2, 2017 22:00:00").getTime() / 1000 - new Date().getTime() / 1000,
       };
     },
 
     mounted() {
-      this.date = new Date("Nov 1, 2017 23:00:00").getTime() / 1000;
+      this.date = new Date("Nov 2, 2017 22:00:00").getTime() / 1000;
 
       interval = setInterval(() => {
         this.now = new Date().getTime() / 1000;
