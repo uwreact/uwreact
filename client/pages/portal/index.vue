@@ -253,7 +253,7 @@
                 <el-tab-pane label="General">
                   <el-form
                     ref="general"
-                    :model="buildTeamApplication.general"
+                    :model="account.buildTeamApplication.general"
                     :label-position="'top'"
                     size="mini">
                     <p>
@@ -264,7 +264,7 @@
                       or through other means, be able to attend the main build.
                     </p>
                     <el-form-item>
-                      <el-switch v-model="buildTeamApplication.general.acknowledgeCommitment"></el-switch>
+                      <el-switch v-model="account.buildTeamApplication.general.acknowledgeCommitment"></el-switch>
                     </el-form-item>
                     <br/>
                     <p>
@@ -273,7 +273,7 @@
                       used in future promotional material for Robot in 3 Days at the Univesity of Waterloo.
                     </p>
                     <el-form-item>
-                      <el-switch v-model="buildTeamApplication.general.acknowledgeMedia"></el-switch>
+                      <el-switch v-model="account.buildTeamApplication.general.acknowledgeMedia"></el-switch>
                     </el-form-item>
                     <br/>
                     <p>
@@ -283,7 +283,7 @@
                       joining the FIRST Alumni Group or volunteering for events on campus?
                     </p>
                     <el-form-item>
-                      <el-switch v-model="buildTeamApplication.general.interestVolunteer"></el-switch>
+                      <el-switch v-model="account.buildTeamApplication.general.interestVolunteer"></el-switch>
                     </el-form-item>
                     <br/>
                     <p>
@@ -291,7 +291,7 @@
                       development, and more?
                     </p>
                     <el-form-item>
-                      <el-switch v-model="buildTeamApplication.general.interestNonBuild"></el-switch>
+                      <el-switch v-model="account.buildTeamApplication.general.interestNonBuild"></el-switch>
                     </el-form-item>
                   </el-form>
                 </el-tab-pane>
@@ -299,11 +299,11 @@
                 <el-tab-pane label="Techical">
                   <el-form
                     ref="technical"
-                    :model="buildTeamApplication.technical"
+                    :model="account.buildTeamApplication.technical"
                     :label-position="'top'"
                     size="mini">
                     <el-form-item label="What's your focus?">
-                      <el-checkbox-group v-model="buildTeamApplication.technical.foci" size="mini">
+                      <el-checkbox-group v-model="account.buildTeamApplication.technical.foci" size="mini">
                         <el-checkbox label="Design" name="foci" border></el-checkbox>
                         <el-checkbox label="Manufacturing" name="foci" border></el-checkbox>
                         <el-checkbox label="Electrical" name="foci" border></el-checkbox>
@@ -311,7 +311,7 @@
                       </el-checkbox-group>
                     </el-form-item>
                     <el-form-item label="What's your main focus?">
-                      <el-radio-group v-model="buildTeamApplication.technical.mainFocus" size="mini">
+                      <el-radio-group v-model="account.buildTeamApplication.technical.mainFocus" size="mini">
                         <el-radio label="Design" name="mainFocus" border></el-radio>
                         <el-radio label="Manufacturing" name="mainFocus" border></el-radio>
                         <el-radio label="Electrical" name="mainFocus" border></el-radio>
@@ -319,17 +319,17 @@
                       </el-radio-group>
                     </el-form-item>
                     <el-form-item label="Why would you like to focus on this?">
-                      {{1000 - buildTeamApplication.technical.whyFocus.length}} characters remaining
+                      {{1000 - account.buildTeamApplication.technical.whyFocus.length}} characters remaining
                       <el-input
                         type="textarea"
                         :autosize="{ minRows: 4 }"
                         maxlength="1000"
                         placeholder="I would consider software my main focus because..."
-                        v-model="buildTeamApplication.technical.whyFocus">
+                        v-model="account.buildTeamApplication.technical.whyFocus">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="What are your skills?">
-                      <el-checkbox-group v-model="buildTeamApplication.technical.skills" size="mini">
+                      <el-checkbox-group v-model="account.buildTeamApplication.technical.skills" size="mini">
                         <el-checkbox label="Design" name="skills" border></el-checkbox>
                         <el-checkbox label="Drafting" name="skills" border></el-checkbox>
                         <el-checkbox label="Solidworks" name="skills" border></el-checkbox>
@@ -346,7 +346,7 @@
                       </el-checkbox-group>
                     </el-form-item>
                     <el-form-item label="What's your main skill?">
-                      <el-radio-group v-model="buildTeamApplication.technical.mainSkill" size="mini">
+                      <el-radio-group v-model="account.buildTeamApplication.technical.mainSkill" size="mini">
                         <el-radio label="Design" name="mainSkill" border></el-radio>
                         <el-radio label="Drafting" name="mainSkill" border></el-radio>
                         <el-radio label="Solidworks" name="mainSkill" border></el-radio>
@@ -363,9 +363,9 @@
                       </el-radio-group>
                     </el-form-item>
                     <el-form-item label="Why do you consider this your main skill?">
-                      {{1000 - buildTeamApplication.technical.whyMainSkill.length}} characters remaining
+                      {{1000 - account.buildTeamApplication.technical.whyMainSkill.length}} characters remaining
                       <el-input
-                        v-model="buildTeamApplication.technical.whyMainSkill"
+                        v-model="account.buildTeamApplication.technical.whyMainSkill"
                         type="textarea"
                         :autosize="{ minRows: 4 }"
                         placeholder="I would consider software my main skill because..."
@@ -374,25 +374,25 @@
                     </el-form-item>
                     <el-form-item label="Do you have a resume online?">
                       <el-input
-                        v-model="buildTeamApplication.technical.resume"
+                        v-model="account.buildTeamApplication.technical.resume"
                         placeholder="https://michael.midura.io">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Do you have a LinkedIn?">
                       <el-input
-                        v-model="buildTeamApplication.technical.linkedin"
+                        v-model="account.buildTeamApplication.technical.linkedin"
                         placeholder="https://linkedin.com/in/miduramichael">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Do you have a GitHub?">
                       <el-input
-                        v-model="buildTeamApplication.technical.github"
+                        v-model="account.buildTeamApplication.technical.github"
                         placeholder="https://github.com/michaelwm">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="Do you have anything else you want to show us?">
                       <el-input
-                        v-model="buildTeamApplication.technical.otherURI"
+                        v-model="account.buildTeamApplication.technical.otherURI"
                         placeholder="https://uwri3d.com">
                       </el-input>
                     </el-form-item>
@@ -402,14 +402,14 @@
                 <el-tab-pane label="Inquiry">
                   <el-form
                     ref="inquiry"
-                    :model="buildTeamApplication.inquiry"
+                    :model="account.buildTeamApplication.inquiry"
                     :label-position="'top'"
                     size="mini">
                     <el-form-item
                       label="Why are you interested in joining the Robot in 3 Days team at the university of Waterloo?">
-                      {{1000 - buildTeamApplication.inquiry.whyInterest.length}} characters remaining
+                      {{1000 - account.buildTeamApplication.inquiry.whyInterest.length}} characters remaining
                       <el-input
-                        v-model="buildTeamApplication.inquiry.whyInterest"
+                        v-model="account.buildTeamApplication.inquiry.whyInterest"
                         type="textarea"
                         :autosize="{ minRows: 4 }"
                         placeholder="I'm interested in joining Robot in 3 Days at the University of Waterloo because..."
@@ -418,9 +418,9 @@
                     </el-form-item>
                     <el-form-item
                       label="Tell us about a time you learned a new skill. It doesn't have to be a technical skill! Who taught you? What were you doing? Why did you learn? How have you used it since then?">
-                      {{2000 - buildTeamApplication.inquiry.timeLearnedSkill.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.inquiry.timeLearnedSkill.length}} characters remaining
                       <el-input
-                        v-model="buildTeamApplication.inquiry.timeLearnedSkill"
+                        v-model="account.buildTeamApplication.inquiry.timeLearnedSkill"
                         type="textarea"
                         :autosize="{ minRows: 8 }"
                         placeholder="While on my swim team last year, I learned how to..."
@@ -429,9 +429,9 @@
                     </el-form-item>
                     <el-form-item
                       label="Tell us about a project you've worked on in the past 6 months. It doesn't have to be technical project! What were you working on? Why were you working on it? How did it end up?">
-                      {{2000 - buildTeamApplication.inquiry.timeWorkedProject.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.inquiry.timeWorkedProject.length}} characters remaining
                       <el-input
-                        v-model="buildTeamApplication.inquiry.timeWorkedProject"
+                        v-model="account.buildTeamApplication.inquiry.timeWorkedProject"
                         type="textarea"
                         :autosize="{ minRows: 8 }"
                         placeholder="For the past few months, I've been working on..."
@@ -440,9 +440,9 @@
                     </el-form-item>
                     <el-form-item
                       label="Teach us something new. It can be anything!">
-                      {{2000 - buildTeamApplication.inquiry.teachUsSomething.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.inquiry.teachUsSomething.length}} characters remaining
                       <el-input
-                        v-model="buildTeamApplication.inquiry.teachUsSomething"
+                        v-model="account.buildTeamApplication.inquiry.teachUsSomething"
                         type="textarea"
                         :autosize="{ minRows: 8 }"
                         placeholder="Go grab a standard deck of playing cards, I'm teaching you a magic trick..."
@@ -454,34 +454,34 @@
                 <el-tab-pane label="FIRST">
                   <el-form
                     ref="inquiry"
-                    :model="buildTeamApplication.first"
+                    :model="account.buildTeamApplication.first"
                     :label-position="'top'"
                     size="mini">
                     <el-form-item label="Are you a FIRST Alumnus?">
-                      <el-switch v-model="buildTeamApplication.first.firstAlumnus"></el-switch>
+                      <el-switch v-model="account.buildTeamApplication.first.firstAlumnus"></el-switch>
                     </el-form-item>
                     <el-form-item label="What's your old team number?">
                       <el-input
-                        v-model="buildTeamApplication.first.teamNumber"
-                        :disabled="!buildTeamApplication.first.firstAlumnus"
+                        v-model="account.buildTeamApplication.first.teamNumber"
+                        :disabled="!account.buildTeamApplication.first.firstAlumnus"
                         placeholder="4976">
                       </el-input>
                     </el-form-item>
                     <el-form-item label="What role did you play?">
                       <el-input
-                        v-model="buildTeamApplication.first.teamRole"
-                        :disabled="!buildTeamApplication.first.firstAlumnus"
+                        v-model="account.buildTeamApplication.first.teamRole"
+                        :disabled="!account.buildTeamApplication.first.firstAlumnus"
                         placeholder="Software Lead">
                       </el-input>
                     </el-form-item>
                     <el-form-item
                       label="Tell us about a time you managed a stressful situation during a FIRST Robotics Competition tournament. What happened? Why was it stressful? How did you manage it?">
-                      {{2000 - buildTeamApplication.first.timeDealtStress.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.first.timeDealtStress.length}} characters remaining
                       <el-input
-                        v-model="buildTeamApplication.first.timeDealtStress"
+                        v-model="account.buildTeamApplication.first.timeDealtStress"
                         type="textarea"
                         :autosize="{ minRows: 8 }"
-                        :disabled="!buildTeamApplication.first.firstAlumnus"
+                        :disabled="!account.buildTeamApplication.first.firstAlumnus"
                         placeholder="At our second district competition..."
                         maxlength="2000">
                       </el-input>
@@ -531,15 +531,16 @@
               <el-card class="box-card">
                 <el-form
                   ref="general"
+                  :model="account"
                   :label-position="'top'"
                   size="mini">
                   <el-form-item label="Email">
-                    <el-input v-model="email">
+                    <el-input v-model="account.email">
                       <template slot="append">@edu.uwaterloo.com</template>
                     </el-input>
                   </el-form-item>
                   <el-form-item label="Password">
-                    <el-input v-model="password" type="password">
+                    <el-input v-model="account.password" type="password">
                     </el-input>
                   </el-form-item>
                   <el-form-item>
@@ -571,24 +572,24 @@
                 :label-position="'top'"
                 size="mini">
                 <el-form-item label="Email">
-                  <el-input v-model="email">
+                  <el-input v-model="account.email">
                     <template slot="append">@edu.uwaterloo.com</template>
                   </el-input>
                 </el-form-item>
                 <el-form-item label="Password">
-                  <el-input v-model="password" type="password">
+                  <el-input v-model="account.password" type="password">
                   </el-input>
                 </el-form-item>
                 <el-form-item label="Confirm Password">
-                  <el-input v-model="passwordConfirmation" type="password">
+                  <el-input v-model="account.passwordConfirmation" type="password">
                   </el-input>
                 </el-form-item>
                 <el-form-item label="First Name">
-                  <el-input v-model="firstName">
+                  <el-input v-model="account.firstName">
                   </el-input>
                 </el-form-item>
                 <el-form-item label="Last Name">
-                  <el-input v-model="lastName">
+                  <el-input v-model="account.lastName">
                   </el-input>
                 </el-form-item>
                 <el-form-item>
@@ -611,47 +612,49 @@
     data() {
       return {
         signedIn: false,
-        email: '',
-        password: '',
-        passwordConfirmation: '',
-        firstName: '',
-        lastName: '',
-        program: '',
-        term: '',
-        graduationYear: '',
-        winterTerm: '',
-        buildTeamApplication: {
-          general: {
-            howHeard: '',
-            acknowledgeCommitment: false,
-            acknowledgeMedia: false,
-            interestVolunteer: false,
-            interestNonBuild: false,
-          },
-          technical: {
-            foci: [],
-            mainFocus: '',
-            whyFocus: '',
-            skills: [],
-            mainSkill: '',
-            whyMainSkill: '',
-            resume: '',
-            linkedin: '',
-            github: '',
-            otherURI: '',
-          },
-          inquiry: {
-            whyInterest: '',
-            timeLearnedSkill: '',
-            timeWorkedProject: '',
-            teachUsSomething: '',
-            otherInfo: '',
-          },
-          first: {
-            firstAlumnus: false,
-            teamNumber: '',
-            teamRole: '',
-            timeDealtStress: '',
+        account: {
+          email: '',
+          password: '',
+          passwordConfirmation: '',
+          firstName: '',
+          lastName: '',
+          program: '',
+          term: '',
+          graduationYear: '',
+          winterTerm: '',
+          buildTeamApplication: {
+            general: {
+              howHeard: '',
+              acknowledgeCommitment: false,
+              acknowledgeMedia: false,
+              interestVolunteer: false,
+              interestNonBuild: false,
+            },
+            technical: {
+              foci: [],
+              mainFocus: '',
+              whyFocus: '',
+              skills: [],
+              mainSkill: '',
+              whyMainSkill: '',
+              resume: '',
+              linkedin: '',
+              github: '',
+              otherURI: '',
+            },
+            inquiry: {
+              whyInterest: '',
+              timeLearnedSkill: '',
+              timeWorkedProject: '',
+              teachUsSomething: '',
+              otherInfo: '',
+            },
+            first: {
+              firstAlumnus: false,
+              teamNumber: '',
+              teamRole: '',
+              timeDealtStress: '',
+            },
           },
         },
       };
@@ -661,8 +664,9 @@
       this.$axios.setHeader('Accept', 'application/json');
       this.$axios.setHeader('Content-Type', 'application/json');
       this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
-
-      const signedIn = await app.$axios.$get('signedIn');
+      const account = await this.$axios.$get('getAccount').catch(this.signedIn = false);
+      this.signedIn = true;
+      this.account = account;
     },
 
     methods: {

@@ -1,6 +1,7 @@
 import express from 'express';
 import config from 'dotenv';
 import helmet from 'helmet';
+import cors from 'cors';
 import Logger from '../middleware/logger';
 import Auth from '../middleware/auth';
 import Data from '../data';
@@ -22,8 +23,8 @@ class App {
   mail;
 
   constructor() {
-    if (App.instance !== undefined) {
-      return App.instance;
+    if (this.instance !== undefined) {
+      return this.instance;
     }
 
     config.config();
@@ -35,23 +36,26 @@ class App {
 
     this.server = express();
 
-    this.server.use(helmet());
+    // this.server.use(helmet());
+
+    this.server.use(cors({origin: true, credentials: true}));
 
     this.logger = new Logger(production);
     this.server.use(this.logger.log());
 
     this.auth = new Auth(jwtSecret, jwtExpiry);
     this.server.use(this.auth.protectAllRoutesExcept([
-      '/api/signIn', '/api/signUp', '/api/signedIn'
+      '/api/signIn', '/api/signUp'
     ]));
     this.server.use(this.auth.handleAuthErrors());
     this.server.use('/api/signIn', this.auth.handleAuthRequests());
     this.server.use('/api/signUp', this.auth.handleAuthNew());
 
     this.data = new Data(production, dbURI);
+    this.server.use('/api/getAccount', this.data.handleGetAccount());
 
-    App.instance = this;
-    Object.freeze(App.instance);
+    this.instance = this;
+    Object.freeze(this.instance);
   }
 
   start() {

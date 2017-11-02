@@ -32,7 +32,7 @@ module.exports = {
 
   axios: {
     baseURL: 'http://localhost:3001/api',
-    browserBaseURL: '/api',
+    disableDefaultErrorHandler: true,
     proxyHeaders: false
   }
 };

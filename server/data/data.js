@@ -1,14 +1,20 @@
 import mongoose from 'mongoose';
-import Account from './models/account';
+import dataGetAccountHandler from './dataGetAccountHandler';
 
 class Data {
   production;
+
+  dataGetAccountHandler = dataGetAccountHandler;
 
   constructor(production, uri) {
     this.production;
 
     mongoose.connect(uri, {useMongoClient: true});
     mongoose.Promise = global.Promise;
+  }
+
+  handleGetAccount() {
+    return this.dataGetAccountHandler;
   }
 }
 
