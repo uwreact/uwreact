@@ -4,7 +4,7 @@ const dataUpdateAccountHandler = async (req, res, next) => {
   const account = req.body.account;
   const accounts = await Account.find({email: req.user.name}, (err, accounts) => accounts);
   if (accounts[0] !== undefined) {
-    if (account.email === acounts[0].email) {
+    if (account.email === accounts[0].email) {
       accounts[0].information = account.information;
       accounts[0].buildTeamApplication = account.buildTeamApplication;
       accounts[0].save();
