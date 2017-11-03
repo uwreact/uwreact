@@ -9,9 +9,11 @@
       active-text-color="#E4B429"
       class="nav-menu">
 
-      <el-menu-item index="home">
-        <img class="logo" src="~/assets/logos/uwri3d/logoWhiteHoriz.svg"/>
-      </el-menu-item>
+      <a href="/">
+        <el-menu-item index="home">
+          <img class="logo" src="~/assets/logos/uwri3d/logoWhiteHoriz.svg"/>
+        </el-menu-item>
+      </a>
       <div class="nav-right" v-if="screenSize >= 992">
         <el-menu-item index="apply">
           <el-button class="apply-button" round @click="signOut">
