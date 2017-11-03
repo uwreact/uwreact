@@ -31,7 +31,7 @@ const authRequestHandler = async (req, res, next) => {
 
           response = {type: 'success', message: 'Signed in!', token};
         } else {
-          response = {type: 'error', message: 'Account Unverified.'};
+          response = {type: 'error', message: 'Account Unverified. Please check your junk mail.'};
         }
       } else {
         response = {type: 'error', message: 'Credentials incorrect.'};

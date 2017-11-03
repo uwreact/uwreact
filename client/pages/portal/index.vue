@@ -716,7 +716,7 @@
                 validator: (rule, value, callback) => {
                   if (value === '') {
                     callback(new Error('Please input your email.'))
-                  } else if (value.match('[^A-Za-z\\d]')) {
+                  } else if (value.match('[^A-Za-z\\d\\.]')) {
                     callback(new Error('Please input a proper email.'));
                   } else {
                     callback();
