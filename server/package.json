@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": “1.0.0”,
+  "version": "1.0.1",
   "description": "UWRi3D Public Website and Application Portal Client",
   "main": "index.js",
   "author": "UWRi3D <admin@uwri3d.com>",
