@@ -351,6 +351,12 @@
             <img class="sponsor-image" src="~/assets/logos/sponsors/logoFirstCanada.png"/>
           </el-col>
         </el-row>
+        <br/>
+        <el-row>
+          <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 4}">
+            <img class="sponsor-image" src="~/assets/logos/sponsors/logoUWEngIdeasClinic.png"/>
+          </el-col>
+        </el-row>
       </div>
       <div class="grey-arrow">
         <div></div>
