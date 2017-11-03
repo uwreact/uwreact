@@ -2,7 +2,9 @@ import helmet from 'helmet';
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import jwtProtect from 'express-jwt';
+import {graphqlExpress, graphiqlExpress} from 'apollo-server-express';
 
+import schema from '../graphql';
 import logger from './logger';
 
 class Middleware {
@@ -14,13 +16,11 @@ class Middleware {
       credentials: true,
     }));
 
-    server.use(bodyParser.json());
+    server.use(jwtProtect({secret: process.env.JWT_SECRET}));
 
-    server.use(jwtProtect({secret: process.env.JWT_SECRET}).unless({
-      path: [
-        '/api/signIn', '/api/signUp', '/api/verify',
-      ],
-    }));
+    server.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
+    if (!(process.env.NODE_END === 'production'))
+      server.get('/graphiql', graphiqlExpress({endpointURL: 'graphql'}));
 
     server.use(logger());
   }
