@@ -1,6 +1,6 @@
 import {startsWith, toLower, times, random} from 'lodash';
 import bcrypt from 'bcrypt';
-import sgMail from '@sendgrid/mail';
+import request from 'request';
 import Account from '../../data/models/account';
 
 const authNewHandler = async (req, res, next) => {
@@ -67,12 +67,26 @@ const authNewHandler = async (req, res, next) => {
         });
         newUser.save();
 
-        sgMail.send({
-          to: `${email}@edu.uwaterloo.ca`,
-          from: 'admin@uwri3d.com',
-          subject: 'Verify UWRi3D account',
-          text: `Click this link to verify: https://uwri3d.com/api/verify?uri=${verify}`,
-        });
+        request.post({
+            url: 'https://api.sendgrid.com/v3/mail/send',
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${process.env.SENDGRID_API_KEY}`
+            },
+            json: true,
+            body: {
+              'personalizations': [{'to': [{'email': `${email}@edu.uwaterloo.ca`}]}],
+              'from': {'email': 'admin@uwri3d.com'},
+              'subject': 'Verify UWRi3D account',
+              'content': [{
+                'type': 'text/plain',
+                'value': `Click this link to verify: https://uwri3d.com/api/verify?uri=${verify}`
+              }]
+            }
+          },
+          (error, response, body) => {
+
+          });
 
         response = {type: 'success', message: 'Signed up! Confirm your email before signing in.'};
       } else {

@@ -2,7 +2,6 @@ import express from 'express';
 import config from 'dotenv';
 import helmet from 'helmet';
 import cors from 'cors';
-import sgMail from '@sendgrid/mail';
 import Logger from '../middleware/logger';
 import Auth from '../middleware/auth';
 import Data from '../data';
@@ -32,7 +31,6 @@ class App {
     const dbURI = process.env.DB_URI;
     const jwtSecret = process.env.JWT_SECRET;
     const jwtExpiry = process.env.JWT_EXPIRY;
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     this.server = express();
 
