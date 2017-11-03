@@ -1,6 +1,7 @@
 import express from 'express';
 import config from 'dotenv';
 import helmet from 'helmet';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 import Logger from '../middleware/logger';
 import Auth from '../middleware/auth';
@@ -37,6 +38,8 @@ class App {
     // this.server.use(helmet());
 
     this.server.use(cors({origin: true, credentials: true}));
+
+    this.server.use(bodyParser.json());
 
     this.logger = new Logger(production);
     this.server.use(this.logger.log());

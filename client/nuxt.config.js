@@ -31,6 +31,7 @@ module.exports = {
   ],
 
   axios: {
+    // baseURL: 'http://localhost:3001/api',
     baseURL: 'https://uwri3d.com/api',
     disableDefaultErrorHandler: true,
     proxyHeaders: false

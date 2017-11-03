@@ -857,14 +857,10 @@
         }
       },
       async uploadData() {
-        console.log('upload start');
         this.$axios.setHeader('Accept', 'application/json');
         this.$axios.setHeader('Content-Type', 'application/json');
-        this.$axios.setHeader('Payload', JSON.stringify({account: this.account}));
-        console.log('set payload');
         this.$axios.setToken(localStorage.getItem('jwt'), 'Bearer');
-        const response = await this.$axios.$get('updateAccount');
-        console.log(response);
+        const response = await this.$axios.$post('updateAccount', {account: this.account});
         if (response !== undefined) {
           if (response.token !== undefined) {
             localStorage.setItem('jwt', response.token);
