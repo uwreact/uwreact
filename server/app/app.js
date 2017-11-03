@@ -35,9 +35,9 @@ class App {
 
     this.server = express();
 
-    // this.server.use(helmet());
+    this.server.use(helmet());
 
-    this.server.use(cors({origin: true, credentials: true}));
+    this.server.use(cors({origin: production ? 'https://uwri3d.com/' : 'http://localhost:3000', credentials: true}));
 
     this.server.use(bodyParser.json());
 

@@ -7,9 +7,9 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build": "rimraf build/ && NODE_ENV=production webpack -p",
-    "dev": "rimraf build/ && NODE_ENV=development concurrently \"webpack --watch\" \"until [ -f build/index.js ]; do sleep 0.1; done && nodemon --watch build/index.js build/index.js\"",
-    "start": "node build/index.js"
+    "build": "rimraf .build/ && NODE_ENV=production webpack -p",
+    "dev": "rimraf .build/ && NODE_ENV=development concurrently \"webpack --watch\" \"until [ -f .build/index.js ]; do sleep 0.1; done && nodemon --watch .build/index.js .build/index.js\"",
+    "start": "node .build/index.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
