@@ -1,4 +1,4 @@
-import Account from './models/account';
+import Account from '../app/models/account';
 
 const dataGetAccountHandler = async (req, res, next) => {
   const accounts = await Account.find({email: req.user.name}, (err, accounts) => accounts);

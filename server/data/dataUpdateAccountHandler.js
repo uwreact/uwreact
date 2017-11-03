@@ -1,4 +1,4 @@
-import Account from './models/account';
+import Account from '../app/models/account';
 
 const dataUpdateAccountHandler = async (req, res, next) => {
   const account = req.body.account;

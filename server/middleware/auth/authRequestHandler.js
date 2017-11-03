@@ -4,7 +4,7 @@ import moment from 'moment';
 import jwt from 'jsonwebtoken';
 import App from '../../app';
 import Auth from './auth';
-import Account from '../../data/models/account';
+import Account from '../../app/models/account';
 
 const authRequestHandler = async (req, res, next) => {
   let response = {};

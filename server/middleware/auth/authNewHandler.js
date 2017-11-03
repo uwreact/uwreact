@@ -1,7 +1,7 @@
 import {startsWith, toLower, times, random} from 'lodash';
 import bcrypt from 'bcrypt';
 import request from 'request';
-import Account from '../../data/models/account';
+import Account from '../../app/models/account';
 
 const authNewHandler = async (req, res, next) => {
   let response = {};

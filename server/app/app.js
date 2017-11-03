@@ -1,59 +1,39 @@
+import env from 'dotenv';
 import express from 'express';
-import config from 'dotenv';
-import helmet from 'helmet';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import Logger from '../middleware/logger';
+
+import Middleware from './middleware';
 import Auth from '../middleware/auth';
 import Data from '../data';
 
 class App {
   instance;
-
-  port;
-
   server;
-
-  logger;
+  middleware;
 
   auth;
 
   data;
-
 
   constructor() {
     if (this.instance !== undefined) {
       return this.instance;
     }
 
-    config.config();
-    this.port = process.env.PORT;
-    const production = (process.env.NODE_ENV === 'production');
-    const dbURI = process.env.DB_URI;
-    const jwtSecret = process.env.JWT_SECRET;
-    const jwtExpiry = process.env.JWT_EXPIRY;
+    env.config();
 
     this.server = express();
 
-    this.server.use(helmet());
+    this.middleware = new Middleware();
 
-    this.server.use(cors({origin: production ? 'https://uwri3d.com/' : 'http://localhost:3000', credentials: true}));
+    this.middleware.bind(this.server);
 
-    this.server.use(bodyParser.json());
-
-    this.logger = new Logger(production);
-    this.server.use(this.logger.log());
-
-    this.auth = new Auth(jwtSecret, jwtExpiry);
-    this.server.use(this.auth.protectAllRoutesExcept([
-      '/api/signIn', '/api/signUp', '/api/verify',
-    ]));
+    this.auth = new Auth(process.env.JWT_SECRET, process.env.JWT_EXPIRY);
     this.server.use(this.auth.handleAuthErrors());
     this.server.use('/api/signIn', this.auth.handleAuthRequests());
     this.server.use('/api/signUp', this.auth.handleAuthNew());
     this.server.use('/api/verify', this.auth.handleAuthVerify());
 
-    this.data = new Data(production, dbURI);
+    this.data = new Data(process.env.NODE_ENV === 'production', process.env.DB_URI);
     this.server.use('/api/getAccount', this.data.handleGetAccount());
     this.server.use('/api/updateAccount', this.data.handleUpdateAccount());
 
@@ -62,7 +42,7 @@ class App {
   }
 
   start() {
-    this.server.listen(this.port);
+    this.server.listen(process.env.PORT);
   }
 }
 

@@ -1,11 +1,10 @@
 import jwt from 'jsonwebtoken';
-import jwtProtect from 'express-jwt';
 import bcrypt from 'bcrypt';
 import authErrorHandler from './authErrorHandler';
 import authRequestHandler from './authRequestHandler';
 import authNewHandler from './authNewHandler';
 import authVerifyHandler from './authVerifyHandler';
-import Account from '../../data/models/account';
+import Account from '../../app/models/account';
 
 class Auth {
   secret;
@@ -35,10 +34,6 @@ class Auth {
         }
       });
     });
-  }
-
-  protectAllRoutesExcept(pathsToExclude) {
-    return jwtProtect({secret: this.secret}).unless({path: pathsToExclude});
   }
 
   handleAuthErrors() {
