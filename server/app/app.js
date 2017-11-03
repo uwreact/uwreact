@@ -24,7 +24,6 @@ class App {
     this.server = express();
 
     this.middleware = new Middleware();
-
     this.middleware.bind(this.server);
 
     this.auth = new Auth(process.env.JWT_SECRET, process.env.JWT_EXPIRY);
