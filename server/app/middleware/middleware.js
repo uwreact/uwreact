@@ -16,13 +16,14 @@ class Middleware {
       credentials: true,
     }));
 
-    server.use(jwtProtect({secret: process.env.JWT_SECRET}));
+    // server.use(jwtProtect({secret: process.env.JWT_SECRET}));
 
     server.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
     if (!(process.env.NODE_END === 'production'))
       server.get('/graphiql', graphiqlExpress({endpointURL: 'graphql'}));
 
     server.use(logger());
+    server
   }
 }
 
