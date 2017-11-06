@@ -43,7 +43,7 @@
                     size="mini">
                     <el-form-item label="Email">
                       <el-input v-model="account.email" :disabled="true">
-                        <template slot="append">@edu.uwaterloo.com</template>
+                        <template slot="append">@edu.uwaterloo.ca</template>
                       </el-input>
                     </el-form-item>
                     <el-form-item label="First Name" :disabled="true">
@@ -574,7 +574,7 @@
                   size="mini">
                   <el-form-item label="Email">
                     <el-input v-model="signIn.email" :maxlength="128">
-                      <template slot="append">@edu.uwaterloo.com</template>
+                      <template slot="append">@edu.uwaterloo.ca</template>
                     </el-input>
                   </el-form-item>
                   <el-form-item label="Password">
@@ -613,7 +613,7 @@
                 size="mini">
                 <el-form-item label="Email" prop="email">
                   <el-input v-model="signUp.email" :maxlength="128">
-                    <template slot="append">@edu.uwaterloo.com</template>
+                    <template slot="append">@edu.uwaterloo.ca</template>
                   </el-input>
                 </el-form-item>
                 <el-form-item label="Password" prop="password">
