@@ -8,7 +8,8 @@
     "scripts": {
         "build": "concurrently \"cd server && yarn build\" \"cd client && yarn build\"",
         "dev": "concurrently \"cd server && yarn dev\" \"cd client && yarn dev\"",
-        "start": "concurrently \"cd server && yarn start\" \"cd client && yarn start\""
+        "start": "concurrently \"cd server && yarn start\" \"cd client && yarn start\"",
+        "up": "concurrently \"cd server && yarn\" \"cd client && yarn\""
     },
     "devDependencies": {
         "concurrently": "^3.5.0"
