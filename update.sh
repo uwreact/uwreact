@@ -1,6 +1,6 @@
-pm2 stop client.uwri3d.com
-pm2 stop server.uwri3d.com
+pm2 stop uwri3d.com/client
+pm2 stop uwri3d.com/server
 git pull
 yarn build
-pm2 restart client.uwri3d.com
-pm2 restart server.uwri3d.com
+pm2 restart uwri3d.com/client
+pm2 restart uwri3d.com/server
