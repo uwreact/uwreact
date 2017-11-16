@@ -338,7 +338,7 @@
                       </el-radio-group>
                     </el-form-item>
                     <el-form-item label="Why would you like to focus on this?">
-                      {{1000 - account.buildTeamApplication.technical.whyFocus.length}} characters remaining
+                      {{1000 - account.buildTeamApplication.technical.whyFocus.length}} maximum characters remaining, but not required. 500 characters recommended.
                       <el-input
                         type="textarea"
                         :autosize="{ minRows: 4 }"
@@ -392,7 +392,7 @@
                       </el-radio-group>
                     </el-form-item>
                     <el-form-item label="Why do you consider this your main skill?">
-                      {{1000 - account.buildTeamApplication.technical.whyMainSkill.length}} characters remaining
+                      {{1000 - account.buildTeamApplication.technical.whyMainSkill.length}} maximum characters remaining, but not required. 500 characters recommended.
                       <el-input
                         v-model="account.buildTeamApplication.technical.whyMainSkill"
                         type="textarea"
@@ -439,7 +439,7 @@
                     size="mini">
                     <el-form-item
                       label="Why are you interested in joining the Robot in 3 Days team at the university of Waterloo?">
-                      {{1000 - account.buildTeamApplication.inquiry.whyInterest.length}} characters remaining
+                      {{1000 - account.buildTeamApplication.inquiry.whyInterest.length}} maximum characters remaining, but not required. 500 characters recommended.
                       <el-input
                         v-model="account.buildTeamApplication.inquiry.whyInterest"
                         type="textarea"
@@ -450,7 +450,7 @@
                     </el-form-item>
                     <el-form-item
                       label="Tell us about a time you learned a new skill. It doesn't have to be a technical skill! Who taught you? What were you doing? Why did you learn? How have you used it since then?">
-                      {{2000 - account.buildTeamApplication.inquiry.timeLearnedSkill.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.inquiry.timeLearnedSkill.length}} maximum characters remaining, but not required. 1000 characters recommended.
                       <el-input
                         v-model="account.buildTeamApplication.inquiry.timeLearnedSkill"
                         type="textarea"
@@ -461,7 +461,7 @@
                     </el-form-item>
                     <el-form-item
                       label="Tell us about a project you've worked on in the past 6 months. It doesn't have to be technical project! What were you working on? Why were you working on it? How did it end up?">
-                      {{2000 - account.buildTeamApplication.inquiry.timeWorkedProject.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.inquiry.timeWorkedProject.length}} maximum characters remaining, but not required. 1000 characters recommended.
                       <el-input
                         v-model="account.buildTeamApplication.inquiry.timeWorkedProject"
                         type="textarea"
@@ -472,7 +472,7 @@
                     </el-form-item>
                     <el-form-item
                       label="Teach us something new. It can be anything!">
-                      {{2000 - account.buildTeamApplication.inquiry.teachUsSomething.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.inquiry.teachUsSomething.length}} maximum characters remaining, but not required. 1000 characters recommended.
                       <el-input
                         v-model="account.buildTeamApplication.inquiry.teachUsSomething"
                         type="textarea"
@@ -511,7 +511,7 @@
                     </el-form-item>
                     <el-form-item
                       label="Tell us about a time you managed a stressful situation during a FIRST Robotics Competition tournament. What happened? Why was it stressful? How did you manage it?">
-                      {{2000 - account.buildTeamApplication.first.timeDealtStress.length}} characters remaining
+                      {{2000 - account.buildTeamApplication.first.timeDealtStress.length}} maximum characters remaining, but not required. 1000 characters recommended.
                       <el-input
                         v-model="account.buildTeamApplication.first.timeDealtStress"
                         type="textarea"
