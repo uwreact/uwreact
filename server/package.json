@@ -1,7 +1,7 @@
 {
-  "name": "server",
-  "version": "1.0.3",
-  "description": "UWRi3D Public Website and Application Portal Client",
+  "name": "uwri3d.com/server",
+  "version": "1.0.4",
+  "description": "UWRi3D Public Website and Application Portal Server",
   "main": "index.js",
   "author": "UWRi3D <admin@uwri3d.com>",
   "license": "UNLICENSED",
