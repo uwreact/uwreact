@@ -1,5 +1,5 @@
 {
-  "name": "uwri3d.com/server",
+  "name": "uwri3d.com-server",
   "version": "1.0.5",
   "description": "UWRi3D Public Website and Application Portal Server",
   "main": "index.js",
