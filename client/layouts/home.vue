@@ -27,13 +27,6 @@
         <a href="#contact" v-scroll-to="'#contact'">
           <el-menu-item index="contact">Contact</el-menu-item>
         </a>
-        <a href="/portal">
-          <el-menu-item index="apply">
-            <el-button class="apply-button" round>
-              APPLY NOW
-            </el-button>
-          </el-menu-item>
-        </a>
       </div>
       <div class="nav-right" v-if="screenSize > 0 && screenSize < 992">
         <el-submenu class="submenu" index="submenu">
@@ -49,11 +42,6 @@
           </a>
           <a href="#contact" v-scroll-to="'#contact'">
             <el-menu-item index="contact-sub">Contact</el-menu-item>
-          </a>
-          <a href="/portal">
-            <el-menu-item index="apply-sub">
-              Apply Now
-            </el-menu-item>
           </a>
         </el-submenu>
       </div>
