@@ -1,0 +1,16 @@
+{
+  "schema": {
+    "file": "api/schema.graphql"
+  },
+  "endpoints": [
+    {
+      "name": "http://localhost:3001/graphql",
+      "url": "http://localhost:3001/graphql",
+      "options": {
+        "headers": {
+          "user-agent": "JS GraphQL"
+        }
+      }
+    }
+  ]
+}

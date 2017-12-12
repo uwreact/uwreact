@@ -6,29 +6,28 @@ const babelCore = require('babel-core');
 const config = require('dotenv');
 
 const wallabyConfig = (wallaby) => {
-  process.env.NODE_PATH += path.delimiter + path.join(__dirname, 'node_modules') + path.delimiter + path.join(__dirname, 'node_modules/react-scripts/node_modules');
+  process.env.NODE_PATH += path.delimiter + path.join(__dirname, 'node_modules') + path.delimiter
+    + path.join(__dirname, 'node_modules/react-scripts/node_modules');
 
-  mod
-    .Module
-    ._initPaths();
+  mod.Module._initPaths();
 
   config.config();
   process.env.NODE_ENV = 'development';
 
   return {
     files: [
-      'src/**/*.js', '!src/**/*.test.js'
+      'src/**/*.js', '!src/**/*.test.js',
     ],
 
     tests: ['src/**/*.test.js'],
 
     env: {
       type: 'node',
-      runner: 'node'
+      runner: 'node',
     },
 
     workers: {
-      recycle: true
+      recycle: true,
     },
 
     compilers: {
@@ -37,13 +36,13 @@ const wallabyConfig = (wallaby) => {
         .babel({
           babel: babelCore,
           plugins: [
-            'transform-runtime', 'lodash'
+            'transform-runtime', 'lodash',
           ],
-          presets: ['es2015', 'stage-0']
-        })
+          presets: ['es2015', 'stage-0'],
+        }),
     },
 
-    testFramework: 'jest'
+    testFramework: 'jest',
   };
 };
 

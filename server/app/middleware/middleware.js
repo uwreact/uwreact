@@ -1,29 +1,39 @@
 import helmet from 'helmet';
-import cors from 'cors'
+import cors from 'cors';
 import bodyParser from 'body-parser';
-import jwtProtect from 'express-jwt';
-import {graphqlExpress, graphiqlExpress} from 'apollo-server-express';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 
-import schema from '../graphql';
 import logger from './logger';
 
 class Middleware {
-  bind(server) {
-    server.use(helmet());
+  helmet;
+  cors;
+  graphql;
+  graphiql;
+  logger;
 
-    server.use(cors({
+  constructor() {
+    this.helmet = helmet();
+    this.cors = cors({
       origin: process.env.NODE_ENV === 'production' ? 'https://uwri3d.com/' : 'http://localhost:3000',
       credentials: true,
-    }));
+    });
+    // this.graphql = graphqlExpress({ schema });
+    // this.graphiql = graphiqlExpress({ endpointURL: 'graphql' });
+    this.logger = logger();
+  }
 
-    // server.use(jwtProtect({secret: process.env.JWT_SECRET}));
+  bind(server) {
+    server.use(this.helmet);
 
-    server.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
-    if (!(process.env.NODE_END === 'production'))
-      server.get('/graphiql', graphiqlExpress({endpointURL: 'graphql'}));
+    server.use(this.cors);
 
-    server.use(logger());
-    server
+    // server.use('/graphql', bodyParser.json(), this.graphql);
+    // if (!(process.env.NODE_ENV === 'production')) {
+    //   server.get('/graphiql', this.graphiql);
+    // }
+
+    server.use(this.logger);
   }
 }
 
