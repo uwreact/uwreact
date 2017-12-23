@@ -1,39 +1,31 @@
 module.exports = {
   head: {
-    title: 'UWRi3D',
+    title: 'Robot in 3 Days at the University of Waterloo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'UWRi3D' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'We build FIRST robots in 3 days at the University of Waterloo.',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,700' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,700' },
     ],
-    script: [
-      { src: 'https://use.fontawesome.com/f9245cfd63.js' }
-    ]
   },
 
   loading: { color: '#e4b429' },
 
   build: {
-    analyze: false,
-    vendor: ['element-ui']
+    vendor: ['element-ui'],
   },
 
-  plugins: ['~plugins/element-ui'],
-
-  css: ['element-ui/lib/theme-chalk/index.css'],
-
-  modules: [
-    '@nuxtjs/axios'
+  plugins: [
+    { src: '~plugins/element-ui' },
+    { src: '~plugins/vuex-persistedstate.js', ssr: false },
   ],
 
-  axios: {
-    baseURL: 'http://localhost:3001/api',
-    // baseURL: 'https://uwri3d.com/api',
-    disableDefaultErrorHandler: true,
-    proxyHeaders: false
-  }
+  css: ['element-ui/lib/theme-chalk/index.css'],
 };
