@@ -1,23 +1,27 @@
 {
   "name": "uwri3d.com-server",
-  "version": "1.0.6",
+  "version": "1.0.5",
   "description": "UWRi3D Public Website and Application Portal Server",
   "main": "index.js",
   "author": "UWRi3D <admin@uwri3d.com>",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build": "rimraf build/ && NODE_ENV=production webpack -p",
-    "dev": "rimraf build/ && NODE_ENV=development concurrently \"webpack --watch\" \"until [ -f build/index.js ]; do sleep 0.1; done && nodemon --watch build/index.js build/index.js\"",
-    "start": "node build/index.js"
+    "build": "rimraf .build/ && NODE_ENV=production webpack -p",
+    "dev": "rimraf .build/ && NODE_ENV=development concurrently \"webpack --watch\" \"until [ -f .build/index.js ]; do sleep 0.1; done && nodemon --watch .build/index.js .build/index.js\"",
+    "start": "node .build/index.js"
   },
   "dependencies": {
+    "apollo-server-express": "^1.2.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
+    "cas": "https://github.com/kcbanner/node-cas",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.15.4",
     "express-jwt": "^5.3.0",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.13.0",
     "helmet": "^3.8.1",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",

@@ -5,8 +5,7 @@ const fs = require('fs');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const nodeModules = {};
-fs
-  .readdirSync('node_modules')
+fs.readdirSync('node_modules')
   .filter(x => ['.bin'].indexOf(x) === -1)
   .forEach((mod) => {
     nodeModules[mod] = `commonjs ${mod}`;
@@ -15,25 +14,25 @@ fs
 module.exports = {
   target: 'node',
   node: {
-    __dirname: false
+    __dirname: false,
   },
   entry: [
     './index.js', ...(process.env.NODE_ENV === 'production'
       ? []
-      : ['webpack/hot/poll'])
+      : ['webpack/hot/poll']),
   ],
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'index.js'
+    path: path.join(__dirname, '.build'),
+    filename: 'index.js',
   },
   externals: nodeModules,
   plugins: [
     new webpack.IgnorePlugin(/\.(css|scss)$/),
-    new webpack.BannerPlugin({banner: 'require("source-map-support").install();', raw: true, entryOnly: false}),
+    new webpack.BannerPlugin({ banner: 'require("source-map-support").install();', raw: true, entryOnly: false }),
     new LodashModuleReplacementPlugin(),
     ...(process.env.NODE_ENV === 'production'
       ? []
-      : [new webpack.HotModuleReplacementPlugin()])
+      : [new webpack.HotModuleReplacementPlugin()]),
   ],
   devtool: 'source-map',
   module: {
@@ -45,12 +44,16 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             plugins: [
-              'transform-runtime', 'lodash'
+              'transform-runtime', 'lodash',
             ],
-            presets: ['es2015', 'stage-0']
-          }
-        }
-      }
-    ]
-  }
+            presets: ['es2015', 'stage-0'],
+          },
+        },
+      },
+      {
+        test: /\.gql$/,
+        use: 'raw-loader',
+      },
+    ],
+  },
 };
