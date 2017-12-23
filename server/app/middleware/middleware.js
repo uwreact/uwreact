@@ -1,16 +1,12 @@
 import helmet from 'helmet';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 
-import schema from '../api/schema';
 import logger from './logger';
 
 class Middleware {
   helmet;
   cors;
-  graphql;
-  graphiql;
   logger;
 
   constructor() {
@@ -19,8 +15,6 @@ class Middleware {
       origin: process.env.NODE_ENV === 'production' ? 'https://uwri3d.com/' : 'http://localhost:3000',
       credentials: true,
     });
-    this.graphql = graphqlExpress({ schema });
-    this.graphiql = graphiqlExpress({ endpointURL: 'graphql' });
     this.logger = logger();
   }
 
@@ -28,11 +22,6 @@ class Middleware {
     server.use(this.helmet);
 
     server.use(this.cors);
-
-    server.use('/graphql', bodyParser.json(), this.graphql);
-    if (!(process.env.NODE_ENV === 'production')) {
-      server.get('/graphiql', this.graphiql);
-    }
 
     server.use(this.logger);
   }
