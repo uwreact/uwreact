@@ -1,6 +1,6 @@
 module.exports = {
   head: {
-    title: 'Robot in 3 Days at the University of Waterloo',
+    title: 'UWRi3D | Robot in 3 Days at the University of Waterloo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

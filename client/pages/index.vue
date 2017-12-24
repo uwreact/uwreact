@@ -345,16 +345,16 @@
         <br/>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 4}">
-            <img class="sponsor-image" src="~/assets/logos/sponsors/logoUWEng.png"/>
+            <img class="sponsor-image" src="~/assets/home/sponsors/logoUWEng.png"/>
           </el-col>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 2}">
-            <img class="sponsor-image" src="~/assets/logos/sponsors/logoFirstCanada.png"/>
+            <img class="sponsor-image" src="~/assets/home/sponsors/logoFirstCanada.png"/>
           </el-col>
         </el-row>
         <br/>
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 7, offset: 4}">
-            <img class="sponsor-image" src="~/assets/logos/sponsors/logoUWEngIdeasClinic.png"/>
+            <img class="sponsor-image" src="~/assets/home/sponsors/logoUWEngIdeasClinic.png"/>
           </el-col>
         </el-row>
       </div>
