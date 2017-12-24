@@ -15,7 +15,7 @@
             </p>
             <div class="hero-yellow-line"></div>
             <p class="hero-date">January 6 - 9, 2018</p>
-            <p class="hero-applications">Build begins in
+            <p class="hero-applications">Kickoff begins in
               <countdown date="2018-01-06T06:00:00Z"></countdown>
             </p>
           </div>
