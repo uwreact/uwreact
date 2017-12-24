@@ -4,7 +4,6 @@
 
 <script>
   export default {
-    name: "mobile-menu-item",
   }
 </script>
 

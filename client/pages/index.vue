@@ -15,7 +15,9 @@
             </p>
             <div class="hero-yellow-line"></div>
             <p class="hero-date">January 6 - 9, 2018</p>
-            <p class="hero-applications">Further results released December 13, 2017</p>
+            <p class="hero-applications">Build begins in
+              <countdown date="2018-01-06T06:00:00Z"></countdown>
+            </p>
           </div>
         </el-col>
       </el-row>
@@ -53,7 +55,8 @@
             </p>
             <p class="about-buzz-desc">
               For many University of Waterloo students, FIRST Robotics was a high school lifestyle. Entering university,
-              many FIRST alumni search for a way to stay engaged in the FRC community. Through alumni groups and volunteering
+              many FIRST alumni search for a way to stay engaged in the FRC community. Through alumni groups and
+              volunteering
               at local events, they are able to continue their passion for robotics throughout their university careers.
               However, these events lack the same intense experience as the authentic FIRST Robotics Competition. With
               Robot in 3 Days, alumni have the opportunity to experience the vigorous joys of FIRST all over again.
@@ -77,7 +80,8 @@
               Across the world, FIRST Robotics Competition teams look towards Robot in 3 Days builds to spawn ideas,
               survey designs, and review their own plans. By live streaming both teams throughout the 72-hour challenge,
               UWRi3D aspires to educate high school students on programming webcasts, vision solutions, design sprints,
-              detailed sensor breakdowns, mechanical and electrical systems, and the true nature of team work and perseverance
+              detailed sensor breakdowns, mechanical and electrical systems, and the true nature of team work and
+              perseverance
               in order to provide FRC members with a plethora of resources as they enter build season.
             </p>
           </el-col>
@@ -98,7 +102,8 @@
               UWRi3D proudly carries a similar mantra. In higher education, students have the resources they need to
               think and create the inventions that will shape our future. We help inspire students on campus to take the
               skills they learn through Robot in 3 Days and apply them in undiscovered fields of science and technology.
-              Through our live stream, we aim to inspire enthusiasm for hard work and intensive innovation on an international
+              Through our live stream, we aim to inspire enthusiasm for hard work and intensive innovation on an
+              international
               scale.
             </p>
           </el-col>
@@ -120,7 +125,8 @@
             <p>
               Thanks to our sponsors, we have the privilege of hosting <b>two</b>
               Robot in 3 Days teams at the University
-              of Waterloo in 2018. More details about the build teams will be released throughout the application process
+              of Waterloo in 2018. More details about the build teams will be released throughout the application
+              process
               as the selections are made.
             </p>
           </el-col>
@@ -174,7 +180,8 @@
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
             <p class="team-applications">
-              We are recruiting for our 2018 build teams! FIRST Alumni or not, as a University of Waterloo student, you can
+              We are recruiting for our 2018 build teams! FIRST Alumni or not, as a University of Waterloo student, you
+              can
               join the Robot in 3 Days team and experience one of the most exciting engineering design challenges in the
               world. There are 60 positions available, and all students are welcome!
             </p>
@@ -247,9 +254,12 @@
                       </p>
                     </template>
                     <p class="accordion-answer">
-                      Prior to the build season, regular meetings will help bring the team up to speed with goals following
-                      kickoff. From January 6 to 9, the build teams will be in the Sedra Student Design Centre for 72 hours
-                      straight completing the Robot in 3 Days challenge. Food will be provided throughout the event to all
+                      Prior to the build season, regular meetings will help bring the team up to speed with goals
+                      following
+                      kickoff. From January 6 to 9, the build teams will be in the Sedra Student Design Centre for 72
+                      hours
+                      straight completing the Robot in 3 Days challenge. Food will be provided throughout the event to
+                      all
                       build team members. Following the build season, the team will meet sparsely to prepare for next
                       year’s challenge.
                     </p>
@@ -262,7 +272,8 @@
                       </p>
                     </template>
                     <p class="accordion-answer">
-                      Any undergraduate or graduate students currently enrolled at the University of Waterloo are welcome
+                      Any undergraduate or graduate students currently enrolled at the University of Waterloo are
+                      welcome
                       to apply to join the Robot in 3 Days team, regardless of faculty.
                     </p>
                   </el-collapse-item>
@@ -274,9 +285,12 @@
                       </p>
                     </template>
                     <p class="accordion-answer">
-                      Of course! In fact, a limited number of positions are being made available specifically for students
-                      who are not FIRST alumni and/or do not have any previous technical experience. Holding steadfast to
-                      our mission statement, we are here to inspire science and technology leaders and innovators, and are
+                      Of course! In fact, a limited number of positions are being made available specifically for
+                      students
+                      who are not FIRST alumni and/or do not have any previous technical experience. Holding steadfast
+                      to
+                      our mission statement, we are here to inspire science and technology leaders and innovators, and
+                      are
                       always on the look out for enthusiastic and curious individuals above all else.
                     </p>
                   </el-collapse-item>
@@ -290,7 +304,8 @@
                     <p class="accordion-answer">
                       Yes, but you <b>must</b>
                       be on campus for an absolute minimum of the 3 build days from January 6 - 8.
-                      If you are on a work term, you must push back your co-op start dates so that you can attend on these
+                      If you are on a work term, you must push back your co-op start dates so that you can attend on
+                      these
                       days.
                     </p>
                   </el-collapse-item>
@@ -387,18 +402,20 @@
 
 <script>
   import ArrowSection from '../components/ArrowSection'
+  import Countdown from '../components/Countdown'
 
   export default {
     layout: 'home',
 
     components: {
       ArrowSection,
+      Countdown,
     },
 
     data() {
       return {
         elsieVisible: false,
-        elijahVisible: false
+        elijahVisible: false,
       };
     },
   }
