@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="hero" id="home">
+    <arrow-section backgroundColor="#444444" nextColor="#d5d5d3" id="home">
       <el-row>
         <el-col :sm="24" :md="12">
           <img class="hero-logo" src="~/assets/home/hero/heroLogo.jpg"/>
@@ -19,12 +19,9 @@
           </div>
         </el-col>
       </el-row>
-      <div class="dark-grey-arrow">
-        <div></div>
-      </div>
-    </div>
+    </arrow-section>
 
-    <div class="body about" id="about">
+    <arrow-section backgroundColor="#d5d5d3" nextColor="#ffffff" id="about">
       <div class="body-text">
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
@@ -107,12 +104,9 @@
           </el-col>
         </el-row>
       </div>
-      <div class="grey-arrow">
-        <div></div>
-      </div>
-    </div>
+    </arrow-section>
 
-    <div class="body teams" id="teams">
+    <arrow-section backgroundColor="#ffffff" nextColor="#d5d5d3" id="teams">
       <div class="body-text">
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
@@ -319,12 +313,9 @@
           </el-col>
         </el-row>
       </div>
-      <div class="white-arrow">
-        <div></div>
-      </div>
-    </div>
+    </arrow-section>
 
-    <div class="body sponsors" id="sponsors">
+    <arrow-section backgroundColor="#d5d5d3" nextColor="#ffffff" id="sponsors">
       <div class="body-text">
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
@@ -358,12 +349,9 @@
           </el-col>
         </el-row>
       </div>
-      <div class="grey-arrow">
-        <div></div>
-      </div>
-    </div>
+    </arrow-section>
 
-    <div class="body contact" id="contact">
+    <arrow-section backgroundColor="#ffffff" nextColor="#e4b429" id="contact">
       <div class="body-text">
         <el-row>
           <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
@@ -377,22 +365,19 @@
           </el-col>
         </el-row>
       </div>
-      <div class="yellow-arrow">
-        <div></div>
-      </div>
-    </div>
+    </arrow-section>
 
     <div class="footer">
       <el-row>
         <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
           <div class="footer-row">
-            <!--<a href="mailto:hello@uwri3d.com/"><i class="footer-icon fa fa-envelope fa-lg"></i></a>-->
+            <a href="mailto:hello@uwri3d.com/"><i class="footer-icon fa fa-envelope fa-lg"></i></a>
             <a href="https://github.com/uwri3d"><i class="footer-icon fa fa-github fa-lg"></i></a>
             <a href="https://fb.me/uwri3d"><i class="footer-icon fa fa-facebook fa-lg"></i></a>
             <a href="https://twitter.com/uwri3d"><i class="footer-icon fa fa-twitter fa-lg"></i></a>
             <a href="https://instagram.com/uwri3d"><i class="footer-icon fa fa-instagram fa-lg"></i></a>
             <a href="https://goo.gl/ns5r5g"><i class="footer-icon fa fa-youtube-play fa-lg"></i></a>
-            <!--<a href="https://www.flickr.com/people/140193081@N06/"><i class="footer-icon fa fa-flickr fa-lg"></i></a>-->
+            <a href="https://www.flickr.com/people/140193081@N06/"><i class="footer-icon fa fa-flickr fa-lg"></i></a>
           </div>
         </el-col>
       </el-row>
@@ -401,8 +386,14 @@
 </template>
 
 <script>
+  import ArrowSection from '../components/ArrowSection'
+
   export default {
     layout: 'home',
+
+    components: {
+      ArrowSection,
+    },
 
     data() {
       return {
@@ -421,11 +412,6 @@
     left: 0px;
     right: 0px;
     overflow: auto;
-  }
-
-  .hero {
-    width: 100%;
-    background-color: #444444;
   }
 
   .hero-logo {
@@ -471,14 +457,6 @@
   .hero-applications {
     font-size: 16px;
     font-weight: 300;
-  }
-
-  .about {
-    background-color: #d5d5d3;
-  }
-
-  .body {
-    width: 100%;
   }
 
   .body-text {
@@ -595,17 +573,9 @@
     font-size: 15px;
   }
 
-  .sponsors {
-    background-color: #d5d5d3;
-  }
-
   .sponsor-image {
     padding: 2%;
     width: 100%;
-  }
-
-  .contact {
-    background-color: #ffffff;
   }
 
   .footer {
@@ -631,94 +601,6 @@
   .footer-icon {
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-  .dark-grey-arrow {
-    width: 100%;
-    height: 0;
-    padding-left: 50%;
-    padding-top: 10%;
-    overflow: hidden;
-  }
-
-  .dark-grey-arrow div {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    margin-left: -10000px;
-    margin-top: -2000px;
-
-    border-left: 10000px solid transparent;
-    border-right: 10000px solid transparent;
-    border-top: 2000px solid #444444;
-    background-color: #d5d5d3;
-  }
-
-  .grey-arrow {
-    width: 100%;
-    height: 0;
-    padding-left: 50%;
-    padding-top: 10%;
-    overflow: hidden;
-  }
-
-  .grey-arrow div {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    margin-left: -10000px;
-    margin-top: -2000px;
-
-    border-left: 10000px solid transparent;
-    border-right: 10000px solid transparent;
-    border-top: 2000px solid #d5d5d3;
-    background-color: #ffffff;
-  }
-
-  .white-arrow {
-    width: 100%;
-    height: 0;
-    padding-left: 50%;
-    padding-top: 10%;
-    overflow: hidden;
-  }
-
-  .white-arrow div {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    margin-left: -10000px;
-    margin-top: -2000px;
-
-    border-left: 10000px solid transparent;
-    border-right: 10000px solid transparent;
-    border-top: 2000px solid #ffffff;
-    background-color: #d5d5d3;
-  }
-
-  .yellow-arrow {
-    width: 100%;
-    height: 0;
-    padding-left: 50%;
-    padding-top: 10%;
-    overflow: hidden;
-  }
-
-  .yellow-arrow div {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    margin-left: -10000px;
-    margin-top: -2000px;
-
-    border-left: 10000px solid transparent;
-    border-right: 10000px solid transparent;
-    border-top: 2000px solid #ffffff;
-    background-color: #e4b429;
   }
 
   @media all and (max-width: 568px) {
