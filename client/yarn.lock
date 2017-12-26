@@ -2,13 +2,9 @@
 # yarn lockfile v1
 
 
-"@fortawesome/fontawesome@^1.1.0":
-  version "1.1.0"
-  resolved "https://npm.fontawesome.com/6B95FF45-CEEE-4074-9175-DD63F8CBDD5E/@fortawesome/fontawesome/-/fontawesome-1.1.0.tgz#2a949fa46d96e41092e67218b42579f8e54c7b7f"
-
-"@fortawesome/vue-fontawesome@^0.0.22":
-  version "0.0.22"
-  resolved "https://npm.fontawesome.com/6B95FF45-CEEE-4074-9175-DD63F8CBDD5E/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.0.22.tgz#720457bda0e5866265e5e0f8fe4fbd857fa5653f"
+"@fortawesome/fontawesome-free-webfonts@^1.0.1":
+  version "1.0.1"
+  resolved "https://npm.fontawesome.com/6B95FF45-CEEE-4074-9175-DD63F8CBDD5E/@fortawesome/fontawesome-free-webfonts/-/fontawesome-free-webfonts-1.0.1.tgz#29728c7edcb62148febadc4e00a2a032e246fcf8"
 
 "@nuxtjs/youch@3.0.2":
   version "3.0.2"

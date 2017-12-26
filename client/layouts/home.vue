@@ -28,6 +28,7 @@
       HeaderMenu,
       HeaderMenuItem,
     },
+
     data() {
       return {
         screenSize: -1,
@@ -86,4 +87,28 @@
   .logo {
     width: 200px;
   }
-</style>
+
+  .footer {
+    width: 100%;
+    height: 60px;
+    color: #ffffff;
+    background-color: #e4b429;
+  }
+
+  .footer a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .footer-row {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-icon {
+    padding-left: 16px;
+    padding-right: 16px;
+  }</style>

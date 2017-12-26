@@ -4,6 +4,11 @@
 
 <script>
   export default {
+    props: {
+      date: {
+        type: String,
+      }
+    },
     computed: {
       usableDate() {
         return Math.trunc(Date.parse(this.date) / 1000)
@@ -31,7 +36,7 @@
         if (number < 10) {
           return '0' + number;
         }
-          return number;
+        return number;
       },
     },
     mounted() {
@@ -39,7 +44,6 @@
         this.now = Math.trunc((new Date()).getTime() / 1000)
       }, 1000)
     },
-    props: ['date', 'units'],
   }
 </script>
 
