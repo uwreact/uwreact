@@ -28,12 +28,11 @@
 
 <style scoped>
   .menu {
-    padding: 0px;
-    margin: 0px;
+    position: fixed;
+    width: 100%;
     height: 60px;
     display: flex;
     z-index: 100;
-    display: flex;
     border-color: #252525;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
   }

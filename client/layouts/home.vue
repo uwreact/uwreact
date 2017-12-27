@@ -1,22 +1,18 @@
 <template>
-  <el-container>
-    <el-header class="header">
-      <header-menu backgroundColor="#252525"
-                   textColor="#FFFFFF"
-                   activeTextColor="#E4B429">
-        <header-menu-item href="#home" index="logo">
-          <img class="logo" src="~/assets/logos/logoWhiteHoriz.svg"/>
-        </header-menu-item>
-        <header-menu-item href="#about" rightStart index="about">About</header-menu-item>
-        <header-menu-item href="#teams" index="teams">Teams</header-menu-item>
-        <header-menu-item href="#sponsors" index="sponsors">Sponsors</header-menu-item>
-        <header-menu-item href="#contact" index="contact">Contact</header-menu-item>
-      </header-menu>
-    </el-header>
-    <el-main>
-      <nuxt></nuxt>
-    </el-main>
-  </el-container>
+  <div>
+    <header-menu backgroundColor="#252525"
+                 textColor="#FFFFFF"
+                 activeTextColor="#E4B429">
+      <header-menu-item href="#home" index="logo">
+        <img class="logo" src="~/assets/logos/logoWhiteHoriz.svg"/>
+      </header-menu-item>
+      <header-menu-item href="#about" rightStart index="about">About</header-menu-item>
+      <header-menu-item href="#teams" index="teams">Teams</header-menu-item>
+      <header-menu-item href="#sponsors" index="sponsors">Sponsors</header-menu-item>
+      <header-menu-item href="#contact" index="contact">Contact</header-menu-item>
+    </header-menu>
+    <nuxt></nuxt>
+  </div>
 </template>
 
 <script>
@@ -80,10 +76,6 @@
 </style>
 
 <style scoped>
-  .header {
-    padding: 0;
-  }
-
   .logo {
     width: 200px;
   }
