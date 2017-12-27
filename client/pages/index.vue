@@ -381,12 +381,22 @@
         </el-row>
       </div>
     </arrow-section>
+
+    <footer-menu>
+      <footer-menu-item href="https://github.com/uwri3d" icon="github"></footer-menu-item>
+      <footer-menu-item href="https://fb.me/uwri3d" icon="facebook"></footer-menu-item>
+      <footer-menu-item href="https://twitter.com/uwri3d" icon="twitter"></footer-menu-item>
+      <footer-menu-item href="https://instagram.com/uwri3d" icon="instagram"></footer-menu-item>
+      <footer-menu-item href="https://goo.gl/ns5r5g" icon="youtube"></footer-menu-item>
+    </footer-menu>
   </div>
 </template>
 
 <script>
-  import ArrowSection from '../components/ArrowSection'
-  import Countdown from '../components/Countdown'
+  import ArrowSection from '../components/ArrowSection';
+  import Countdown from '../components/Countdown';
+  import FooterMenu from '../components/FooterMenu';
+  import FooterMenuItem from '../components/FooterMenuItem';
 
   export default {
     layout: 'home',
@@ -394,6 +404,8 @@
     components: {
       ArrowSection,
       Countdown,
+      FooterMenu,
+      FooterMenuItem,
     },
 
     data() {
@@ -577,31 +589,6 @@
   .sponsor-image {
     padding: 2%;
     width: 100%;
-  }
-
-  .footer {
-    width: 100%;
-    height: 60px;
-    color: #ffffff;
-    background-color: #e4b429;
-  }
-
-  .footer a {
-    color: #ffffff;
-    text-decoration: none;
-  }
-
-  .footer-row {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .footer-icon {
-    padding-left: 16px;
-    padding-right: 16px;
   }
 
   @media all and (max-width: 568px) {

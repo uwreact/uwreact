@@ -1,13 +1,12 @@
 <template>
   <el-menu-item :index="index" :class="(rightStart ? 'right-start' : '') + ' header-menu-item'">
-    <a :href="href" :v-scroll-to="href">
+    <a :href="href">
       <slot></slot>
     </a>
   </el-menu-item>
 </template>
 
 <script>
-  import VueScrollTo from 'vue-scrollto'
 
   export default {
     props: {
