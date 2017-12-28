@@ -13,9 +13,7 @@
           <dividing-line></dividing-line>
           <p style="font-size: 24px; font-weight: 300;">January 6 - 9, 2018</p>
           <p style="font-size: 16px; font-weight: 300;">Kickoff begins in
-            <no-srr>
-              <countdown date="2018-01-06T06:00:00Z"></countdown>
-            </no-srr>
+            <countdown date="2018-01-06T06:00:00Z"></countdown>
           </p>
         </div>
       </hero-content>
