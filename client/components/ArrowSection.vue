@@ -1,6 +1,8 @@
 <template>
   <div :style="`background-color: ${backgroundColor}`" class="section" :id="id">
-    <slot></slot>
+    <div :class="`${unpadded ? '' : 'padded'}`">
+      <slot></slot>
+    </div>
     <div class="arrow">
       <div :style="`
         border-top: 2000px solid ${backgroundColor};
@@ -12,18 +14,20 @@
 
 <script>
   export default {
+    name: 'arrow-section',
+
     props: {
       id: {
         type: String,
-        default: '',
+      },
+      unpadded: {
+        type: Boolean,
       },
       backgroundColor: {
         type: String,
-        default: '',
       },
       nextColor: {
         type: String,
-        default: '',
       },
     },
   };
@@ -32,6 +36,12 @@
 <style scoped>
   .section {
     width: 100%;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  .padded {
+    padding: 24px;
   }
 
   .arrow {

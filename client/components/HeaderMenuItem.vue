@@ -9,6 +9,8 @@
 <script>
 
   export default {
+    name: 'header-menu-item',
+
     props: {
       index: {
         type: String,

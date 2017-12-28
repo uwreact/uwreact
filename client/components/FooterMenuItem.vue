@@ -6,6 +6,7 @@
 
 <script>
   export default {
+    name: 'footer-menu-item',
 
     props: {
       icon: {

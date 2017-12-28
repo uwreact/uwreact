@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :sm="{span: 22, offset: 1}" :md="{span: 16, offset: 4}">
+    <el-col :sm="{span: smSpan, offset: smOffset}" :md="{span: mdSpan, offset: mdOffset}">
       <slot></slot>
     </el-col>
   </el-row>
@@ -8,11 +8,26 @@
 
 <script>
   export default {
+    name: 'guttered-content',
+
     props: {
-      content: {
-        type: String,
-      }
-    }
+      smSpan: {
+        type: Number,
+        default: 22,
+      },
+      smOffset: {
+        type: Number,
+        default: 1,
+      },
+      mdSpan: {
+        type: Number,
+        default: 16,
+      },
+      mdOffset: {
+        type: Number,
+        default: 4,
+      },
+    },
   }
 </script>
 

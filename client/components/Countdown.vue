@@ -1,5 +1,5 @@
 <template>
-  <span>{{twoDigits(days)}}D:{{twoDigits(hours)}}H:{{twoDigits(minutes)}}M:{{twoDigits(seconds)}}S</span>
+  <span>{{days}} Days ({{twoDigits(hours)}}:{{twoDigits(minutes)}}:{{twoDigits(seconds)}})</span>
 </template>
 
 <script>

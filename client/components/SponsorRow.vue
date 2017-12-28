@@ -1,13 +1,14 @@
 <template>
-
+  <el-row>
+    <slot></slot>
+  </el-row>
 </template>
 
 <script>
   export default {
-    name: 'mobile-menu',
+    name: "sponsor-row",
   }
 </script>
 
 <style scoped>
-
 </style>

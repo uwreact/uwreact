@@ -9,6 +9,8 @@
 
 <script>
   export default {
+    name: 'header-menu',
+
     props: {
       backgroundColor: {
         type: String,
