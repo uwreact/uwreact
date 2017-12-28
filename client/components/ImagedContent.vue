@@ -4,9 +4,7 @@
       <slot name="image"></slot>
     </el-col>
     <el-col :xs="{span: 22, offset: 1}" :sm="{span: 9, offset: 1}">
-      <section-impact-header>
-        <slot name="header"></slot>
-      </section-impact-header>
+      <slot name="header"></slot>
       <p class="justify-content">
         <slot></slot>
       </p>

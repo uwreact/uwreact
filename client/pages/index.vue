@@ -36,7 +36,7 @@
       </guttered-content>
       <imaged-content>
         <img slot="image" class="about-image" src="~/assets/home/about/aboutEngage.jpg"/>
-        <p slot="header">ENGAGE</p>
+        <section-impact-header slot="header">ENGAGE</section-impact-header>
         For many University of Waterloo students, FIRST Robotics was a high school lifestyle. Entering university,
         many FIRST alumni search for a way to stay engaged in the FRC community. Through alumni groups and
         volunteering
@@ -51,7 +51,7 @@
       <br/>
       <imaged-content>
         <img slot="image" class="about-image" src="~/assets/home/about/aboutEducate.jpg"/>
-        <p slot="header">EDUCATE</p>
+        <section-impact-header slot="header">EDUCATE</section-impact-header>
         Across the world, FIRST Robotics Competition teams look towards Robot in 3 Days builds to spawn ideas,
         survey designs, and review their own plans. By live streaming both teams throughout the 72-hour challenge,
         UWRi3D aspires to educate high school students on programming webcasts, vision solutions, design sprints,
@@ -64,7 +64,7 @@
       <br/>
       <imaged-content>
         <img slot="image" class="about-image" src="~/assets/home/about/aboutInspire.jpg"/>
-        <p slot="header">INSPIRE</p>
+        <section-impact-header slot="header">INSPIRE</section-impact-header>
         The mission of FIRST is to inspire young people to be science and technology leaders and innovators.
         UWRi3D proudly carries a similar mantra. In higher education, students have the resources they need to
         think and create the inventions that will shape our future. We help inspire students on campus to take the
