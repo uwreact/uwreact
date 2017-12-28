@@ -24,7 +24,6 @@ module.exports = {
 
   plugins: [
     { src: '~plugins/element-ui' },
-    { src: '~plugins/vuex-persistedstate.js', ssr: false },
   ],
 
   css: ['element-ui/lib/theme-chalk/index.css'],
