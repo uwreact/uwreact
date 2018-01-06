@@ -12,8 +12,8 @@
           </section-impact-header>
           <dividing-line></dividing-line>
           <p style="font-size: 24px; font-weight: 300;">January 6 - 9, 2018</p>
-          <p style="font-size: 16px; font-weight: 300;">Kickoff begins in
-            <countdown date="2018-01-06T15:00:00Z"></countdown>
+          <p style="font-size: 16px; font-weight: 300;">Build ends in
+            <countdown date="2018-01-09T16:30:00Z"></countdown>
           </p>
         </div>
       </hero-content>
@@ -22,10 +22,10 @@
     <arrow-section backgroundColor="#d5d5d3" nextColor="#ffffff" id="about">
       <guttered-content>
         <section-header>
-          Canada's largest Ri3D team
+          The world's largest Ri3D team
         </section-header>
         <p>
-          With 60 students at the University of Waterloo, we inspire FIRST Robotics Competition teams around the
+          With 40 students at the University of Waterloo, we inspire FIRST Robotics Competition teams around the
           world by building a robot in 3 days.
           For 72 hours, we investigate the FIRST challenge, prepare a design, manufacture a chassis, wire
           electromechanical systems, and program an entire FRC robot - 40 days before bag and tag.
