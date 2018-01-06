@@ -14,7 +14,7 @@
           <p style="font-size: 24px; font-weight: 300;">January 6 - 9, 2018</p>
           <p style="font-size: 16px; font-weight: 300;">Build ends in
             <countdown date="2018-01-09T16:30:00Z"></countdown>
-            <a href="https://goo.gl/ns5r5g">Watch us live!</a>
+            <a class="live-link" href="https://goo.gl/ns5r5g"> Watch us live!</a>
           </p>
         </div>
       </hero-content>
@@ -256,6 +256,11 @@
     right: 0;
     bottom: 0;
     overflow: auto;
+  }
+
+  .live-link {
+    color: white;
+    text-decoration: white;
   }
 
   .hero-image {
