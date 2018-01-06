@@ -12,15 +12,6 @@
       <header-menu-item href="#sponsors" index="sponsors">Sponsors</header-menu-item>
       <header-menu-item href="#contact" index="contact">Contact</header-menu-item>
     </header-menu>
-    <header-menu backgroundColor="#252525"
-                 textColor="#FFFFFF"
-                 activeTextColor="#E4B429"
-                 v-if="screenSize >= 768">
-      <header-menu-item href="#home" index="logo">
-        <img class="logo" src="~/assets/logos/logoWhiteHoriz.svg"/>
-      </header-menu-item>
-      <header-menu-item href="#about" rightStart index="about">Menu</header-menu-item>
-    </header-menu>
     <nuxt></nuxt>
   </div>
 </template>
