@@ -2,8 +2,7 @@
   <div>
     <header-menu backgroundColor="#252525"
                  textColor="#FFFFFF"
-                 activeTextColor="#E4B429"
-                 v-if="screenSize >= 768">
+                 activeTextColor="#E4B429">
       <header-menu-item href="#home" index="logo">
         <img class="logo" src="~/assets/logos/logoWhiteHoriz.svg"/>
       </header-menu-item>
