@@ -1,0 +1,10 @@
+{
+  "name": "uwreact",
+  "description": "UW REACT monorepo",
+  "author": "Michael Midura <michael.midura@uwreact.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    ""
+  ]
+}
