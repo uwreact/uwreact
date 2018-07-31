@@ -1,0 +1,20 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "Command line interface for UW REACT developers",
+  "author": "UW REACT <director@uwreact.ca>",
+  "license": "MIT",
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uwreact/uwreact.git"
+  },
+  "keywords": [
+    "uw",
+    "uwreact",
+    "cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-tools/issues"
+  }
+}
