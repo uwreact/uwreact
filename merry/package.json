@@ -1,0 +1,8 @@
+{
+  "name": "merry",
+  "version": "1.0.0",
+  "description": "Web app online at https://uwreact.ca",
+  "author": "UW REACT <director@uwreact.ca>",
+  "license": "MIT",
+  "private": true
+}

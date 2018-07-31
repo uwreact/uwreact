@@ -1,0 +1,8 @@
+{
+  "name": "pippin",
+  "version": "1.0.0",
+  "description": "Google Cloud Functions for merry",
+  "author": "UW REACT <director@uwreact.ca>",
+  "license": "MIT",
+  "private": true
+}
