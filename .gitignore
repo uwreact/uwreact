@@ -1,8 +1,19 @@
 ### JetBrains IDEs ###
 .idea/
 
+### Build Standards ###
+build/
+
+.env.*
+!.env.example
+
 ### Node ###
 node_modules/
+
+### Firebase ###
+.firebase/
+.firebaserc
+firebase-debug.log
 
 ### macOS ###
 .DS_Store
