@@ -1,0 +1,21 @@
+{
+  "presets": ["env", "stage-0", "react"],
+  "plugins": [
+    "react-hot-loader/babel",
+    [
+      "transform-imports",
+      {
+        "ramda": {
+          "transform": "ramda/src/${member}",
+          "preventFullImport": true
+        }
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["./src"]
+      }
+    ]
+  ]
+}
