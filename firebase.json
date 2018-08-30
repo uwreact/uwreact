@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": "merry/build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": {
+    "source": "pippin/build"
+  }
+}
