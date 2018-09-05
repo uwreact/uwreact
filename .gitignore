@@ -10,6 +10,9 @@ build/
 ### Node ###
 node_modules/
 
+### Yarn ###
+yarn-error.log
+
 ### Firebase ###
 .firebase/
 .firebaserc
