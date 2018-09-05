@@ -77,7 +77,7 @@ module.exports = (env, options) => {
     },
     resolve: { extensions: ['*', '.js', '.jsx'] },
     output: {
-      filename: '[name].js',
+      filename: '[name].[contenthash].js',
       path: buildPath,
       publicPath: '/',
     },
@@ -97,15 +97,24 @@ module.exports = (env, options) => {
         }),
         new OptimizeCSSAssetsPlugin({}),
       ],
+      runtimeChunk: 'single',
       splitChunks: {
         chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
       },
     },
     plugins: [
       ...(developmentMode ? [new webpack.HotModuleReplacementPlugin()] : []),
-      new webpack.NamedModulesPlugin(),
+
+      ...[developmentMode ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin()],
       new webpack.SourceMapDevToolPlugin({
-        filename: '[name].js.map',
+        filename: '[name].[contenthash].js.map',
       }),
       new webpack.DefinePlugin({
         'process.env.NPM_PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
@@ -122,8 +131,8 @@ module.exports = (env, options) => {
       }),
       new CopyWebpackPlugin(['public']),
       new MiniCssExtractPlugin({
-        filename: '[name].css',
-        chunkFilename: '[id].css',
+        filename: '[name].[contenthash].css',
+        chunkFilename: '[id].[contenthash].css',
       }),
       ...(!developmentMode
         ? [

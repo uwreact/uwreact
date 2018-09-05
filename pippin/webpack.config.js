@@ -34,7 +34,7 @@ module.exports = (env, options) => {
     },
     resolve: { extensions: ['*', '.js'] },
     output: {
-      filename: 'index.js',
+      filename: '[name].js',
       path: buildPath,
       library: 'blue',
       libraryTarget: 'umd',
