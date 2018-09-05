@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700');
+
+:global {
+  html,
+  body,
+  #App {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    background-color: white;
+    color: $black-text;
+    font-family: $roboto;
+    font-size: 15px
+  }
+}
