@@ -101,13 +101,6 @@ module.exports = (env, options) => {
       runtimeChunk: 'single',
       splitChunks: {
         chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            chunks: 'async',
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-          },
-        },
       },
     },
     plugins: [
