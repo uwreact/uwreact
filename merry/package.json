@@ -89,6 +89,9 @@
     "redux-observable": "~1.0.0",
     "rxjs": "~6.3.2"
   },
+  "sideEffects": [
+    "*.scss"
+  ],
   "jest": {
     "moduleNameMapper": {
       "\\.(scss)$": "identity-obj-proxy"
