@@ -77,7 +77,7 @@ module.exports = (env, options) => {
     },
     resolve: { extensions: ['*', '.js', '.jsx'] },
     output: {
-      filename: '[name].[contenthash].js',
+      filename: developmentMode ? '[name].js' : '[name].[contenthash].js',
       path: buildPath,
       publicPath: '/',
     },
@@ -111,10 +111,9 @@ module.exports = (env, options) => {
     },
     plugins: [
       ...(developmentMode ? [new webpack.HotModuleReplacementPlugin()] : []),
-
       ...[developmentMode ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin()],
       new webpack.SourceMapDevToolPlugin({
-        filename: '[name].[contenthash].js.map',
+        filename: developmentMode ? '[name].js.map' : '[name].[contenthash].js.map',
       }),
       new webpack.DefinePlugin({
         'process.env.NPM_PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
@@ -131,8 +130,8 @@ module.exports = (env, options) => {
       }),
       new CopyWebpackPlugin(['public']),
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',
-        chunkFilename: '[id].[contenthash].css',
+        filename: developmentMode ? '[name].css' : '[name].[contenthash].css',
+        chunkFilename: developmentMode ? '[id].css' : '[id].[contenthash].css',
       }),
       ...(!developmentMode
         ? [
