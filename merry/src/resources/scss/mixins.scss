@@ -2,6 +2,18 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, $opacity), 0 2px 5px rgba(0, 0, 0, $opacity * 2);
 }
 
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
 @mixin for-phone-only {
   @media (max-width: 599px) {
     @content;
