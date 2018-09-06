@@ -1,5 +1,3 @@
-/* eslint "global-require": "off" */
-
 const path = require('path');
 const webpack = require('webpack');
 
@@ -11,11 +9,14 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const OfflinePlugin = require('offline-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const autoprefixer = require('autoprefixer');
+const postcssFocus = require('postcss-focus');
 
 module.exports = (env, options) => {
   const developmentMode = options.mode !== 'production';
-  const analyze = options.analyze;
+  const { analyze } = options;
 
   const entry = path.resolve(__dirname, 'src/index.jsx');
 
@@ -38,7 +39,7 @@ module.exports = (env, options) => {
     loader: 'postcss-loader',
     options: {
       ident: 'postcss',
-      plugins: [require('autoprefixer')(), require('postcss-focus')()],
+      plugins: [autoprefixer(), postcssFocus()],
     },
   };
 
@@ -102,9 +103,9 @@ module.exports = (env, options) => {
         chunks: 'all',
         cacheGroups: {
           vendor: {
+            chunks: 'async',
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
-            chunks: 'all',
           },
         },
       },
@@ -131,8 +132,8 @@ module.exports = (env, options) => {
       new CopyWebpackPlugin(['public']),
       new MiniCssExtractPlugin({
         filename: developmentMode ? '[name].css' : '[name].[contenthash].css',
-        chunkFilename: developmentMode ? '[id].css' : '[id].[contenthash].css',
       }),
+      ...(analyze ? [new BundleAnalyzerPlugin()] : []),
       ...(!developmentMode
         ? [
             new OfflinePlugin({
@@ -141,7 +142,6 @@ module.exports = (env, options) => {
             }),
           ]
         : []),
-      ...(analyze ? [new BundleAnalyzerPlugin()] : []),
     ],
   };
 };

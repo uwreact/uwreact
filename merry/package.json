@@ -13,10 +13,10 @@
     "build:staging": "NODE_ENV=staging webpack --mode production",
     "build:production": "NODE_ENV=production webpack --mode production",
     "analyze": "yarn build --analyze",
-    "deploy": "firebase deploy --only hosting",
-    "deploy:development": "yarn build:development && firebase use development && yarn deploy",
-    "deploy:staging": "yarn build:staging && firebase use staging && yarn deploy",
-    "deploy:production": "yarn build:production && firebase use production && yarn deploy"
+    "deploy": "yarn deploy:development",
+    "deploy:development": "yarn build:development && firebase use shire-development && firebase deploy --only hosting",
+    "deploy:staging": "yarn build:staging && firebase use shire-staging && firebase deploy --only hosting",
+    "deploy:production": "yarn build:production && firebase use shire-production && firebase deploy --only hosting"
   },
   "devDependencies": {
     "@babel/cli": "~7.0.0",
