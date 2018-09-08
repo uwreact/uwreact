@@ -45,12 +45,22 @@
   align-items: center;
 }
 
-.logo {
-  width: 20vw;
-  height: 20vw;
+.horizontalLogo {
+  width: 80vw;
+
+  display: none;
 
   @include portrait {
-    width: 20vh;
-    height: 20vh;
+    display: initial;
+  }
+}
+
+.verticalLogo {
+  width: 20vw;
+
+  display: initial;
+
+  @include portrait {
+    display: none;
   }
 }
