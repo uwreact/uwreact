@@ -1,18 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const nodeExternals = require('webpack-node-externals');
-
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin-next');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 
-module.exports = (env, options) => {
-  const developmentMode = options.mode !== 'production';
-  const analyze = options.analyze;
+const nodeExternals = require('webpack-node-externals');
 
+module.exports = () => {
   const entry = path.resolve(__dirname, 'src/index.js');
 
   const exclude = [/node_modules/];
@@ -56,7 +53,7 @@ module.exports = (env, options) => {
       }),
     ],
     plugins: [
-      new webpack.NamedModulesPlugin(),
+      new webpack.HashedModuleIdsPlugin(),
       new webpack.SourceMapDevToolPlugin({
         filename: '[name].js.map',
       }),
@@ -82,7 +79,6 @@ module.exports = (env, options) => {
           scripts: ['./post-build.sh'],
         },
       }),
-      ...(analyze ? [new BundleAnalyzerPlugin()] : []),
     ],
   };
 };
