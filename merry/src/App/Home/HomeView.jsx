@@ -1,12 +1,12 @@
 import React from 'react';
 
-import horizontalLogo from 'resources/svg/react-horizontal.svg';
-import verticalLogo from 'resources/svg/react-vertical.svg';
+import horizontalLogo from '../../resources/svg/react-horizontal.svg';
+import verticalLogo from '../../resources/svg/react-vertical.svg';
 
-import styles from './App.scss';
+import styles from './Home.scss';
 
-const AppView = () => (
-  <div className={styles.app}>
+const HomeView = () => (
+  <div className={styles.home}>
     <div className={styles.fullHeight}>
       <div className={styles.big}>
         <span>WE BUILD FULLY AUTONOMOUS FIRST ROBOTS</span>
@@ -19,4 +19,4 @@ const AppView = () => (
   </div>
 );
 
-export default AppView;
+export default HomeView;

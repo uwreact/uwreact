@@ -1,9 +1,12 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import AppView from './AppView';
+import Home from './Home';
 
-const mapStateToProps = state => ({ path: state.router.location.pathname });
-
-const App = connect(mapStateToProps)(AppView);
+const App = () => (
+  <Switch>
+    <Route exact path="/" component={Home} />
+  </Switch>
+);
 
 export default App;

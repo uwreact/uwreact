@@ -10,7 +10,7 @@ import { ConnectedRouter, connectRouter, routerMiddleware } from 'connected-reac
 
 import 'main.scss';
 
-import { AppView } from 'App';
+import App from 'App';
 import appReducer from 'App/state';
 
 const development = process.env.NODE_ENV === 'development';
@@ -45,7 +45,7 @@ const store = createStore(reducer, middleware);
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <AppView />
+      <App />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('App'),
