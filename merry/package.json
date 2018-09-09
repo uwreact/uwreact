@@ -35,7 +35,7 @@
     "css-loader": "~1.0.0",
     "dotenv-webpack": "~1.5.7",
     "enzyme": "~3.6.0",
-    "enzyme-adapter-react-16": "~1.4.0",
+    "enzyme-adapter-react-16": "~1.5.0",
     "eslint": "~5.5.0",
     "eslint-config-airbnb": "~17.1.0",
     "eslint-config-prettier": "~3.0.1",
@@ -56,7 +56,7 @@
     "mini-css-extract-plugin": "~0.4.2",
     "node-sass": "~4.9.3",
     "optimize-css-assets-webpack-plugin": "~5.0.0",
-    "postcss-focus": "~3.0.0",
+    "postcss-focus": "~4.0.0",
     "postcss-loader": "~3.0.0",
     "prettier": "~1.14.2",
     "sass-loader": "~7.1.0",
@@ -66,7 +66,7 @@
     "webpack": "~4.17.1",
     "webpack-bundle-analyzer": "~2.13.1",
     "webpack-cli": "~3.1.0",
-    "webpack-dev-server": "~3.1.5"
+    "webpack-dev-server": "~3.1.8"
   },
   "dependencies": {
     "classnames": "~2.2.5",
@@ -77,8 +77,8 @@
     "prop-types": "~15.6.1",
     "ramda": "~0.25.0",
     "raven-js": "~3.27.0",
-    "react": "~16.4.2",
-    "react-dom": "~16.4.2",
+    "react": "~16.5.0",
+    "react-dom": "~16.5.0",
     "react-loadable": "~5.5.0",
     "react-redux": "~5.0.7",
     "react-router-dom": "~4.3.1",

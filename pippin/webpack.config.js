@@ -31,7 +31,7 @@ module.exports = () => {
     },
     resolve: { extensions: ['*', '.js'] },
     output: {
-      filename: '[name].js',
+      filename: 'index.js',
       path: buildPath,
       library: 'blue',
       libraryTarget: 'umd',
@@ -55,7 +55,7 @@ module.exports = () => {
     plugins: [
       new webpack.HashedModuleIdsPlugin(),
       new webpack.SourceMapDevToolPlugin({
-        filename: '[name].js.map',
+        filename: 'index.js.map',
       }),
       new DotenvPlugin({
         path: `.env.${process.env.NODE_ENV}`,
@@ -76,7 +76,7 @@ module.exports = () => {
       ]),
       new WebpackShellPlugin({
         onBuildExit: {
-          scripts: ['./post-build.sh'],
+          scripts: ['./post_build.sh'],
         },
       }),
     ],
