@@ -1,0 +1,28 @@
+.drawer {
+  grid-area: drawer;
+  z-index: 100;
+
+  display: none;
+
+  @include for-tablet-landscape-up {
+    display: grid;
+  }
+}
+
+.open {
+  display: grid;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+
+  @include for-tablet-landscape-up {
+    position: initial;
+    top: initial;
+    left: initial;
+    width: initial;
+    height: initial;
+  }
+}
