@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --hot --open --mode development",
+    "start": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --hot --open --mode development",
     "test": "jest",
     "build": "yarn build:development",
     "build:development": "NODE_ENV=development webpack --mode production",
@@ -65,6 +65,7 @@
     "webpack": "~4.17.1",
     "webpack-bundle-analyzer": "~2.13.1",
     "webpack-cli": "~3.1.0",
+    "webpack-dashboard": "~2.0.0",
     "webpack-dev-server": "~3.1.8"
   },
   "dependencies": {

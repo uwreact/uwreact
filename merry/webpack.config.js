@@ -9,6 +9,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const OfflinePlugin = require('offline-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const autoprefixer = require('autoprefixer');
@@ -84,7 +85,6 @@ module.exports = (env, options) => {
     },
     devServer: {
       contentBase: buildPath,
-      port: 3000,
       publicPath: 'http://localhost:3000/',
       hot: true,
       historyApiFallback: true,
@@ -104,8 +104,6 @@ module.exports = (env, options) => {
       },
     },
     plugins: [
-      ...(developmentMode ? [new webpack.HotModuleReplacementPlugin()] : []),
-      ...[developmentMode ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin()],
       new webpack.SourceMapDevToolPlugin({
         filename: developmentMode ? '[name].js.map' : '[name].[contenthash].js.map',
       }),
@@ -127,14 +125,19 @@ module.exports = (env, options) => {
         filename: developmentMode ? '[name].css' : '[name].[contenthash].css',
       }),
       ...(analyze ? [new BundleAnalyzerPlugin()] : []),
-      ...(!developmentMode
+      ...(developmentMode
         ? [
+            new webpack.NamedModulesPlugin(),
+            new webpack.HotModuleReplacementPlugin(),
+            new DashboardPlugin(),
+          ]
+        : [
+            new webpack.HashedModuleIdsPlugin(),
             new OfflinePlugin({
               appShell: '/',
               externals: ['/'],
             }),
-          ]
-        : []),
+          ]),
     ],
   };
 };
