@@ -1,3 +1,3 @@
 import serviceValidateCas from './serviceValidateCas';
 
-export { serviceValidateCas };
+export default serviceValidateCas;
