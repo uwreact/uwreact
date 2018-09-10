@@ -1,3 +1,4 @@
+import onCreateUser from './onCreateUser';
 import serviceValidateCas from './serviceValidateCas';
 
-export { serviceValidateCas };
+export { onCreateUser, serviceValidateCas };
