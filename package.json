@@ -8,8 +8,5 @@
     "cli",
     "merry",
     "pippin"
-  ],
-  "resolutions": {
-    "babel-core": "7.0.0-bridge.0"
-  }
+  ]
 }

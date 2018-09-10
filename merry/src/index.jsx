@@ -1,17 +1,10 @@
-/* eslint "no-underscore-dangle": "off" */
-
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { createEpicMiddleware } from 'redux-observable';
-import { Provider } from 'react-redux';
-import { createBrowserHistory } from 'history';
-import { ConnectedRouter, connectRouter, routerMiddleware } from 'connected-react-router';
+import { BrowserRouter } from 'react-router-dom';
 
 import 'main.scss';
 
 import App from 'App';
-import appReducer from 'App/state';
 
 const development = process.env.NODE_ENV === 'development';
 
@@ -28,25 +21,9 @@ if (!development) {
   );
 }
 
-const history = createBrowserHistory();
-
-const reducer = connectRouter(history)(appReducer);
-
-const epicMiddleware = createEpicMiddleware();
-const historyMiddleware = routerMiddleware(history);
-const combinedMiddleware = applyMiddleware(epicMiddleware, historyMiddleware);
-
-const composeWithDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const middleware = composeWithDevTools(combinedMiddleware);
-
-const store = createStore(reducer, middleware);
-
 render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
-  </Provider>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('App'),
 );
