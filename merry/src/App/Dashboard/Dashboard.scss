@@ -4,6 +4,7 @@
 
   overflow: auto;
 
+  display: grid;
   grid-template: 'header' 60px 'content' 1fr / 1fr;
 
   @include for-tablet-landscape-up {

@@ -1,15 +1,13 @@
 import React from 'react';
+import Loadable from 'react-loadable';
 
-import Drawer from './Drawer';
-import Header from './Header';
+const loading = () => <div>Loading</div>;
 
-import styles from './Dashboard.scss';
+const LoadableDashboard = Loadable({
+  loader: () => import('./DashboardView'),
+  loading,
+});
 
-const Dashboard = () => (
-  <div className={styles.dashboard}>
-    <Drawer />
-    <Header />
-  </div>
-);
+const Dashboard = () => <LoadableDashboard />;
 
 export default Dashboard;
