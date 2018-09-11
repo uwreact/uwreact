@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'unstated';
 import { BrowserRouter } from 'react-router-dom';
 
 import 'main.scss';
@@ -43,8 +44,10 @@ import('firebase/app').then(async firebase => {
 });
 
 render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('App'),
 );
