@@ -6043,6 +6043,10 @@ import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
+importable@~0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/importable/-/importable-0.0.1.tgz#e03364b36d0abb6c5d18f1aef8ba1f8c93ec58c3"
+
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"

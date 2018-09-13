@@ -1,4 +1,4 @@
-import Importable from '../importable';
+import Importable from 'importable';
 
 const OfflinePlugin = new Importable(
   import('offline-plugin/runtime'),
