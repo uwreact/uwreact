@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import { OfflinePlugin, Raven } from 'loadables';
+import { OfflinePlugin, Raven } from 'importables';
 
 import 'main.scss';
 
@@ -11,8 +11,8 @@ import App from 'App';
 const development = process.env.NODE_ENV === 'development';
 
 if (!development) {
-  new OfflinePlugin().load();
-  new Raven().load();
+  OfflinePlugin.import();
+  Raven.import();
 }
 
 render(

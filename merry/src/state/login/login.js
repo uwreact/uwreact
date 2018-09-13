@@ -1,6 +1,6 @@
 import { create } from 'reworm';
 
-import { Firebase } from 'loadables';
+import { Firebase } from 'importables';
 
 const { get, set, select } = create({
   loaded: false,
@@ -14,7 +14,7 @@ const onAuthStateChanged = user =>
   });
 
 const initialize = async () => {
-  const firebase = await new Firebase().load();
+  const firebase = await Firebase.import();
 
   firebase.auth().onAuthStateChanged(onAuthStateChanged);
 };

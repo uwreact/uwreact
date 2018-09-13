@@ -1,30 +1,13 @@
-import Loadable from '../Loadable';
+import { create } from '../importable';
 
-class Firebase extends Loadable {
-  static instance;
-
-  constructor() {
-    if (!Firebase.instance) {
-      super(
-        import('firebase/app'),
-        import('firebase/auth'),
-        import('firebase/firestore'),
-        import('firebase/functions'),
-      );
-
-      Firebase.instance = this;
-    }
-
-    return Firebase.instance;
-  }
-
-  load = async () => {
-    const [firebase] = await this.loadModules();
-
-    return firebase;
-  };
-
-  initialize = async modules => {
+const Firebase = create(
+  [
+    import('firebase/app'),
+    import('firebase/auth'),
+    import('firebase/firestore'),
+    import('firebase/functions'),
+  ],
+  async modules => {
     const [firebase] = modules;
 
     firebase.initializeApp({
@@ -41,7 +24,12 @@ class Firebase extends Loadable {
     firebase.firestore().enablePersistence();
 
     firebase.functions();
-  };
-}
+  },
+  async modules => {
+    const [firebase] = modules;
+
+    return firebase;
+  },
+);
 
 export default Firebase;
