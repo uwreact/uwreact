@@ -1,6 +1,6 @@
-import { create } from '../importable';
+import Importable from '../importable';
 
-const Raven = create(
+const Raven = new Importable(
   import('raven-js'),
   async modules => {
     const [raven] = modules;

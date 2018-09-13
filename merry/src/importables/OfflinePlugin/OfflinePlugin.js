@@ -1,6 +1,6 @@
-import { create } from '../importable';
+import Importable from '../importable';
 
-const OfflinePlugin = create(
+const OfflinePlugin = new Importable(
   import('offline-plugin/runtime'),
   async modules => {
     const [offlinePluginRuntime] = modules;

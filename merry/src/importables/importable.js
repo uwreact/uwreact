@@ -32,10 +32,4 @@ class Importable {
   };
 }
 
-const create = (modules, initialize, map) => {
-  const importable = new Importable(modules, initialize, map);
-
-  return { import: async () => importable.import() };
-};
-
-export { create };
+export default Importable;

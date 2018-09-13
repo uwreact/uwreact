@@ -1,6 +1,6 @@
-import { create } from '../importable';
+import Importable from '../importable';
 
-const Firebase = create(
+const Firebase = new Importable(
   [
     import('firebase/app'),
     import('firebase/auth'),
