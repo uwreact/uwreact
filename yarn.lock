@@ -2284,6 +2284,14 @@ call-signature@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/call-signature/-/call-signature-0.0.2.tgz#a84abc825a55ef4cb2b028bd74e205a65b9a4996"
 
+callbag-observe@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/callbag-observe/-/callbag-observe-1.0.0.tgz#fd91dcc2ef628317c7a0031e17398132a21fcbbf"
+
+callbag-subject@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/callbag-subject/-/callbag-subject-1.0.2.tgz#63923185000bcb10ec12d03491102aa43df93080"
+
 caller-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-0.1.0.tgz#94085ef63581ecd3daa92444a8fe94e82577751f"
@@ -2963,10 +2971,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     ripemd160 "^2.0.0"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
-
-create-react-context@^0.1.5:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.1.6.tgz#0f425931d907741127acc6e31acb4f9015dd9fdc"
 
 cross-env@^5.1.3:
   version "5.2.0"
@@ -6008,6 +6012,10 @@ imagemin@^5.3.1:
     p-pipe "^1.1.0"
     pify "^2.3.0"
     replace-ext "^1.0.0"
+
+immer@~1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-1.6.0.tgz#4e41801272d64bff12d4b58ada0276bb2f4ead81"
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -9699,7 +9707,7 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@~16.5.0:
+react-dom@^16.4.2, react-dom@~16.5.0:
   version "16.5.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.5.0.tgz#57704e5718669374b182a17ea79a6d24922cb27d"
   dependencies:
@@ -9750,7 +9758,7 @@ react-test-renderer@^16.0.0-0:
     react-is "^16.5.0"
     schedule "^0.3.0"
 
-react@~16.5.0:
+react@^16.4.2, react@~16.5.0:
   version "16.5.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.5.0.tgz#f2c1e754bf9751a549d9c6d9aca41905beb56575"
   dependencies:
@@ -10216,6 +10224,16 @@ retry-request@^4.0.0:
 revalidator@0.1.x:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/revalidator/-/revalidator-0.1.8.tgz#fece61bfa0c1b52a206bd6b18198184bdd523a3b"
+
+reworm@~1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/reworm/-/reworm-1.0.4.tgz#820987f546925ad85b0a0a5ef274a00bf6fc2174"
+  dependencies:
+    callbag-observe "^1.0.0"
+    callbag-subject "^1.0.2"
+    fast-deep-equal "^2.0.1"
+    react "^16.4.2"
+    react-dom "^16.4.2"
 
 rgb-regex@^1.0.1:
   version "1.0.1"
@@ -11606,12 +11624,6 @@ unset-value@^1.0.0:
   dependencies:
     has-value "^0.3.1"
     isobject "^3.0.0"
-
-unstated@~2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/unstated/-/unstated-2.1.1.tgz#36b124dfb2e7a12d39d0bb9c46dfb6e51276e3a2"
-  dependencies:
-    create-react-context "^0.1.5"
 
 unzip-response@^1.0.2:
   version "1.0.2"
