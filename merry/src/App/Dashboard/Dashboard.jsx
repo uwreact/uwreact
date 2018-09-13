@@ -8,6 +8,7 @@ import Drawer from './Drawer';
 import Header from './Header';
 
 import Home from './Home';
+import Apply from './Apply';
 import Verify from './Verify';
 
 import styles from './Dashboard.scss';
@@ -21,6 +22,7 @@ const Dashboard = props => {
       <Header />
       <Switch>
         <Route exact path={match.url} component={Home} />
+        <Route exact path={`${match.url}/apply`} component={Apply} />
         <Route exact path={`${match.url}/verify`} component={Verify} />
         <Route component={NotFound} />
       </Switch>
