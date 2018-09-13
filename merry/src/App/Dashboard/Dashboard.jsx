@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
 import { NotFound } from 'components';
+import { login } from 'state';
+
+import Login from './Login';
 
 import Drawer from './Drawer';
 import Header from './Header';
@@ -16,17 +19,23 @@ import styles from './Dashboard.scss';
 const Dashboard = props => {
   const { match } = props;
 
-  return (
-    <div className={styles.dashboard}>
-      <Drawer />
-      <Header />
-      <Switch>
-        <Route exact path={match.url} component={Home} />
-        <Route exact path={`${match.url}/apply`} component={Apply} />
-        <Route exact path={`${match.url}/verify`} component={Verify} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
+  return login.get(
+    state =>
+      state.loaded &&
+      (state.user ? (
+        <div className={styles.dashboard}>
+          <Drawer />
+          <Header />
+          <Switch>
+            <Route exact path={match.url} component={Home} />
+            <Route exact path={`${match.url}/apply`} component={Apply} />
+            <Route exact path={`${match.url}/verify`} component={Verify} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      ) : (
+        <Login />
+      )),
   );
 };
 

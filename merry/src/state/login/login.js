@@ -13,8 +13,6 @@ const onAuthStateChanged = user =>
     user,
   });
 
-const loggedIn = select(state => !!state.user);
-
 const initialize = async () => {
   const firebase = await new Firebase().load();
 
@@ -23,4 +21,4 @@ const initialize = async () => {
 
 initialize();
 
-export { get, set, select, loggedIn };
+export { get, set, select };
