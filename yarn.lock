@@ -6062,9 +6062,9 @@ import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
-importable@~0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/importable/-/importable-0.0.3.tgz#84dea5a6262e9fb648d36108ecb7c2eab7c7adfb"
+importable@~0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/importable/-/importable-0.0.4.tgz#f73a6b1389f913314b604f2747768bbb631c5b93"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
