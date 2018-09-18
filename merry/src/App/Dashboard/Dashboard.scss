@@ -5,9 +5,9 @@
   overflow: auto;
 
   display: grid;
-  grid-template: 'header' 60px 'content' 1fr / 1fr;
+  grid-template: 'header' 60px 'content' auto / auto;
 
   @include for-tablet-landscape-up {
-    grid-template: 'drawer header' 60px 'drawer content' 1fr / 240px 1fr;
+    grid-template: 'drawer header' 60px 'drawer content' auto / 240px auto;
   }
 }

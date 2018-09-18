@@ -10,10 +10,10 @@
   height: 100vh;
 
   display: grid;
-  grid-template: 'big small' 1fr / 3fr 2fr;
+  grid-template: 'big small' auto / 3fr 2fr;
 
   @include portrait {
-    grid-template: 'big' 3fr 'small' 2fr / 1fr;
+    grid-template: 'big' 3fr 'small' 2fr / auto;
   }
 }
 

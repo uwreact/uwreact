@@ -2,9 +2,9 @@
   grid-area: header;
 
   display: grid;
-  grid-template: '. drawer items alert user .' 1fr / 20px 40px 1fr 40px 40px 20px;
+  grid-template: '. drawer items alert user .' auto / 20px 40px auto 40px 40px 20px;
 
   @include for-tablet-landscape-up {
-    grid-template: 'items alert user .' 1fr / 1fr 40px 40px 20px;
+    grid-template: 'items alert user .' auto / auto 40px 40px 20px;
   }
 }

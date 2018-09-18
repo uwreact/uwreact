@@ -34,7 +34,7 @@ class Login extends PureComponent {
       password: '',
       confirmPassword: '',
       error: '',
-      signUp: true,
+      signUp: false,
     };
   }
 
@@ -50,20 +50,20 @@ class Login extends PureComponent {
         ? firebase.auth().createUserWithEmailAndPassword(email, password)
         : firebase.auth().signInWithEmailAndPassword(email, password));
     } catch (error) {
-      this.setState({ error: error.code });
+      this.setState({ error: error.message });
     }
   };
 
   onChangeEmail = email => {
-    this.setState({ email });
+    this.setState({ email, error: '' });
   };
 
   onChangePassword = password => {
-    this.setState({ password });
+    this.setState({ password, error: '' });
   };
 
   onChangeConfirmPassword = confirmPassword => {
-    this.setState({ confirmPassword });
+    this.setState({ confirmPassword, error: '' });
   };
 
   switchForm = () => {
@@ -115,12 +115,18 @@ class Login extends PureComponent {
               />
             )}
             <Button
-              disabled={!email || !password || (signUp && !confirmPassword) || !!error}
+              disabled={
+                !email ||
+                !password ||
+                (signUp && (!confirmPassword || password !== confirmPassword)) ||
+                !!error
+              }
               form="login"
             >
               {signUp ? 'Sign Up' : 'Log In'}
             </Button>
           </form>
+          <span className={styles.error}>{error}</span>
         </div>
         <div className={classNames(styles.card, styles.switchCard)}>
           <span>{signUp ? 'Already have an account? ' : "Don't have an account? "}</span>

@@ -32,14 +32,14 @@
 
 .formCard {
   display: grid;
-  grid-template: 'logo' 100px 'prompt' 1fr 'form' 146px / 1fr;
+  grid-template: 'logo' 100px 'prompt' auto 'form' 146px 'error' auto / auto;
 
   justify-items: center;
   align-items: center;
 }
 
 .extendedFormCard {
-  grid-template: 'logo' 100px 'prompt' 1fr 'form' 200px / 1fr;
+  grid-template: 'logo' 100px 'prompt' auto 'form' 200px 'error' auto / auto;
 }
 
 .switchCard {
@@ -78,4 +78,13 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
+}
+
+.error {
+  grid-area: error;
+
+  text-align: center;
+  color: $warning;
+
+  padding-top: 25px;
 }
