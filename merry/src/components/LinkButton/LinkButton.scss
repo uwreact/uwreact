@@ -1,0 +1,20 @@
+.link {
+  background: none;
+  border: none;
+  padding: 0;
+
+  outline: none;
+  color: $link;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.link:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.link:hover {
+  color: lighten($link, 10%);
+}

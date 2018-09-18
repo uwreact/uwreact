@@ -1,6 +1,15 @@
 import React, { PureComponent } from 'react';
+import classNames from 'classnames/bind';
+import produce from 'immer';
+
+import { Button, Input, LinkButton } from 'components';
+import { Firebase } from 'importables';
+
+import logo from 'resources/svg/react-horizontal.svg';
 
 import styles from './Login.scss';
+
+const boundStyles = classNames.bind(styles);
 
 /**
  * TODO:
@@ -21,17 +30,102 @@ class Login extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      signUp: false,
+      email: '',
+      password: '',
+      confirmPassword: '',
+      error: '',
+      signUp: true,
     };
   }
 
+  onSubmit = async event => {
+    const { email, password, signUp } = this.state;
+
+    event.preventDefault();
+
+    const firebase = await Firebase.import();
+
+    try {
+      await (signUp
+        ? firebase.auth().createUserWithEmailAndPassword(email, password)
+        : firebase.auth().signInWithEmailAndPassword(email, password));
+    } catch (error) {
+      this.setState({ error: error.code });
+    }
+  };
+
+  onChangeEmail = email => {
+    this.setState({ email });
+  };
+
+  onChangePassword = password => {
+    this.setState({ password });
+  };
+
+  onChangeConfirmPassword = confirmPassword => {
+    this.setState({ confirmPassword });
+  };
+
+  switchForm = () => {
+    this.setState(
+      produce(draft => {
+        draft.signUp = !draft.signUp;
+      }),
+    );
+  };
+
   render() {
-    const { signUp } = this.state;
-    console.log(signUp);
+    const { email, password, confirmPassword, error, signUp } = this.state;
+
+    const formCardStyles = boundStyles({
+      card: true,
+      formCard: true,
+      extendedFormCard: signUp,
+    });
 
     return (
       <div className={styles.login}>
-        <div className={styles.card}>Login Card</div>
+        <div className={formCardStyles}>
+          <img src={logo} alt="Logo" className={styles.logo} />
+          <span className={styles.prompt}>
+            {signUp ? 'Create a UW REACT account' : 'Log in with your UW REACT account'}
+          </span>
+          <form className={styles.form} id="login" onSubmit={this.onSubmit}>
+            <Input
+              value={email}
+              onChange={this.onChangeEmail}
+              form="login"
+              placeholder="Email"
+              type="email"
+            />
+            <Input
+              value={password}
+              onChange={this.onChangePassword}
+              form="login"
+              placeholder="Password"
+              type="password"
+            />
+            {signUp && (
+              <Input
+                value={confirmPassword}
+                onChange={this.onChangeConfirmPassword}
+                form="login"
+                placeholder="Confirm your password"
+                type="password"
+              />
+            )}
+            <Button
+              disabled={!email || !password || (signUp && !confirmPassword) || !!error}
+              form="login"
+            >
+              {signUp ? 'Sign Up' : 'Log In'}
+            </Button>
+          </form>
+        </div>
+        <div className={classNames(styles.card, styles.switchCard)}>
+          <span>{signUp ? 'Already have an account? ' : "Don't have an account? "}</span>
+          <LinkButton onClick={this.switchForm}>{signUp ? 'Log In' : 'Sign Up'}</LinkButton>
+        </div>
       </div>
     );
   }
