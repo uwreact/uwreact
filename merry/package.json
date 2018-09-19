@@ -76,7 +76,7 @@
     "classnames": "~2.2.5",
     "firebase": "~5.5.0",
     "immer": "~1.7.1",
-    "importable": "~0.0.6",
+    "importable": "~0.0.7",
     "offline-plugin": "~5.0.5",
     "prop-types": "~15.6.1",
     "ramda": "~0.25.0",
