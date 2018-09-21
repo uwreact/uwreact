@@ -1,6 +1,6 @@
-import IconButton from "./IconButton";
+import IconButton from './IconButton';
 
-import styles from "./IconButton.scss";
+import styles from './IconButton.scss';
 
 export { styles };
 
