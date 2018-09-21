@@ -32,10 +32,12 @@ class Dashboard extends PureComponent {
         <div className={styles.dashboard}>
           <Drawer />
           <Header />
-          <Switch>
-            <Route exact path={match.url} component={Home} />
-            <Route component={NotFound} />
-          </Switch>
+          <div className={styles.content}>
+            <Switch>
+              <Route exact path={match.url} component={Home} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
         </div>
       ) : (
         <Redirect to="/login" />
