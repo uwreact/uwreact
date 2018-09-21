@@ -1,0 +1,46 @@
+.container {
+  border: 0 solid lighten($dark-grey, 10%);
+  border-bottom-width: 1px;
+}
+
+.heading {
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  background-color: darken($dark-grey, 5%);
+}
+
+.heading:hover {
+  background-color: $dark-grey;
+}
+
+.collapsed {
+  background-color: $dark-grey;
+}
+
+.collapsed:hover {
+  background-color: lighten($dark-grey, 5%);
+}
+
+.headingLabel {
+  color: $white-text;
+  font-family: $montserrat;
+  font-size: 15px;
+}
+
+.itemsLabel {
+  color: darken($white-text, 25%);
+  font-size: 12px;
+  font-weight: 300;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.items {
+  display: flex;
+  flex-flow: column nowrap;
+
+  padding-bottom: 20px;
+}

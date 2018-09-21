@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-import { Button } from 'components';
+import { BlankButton } from 'components';
 
 import styles from './IconButton.scss';
 
 const boundStyles = classNames.bind(styles);
 
 const IconButton = props => {
-  const { customClass, icon, size, inverted, ...other } = props;
+  const { className, icon, inverted, ...other } = props;
 
   const iconStyles = boundStyles({
     icon: true,
@@ -17,30 +17,20 @@ const IconButton = props => {
   });
 
   return (
-    <Button
-      customClass={classNames(styles.button, customClass)}
-      customStyle={{
-        minWidth: size,
-        minHeight: size,
-      }}
-      inheritOriginalStyles={false}
-      {...other}
-    >
+    <BlankButton className={classNames(styles.button, className)} {...other}>
       <img alt="icon" src={icon} className={iconStyles} />
-    </Button>
+    </BlankButton>
   );
 };
 
 IconButton.propTypes = {
-  customClass: PropTypes.string,
+  className: PropTypes.string,
   icon: PropTypes.string.isRequired,
-  size: PropTypes.number,
   inverted: PropTypes.bool,
 };
 
 IconButton.defaultProps = {
-  customClass: '',
-  size: 50,
+  className: '',
   inverted: false,
 };
 

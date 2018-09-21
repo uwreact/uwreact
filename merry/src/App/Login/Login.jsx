@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import produce from 'immer';
@@ -28,7 +28,7 @@ const boundStyles = classNames.bind(styles);
 
  */
 
-class Login extends PureComponent {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {

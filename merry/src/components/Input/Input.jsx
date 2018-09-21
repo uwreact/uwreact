@@ -8,8 +8,8 @@ const boundStyles = classNames.bind(styles);
 
 const Input = props => {
   const {
-    customClass,
-    inheritOriginalStyles,
+    className,
+    override,
     value,
     onChange,
     onFocus,
@@ -21,13 +21,12 @@ const Input = props => {
   } = props;
 
   const inputStyles = boundStyles({
-    input: inheritOriginalStyles,
-    disabled,
+    input: !override,
   });
 
   return (
     <input
-      className={classNames(inputStyles, customClass)}
+      className={classNames(inputStyles, className)}
       value={value}
       onChange={event => onChange(event.target.value)}
       onFocus={onFocus}
@@ -42,8 +41,8 @@ const Input = props => {
 };
 
 Input.propTypes = {
-  customClass: PropTypes.string,
-  inheritOriginalStyles: PropTypes.bool,
+  className: PropTypes.string,
+  override: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
@@ -78,8 +77,8 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  customClass: '',
-  inheritOriginalStyles: true,
+  className: '',
+  override: false,
   onFocus: () => ({}),
   onBlur: () => ({}),
   form: undefined,

@@ -2,36 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-import { Button } from 'components';
+import { BlankButton } from 'components';
 
 import styles from './LinkButton.scss';
 
 const LinkButton = props => {
-  const { customClass, size, children, ...other } = props;
+  const { className, children, ...other } = props;
 
   return (
-    <Button
-      customClass={classNames(styles.link, customClass)}
-      customStyle={{
-        fontSize: size,
-      }}
-      inheritOriginalStyles={false}
-      {...other}
-    >
+    <BlankButton className={classNames(styles.link, className)} {...other}>
       {children}
-    </Button>
+    </BlankButton>
   );
 };
 
 LinkButton.propTypes = {
-  customClass: PropTypes.string,
-  size: PropTypes.number,
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
 LinkButton.defaultProps = {
-  customClass: '',
-  size: 15,
+  className: '',
 };
 
 export default LinkButton;

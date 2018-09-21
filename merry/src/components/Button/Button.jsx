@@ -21,26 +21,17 @@ const eitherFormOrOnClick = (props, propName, componentName) => {
 };
 
 const Button = props => {
-  const {
-    customClass,
-    customStyle,
-    inheritOriginalStyles,
-    inverted,
-    disabled,
-    form,
-    onClick,
-    children,
-  } = props;
+  const { className, style, override, inverted, disabled, form, onClick, children } = props;
 
   const buttonStyles = boundStyles({
-    button: inheritOriginalStyles,
-    inverted,
+    button: !override,
+    inverted: !override && inverted,
   });
 
   return (
     <button
-      className={classNames(buttonStyles, customClass)}
-      style={customStyle}
+      className={classNames(buttonStyles, className)}
+      style={style}
       disabled={disabled}
       onClick={onClick ? () => onClick() : undefined}
       type={form ? 'submit' : 'button'}
@@ -52,9 +43,9 @@ const Button = props => {
 };
 
 Button.propTypes = {
-  customClass: PropTypes.string,
-  customStyle: PropTypes.objectOf(PropTypes.any),
-  inheritOriginalStyles: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.any),
+  override: PropTypes.bool,
   inverted: PropTypes.bool,
   disabled: PropTypes.bool,
   form: eitherFormOrOnClick,
@@ -63,9 +54,9 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  customClass: '',
-  customStyle: undefined,
-  inheritOriginalStyles: true,
+  className: '',
+  style: undefined,
+  override: false,
   inverted: false,
   disabled: false,
   form: undefined,

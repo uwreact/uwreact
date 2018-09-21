@@ -1,10 +1,10 @@
-import React, { PureComponent, createRef } from 'react';
+import React, { Component, createRef } from 'react';
 
 import { drawer } from '../state';
 
 import styles from './Header.scss';
 
-class Header extends PureComponent {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.userIcon = createRef();

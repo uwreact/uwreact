@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import Home from './Home';
 
 import styles from './Dashboard.scss';
 
-class Dashboard extends PureComponent {
+class Dashboard extends Component {
   constructor(props) {
     super(props);
     login.connect(this);
