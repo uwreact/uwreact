@@ -24,7 +24,6 @@ class Dashboard extends Component {
 
   render() {
     const { loaded, user } = this.state;
-    const { match } = this.props;
 
     return (
       loaded &&
@@ -34,7 +33,7 @@ class Dashboard extends Component {
           <Header />
           <div className={styles.content}>
             <Switch>
-              <Route exact path={match.url} component={Home} />
+              <Route exact path="/dashboard" component={Home} />
               <Route component={NotFound} />
             </Switch>
           </div>

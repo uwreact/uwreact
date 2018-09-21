@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import logo from 'resources/svg/logo/react-header.svg';
@@ -38,7 +39,9 @@ class Drawer extends Component {
       <Fragment>
         <div className={drawerStyles} ref={this.drawer}>
           <div className={styles.header}>
-            <img src={logo} alt="Logo" className={styles.logo} />
+            <Link to="/dashboard">
+              <img src={logo} alt="Logo" className={styles.logo} />
+            </Link>
           </div>
           <div className={styles.items}>
             <Heading label="Membership">
