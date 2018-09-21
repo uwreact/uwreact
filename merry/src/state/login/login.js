@@ -1,6 +1,6 @@
 import Restatable from 'restatable';
 
-import { Firebase } from 'importables';
+import { Firebase } from 'modules';
 
 const login = new Restatable({
   loaded: false,

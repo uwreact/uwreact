@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { NotFound } from 'components';
-import { login } from 'restatables';
+import { login } from 'state';
 
 import Drawer from './Drawer';
 import Header from './Header';

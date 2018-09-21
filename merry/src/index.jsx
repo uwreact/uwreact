@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import { OfflinePlugin, Raven } from 'importables';
+import { OfflinePlugin, Raven } from 'modules';
 
 import 'main.scss';
 
