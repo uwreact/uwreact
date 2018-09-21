@@ -17,6 +17,8 @@
 
   display: none;
 
+  @include side-shadow(0.05);
+
   @include for-tablet-landscape-up {
     display: grid;
   }

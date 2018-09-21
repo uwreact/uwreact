@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { PureComponent, createRef } from 'react';
 
-import { IconButton } from 'components';
-
-import userCircle from 'resources/svg/icon/user-circle.svg';
+import { drawer } from '../state';
 
 import styles from './Header.scss';
 
-const Header = () => (
-  <div className={styles.header}>
-    <IconButton icon={userCircle} />
-  </div>
-);
+class Header extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.userIcon = createRef();
+    drawer.connect(this);
+  }
+
+  componentWillUnmount() {
+    drawer.disconnect(this);
+  }
+
+  render() {
+    return (
+      <div className={styles.header}>
+        <div className={styles.drawerContainer} />
+        <div className={styles.alertContainer} />
+        <div className={styles.userContainer} ref={this.userIcon} />
+      </div>
+    );
+  }
+}
 
 export default Header;
