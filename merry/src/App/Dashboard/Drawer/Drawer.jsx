@@ -22,8 +22,6 @@ class Drawer extends PureComponent {
   render() {
     const { open } = this.state;
 
-    console.log(this.props);
-
     const drawerStyles = boundStyles({
       drawer: true,
       open,
