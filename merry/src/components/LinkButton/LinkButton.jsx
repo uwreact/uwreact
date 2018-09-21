@@ -6,20 +6,8 @@ import { Button } from 'components';
 
 import styles from './LinkButton.scss';
 
-const eitherFormOrOnClick = (props, propName, componentName) => {
-  const { form, onClick } = props;
-
-  if (!form && !onClick) {
-    return new Error(`One of 'form' or 'onClick' is required by <${componentName} />`);
-  }
-  if (form && onClick) {
-    return new Error(`Both 'form' and 'onClick' cannot be provided to <${componentName} />`);
-  }
-  return null;
-};
-
-const IconButton = props => {
-  const { customClass, size, disabled, form, onClick, children } = props;
+const LinkButton = props => {
+  const { customClass, size, children, ...other } = props;
 
   return (
     <Button
@@ -28,30 +16,22 @@ const IconButton = props => {
         fontSize: size,
       }}
       inheritOriginalStyles={false}
-      disabled={disabled}
-      onClick={onClick}
-      form={form}
+      {...other}
     >
       {children}
     </Button>
   );
 };
 
-IconButton.propTypes = {
+LinkButton.propTypes = {
   customClass: PropTypes.string,
   size: PropTypes.number,
-  disabled: PropTypes.bool,
-  form: eitherFormOrOnClick,
-  onClick: eitherFormOrOnClick,
   children: PropTypes.node.isRequired,
 };
 
-IconButton.defaultProps = {
+LinkButton.defaultProps = {
   customClass: '',
   size: 15,
-  disabled: false,
-  form: undefined,
-  onClick: undefined,
 };
 
-export default IconButton;
+export default LinkButton;

@@ -21,7 +21,7 @@ module.exports = (env, options) => {
 
   const entry = path.resolve(__dirname, 'src/index.jsx');
 
-  const exclude = [/node_modules/, /public/];
+  const exclude = [/node_modules/];
 
   const buildPath = path.resolve(__dirname, 'build/');
 
@@ -68,7 +68,6 @@ module.exports = (env, options) => {
         },
         {
           test: /\.(scss)$/,
-          exclude,
           use: [styleLoader, cssLoader, postcssLoader, 'sass-loader', sassResourcesLoader],
         },
         {

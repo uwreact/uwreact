@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { NotFound } from 'components';
-import { login } from 'state';
-
-import Login from './Login';
+import { login } from 'restatables';
 
 import Drawer from './Drawer';
 import Header from './Header';
@@ -16,13 +14,23 @@ import Verify from './Verify';
 
 import styles from './Dashboard.scss';
 
-const Dashboard = props => {
-  const { match } = props;
+class Dashboard extends PureComponent {
+  constructor(props) {
+    super(props);
+    login.connect(this);
+  }
 
-  return login.get(
-    state =>
-      state.loaded &&
-      (state.user ? (
+  componentWillUnmount() {
+    login.disconnect(this);
+  }
+
+  render() {
+    const { loaded, user } = this.state;
+    const { match } = this.props;
+
+    return (
+      loaded &&
+      (user ? (
         <div className={styles.dashboard}>
           <Drawer />
           <Header />
@@ -34,10 +42,11 @@ const Dashboard = props => {
           </Switch>
         </div>
       ) : (
-        <Login />
-      )),
-  );
-};
+        <Redirect to="/login" />
+      ))
+    );
+  }
+}
 
 Dashboard.propTypes = {
   match: PropTypes.shape({
