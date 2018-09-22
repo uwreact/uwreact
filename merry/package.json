@@ -42,7 +42,7 @@
     "enzyme-adapter-react-16": "~1.5.0",
     "eslint": "~5.6.0",
     "eslint-config-airbnb": "~17.1.0",
-    "eslint-config-prettier": "~3.0.1",
+    "eslint-config-prettier": "~3.1.0",
     "eslint-import-resolver-babel-module": "~5.0.0-beta.1",
     "eslint-loader": "~2.1.1",
     "eslint-plugin-import": "~2.14.0",
@@ -76,7 +76,6 @@
   "dependencies": {
     "classnames": "~2.2.5",
     "firebase": "~5.5.1",
-    "immer": "~1.7.2",
     "importable": "~0.0.8",
     "offline-plugin": "~5.0.5",
     "prop-types": "~15.6.1",
@@ -84,7 +83,6 @@
     "raven-js": "~3.27.0",
     "react": "~16.5.2",
     "react-dom": "~16.5.2",
-    "react-loadable": "~5.5.0",
     "react-router-dom": "~4.3.1",
     "restatable": "~0.0.8"
   },

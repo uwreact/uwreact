@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import produce from 'immer';
 
 import { Button, Input, LinkButton } from 'components';
 import { Firebase } from 'modules';
@@ -74,11 +73,7 @@ class Login extends Component {
   };
 
   switchForm = () => {
-    this.setState(
-      produce(draft => {
-        draft.signUp = !draft.signUp;
-      }),
-    );
+    this.setState(state => ({ signUp: !state.signUp }));
   };
 
   render() {
