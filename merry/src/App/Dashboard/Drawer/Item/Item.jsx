@@ -4,11 +4,18 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './Item.scss';
 
+import { drawer } from '../../state';
+
 const ItemView = props => {
   const { to, children } = props;
 
   return (
-    <NavLink className={styles.item} activeClassName={styles.active} to={to}>
+    <NavLink
+      className={styles.item}
+      activeClassName={styles.active}
+      to={to}
+      onClick={() => drawer.state.open && drawer.setState({ open: false })}
+    >
       {children}
     </NavLink>
   );

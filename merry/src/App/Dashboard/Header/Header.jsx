@@ -14,18 +14,13 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.userIcon = createRef();
-    drawer.connect(this);
-  }
-
-  componentWillUnmount() {
-    drawer.disconnect(this);
   }
 
   render() {
     return (
       <div className={styles.header}>
         <div className={styles.drawerContainer}>
-          <IconButton onClick={() => this.setState(state => ({ open: !state.open }))} icon={bars} />
+          <IconButton icon={bars} onClick={() => drawer.setState({ open: true })} />
         </div>
         <div className={styles.alertContainer}>
           <IconButton icon={bell} />

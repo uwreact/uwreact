@@ -4,6 +4,8 @@ import classNames from 'classnames/bind';
 
 import logo from 'resources/svg/logos/react-header.svg';
 
+import { BlankButton } from 'components';
+
 import { drawer } from '../state';
 
 import styles from './Drawer.scss';
@@ -39,7 +41,7 @@ class Drawer extends Component {
       <Fragment>
         <div className={drawerStyles} ref={this.drawer}>
           <div className={styles.header}>
-            <Link to="/dashboard">
+            <Link to="/dashboard" onClick={() => open && this.setState({ open: false })}>
               <img src={logo} alt="Logo" className={styles.logo} />
             </Link>
           </div>
@@ -50,7 +52,9 @@ class Drawer extends Component {
           </div>
           <div className={styles.footer} />
         </div>
-        {open && <div className={drawerBackground} />}
+        {open && (
+          <BlankButton className={drawerBackground} onClick={() => this.setState({ open: false })} />
+        )}
       </Fragment>
     );
   }

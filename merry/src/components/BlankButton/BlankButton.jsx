@@ -18,11 +18,12 @@ const BlankButton = props => {
 
 BlankButton.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 BlankButton.defaultProps = {
   className: '',
+  children: '',
 };
 
 export default BlankButton;
