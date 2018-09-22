@@ -10259,12 +10259,9 @@ responselike@1.0.2:
   dependencies:
     lowercase-keys "^1.0.0"
 
-restatable@~0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/restatable/-/restatable-0.0.8.tgz#b4d2ef8b281b12abe6cb8cfaef78f9aa40b420bf"
-  dependencies:
-    react "~16.5.2"
-    react-dom "~16.5.2"
+restatable@~0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/restatable/-/restatable-0.0.10.tgz#81de558a75ae656a4afa07c446c5ea5aeb09c65b"
 
 restore-cursor@^1.0.1:
   version "1.0.1"
