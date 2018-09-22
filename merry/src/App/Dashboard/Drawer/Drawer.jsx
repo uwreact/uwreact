@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
-import logo from 'resources/svg/logo/react-header.svg';
+import logo from 'resources/svg/logos/react-header.svg';
 
 import { drawer } from '../state';
 

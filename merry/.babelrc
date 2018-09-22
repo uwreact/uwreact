@@ -4,6 +4,7 @@
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-runtime",
     "transform-class-properties",
+    ["inline-react-svg", { "ignorePattern": "^((?!icons).)*$" }],
     [
       "transform-imports",
       {

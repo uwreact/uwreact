@@ -1,5 +1,11 @@
 import React, { Component, createRef } from 'react';
 
+import { IconButton } from 'components';
+
+import bars from 'resources/svg/icons/bars.svg';
+import bell from 'resources/svg/icons/bell.svg';
+import user from 'resources/svg/icons/user.svg';
+
 import { drawer } from '../state';
 
 import styles from './Header.scss';
@@ -18,9 +24,15 @@ class Header extends Component {
   render() {
     return (
       <div className={styles.header}>
-        <div className={styles.drawerContainer} />
-        <div className={styles.alertContainer} />
-        <div className={styles.userContainer} ref={this.userIcon} />
+        <div className={styles.drawerContainer}>
+          <IconButton onClick={() => this.setState(state => ({ open: !state.open }))} icon={bars} />
+        </div>
+        <div className={styles.alertContainer}>
+          <IconButton icon={bell} />
+        </div>
+        <div className={styles.userContainer} ref={this.userIcon}>
+          <IconButton icon={user} />
+        </div>
       </div>
     );
   }

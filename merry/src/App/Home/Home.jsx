@@ -1,7 +1,7 @@
 import React from 'react';
 
-import horizontalLogo from 'resources/svg/logo/react-horizontal.svg';
-import verticalLogo from 'resources/svg/logo/react-vertical.svg';
+import horizontalLogo from 'resources/svg/logos/react-horizontal.svg';
+import verticalLogo from 'resources/svg/logos/react-vertical.svg';
 
 import styles from './Home.scss';
 

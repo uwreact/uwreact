@@ -7,7 +7,7 @@ import { Button, Input, LinkButton } from 'components';
 import { Firebase } from 'modules';
 import { login } from 'state';
 
-import logo from 'resources/svg/logo/react-horizontal.svg';
+import logo from 'resources/svg/logos/react-horizontal.svg';
 
 import styles from './Login.scss';
 

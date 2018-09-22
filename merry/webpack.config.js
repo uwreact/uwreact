@@ -63,10 +63,6 @@ module.exports = (env, options) => {
           use: ['babel-loader', 'eslint-loader'],
         },
         {
-          test: /(normalize\.css)$/,
-          use: [styleLoader, cssLoader],
-        },
-        {
           test: /\.(scss)$/,
           use: [styleLoader, cssLoader, postcssLoader, 'sass-loader', sassResourcesLoader],
         },

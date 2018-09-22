@@ -10,7 +10,7 @@ const LinkButton = props => {
   const { className, children, ...other } = props;
 
   return (
-    <BlankButton className={classNames(styles.link, className)} {...other}>
+    <BlankButton className={classNames(styles.button, className)} {...other}>
       {children}
     </BlankButton>
   );

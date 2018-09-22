@@ -1,22 +1,20 @@
 .button {
-  outline: none;
-  background: none;
-  border: none;
-  padding: 0;
+  display: flex;
 }
 
 .icon {
-  fill: $white-text;
+  fill: $black-text;
+  width: 18px;
 }
 
 .icon:hover {
-  fill: darken($white-text, 10%);
+  fill: lighten($black-text, 20%);
 }
 
 .inverted {
-  fill: $black-text;
+  fill: $white-text;
 }
 
 .inverted:hover {
-  fill: lighten($black-text, 10%);
+  fill: darken($white-text, 20%);
 }

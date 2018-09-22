@@ -1,8 +1,8 @@
-.link {
+.button {
   font-size: 15px;
   color: $link;
 }
 
-.link:hover {
+.button:hover {
   color: lighten($link, 20%);
 }

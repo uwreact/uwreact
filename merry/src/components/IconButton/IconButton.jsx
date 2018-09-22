@@ -11,21 +11,23 @@ const boundStyles = classNames.bind(styles);
 const IconButton = props => {
   const { className, icon, inverted, ...other } = props;
 
+  const Icon = icon;
+
   const iconStyles = boundStyles({
     icon: true,
     inverted,
   });
 
   return (
-    <BlankButton className={classNames(styles.button, className)} {...other}>
-      <img alt="icon" src={icon} className={iconStyles} />
+    <BlankButton className={styles.button} {...other}>
+      <Icon className={classNames(iconStyles, className)} />
     </BlankButton>
   );
 };
 
 IconButton.propTypes = {
   className: PropTypes.string,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.func.isRequired,
   inverted: PropTypes.bool,
 };
 

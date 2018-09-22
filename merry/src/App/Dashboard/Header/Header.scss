@@ -2,15 +2,18 @@
   grid-area: header;
 
   display: grid;
-  grid-template: '. drawer items alert user .' 1fr / 20px 40px 1fr 40px 40px 20px;
+  grid-template: '. drawer items alert user .' 1fr / 20px 50px 1fr 50px 50px 20px;
 
   background-color: $primary;
 
   @include drop-shadow(0.05);
 
   @include for-tablet-landscape-up {
-    grid-template: 'items alert user .' 1fr / 1fr 40px 40px 20px;
+    grid-template: 'items alert user .' 1fr / 1fr 50px 50px 20px;
   }
+
+  justify-items: center;
+  align-items: center;
 }
 
 .drawerContainer {
@@ -21,23 +24,15 @@
   @include for-tablet-landscape-up {
     display: none;
   }
-
-  justify-self: center;
-  align-self: center;
 }
 
 .alertContainer {
   grid-area: alert;
-
-  justify-self: center;
-  align-self: center;
 }
 
 .userContainer {
   grid-area: user;
 
-  justify-self: center;
-  align-self: center;
 }
 
 .userModalPosition {
