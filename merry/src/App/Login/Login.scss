@@ -21,7 +21,7 @@
 
   background-color: white;
 
-  @include drop-shadow(0.05);
+  @include drop-shadow(0.1);
 
   @include for-phone-only {
     width: calc(100% - 50px);

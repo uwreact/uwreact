@@ -14,9 +14,11 @@ const eitherFormOrOnClick = (props, propName, componentName) => {
   if (!form && !onClick) {
     return new Error(`One of 'form' or 'onClick' is required by <${componentName} />`);
   }
+
   if (form && onClick) {
     return new Error(`Both 'form' and 'onClick' cannot be provided to <${componentName} />`);
   }
+
   return null;
 };
 

@@ -53,7 +53,10 @@ class Drawer extends Component {
           <div className={styles.footer} />
         </div>
         {open && (
-          <BlankButton className={drawerBackground} onClick={() => this.setState({ open: false })} />
+          <BlankButton
+            className={drawerBackground}
+            onClick={() => this.setState({ open: false })}
+          />
         )}
       </Fragment>
     );
