@@ -23,7 +23,7 @@ const eitherFormOrOnClick = (props, propName, componentName) => {
 };
 
 const Button = props => {
-  const { className, style, override, inverted, disabled, form, onClick, children } = props;
+  const { className, override, inverted, form, onClick, children, ...other } = props;
 
   const buttonStyles = boundStyles({
     button: !override,
@@ -33,11 +33,10 @@ const Button = props => {
   return (
     <button
       className={classNames(buttonStyles, className)}
-      style={style}
-      disabled={disabled}
       onClick={onClick ? () => onClick() : undefined}
       type={form ? 'submit' : 'button'}
       form={form}
+      {...other}
     >
       {children}
     </button>
@@ -46,10 +45,8 @@ const Button = props => {
 
 Button.propTypes = {
   className: PropTypes.string,
-  style: PropTypes.objectOf(PropTypes.any),
   override: PropTypes.bool,
   inverted: PropTypes.bool,
-  disabled: PropTypes.bool,
   form: eitherFormOrOnClick,
   onClick: eitherFormOrOnClick,
   children: PropTypes.node,
@@ -57,10 +54,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
   className: '',
-  style: undefined,
   override: false,
   inverted: false,
-  disabled: false,
   form: undefined,
   onClick: undefined,
   children: undefined,

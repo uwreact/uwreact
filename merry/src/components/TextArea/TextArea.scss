@@ -1,0 +1,25 @@
+.textArea {
+  font-family: $roboto;
+  font-size: 15px;
+
+  outline: none;
+  border: 1px solid $light-grey;
+  padding: 9px;
+
+  resize: none;
+}
+
+.textArea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.textArea:focus {
+  padding: 8px;
+
+  border: 2px solid $primary;
+}
+
+.textArea::placeholder {
+  color: #cccccc;
+}

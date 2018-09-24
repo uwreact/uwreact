@@ -8,6 +8,7 @@ import LinkButton from './LinkButton';
 import Modal from './Modal';
 import RelativeModal from './RelativeModal';
 import SelectModal from './SelectModal';
+import TextArea from './TextArea';
 
 export {
   AbsoluteModal,
@@ -20,4 +21,5 @@ export {
   Modal,
   RelativeModal,
   SelectModal,
+  TextArea,
 };
