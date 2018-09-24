@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import styles from './Apply.scss';
 
-const Apply = () => <div className={styles.apply}>Apply</div>;
+class Apply extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      verified: false,
+    };
+  }
+
+  render() {
+    const { verified } = this.state;
+
+    return <div className={styles.apply}>{`${verified}`}</div>;
+  }
+}
 
 export default Apply;
