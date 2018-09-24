@@ -20,6 +20,13 @@ class Header extends Component {
     };
     this.userModalOptions = [
       {
+        label: 'Close Dashboard',
+        onClick: () => {
+          const { history } = this.props;
+          history.push('/');
+        },
+      },
+      {
         label: 'Log Out',
         onClick: async () => {
           const { history } = this.props;
@@ -27,13 +34,6 @@ class Header extends Component {
 
           const firebase = await Firebase.import();
           await firebase.auth().signOut();
-        },
-      },
-      {
-        label: 'Exit',
-        onClick: () => {
-          const { history } = this.props;
-          history.push('/');
         },
       },
     ];
