@@ -7,7 +7,9 @@ import styles from './Item.scss';
 import { drawer } from '../../state';
 
 const ItemView = props => {
-  const { to, children } = props;
+  const { to, icon, children } = props;
+
+  const Icon = icon;
 
   return (
     <NavLink
@@ -16,6 +18,9 @@ const ItemView = props => {
       to={to}
       onClick={() => drawer.state.open && drawer.setState({ open: false })}
     >
+      <div className={styles.container}>
+        <Icon className={styles.icon} />
+      </div>
       {children}
     </NavLink>
   );
@@ -23,6 +28,7 @@ const ItemView = props => {
 
 ItemView.propTypes = {
   to: PropTypes.string.isRequired,
+  icon: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };
 
