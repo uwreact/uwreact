@@ -46,11 +46,14 @@ class Header extends Component {
           <IconButton icon={bell} />
         </div>
         <div className={styles.userContainer} ref={this.userIcon}>
-          <IconButton icon={user} onClick={() => this.setState({ userModalOpen: true })} />
+          <IconButton
+            icon={user}
+            onClick={() => this.setState(state => ({ userModalOpen: !state.userModalOpen }))}
+          />
           <SelectModal
             visible={userModalOpen}
             originNodes={[this.userIcon]}
-            customClass={styles.userModalPosition}
+            className={styles.userModal}
             onClickOutside={() => this.setState({ userModalOpen: false })}
             options={this.userModalOptions}
           />

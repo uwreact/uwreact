@@ -15,19 +15,28 @@ const SelectModal = props => {
   const optionStyles = option =>
     boundStyles({
       base: true,
-      option: !!option.label && !!option.onClick,
-      heading: !!option.label && !option.onClick,
+      option: option.label && option.onClick,
+      heading: option.label && !option.onClick,
       divider: !option.label && !option.onClick,
     });
 
   return (
     <RelativeModal className={classNames(styles.modal, className)} {...other}>
       {map(
-        option => (
-          <BlankButton className={optionStyles(option)} onClick={option.onClick} key={option.label}>
-            {option.label}
-          </BlankButton>
-        ),
+        option =>
+          option.onClick ? (
+            <BlankButton
+              className={optionStyles(option)}
+              onClick={option.onClick}
+              key={option.label}
+            >
+              {option.label}
+            </BlankButton>
+          ) : (
+            <div className={optionStyles(option)} key={option.label}>
+              {option.label}
+            </div>
+          ),
         options,
       )}
     </RelativeModal>
