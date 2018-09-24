@@ -1,10 +1,11 @@
 import React, { Component, createRef } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import { IconButton, SelectModal } from 'components';
 import { Firebase } from 'modules';
 
 import bars from 'resources/svg/icons/bars.svg';
-import bell from 'resources/svg/icons/bell.svg';
 import user from 'resources/svg/icons/user.svg';
 
 import { drawer } from '../state';
@@ -20,19 +21,24 @@ class Header extends Component {
     this.userModalOptions = [
       {
         label: 'Log Out',
-        onClick: this.closeModalAnd(async () => {
+        onClick: async () => {
+          const { history } = this.props;
+          history.push('/');
+
           const firebase = await Firebase.import();
           await firebase.auth().signOut();
-        }),
+        },
+      },
+      {
+        label: 'Exit',
+        onClick: () => {
+          const { history } = this.props;
+          history.push('/');
+        },
       },
     ];
     this.userIcon = createRef();
   }
-
-  closeModalAnd = also => () => {
-    this.setState({ userModalOpen: false });
-    also();
-  };
 
   render() {
     const { userModalOpen } = this.state;
@@ -41,9 +47,6 @@ class Header extends Component {
       <div className={styles.header}>
         <div className={styles.drawerContainer}>
           <IconButton icon={bars} onClick={() => drawer.setState({ open: true })} />
-        </div>
-        <div className={styles.alertContainer}>
-          <IconButton icon={bell} />
         </div>
         <div className={styles.userContainer} ref={this.userIcon}>
           <IconButton
@@ -63,4 +66,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default withRouter(Header);
