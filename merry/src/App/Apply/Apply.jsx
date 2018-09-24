@@ -13,7 +13,11 @@ class Apply extends Component {
   render() {
     const { verified } = this.state;
 
-    return <div className={styles.apply}>{`${verified}`}</div>;
+    return (
+      <div className={styles.apply}>
+        <div className={styles.pipe}>{`${verified}`}</div>
+      </div>
+    );
   }
 }
 
