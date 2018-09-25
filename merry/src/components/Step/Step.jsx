@@ -27,7 +27,6 @@ class Step extends Component {
 
     const headerStyles = boundStyles({
       header: true,
-      unlocked,
       completed,
     });
 
@@ -40,12 +39,20 @@ class Step extends Component {
 
     return (
       <div className={styles.step}>
-        <BlankButton className={headerStyles}>
+        <BlankButton
+          disabled={!unlocked}
+          className={headerStyles}
+          onClick={() =>
+            this.setState(state => ({
+              open: !state.open,
+            }))
+          }
+        >
           <div className={styles.name}>{name}</div>
           <div className={styles.divider} />
           <Icon className={styles.icon} />
         </BlankButton>
-        {open && <div className={styles.content}>{children}</div>}
+        {unlocked && open && <div className={styles.content}>{children}</div>}
       </div>
     );
   }

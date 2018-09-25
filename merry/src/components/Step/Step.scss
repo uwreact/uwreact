@@ -1,5 +1,6 @@
 .step {
   display: flex;
+  flex-flow: column nowrap;
 }
 
 .header {
@@ -9,10 +10,16 @@
   align-items: center;
 }
 
+.completed {
+  color: $success;
+}
+
 .name {
   white-space: nowrap;
   padding: 10px;
 
+  font-family: $montserrat;
+  font-weight: 500;
   font-size: 15px;
 }
 
@@ -22,12 +29,13 @@
   margin: 10px;
 
   height: 3px;
-  background-color: $light-grey;
+  background-color: currentColor;
 }
 
 .icon {
   width: 18px;
   padding: 10px;
+  flex-shrink: 0;
   fill: currentColor;
 }
 

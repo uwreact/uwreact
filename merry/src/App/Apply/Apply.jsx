@@ -42,7 +42,47 @@ class Apply extends Component {
       <div className={styles.apply}>
         <div className={styles.pipe}>
           Thank you for your interest in applying!
+          <Step unlocked completed name="Account Creation">
+            <Select
+              placeholder="Search majors"
+              options={majors}
+              selected={36}
+              onSelect={index => console.log(index)}
+            />
+          </Step>
+          <Step unlocked name="Student Status">
+            <Select
+              placeholder="Search majors"
+              options={majors}
+              selected={36}
+              onSelect={index => console.log(index)}
+            />
+          </Step>
           <Step name="Profile Information">
+            <Select
+              placeholder="Search majors"
+              options={majors}
+              selected={36}
+              onSelect={index => console.log(index)}
+            />
+          </Step>
+          <Step name="Acknowledgements">
+            <Select
+              placeholder="Search majors"
+              options={majors}
+              selected={36}
+              onSelect={index => console.log(index)}
+            />
+          </Step>
+          <Step name="FIRST Robotics Competition">
+            <Select
+              placeholder="Search majors"
+              options={majors}
+              selected={36}
+              onSelect={index => console.log(index)}
+            />
+          </Step>
+          <Step name="UW REACT">
             <Select
               placeholder="Search majors"
               options={majors}
