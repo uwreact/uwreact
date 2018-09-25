@@ -26,14 +26,14 @@ const SelectModal = props => {
         option =>
           option.onClick ? (
             <BlankButton
-              className={optionStyles(option)}
+              className={classNames(optionStyles(option), option.className)}
               onClick={option.onClick}
               key={option.label}
             >
               {option.label}
             </BlankButton>
           ) : (
-            <div className={optionStyles(option)} key={option.label}>
+            <div className={classNames(optionStyles(option), option.className)} key={option.label}>
               {option.label}
             </div>
           ),
@@ -48,6 +48,7 @@ SelectModal.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       onClick: PropTypes.func,
+      className: PropTypes.string,
     }),
   ).isRequired,
   className: PropTypes.string,

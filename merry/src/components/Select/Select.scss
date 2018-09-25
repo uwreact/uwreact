@@ -1,0 +1,23 @@
+.container {
+  width: 300px;
+}
+
+.select {
+  width: 280px;
+}
+
+.open {
+  padding: 9px;
+  border: 2px solid $primary;
+}
+
+.selected {
+  background-color: darken(white, 10%);
+}
+
+.selectModal {
+  width: 300px;
+  max-height: 200px;
+
+  overflow: auto;
+}

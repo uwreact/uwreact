@@ -10,7 +10,7 @@ const BlankButton = props => {
   const { className, children, ...other } = props;
 
   return (
-    <Button override className={classNames(styles.button, className)} inherit={false} {...other}>
+    <Button override className={classNames(styles.button, className)} {...other}>
       {children}
     </Button>
   );

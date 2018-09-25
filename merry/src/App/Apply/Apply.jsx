@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { TextArea } from 'components';
+import { Select } from 'components';
+import { majors } from 'dictionaries';
 
 import styles from './Apply.scss';
 
@@ -40,8 +41,13 @@ class Apply extends Component {
     return (
       <div className={styles.apply}>
         <div className={styles.pipe}>
-          Thank you for your interest in applying to UW REACT!
-          <TextArea value="" onChange={() => ''} form="login" placeholder="Herro" />
+          Thank you for your interest in applying!
+          <Select
+            placeholder="Search majors"
+            options={majors}
+            selected={36}
+            onChange={index => console.log(index)}
+          />
         </div>
       </div>
     );
