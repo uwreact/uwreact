@@ -46,7 +46,7 @@ class Apply extends Component {
             placeholder="Search majors"
             options={majors}
             selected={36}
-            onChange={index => console.log(index)}
+            onSelect={index => console.log(index)}
           />
         </div>
       </div>

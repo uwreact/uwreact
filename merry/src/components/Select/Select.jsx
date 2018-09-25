@@ -1,19 +1,9 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
-import Fuse from 'fuse.js';
 
 import { Input, SelectModal } from 'components';
 
 import styles from './Select.scss';
-
-const fuseOptions = {
-  shouldSort: true,
-  threshold: 0.6,
-  location: 0,
-  distance: 100,
-  maxPatternLength: 32,
-  minMatchCharLength: 1,
-};
 
 class Select extends Component {
   constructor(props) {
@@ -21,44 +11,39 @@ class Select extends Component {
     this.select = createRef();
     this.state = {
       open: false,
-      search: '',
-      searchMap: [],
-      searchIndex: 0,
+      index: 0,
     };
   }
 
-  onChangeSearch = search => {
+  changeIndex = change => {
     const { options } = this.props;
 
-    this.setState({
-      search,
-      searchMap: search ? new Fuse(options, fuseOptions).search(search) : options,
-      searchIndex: 0,
-    });
+    this.setState(state => ({
+      index:
+        state.index + change > -1 && state.index + change < options.length
+          ? state.index + change
+          : state.index,
+    }));
   };
 
-  closeSearchAnd = then => () => {
-    this.setState({ open: false, search: '', searchMap: [], searchIndex: 0 }, then);
-  };
+  changeSearch = search => {
+    const { onChangeSearch } = this.props;
 
-  changeSearchIndex = change => {
-    const { search, searchMap, searchIndex } = this.state;
-
-    if (searchIndex + change > -1 && (!search || searchIndex + change < searchMap.length)) {
-      this.setState(state => ({ searchIndex: state.searchIndex + change }));
-    }
+    onChangeSearch(search);
+    this.setState({ index: 0 });
   };
 
   mappedOptions = () => {
-    const { search, searchMap, searchIndex } = this.state;
-    const { options, onChange } = this.props;
+    const { index } = this.state;
+    const { options, onSelect } = this.props;
 
-    const searchedOptions = search ? searchMap : options;
-
-    return searchedOptions.map((option, index) => ({
-      label: search ? options[option] : option,
-      className: index === searchIndex ? styles.selected : '',
-      onClick: this.closeSearchAnd(() => onChange(search ? option : index)),
+    return options.map((option, i) => ({
+      label: option,
+      className: i === index ? styles.selected : '',
+      onClick: () => {
+        this.setState({ open: false });
+        onSelect(i);
+      },
     }));
   };
 
@@ -66,27 +51,26 @@ class Select extends Component {
     if ([9, 13, 38, 40].includes(event.keyCode)) {
       event.preventDefault();
 
-      const { search, searchIndex, searchMap } = this.state;
-      const { onChange } = this.props;
+      const { index } = this.state;
+      const { onSelect } = this.props;
 
       switch (event.keyCode) {
         case 13:
           document.activeElement.blur();
-          this.closeSearchAnd(
-            () => (search ? onChange(searchMap[searchIndex]) : onChange(searchIndex)),
-          )();
+          this.setState({ open: false });
+          onSelect(index);
           break;
         case 38:
-          this.changeSearchIndex(-1);
+          this.changeIndex(-1);
           break;
         case 40:
-          this.changeSearchIndex(1);
+          this.changeIndex(1);
           break;
         default:
           if (event.shiftKey) {
-            this.changeSearchIndex(-1);
+            this.changeIndex(-1);
           } else {
-            this.changeSearchIndex(1);
+            this.changeIndex(1);
           }
           break;
       }
@@ -94,8 +78,8 @@ class Select extends Component {
   };
 
   render() {
-    const { open, search } = this.state;
-    const { options, selected, placeholder } = this.props;
+    const { open } = this.state;
+    const { options, selected, search, placeholder } = this.props;
 
     const option = selected === undefined ? '' : options[selected];
 
@@ -104,8 +88,8 @@ class Select extends Component {
         <Input
           className={styles.select}
           value={open ? search : option}
-          onChange={this.onChangeSearch}
-          onFocus={() => this.setState({ open: true })}
+          onChange={this.changeSearch}
+          onFocus={() => this.setState({ open: true, index: 0 })}
           onKeyDown={this.onKeyDown}
           placeholder={placeholder}
         />
@@ -113,7 +97,7 @@ class Select extends Component {
           visible={open}
           originNodes={[this.select]}
           className={styles.selectModal}
-          onClickOutside={this.closeSearchAnd()}
+          onClickOutside={() => this.setState({ open: false })}
           options={this.mappedOptions()}
         />
       </div>
@@ -124,12 +108,16 @@ class Select extends Component {
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   selected: PropTypes.number,
-  onChange: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  search: PropTypes.string,
+  onChangeSearch: PropTypes.func,
   placeholder: PropTypes.string,
 };
 
 Select.defaultProps = {
   selected: undefined,
+  search: '',
+  onChangeSearch: () => {},
   placeholder: '',
 };
 
