@@ -9,6 +9,7 @@ import Modal from './Modal';
 import RelativeModal from './RelativeModal';
 import Select from './Select';
 import SelectModal from './SelectModal';
+import Step from './Step';
 import TextArea from './TextArea';
 
 export {
@@ -23,5 +24,6 @@ export {
   RelativeModal,
   Select,
   SelectModal,
+  Step,
   TextArea,
 };

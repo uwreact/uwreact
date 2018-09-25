@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Select } from 'components';
+import { Select, Step } from 'components';
 import { majors } from 'dictionaries';
 
 import styles from './Apply.scss';
@@ -42,12 +42,14 @@ class Apply extends Component {
       <div className={styles.apply}>
         <div className={styles.pipe}>
           Thank you for your interest in applying!
-          <Select
-            placeholder="Search majors"
-            options={majors}
-            selected={36}
-            onSelect={index => console.log(index)}
-          />
+          <Step name="Profile Information">
+            <Select
+              placeholder="Search majors"
+              options={majors}
+              selected={36}
+              onSelect={index => console.log(index)}
+            />
+          </Step>
         </div>
       </div>
     );
