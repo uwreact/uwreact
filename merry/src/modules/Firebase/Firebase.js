@@ -21,8 +21,6 @@ const Firebase = new Importable(
 
     firebase.firestore().settings({ timestampsInSnapshots: true });
 
-    firebase.firestore().enablePersistence();
-
     firebase.functions();
   },
   async modules => {

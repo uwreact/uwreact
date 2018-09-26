@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
@@ -13,7 +13,7 @@ import styles from './Step.scss';
 
 const boundStyles = classNames.bind(styles);
 
-class Step extends Component {
+class Step extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,7 +52,7 @@ class Step extends Component {
           <div className={styles.divider} />
           <Icon className={styles.icon} />
         </BlankButton>
-        {unlocked && open && <div className={styles.content}>{children}</div>}
+        {unlocked && open && children}
       </div>
     );
   }

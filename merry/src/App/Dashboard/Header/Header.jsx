@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import { drawer } from '../state';
 
 import styles from './Header.scss';
 
-class Header extends Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +37,7 @@ class Header extends Component {
         },
       },
     ];
-    this.userIcon = createRef();
+    this.userIcon = React.createRef();
   }
 
   render() {

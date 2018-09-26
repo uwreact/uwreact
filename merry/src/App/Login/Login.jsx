@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import qs from 'qs';
 
-import { Button, Input, LinkButton } from 'components';
+import { Button, Input, TextButton } from 'components';
 import { Firebase } from 'modules';
 import { login } from 'state';
+import { trimQuery } from 'utilities';
 
 import logo from 'resources/svg/logos/react-horizontal.svg';
 
@@ -12,22 +15,7 @@ import styles from './Login.scss';
 
 const boundStyles = classNames.bind(styles);
 
-/**
- * TODO:
-
- https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize
- ?client_id=350d760d-cf3a-4aa5-b663-71ad2946ea67
- &response_type=id_token+token
- &redirect_uri=https://uwreact.ca/dashboard
- &scope=openid
- &response_mode=fragment
- &state=12345
- &nonce=678910
- &prompt=consent
-
- */
-
-class Login extends Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,12 +24,20 @@ class Login extends Component {
       confirmPassword: '',
       error: '',
       signUp: false,
+      redirect: '/dashboard',
     };
-    login.connect(this);
+    login.connect(
+      this,
+      ['loaded', 'userr'],
+    );
   }
 
-  componentWillUnmount() {
-    login.disconnect(this);
+  componentDidMount() {
+    const { location } = this.props;
+
+    const { signUp, redirect } = qs.parse(trimQuery(location.search));
+
+    this.setState({ ...(signUp ? { signUp } : {}), ...(redirect ? { redirect } : {}) });
   }
 
   onSubmit = async event => {
@@ -60,24 +56,8 @@ class Login extends Component {
     }
   };
 
-  onChangeEmail = email => {
-    this.setState({ email, error: '' });
-  };
-
-  onChangePassword = password => {
-    this.setState({ password, error: '' });
-  };
-
-  onChangeConfirmPassword = confirmPassword => {
-    this.setState({ confirmPassword, error: '' });
-  };
-
-  switchForm = () => {
-    this.setState(state => ({ signUp: !state.signUp }));
-  };
-
   render() {
-    const { loaded, user, email, password, confirmPassword, error, signUp } = this.state;
+    const { loaded, user, email, password, confirmPassword, error, signUp, redirect } = this.state;
 
     const formCardStyles = boundStyles({
       card: true,
@@ -88,7 +68,7 @@ class Login extends Component {
     return (
       loaded &&
       (user ? (
-        <Redirect to="/dashboard" />
+        <Redirect to={redirect} />
       ) : (
         <div className={styles.login}>
           <div className={formCardStyles}>
@@ -99,14 +79,14 @@ class Login extends Component {
             <form className={styles.form} id="login" onSubmit={this.onSubmit}>
               <Input
                 value={email}
-                onChange={this.onChangeEmail}
+                onChange={value => this.setState({ email: value, error: '' })}
                 form="login"
                 placeholder="Email"
                 type="email"
               />
               <Input
                 value={password}
-                onChange={this.onChangePassword}
+                onChange={value => this.setState({ password: value, error: '' })}
                 form="login"
                 placeholder="Password"
                 type="password"
@@ -114,7 +94,7 @@ class Login extends Component {
               {signUp && (
                 <Input
                   value={confirmPassword}
-                  onChange={this.onChangeConfirmPassword}
+                  onChange={value => this.setState({ confirmPassword: value, error: '' })}
                   form="login"
                   placeholder="Confirm your password"
                   type="password"
@@ -136,12 +116,20 @@ class Login extends Component {
           </div>
           <div className={classNames(styles.card, styles.switchCard)}>
             <span>{signUp ? 'Already have an account? ' : "Don't have an account? "}</span>
-            <LinkButton onClick={this.switchForm}>{signUp ? 'Log In' : 'Sign Up'}</LinkButton>
+            <TextButton onClick={() => this.setState(state => ({ signUp: !state.signUp }))}>
+              {signUp ? 'Log In' : 'Sign Up'}
+            </TextButton>
           </div>
         </div>
       ))
     );
   }
 }
+
+Login.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Login;

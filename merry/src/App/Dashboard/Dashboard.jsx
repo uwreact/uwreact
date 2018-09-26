@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -13,14 +13,13 @@ import NotFound from '../NotFound';
 
 import styles from './Dashboard.scss';
 
-class Dashboard extends Component {
+class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    login.connect(this);
-  }
-
-  componentWillUnmount() {
-    login.disconnect(this);
+    login.connect(
+      this,
+      ['loaded', 'user'],
+    );
   }
 
   render() {

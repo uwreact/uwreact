@@ -4,9 +4,9 @@ import classNames from 'classnames/bind';
 
 import { BlankButton } from 'components';
 
-import styles from './LinkButton.scss';
+import styles from './TextButton.scss';
 
-const LinkButton = props => {
+const TextButton = props => {
   const { className, children, ...other } = props;
 
   return (
@@ -16,13 +16,13 @@ const LinkButton = props => {
   );
 };
 
-LinkButton.propTypes = {
+TextButton.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
-LinkButton.defaultProps = {
+TextButton.defaultProps = {
   className: '',
 };
 
-export default LinkButton;
+export default TextButton;

@@ -1,10 +1,10 @@
-import React, { Component, createRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import styles from './Modal.scss';
 
-class Modal extends Component {
+class Modal extends React.Component {
   static propTypes = {
     visible: PropTypes.bool.isRequired,
     originNodes: PropTypes.arrayOf(PropTypes.object),
@@ -21,7 +21,7 @@ class Modal extends Component {
 
   constructor(props) {
     super(props);
-    this.modal = createRef();
+    this.modal = React.createRef();
   }
 
   componentWillMount() {

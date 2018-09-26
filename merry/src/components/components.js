@@ -4,13 +4,13 @@ import Button from './Button';
 import FullScreenModal from './FullScreenModal';
 import Input from './Input';
 import IconButton from './IconButton';
-import LinkButton from './LinkButton';
 import Modal from './Modal';
 import RelativeModal from './RelativeModal';
 import Select from './Select';
 import SelectModal from './SelectModal';
 import Step from './Step';
 import TextArea from './TextArea';
+import TextButton from './TextButton';
 
 export {
   AbsoluteModal,
@@ -19,11 +19,11 @@ export {
   FullScreenModal,
   Input,
   IconButton,
-  LinkButton,
+  TextButton,
+  TextArea,
   Modal,
   RelativeModal,
   Select,
   SelectModal,
   Step,
-  TextArea,
 };

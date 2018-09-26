@@ -1,14 +1,14 @@
-import React, { Component, createRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Input, SelectModal } from 'components';
 
 import styles from './Select.scss';
 
-class Select extends Component {
+class Select extends React.Component {
   constructor(props) {
     super(props);
-    this.select = createRef();
+    this.select = React.createRef();
     this.state = {
       open: false,
       index: 0,

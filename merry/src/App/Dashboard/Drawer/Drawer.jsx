@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
@@ -17,14 +17,10 @@ import Item from './Item';
 
 const boundStyles = classNames.bind(styles);
 
-class Drawer extends Component {
+class Drawer extends React.Component {
   constructor(props) {
     super(props);
     drawer.connect(this);
-  }
-
-  componentWillUnmount() {
-    drawer.disconnect(this);
   }
 
   render() {
@@ -40,7 +36,7 @@ class Drawer extends Component {
     });
 
     return (
-      <Fragment>
+      <React.Fragment>
         <div className={drawerStyles} ref={this.drawer}>
           <div className={styles.header}>
             <Link to="/dashboard" onClick={() => open && this.setState({ open: false })}>
@@ -62,7 +58,7 @@ class Drawer extends Component {
             onClick={() => this.setState({ open: false })}
           />
         )}
-      </Fragment>
+      </React.Fragment>
     );
   }
 }
