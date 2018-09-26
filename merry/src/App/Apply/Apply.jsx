@@ -44,7 +44,9 @@ class Apply extends React.Component {
 
     const query = qs.parse(trimQuery(location.hash));
 
-    console.log(query);
+    console.log(query.access_token);
+    console.log(query.id_token);
+    console.log(query.state);
   }
 
   render() {
