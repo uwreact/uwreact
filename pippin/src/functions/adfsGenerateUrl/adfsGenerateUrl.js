@@ -20,7 +20,13 @@ const onCall = (data, context) => {
     throw new functions.https.HttpsError('invalid-argument');
   }
 
-  return { url: studentVerificationUrl(redirect, id(), id()) };
+  const state = id();
+  const nonce = id();
+
+  console.log(state);
+  console.log(nonce);
+
+  return { url: studentVerificationUrl(redirect, state, nonce) };
 };
 
 const adfsGenerateUrl = functions.https.onCall(onCall);

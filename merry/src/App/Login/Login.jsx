@@ -28,7 +28,7 @@ class Login extends React.Component {
     };
     login.connect(
       this,
-      ['loaded', 'userr'],
+      ['loaded', 'user'],
     );
   }
 
