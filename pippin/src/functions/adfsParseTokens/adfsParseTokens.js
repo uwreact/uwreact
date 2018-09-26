@@ -23,11 +23,13 @@ const onCall = async (data, context) => {
     throw new functions.https.HttpsError(httpsErrors.INVALID_ARGUMENT);
   }
 
-  const verification = await admin
+  const verificationDoc = await admin
     .firestore()
     .collection('verifications')
     .doc(uid)
     .get();
+
+  const verification = verificationDoc.data();
 
   return { verification };
 };
