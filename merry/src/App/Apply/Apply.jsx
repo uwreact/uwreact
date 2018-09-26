@@ -14,21 +14,6 @@ import logo from 'resources/svg/logos/react-horizontal.svg';
 import styles from './Apply.scss';
 
 /**
- * TODO:
-
- https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize
- ?client_id=eabe0f6a-9b64-4f23-a989-26ebaa0381ce
- &response_type=id_token+token
- &redirect_uri=http://localhost:8080/apply
- &scope=openid
- &response_mode=fragment
- &state=12345
- &nonce=678910
- &prompt=consent
-
- */
-
-/**
  * 3. Profile Information (auto-filled with validation info)
  *  3a. First Name
  *  3b. Last Name
