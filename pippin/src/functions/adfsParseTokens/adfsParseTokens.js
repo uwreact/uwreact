@@ -49,7 +49,7 @@ const onCall = async (data, context) => {
   const verification = await verificationDoc.get();
 
   if (verification.exists) {
-    throw new functions.https.HttpsError(httpsErrors.PERMISSION_DENIED);
+    throw new functions.https.HttpsError(httpsErrors.ALREADY_EXISTS);
   }
 
   const pendingDoc = admin
@@ -78,6 +78,7 @@ const onCall = async (data, context) => {
     firstName,
     lastName,
     user: userDoc,
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 
   await userDoc.update({

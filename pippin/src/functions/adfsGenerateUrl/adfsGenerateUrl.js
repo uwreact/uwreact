@@ -25,7 +25,7 @@ const onCall = async (data, context) => {
     const verification = await userData.verification.get();
 
     if (verification.exists) {
-      throw new functions.https.HttpsError(httpsErrors.PERMISSION_DENIED);
+      throw new functions.https.HttpsError(httpsErrors.ALREADY_EXISTS);
     }
   }
 
@@ -37,7 +37,7 @@ const onCall = async (data, context) => {
     .collection('verifications')
     .doc(uid);
 
-  await pendingDoc.set({ state, nonce });
+  await pendingDoc.set({ state, nonce, createdAt: admin.firestore.FieldValue.serverTimestamp() });
 
   return { url: studentVerificationUrl(data.redirect, state, nonce) };
 };

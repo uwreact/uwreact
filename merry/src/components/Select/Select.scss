@@ -1,9 +1,10 @@
 .container {
-  width: 300px;
+  width: 100%;
+  position: relative;
 }
 
 .select {
-  width: 280px;
+  width: calc(100% - 20px);
 }
 
 .open {
@@ -16,8 +17,10 @@
 }
 
 .selectModal {
-  width: 300px;
+  width: 100%;
   max-height: 200px;
+
+  transform: translate(0, 40px);
 
   overflow: auto;
 }

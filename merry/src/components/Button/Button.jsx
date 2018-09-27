@@ -33,7 +33,7 @@ const Button = props => {
   return (
     <button
       className={classNames(buttonStyles, className)}
-      onClick={onClick ? () => onClick() : undefined}
+      onClick={onClick ? event => onClick(event) : undefined}
       type={form ? 'submit' : 'button'}
       form={form}
       {...other}

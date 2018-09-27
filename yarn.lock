@@ -1609,9 +1609,9 @@ babel-core@^6.0.0, babel-core@^6.26.0:
     slash "^1.0.0"
     source-map "^0.5.7"
 
-babel-eslint@~10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.0.tgz#0bb43e6b11a119bf3defbb1ee2521f42e2d413c9"
+babel-eslint@~10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.1.tgz#919681dc099614cd7d31d45c8908695092a1faed"
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/parser" "^7.0.0"
@@ -1664,9 +1664,9 @@ babel-jest@^23.6.0, babel-jest@~23.6.0:
     babel-plugin-istanbul "^4.1.6"
     babel-preset-jest "^23.2.0"
 
-babel-loader@~8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.2.tgz#2079b8ec1628284a929241da3d90f5b3de2a5ae5"
+babel-loader@~8.0.3:
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.3.tgz#c791f2853cd6d276f1eda023cc3fd1701faec495"
   dependencies:
     find-cache-dir "^1.0.0"
     loader-utils "^1.0.2"
@@ -4191,9 +4191,9 @@ eslint-plugin-jsx-a11y@~6.1.1:
     has "^1.0.3"
     jsx-ast-utils "^2.0.1"
 
-eslint-plugin-prettier@~2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.6.2.tgz#71998c60aedfa2141f7bfcbf9d1c459bf98b4fad"
+eslint-plugin-prettier@~2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.7.0.tgz#b4312dcf2c1d965379d7f9d5b5f8aaadc6a45904"
   dependencies:
     fast-diff "^1.1.1"
     jest-docblock "^21.0.0"
@@ -10313,9 +10313,9 @@ responselike@1.0.2:
   dependencies:
     lowercase-keys "^1.0.0"
 
-restatable@~0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/restatable/-/restatable-0.0.13.tgz#0e5be5d838daa9d11ca07cfb91adb6e4ae8f47dc"
+restatable@~0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/restatable/-/restatable-0.0.14.tgz#78a8ee50f338bd83cd3d8b34493576ea22623c48"
 
 restore-cursor@^1.0.1:
   version "1.0.1"

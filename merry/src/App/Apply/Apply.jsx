@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import qs from 'qs';
 
-import { TextButton, Step } from 'components';
+import { Field, Input, Select, Step, TextButton } from 'components';
+import { majors } from 'dictionaries';
 import { Firebase } from 'modules';
 import { loading, user } from 'state';
 import { trimQuery, trimUrl } from 'utilities';
@@ -13,13 +14,6 @@ import logo from 'resources/svg/logos/react-horizontal.svg';
 import styles from './Apply.scss';
 
 /**
- * 3. Profile Information (auto-filled with validation info)
- *  3a. First Name
- *  3b. Last Name
- *  3c. University Email
- *  3d. Program
- *  3f. Graduation Year
- * 4. Acknowledgements
  * 5. FIRST Robotics Competition
  *  5a. Participated in FRC
  *  5b. Team Number
@@ -35,7 +29,10 @@ class Apply extends React.Component {
     this.state = {
       sentVerificationEmail: false,
     };
-    user.connect(this);
+    user.connect(
+      this,
+      ['loaded', 'auth', 'details'],
+    );
   }
 
   componentDidMount() {
@@ -47,6 +44,10 @@ class Apply extends React.Component {
       this.verifyStudentStatus(query);
     }
   }
+
+  updateDetails = details => {
+    this.setState(state => ({ details: { ...state.details, ...details } }));
+  };
 
   sendEmailVerification = async () => {
     const { auth } = this.state;
@@ -81,34 +82,50 @@ class Apply extends React.Component {
     await loading.setState({ message: 'Verifying student status' });
 
     try {
-      const res = await adfsParseTokens(query);
-      console.log(res);
+      await adfsParseTokens(query);
     } finally {
       await loading.setState({ message: '' });
     }
   };
 
-  updateFirebase = field => async value => {
-    const { auth } = this.state;
+  consentToMediaRelease = async () => {
     const firebase = await Firebase.import();
-    const update = {};
-    update[field] = value;
+    const mediaReleaseConsent = firebase.functions().httpsCallable('mediaReleaseConsent');
+    await loading.setState({ message: 'Signing media release' });
 
-    await firebase
-      .firestore()
-      .collection('users')
-      .doc(auth.uid)
-      .update(update);
+    try {
+      await mediaReleaseConsent();
+    } finally {
+      await loading.setState({ message: '' });
+    }
   };
 
   render() {
     const { loaded, auth, details, sentVerificationEmail } = this.state;
     const { match, history } = this.props;
 
-    const emailVerified = auth && auth.emailVerified;
+    const emailVerified = !!(auth && auth.emailVerified);
 
-    const studentVerifiedOrNotStudent =
-      details && 'student' in details && (!details.student || details.verification);
+    const studentVerifiedOrNotStudent = !!(
+      details &&
+      'student' in details &&
+      (!details.student || details.verification)
+    );
+
+    const profileComplete = !!(
+      details &&
+      details.firstName &&
+      details.lastName &&
+      (details.student
+        ? details.schoolEmail && details.major !== undefined && details.graduationYear !== undefined
+        : true)
+    );
+
+    const acknowledgedRelease = !!(
+      details &&
+      'mediaRelease' in details &&
+      (!details.mediaRelease || details.mediaReleaseConsent)
+    );
 
     return (
       <div className={styles.apply}>
@@ -119,7 +136,7 @@ class Apply extends React.Component {
               Thank you for your interest in joining our team! Please fill out the application form
               below before 9:00am on October 1st, 2018.
             </div>
-            <Step unlocked={loaded} completed={!!auth} name="Account Creation">
+            <Step name="Account Creation" unlocked={loaded} completed={!!auth}>
               <div className={styles.step}>
                 {auth ? `You're logged in as ${auth.email}. Not you? ` : 'To begin, '}
                 <TextButton
@@ -144,7 +161,7 @@ class Apply extends React.Component {
                 .
               </div>
             </Step>
-            <Step unlocked={!!auth} completed={emailVerified} name="Verify Email">
+            <Step name="Verify Email" unlocked={!!auth} completed={emailVerified}>
               <div className={styles.step}>
                 {emailVerified ? 'Your email is verified.' : 'Your email is unverified. '}
                 {!emailVerified &&
@@ -158,9 +175,9 @@ class Apply extends React.Component {
               </div>
             </Step>
             <Step
+              name="Student Status"
               unlocked={emailVerified}
               completed={studentVerifiedOrNotStudent}
-              name="Student Status"
             >
               <div className={styles.step}>
                 {details &&
@@ -170,20 +187,125 @@ class Apply extends React.Component {
                         Please verify your student status
                       </TextButton>
                       {', or '}
-                      <TextButton onClick={() => this.updateFirebase('student')(false)}>
+                      <TextButton onClick={() => this.updateDetails({ student: false })}>
                         {"click here if you're not a student."}
                       </TextButton>
                     </React.Fragment>
                   ) : (
-                    'Your student status is verified.'
+                    <span>
+                      {details.student ? (
+                        'Your student status is verified.'
+                      ) : (
+                        <React.Fragment>
+                          {"You're not a student. "}
+                          <TextButton onClick={() => this.updateDetails({ student: true })}>
+                            Was that an accident?
+                          </TextButton>
+                        </React.Fragment>
+                      )}
+                    </span>
                   ))}
               </div>
             </Step>
-            <Step name="Profile Information" unlocked={studentVerifiedOrNotStudent}>
-              <div className={styles.step}>Step</div>
+            <Step
+              name="Profile Information"
+              unlocked={studentVerifiedOrNotStudent}
+              completed={profileComplete}
+            >
+              <div className={styles.step}>
+                {details && (
+                  <React.Fragment>
+                    <Field label="First Name">
+                      <Input
+                        value={details.firstName}
+                        onChange={firstName => this.updateDetails({ firstName })}
+                        placeholder="Enter your first name"
+                        maxLength={100}
+                      />
+                    </Field>
+                    <Field label="Last Name">
+                      <Input
+                        value={details.lastName}
+                        onChange={lastName => this.updateDetails({ lastName })}
+                        placeholder="Enter your last name"
+                        maxLength={100}
+                      />
+                    </Field>
+                    {details.student && (
+                      <React.Fragment>
+                        <Field label="School Email">
+                          <Input
+                            value={details.schoolEmail}
+                            onChange={schoolEmail => this.updateDetails({ schoolEmail })}
+                            placeholder="Enter your school email"
+                            type="email"
+                            maxLength={100}
+                          />
+                        </Field>
+                        <Field label="Major">
+                          <Select
+                            options={majors}
+                            selected={details.major}
+                            onChange={major => this.updateDetails({ major })}
+                            placeholder="Search for your major"
+                          />
+                        </Field>
+                        <Field label="Graduation Year">
+                          <Select
+                            options={['2019', '2020', '2021', '2022', '2023']}
+                            selected={details.graduationYear}
+                            onChange={graduationYear => this.updateDetails({ graduationYear })}
+                            placeholder="Enter your graduation year"
+                          />
+                        </Field>
+                      </React.Fragment>
+                    )}
+                  </React.Fragment>
+                )}
+              </div>
             </Step>
-            <Step name="Acknowledgements">Step</Step>
-            <Step name="FIRST Robotics Competition">Step</Step>
+            <Step name="Media Release" unlocked={profileComplete} completed={acknowledgedRelease}>
+              <div className={styles.step}>
+                {details &&
+                  (!acknowledgedRelease ? (
+                    <React.Fragment>
+                      <div className={styles.consent}>
+                        I give permission to the University of Waterloo Robotics Engineering and
+                        Autonomous Controls Student Design Team (hereinafter UW REACT), and any
+                        parties designated by UW REACT to photograph and/or record me during any
+                        activity organized by UW REACT. I further consent to the use of the produced
+                        photograph(s), audio recording(s), and/or video(s) in all forms of media,
+                        for any and all purposes. I understand and agree that I will not receive any
+                        payment or royalty for the publication of the photograph(s), audio
+                        recording(s), and/or video(s) or the use of my name and I hereby release UW
+                        REACT and any parties designated by UW REACT from any such claims. I certify
+                        that I have read and fully understand this consent and release.
+                      </div>
+                      <TextButton onClick={this.consentToMediaRelease}>I consent</TextButton>
+                      {', or, '}
+                      <TextButton onClick={() => this.updateDetails({ mediaRelease: false })}>
+                        I do not consent.
+                      </TextButton>
+                    </React.Fragment>
+                  ) : (
+                    <span>
+                      {details.mediaRelease ? (
+                        "You've consented to the media release."
+                      ) : (
+                        <React.Fragment>
+                          {"You've not consented to the media release. "}
+                          <TextButton onClick={() => this.updateDetails({ mediaRelease: true })}>
+                            Was that an accident?
+                          </TextButton>
+                        </React.Fragment>
+                      )}
+                    </span>
+                  ))}
+              </div>
+            </Step>
+            <Step name="FIRST Robotics Competition" unlocked={acknowledgedRelease}>
+              Step
+            </Step>
             <Step name="UW REACT">Step</Step>
           </div>
         </div>

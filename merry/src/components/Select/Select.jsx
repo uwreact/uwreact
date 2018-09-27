@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Input, SelectModal } from 'components';
+import { Fuse } from 'modules';
 
 import styles from './Select.scss';
 
@@ -12,65 +13,109 @@ class Select extends React.Component {
     this.state = {
       open: false,
       index: 0,
+      search: '',
+      searchMap: [],
     };
   }
 
-  changeIndex = change => {
+  componentDidMount() {
+    this.updateFuse();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { options } = this.props;
+
+    if (prevProps.options.some((option, index) => option !== options[index])) {
+      this.updateFuse();
+    }
+  }
+
+  updateFuse = async () => {
+    const { options } = this.props;
+
+    const fuse = await Fuse.import();
+
+    this.fuse = fuse(options);
+  };
+
+  onChangeIndex = change => {
     const { options } = this.props;
 
     this.setState(state => ({
       index:
-        state.index + change > -1 && state.index + change < options.length
-          ? state.index + change
-          : state.index,
+        state.index + change > -1 && state.index + change < state.search
+          ? state.searchMap.length
+          : options.length
+            ? state.index + change
+            : state.index,
     }));
   };
 
-  changeSearch = search => {
-    const { onChangeSearch } = this.props;
+  onChangeSearch = search => {
+    this.setState({
+      index: 0,
+      search,
+      searchMap: search ? this.fuse.search(search) : [],
+    });
+  };
 
-    onChangeSearch(search);
-    this.setState({ index: 0 });
+  closeSearch = () => {
+    this.setState({ open: false, index: 0, search: '', searchMap: [] });
   };
 
   mappedOptions = () => {
-    const { index } = this.state;
-    const { options, onSelect } = this.props;
+    const { index, search, searchMap } = this.state;
+    const { options, onChange } = this.props;
 
-    return options.map((option, i) => ({
-      label: option,
-      className: i === index ? styles.selected : '',
-      onClick: () => {
-        this.setState({ open: false });
-        onSelect(i);
-      },
-    }));
+    return search
+      ? searchMap.map((option, i) => ({
+          label: options[option],
+          className: i === index ? styles.selected : '',
+          onClick: event => {
+            event.preventDefault();
+            this.closeSearch();
+            onChange(option);
+          },
+        }))
+      : options.map((option, i) => ({
+          label: option,
+          className: i === index ? styles.selected : '',
+          onClick: event => {
+            event.preventDefault();
+            this.closeSearch();
+            onChange(i);
+          },
+        }));
   };
 
   onKeyDown = event => {
     if ([9, 13, 38, 40].includes(event.keyCode)) {
       event.preventDefault();
 
-      const { index } = this.state;
-      const { onSelect } = this.props;
+      const { index, search, searchMap } = this.state;
+      const { onChange } = this.props;
 
       switch (event.keyCode) {
         case 13:
           document.activeElement.blur();
-          this.setState({ open: false });
-          onSelect(index);
+          this.closeSearch();
+          if (search) {
+            onChange(searchMap[index]);
+          } else {
+            onChange(index);
+          }
           break;
         case 38:
-          this.changeIndex(-1);
+          this.onChangeIndex(-1);
           break;
         case 40:
-          this.changeIndex(1);
+          this.onChangeIndex(1);
           break;
         default:
           if (event.shiftKey) {
-            this.changeIndex(-1);
+            this.onChangeIndex(-1);
           } else {
-            this.changeIndex(1);
+            this.onChangeIndex(1);
           }
           break;
       }
@@ -78,8 +123,8 @@ class Select extends React.Component {
   };
 
   render() {
-    const { open } = this.state;
-    const { options, selected, search, placeholder } = this.props;
+    const { open, search } = this.state;
+    const { options, selected, placeholder } = this.props;
 
     const option = selected === undefined ? '' : options[selected];
 
@@ -88,8 +133,8 @@ class Select extends React.Component {
         <Input
           className={styles.select}
           value={open ? search : option}
-          onChange={this.changeSearch}
-          onFocus={() => this.setState({ open: true, index: 0 })}
+          onChange={this.onChangeSearch}
+          onFocus={() => this.setState({ open: true, index: 0, search: '', searchMap: [] })}
           onKeyDown={this.onKeyDown}
           placeholder={placeholder}
         />
@@ -97,7 +142,7 @@ class Select extends React.Component {
           visible={open}
           originNodes={[this.select]}
           className={styles.selectModal}
-          onClickOutside={() => this.setState({ open: false })}
+          onClickOutside={this.closeSearch}
           options={this.mappedOptions()}
         />
       </div>
@@ -108,16 +153,12 @@ class Select extends React.Component {
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   selected: PropTypes.number,
-  onSelect: PropTypes.func.isRequired,
-  search: PropTypes.string,
-  onChangeSearch: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
 };
 
 Select.defaultProps = {
   selected: undefined,
-  search: '',
-  onChangeSearch: () => {},
   placeholder: '',
 };
 
