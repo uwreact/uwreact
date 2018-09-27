@@ -1,6 +1,7 @@
 import AbsoluteModal from './AbsoluteModal';
 import BlankButton from './BlankButton';
 import Button from './Button';
+import Field from './Field';
 import FullScreenModal from './FullScreenModal';
 import Input from './Input';
 import IconButton from './IconButton';
@@ -17,6 +18,7 @@ export {
   AbsoluteModal,
   BlankButton,
   Button,
+  Field,
   FullScreenModal,
   Input,
   IconButton,

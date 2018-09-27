@@ -1,0 +1,11 @@
+.label {
+  display: flex;
+
+  flex-flow: column nowrap;
+
+  padding-bottom: 5px;
+
+  span {
+    padding-bottom: 5px;
+  }
+}

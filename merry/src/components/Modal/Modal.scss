@@ -1,4 +1,6 @@
 .modal {
+  z-index: 100;
+
   background-color: white;
 
   @include drop-shadow(0.1);

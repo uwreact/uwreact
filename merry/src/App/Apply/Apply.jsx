@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import qs from 'qs';
 
-import { TextButton, Select, Step } from 'components';
+import { Field, Input, TextButton, Select, Step } from 'components';
 import { majors } from 'dictionaries';
 import { Firebase } from 'modules';
 import { loading, user } from 'state';
@@ -89,6 +89,19 @@ class Apply extends React.Component {
     }
   };
 
+  updateFirebase = field => async value => {
+    const { auth } = this.state;
+    const firebase = await Firebase.import();
+    const update = {};
+    update[field] = value;
+
+    await firebase
+      .firestore()
+      .collection('users')
+      .doc(auth.uid)
+      .update(update);
+  };
+
   render() {
     const { loaded, auth, details, sentVerificationEmail } = this.state;
     const { match, history } = this.props;
@@ -152,19 +165,73 @@ class Apply extends React.Component {
               name="Student Status"
             >
               <div className={styles.step}>
-                <div>Are you a student at the University of Waterloo?</div>
-                <TextButton onClick={this.openStudentVerification}>
-                  Please verify your student status by logging in with your WatIAM ID.
-                </TextButton>
+                <Field label="Are you a student at the University of Waterloo?">
+                  Are you?
+                </Field>
+                {details &&
+                  details.student &&
+                  (!details.verification ? (
+                    <TextButton onClick={this.openStudentVerification}>
+                      Please verify your student status by logging in with your WatIAM ID.
+                    </TextButton>
+                  ) : (
+                    'Your student status is verified.'
+                  ))}
               </div>
             </Step>
-            <Step name="Profile Information">
-              <Select
-                placeholder="Search majors"
-                options={majors}
-                selected={36}
-                onSelect={index => console.log(index)}
-              />
+            <Step name="Profile Information" unlocked={!!details}>
+              <div className={styles.step}>
+                {details && (
+                  <React.Fragment>
+                    <Field label="First Name">
+                      <Input
+                        value={details.firstName}
+                        onChange={this.updateFirebase('firstName')}
+                        placeholder="Enter your first name"
+                        maxlength={100}
+                      />
+                    </Field>
+                    <Field label="Last Name">
+                      <Input
+                        value={details.lastName}
+                        onChange={this.updateFirebase('lastName')}
+                        placeholder="Enter your last name"
+                        maxlength={100}
+                      />
+                    </Field>
+                    {details.student && (
+                      <React.Fragment>
+                        <Field label="School Email">
+                          <Input
+                            value={details.schoolEmail}
+                            onChange={this.updateFirebase('schoolEmail')}
+                            placeholder="Enter your school email"
+                            type="email"
+                            maxlength={100}
+                          />
+                        </Field>
+                        <Field label="Major">
+                          <Select
+                            placeholder="Search for your major"
+                            options={majors}
+                            selected={36}
+                            onSelect={index => console.log(index)}
+                          />
+                        </Field>
+                        <Field label="Graduation Year">
+                          <Input
+                            value={details.graduationYear}
+                            onChange={this.updateFirebase('graduationYear')}
+                            placeholder="Enter your graduation year"
+                            type="number"
+                            maxlength={100}
+                          />
+                        </Field>
+                      </React.Fragment>
+                    )}
+                  </React.Fragment>
+                )}
+              </div>
             </Step>
             <Step name="Acknowledgements">Step</Step>
             <Step name="FIRST Robotics Competition">Step</Step>
