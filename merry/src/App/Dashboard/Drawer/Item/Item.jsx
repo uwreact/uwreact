@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import styles from './Item.scss';
+import { drawer } from 'state';
 
-import { drawer } from '../../state';
+import styles from './Item.scss';
 
 const ItemView = props => {
   const { to, icon, children } = props;

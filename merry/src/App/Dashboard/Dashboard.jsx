@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { login } from 'state';
+import { user } from 'state';
 
 import Drawer from './Drawer';
 import Header from './Header';
@@ -16,18 +16,18 @@ import styles from './Dashboard.scss';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    login.connect(
+    user.connect(
       this,
-      ['loaded', 'user'],
+      ['loaded', 'auth'],
     );
   }
 
   render() {
-    const { loaded, user } = this.state;
+    const { loaded, auth } = this.state;
 
     return (
       loaded &&
-      (user ? (
+      (auth ? (
         <div className={styles.dashboard}>
           <Drawer />
           <Header />

@@ -1,0 +1,16 @@
+.modal {
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  overflow: auto;
+
+  span {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  @include for-phone-only {
+    width: 100%;
+  }
+}

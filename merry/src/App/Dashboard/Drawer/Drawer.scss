@@ -1,6 +1,6 @@
 .drawer {
   grid-area: drawer;
-  z-index: 100;
+  z-index: 20;
 
   grid-template: 'header' 60px 'items' auto 'footer' 60px / auto;
 
@@ -66,7 +66,7 @@
 
 .background {
   position: fixed;
-  z-index: 90;
+  z-index: 19;
   top: 0;
   left: 0;
   width: 100%;

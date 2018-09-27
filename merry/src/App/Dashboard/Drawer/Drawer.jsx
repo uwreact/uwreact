@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import { BlankButton } from 'components';
+import { drawer } from 'state';
 
 import logo from 'resources/svg/logos/react-header.svg';
 
 import fileSignature from 'resources/svg/icons/file-signature.svg';
 
-import { drawer } from '../state';
-
-import styles from './Drawer.scss';
-
 import Heading from './Heading';
 import Item from './Item';
+
+import styles from './Drawer.scss';
 
 const boundStyles = classNames.bind(styles);
 

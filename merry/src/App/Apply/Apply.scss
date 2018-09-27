@@ -18,14 +18,22 @@
 
   @include drop-shadow(0.2);
 
-  margin: 0 5%;
+  margin: 0;
 
-  @include for-tablet-portrait-up {
+  @include for-tablet-portrait-up() {
+    margin: 0 5%;
+  }
+
+  @include for-tablet-landscape-up() {
     margin: 0 10%;
   }
 
-  @include for-desktop-up {
+  @include for-desktop-up() {
     margin: 0 15%;
+  }
+
+  @include for-big-desktop-up() {
+    margin: 0 20%;
   }
 }
 

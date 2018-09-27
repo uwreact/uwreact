@@ -8,7 +8,7 @@ import { Firebase } from 'modules';
 import bars from 'resources/svg/icons/bars.svg';
 import user from 'resources/svg/icons/user.svg';
 
-import { drawer } from '../state';
+import { drawer } from 'state';
 
 import styles from './Header.scss';
 

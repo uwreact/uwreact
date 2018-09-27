@@ -6,7 +6,7 @@ import qs from 'qs';
 
 import { Button, Input, TextButton } from 'components';
 import { Firebase } from 'modules';
-import { login } from 'state';
+import { user } from 'state';
 import { trimQuery } from 'utilities';
 
 import logo from 'resources/svg/logos/react-horizontal.svg';
@@ -26,9 +26,9 @@ class Login extends React.Component {
       signUp: false,
       redirect: '/dashboard',
     };
-    login.connect(
+    user.connect(
       this,
-      ['loaded', 'user'],
+      ['loaded', 'auth'],
     );
   }
 
@@ -57,7 +57,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { loaded, user, email, password, confirmPassword, error, signUp, redirect } = this.state;
+    const { loaded, auth, email, password, confirmPassword, error, signUp, redirect } = this.state;
 
     const formCardStyles = boundStyles({
       card: true,
@@ -67,7 +67,7 @@ class Login extends React.Component {
 
     return (
       loaded &&
-      (user ? (
+      (auth ? (
         <Redirect to={redirect} />
       ) : (
         <div className={styles.login}>

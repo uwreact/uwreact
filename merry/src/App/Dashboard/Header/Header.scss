@@ -1,5 +1,6 @@
 .header {
   grid-area: header;
+  z-index: 19;
 
   display: grid;
   grid-template: '. drawer items alert user .' auto / 20px 50px auto 50px 50px 20px;

@@ -1,3 +1,5 @@
+import ensureAuthenticated from './ensureAuthenticated';
 import id from './id';
+import validateArguments from './validateArguments';
 
-export { id };
+export { ensureAuthenticated, id, validateArguments };

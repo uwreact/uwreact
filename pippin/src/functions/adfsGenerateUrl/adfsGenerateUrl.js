@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 
 import { httpsErrors } from 'dictionaries';
-import { id } from 'utilities';
+import { ensureAuthenticated, id, validateArguments } from 'utilities';
 
 const studentVerificationUrl = (redirect, state, nonce) =>
   `https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?client_id=${
@@ -10,28 +10,36 @@ const studentVerificationUrl = (redirect, state, nonce) =>
   }&response_type=id_token+token&redirect_uri=${redirect}&scope=openid&response_mode=fragment&state=${state}&nonce=${nonce}&prompt=consent`;
 
 const onCall = async (data, context) => {
-  const uid = context && context.auth && context.auth.uid;
+  const uid = ensureAuthenticated(context);
+  validateArguments(data, { redirect: 'string' });
 
-  if (!uid) {
-    throw new functions.https.HttpsError(httpsErrors.UNAUTHENTICATED);
-  }
+  const userDoc = admin
+    .firestore()
+    .collection('users')
+    .doc(uid);
 
-  const { redirect } = data;
+  const user = await userDoc.get();
+  const userData = user.data();
 
-  if (!redirect || typeof redirect !== 'string') {
-    throw new functions.https.HttpsError(httpsErrors.INVALID_ARGUMENT);
+  if (userData.verification) {
+    const verification = await userData.verification.get();
+
+    if (verification.exists) {
+      throw new functions.https.HttpsError(httpsErrors.PERMISSION_DENIED);
+    }
   }
 
   const state = id();
   const nonce = id();
 
-  await admin
+  const pendingDoc = admin
     .firestore()
     .collection('verifications')
-    .doc(uid)
-    .set({ state, nonce });
+    .doc(uid);
 
-  return { url: studentVerificationUrl(redirect, state, nonce) };
+  await pendingDoc.set({ state, nonce });
+
+  return { url: studentVerificationUrl(data.redirect, state, nonce) };
 };
 
 const adfsGenerateUrl = functions.https.onCall(onCall);

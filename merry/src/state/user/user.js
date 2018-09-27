@@ -2,28 +2,28 @@ import Restatable from 'restatable';
 
 import { Firebase } from 'modules';
 
-const login = new Restatable({
+const user = new Restatable({
   loaded: false,
-  user: undefined,
+  auth: undefined,
   details: undefined,
 });
 
 const initialize = async () => {
   const firebase = await Firebase.import();
 
-  firebase.auth().onAuthStateChanged(user => {
-    if (user && user.uid) {
+  firebase.auth().onAuthStateChanged(auth => {
+    if (auth && auth.uid) {
       firebase
         .firestore()
         .collection('users')
-        .doc(user.uid)
-        .onSnapshot(doc => login.setState({ details: doc.data() }));
+        .doc(auth.uid)
+        .onSnapshot(doc => user.setState({ details: doc.data() }));
     }
 
-    login.setState({ loaded: true, user });
+    user.setState({ loaded: true, auth });
   });
 };
 
 initialize();
 
-export default login;
+export default user;
