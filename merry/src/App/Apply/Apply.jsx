@@ -182,58 +182,7 @@ class Apply extends React.Component {
               </div>
             </Step>
             <Step name="Profile Information" unlocked={!!details}>
-              <div className={styles.step}>
-                {details && (
-                  <React.Fragment>
-                    <Field label="First Name">
-                      <Input
-                        value={details.firstName}
-                        onChange={this.updateFirebase('firstName')}
-                        placeholder="Enter your first name"
-                        maxlength={100}
-                      />
-                    </Field>
-                    <Field label="Last Name">
-                      <Input
-                        value={details.lastName}
-                        onChange={this.updateFirebase('lastName')}
-                        placeholder="Enter your last name"
-                        maxlength={100}
-                      />
-                    </Field>
-                    {details.student && (
-                      <React.Fragment>
-                        <Field label="School Email">
-                          <Input
-                            value={details.schoolEmail}
-                            onChange={this.updateFirebase('schoolEmail')}
-                            placeholder="Enter your school email"
-                            type="email"
-                            maxlength={100}
-                          />
-                        </Field>
-                        <Field label="Major">
-                          <Select
-                            placeholder="Search for your major"
-                            options={majors}
-                            selected={36}
-                            onSelect={index => console.log(index)}
-                          />
-                        </Field>
-                        <Field label="Graduation Year">
-                          <Input
-                            value={details.graduationYear}
-                            onChange={this.updateFirebase('graduationYear')}
-                            placeholder="Enter your graduation year"
-                            type="number"
-                            maxlength={100}
-                          />
-                        </Field>
-                      </React.Fragment>
-                    )}
-                  </React.Fragment>
-                )}
-              </div>
+              <div className={styles.step}>Step</div>
             </Step>
             <Step name="Acknowledgements">Step</Step>
             <Step name="FIRST Robotics Competition">Step</Step>
