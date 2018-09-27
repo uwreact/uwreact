@@ -165,15 +165,17 @@ class Apply extends React.Component {
               name="Student Status"
             >
               <div className={styles.step}>
-                <Field label="Are you a student at the University of Waterloo?">
-                  Are you?
-                </Field>
                 {details &&
-                  details.student &&
-                  (!details.verification ? (
-                    <TextButton onClick={this.openStudentVerification}>
-                      Please verify your student status by logging in with your WatIAM ID.
-                    </TextButton>
+                  (!studentVerifiedOrNotStudent ? (
+                    <React.Fragment>
+                      <TextButton onClick={this.openStudentVerification}>
+                        Please verify your student status
+                      </TextButton>
+                      {', or '}
+                      <TextButton onClick={() => this.updateFirebase('student')(false)}>
+                        {"click here if you're not a student."}
+                      </TextButton>
+                    </React.Fragment>
                   ) : (
                     'Your student status is verified.'
                   ))}

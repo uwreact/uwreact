@@ -84,6 +84,7 @@ const onCall = async (data, context) => {
     firstName,
     lastName,
     schoolEmail,
+    student: true,
     verification: verificationDoc,
   });
 };
