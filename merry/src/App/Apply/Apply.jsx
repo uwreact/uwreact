@@ -146,16 +146,15 @@ class Apply extends React.Component {
             </Step>
             <Step unlocked={!!auth} completed={emailVerified} name="Verify Email">
               <div className={styles.step}>
-                {emailVerified ? 'Your email is verified' : 'Your email is unverified. '}
+                {emailVerified ? 'Your email is verified.' : 'Your email is unverified. '}
                 {!emailVerified &&
                   (sentVerificationEmail ? (
                     'Verification email sent!'
                   ) : (
                     <TextButton onClick={this.sendEmailVerification}>
-                      Send verification email
+                      Send verification email.
                     </TextButton>
                   ))}
-                .
               </div>
             </Step>
             <Step
@@ -180,7 +179,7 @@ class Apply extends React.Component {
                   ))}
               </div>
             </Step>
-            <Step name="Profile Information" unlocked={!!details}>
+            <Step name="Profile Information" unlocked={studentVerifiedOrNotStudent}>
               <div className={styles.step}>Step</div>
             </Step>
             <Step name="Acknowledgements">Step</Step>
