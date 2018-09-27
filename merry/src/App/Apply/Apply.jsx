@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import qs from 'qs';
 
-import { Field, Input, TextButton, Select, Step } from 'components';
-import { majors } from 'dictionaries';
+import { TextButton, Step } from 'components';
 import { Firebase } from 'modules';
 import { loading, user } from 'state';
 import { trimQuery, trimUrl } from 'utilities';
