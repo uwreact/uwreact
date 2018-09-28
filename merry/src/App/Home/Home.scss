@@ -5,48 +5,87 @@
   overflow: auto;
 }
 
-.fullHeight {
-  width: 100%;
+.fullScreen {
+  width: 100vw;
   height: 100vh;
-
   display: grid;
-  grid-template: 'big small' auto / 3fr 2fr;
+  overflow: auto;
+}
+
+.bigSmall {
+  grid-template: 'big small' auto / 4fr 1fr;
 
   @include portrait {
-    grid-template: 'big' 3fr 'small' 2fr / auto;
+    grid-template: 'big' 4fr 'small' 1fr / auto;
   }
 }
 
 .big {
-  color: white;
-  background-color: $primary;
-
-  font-family: $montserrat;
-  font-size: 5vw;
-  font-weight: 700;
-  line-height: 1;
-  word-spacing: 100vw;
-
-  padding: 30px;
-
-  display: flex;
-  align-items: flex-end;
-
-  @include portrait {
-    font-size: 5vh;
-  }
+  grid-area: big;
 }
 
 .small {
-  background-color: white;
+  grid-area: small;
+}
 
+.white {
+  color: $black-text;
+  background-color: white;
+}
+
+.yellow {
+  color: $white-text;
+  background-color: $primary;
+}
+
+.interested {
+  position: fixed;
+  top: 0;
+  right: 20vw;
+
+  padding: 10px;
+
+  color: inherit;
+  font-family: $montserrat;
+  font-weight: 700;
+  font-size: 5vh;
+
+  @include portrait {
+    right: 0;
+    font-size: 5vw;
+  }
+}
+
+.heroText {
+  padding: 30px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  font-family: $montserrat;
+  font-weight: 700;
+  word-spacing: 100vw;
+  line-height: 1;
+  vertical-align: text-bottom;
+  text-align: left;
+
+  font-size: 10vh;
+
+  @include portrait {
+    font-size: 10vw;
+  }
+}
+
+.heroLogo {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .horizontalLogo {
-  width: 80vw;
+  height: 15vh;
+  max-width: 60vw;
 
   display: none;
 
@@ -56,11 +95,34 @@
 }
 
 .verticalLogo {
-  width: 20vw;
+  width: 15vw;
+  max-height: 60vh;
 
   display: initial;
 
   @include portrait {
     display: none;
+  }
+}
+
+.pipe {
+  width: 100vw;
+  min-height: 20vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  font-family: $montserrat;
+  font-weight: 700;
+  line-height: 1;
+
+  font-size: 8vh;
+
+  @include portrait {
+    min-height: 20vh;
+
+    font-size: 8vw;
   }
 }
