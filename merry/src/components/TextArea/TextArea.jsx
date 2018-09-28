@@ -26,13 +26,14 @@ const TextArea = props => {
 TextArea.propTypes = {
   className: PropTypes.string,
   override: PropTypes.bool,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
 TextArea.defaultProps = {
   className: '',
   override: false,
+  value: '',
 };
 
 export default TextArea;

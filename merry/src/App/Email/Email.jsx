@@ -2,14 +2,15 @@ import PropTypes from 'prop-types';
 import qs from 'qs';
 
 import { Firebase } from 'modules';
+import { user } from 'state';
 import { trimQuery } from 'utilities';
 
 const verifyEmail = async (oobCode, history, path) => {
   const firebase = await Firebase.import();
   await firebase.auth().applyActionCode(oobCode);
 
-  if (firebase.auth().currentUser) {
-    await firebase.auth().currentUser.reload();
+  if (user.state.auth) {
+    await user.state.auth.reload();
   }
 
   history.push(path);

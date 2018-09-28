@@ -18,20 +18,16 @@ const onCall = async (data, context) => {
   const user = await userDoc.get();
   const userData = user.data();
 
-  if (!userData || !userData.firstName || !userData.lastName) {
+  if (!userData || !userData.name || userData.name.length > 100) {
     throw new functions.https.HttpsError(httpsErrors.PERMISSION_DENIED);
   }
 
-  const fullName = `${userData.firstName} ${userData.lastName}`;
-
-  if (fullName.length > 200) {
-    throw new functions.https.HttpsError(httpsErrors.PERMISSION_DENIED);
-  }
+  const { name } = userData;
 
   const consentDoc = admin
     .firestore()
     .collection('consents')
-    .doc(`Media Release signed by ${fullName}`);
+    .doc(name);
 
   const consent = await consentDoc.get();
 
@@ -41,11 +37,12 @@ const onCall = async (data, context) => {
 
   await consentDoc.set({
     user: userDoc,
+    name,
     consentedTo,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 
-  await userDoc.update({ mediaRelease: true, mediaReleaseConsent: consentDoc });
+  await userDoc.update({ mediaRelease: true, consent: consentDoc });
 };
 
 const mediaReleaseConsent = functions.https.onCall(onCall);

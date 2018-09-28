@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import qs from 'qs';
 
-import { Field, Input, Select, Step, TextButton } from 'components';
-import { majors } from 'dictionaries';
+import { Field, Input, Select, Step, TextArea, TextButton } from 'components';
+import { majors, teams, years } from 'dictionaries';
 import { Firebase } from 'modules';
 import { loading, user } from 'state';
 import { trimQuery, trimUrl } from 'utilities';
@@ -114,8 +114,7 @@ class Apply extends React.Component {
 
     const profileComplete = !!(
       details &&
-      details.firstName &&
-      details.lastName &&
+      details.name &&
       (details.student
         ? details.schoolEmail && details.major !== undefined && details.graduationYear !== undefined
         : true)
@@ -124,7 +123,23 @@ class Apply extends React.Component {
     const acknowledgedRelease = !!(
       details &&
       'mediaRelease' in details &&
-      (!details.mediaRelease || details.mediaReleaseConsent)
+      (!details.mediaRelease || details.consent)
+    );
+
+    const firstExperienceOrNotAlum = !!(
+      details &&
+      'firstAlum' in details &&
+      (details.firstAlum ? details.firstTeam && details.firstRole : true)
+    );
+
+    const selectedTeams = !!(details && details.primaryTeam !== undefined);
+
+    const answeredQuestions = !!(
+      details &&
+      details.projectQuestion &&
+      details.projectQuestion.length > 200 &&
+      details.teachUsQuestion &&
+      details.teachUsQuestion.length > 200
     );
 
     return (
@@ -188,11 +203,11 @@ class Apply extends React.Component {
                       </TextButton>
                       {', or '}
                       <TextButton onClick={() => this.updateDetails({ student: false })}>
-                        {"click here if you're not a student."}
+                        {"click here if you're not a student"}.
                       </TextButton>
                     </React.Fragment>
                   ) : (
-                    <span>
+                    <React.Fragment>
                       {details.student ? (
                         'Your student status is verified.'
                       ) : (
@@ -203,7 +218,7 @@ class Apply extends React.Component {
                           </TextButton>
                         </React.Fragment>
                       )}
-                    </span>
+                    </React.Fragment>
                   ))}
               </div>
             </Step>
@@ -215,19 +230,11 @@ class Apply extends React.Component {
               <div className={styles.step}>
                 {details && (
                   <React.Fragment>
-                    <Field label="First Name">
+                    <Field label="Name">
                       <Input
-                        value={details.firstName}
-                        onChange={firstName => this.updateDetails({ firstName })}
-                        placeholder="Enter your first name"
-                        maxLength={100}
-                      />
-                    </Field>
-                    <Field label="Last Name">
-                      <Input
-                        value={details.lastName}
-                        onChange={lastName => this.updateDetails({ lastName })}
-                        placeholder="Enter your last name"
+                        value={details.name}
+                        onChange={name => this.updateDetails({ name })}
+                        placeholder="Enter your full name"
                         maxLength={100}
                       />
                     </Field>
@@ -252,7 +259,7 @@ class Apply extends React.Component {
                         </Field>
                         <Field label="Graduation Year">
                           <Select
-                            options={['2019', '2020', '2021', '2022', '2023']}
+                            options={years}
                             selected={details.graduationYear}
                             onChange={graduationYear => this.updateDetails({ graduationYear })}
                             placeholder="Enter your graduation year"
@@ -288,7 +295,7 @@ class Apply extends React.Component {
                       </TextButton>
                     </React.Fragment>
                   ) : (
-                    <span>
+                    <React.Fragment>
                       {details.mediaRelease ? (
                         "You've consented to the media release."
                       ) : (
@@ -299,14 +306,198 @@ class Apply extends React.Component {
                           </TextButton>
                         </React.Fragment>
                       )}
-                    </span>
+                    </React.Fragment>
                   ))}
               </div>
             </Step>
-            <Step name="FIRST Robotics Competition" unlocked={acknowledgedRelease}>
-              Step
+            <Step
+              name="FIRST Robotics Competition"
+              unlocked={acknowledgedRelease}
+              completed={firstExperienceOrNotAlum}
+            >
+              <div className={styles.step}>
+                {details &&
+                  (!('firstAlum' in details) ? (
+                    <React.Fragment>
+                      Have you participated in the FIRST Robotics Competition?{' '}
+                      <TextButton onClick={() => this.updateDetails({ firstAlum: true })}>
+                        Let us know about your experience
+                      </TextButton>
+                      {', or '}
+                      <TextButton onClick={() => this.updateDetails({ firstAlum: false })}>
+                        {"click here if you didn't participate"}.
+                      </TextButton>
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      {details.firstAlum ? (
+                        <React.Fragment>
+                          <div className={styles.consent}>
+                            {'You did participate in FIRST. '}
+                            <TextButton onClick={() => this.updateDetails({ firstAlum: false })}>
+                              Was that an accident?
+                            </TextButton>
+                          </div>
+                          <Field label="Team Number">
+                            <Input
+                              value={details.firstTeam}
+                              onChange={firstTeam => this.updateDetails({ firstTeam })}
+                              maxLength={100}
+                              placeholder="Enter your team number(s)"
+                            />
+                          </Field>
+                          <Field label="Role">
+                            <Input
+                              value={details.firstRole}
+                              onChange={firstRole => this.updateDetails({ firstRole })}
+                              maxLength={100}
+                              placeholder="Enter your role(s)"
+                            />
+                          </Field>
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          {'You did not participate in FIRST. '}
+                          <TextButton onClick={() => this.updateDetails({ firstAlum: true })}>
+                            Was that an accident?
+                          </TextButton>
+                        </React.Fragment>
+                      )}
+                    </React.Fragment>
+                  ))}
+              </div>
             </Step>
-            <Step name="UW REACT">Step</Step>
+            <Step
+              name="Team Selection"
+              unlocked={firstExperienceOrNotAlum}
+              completed={selectedTeams}
+            >
+              <div className={styles.step}>
+                We have 8 different sub-teams on UW REACT, organized under 3 main teams. Please
+                select one that you would like to focus on, regardless of your experience in the
+                area. You can also select a secondary team, however, we recommend you do not select
+                two teams under the Software and Mechanical umbrellas.
+                <ul>
+                  <li>
+                    <b>Software</b>
+                  </li>
+                  <ul>
+                    <li>
+                      <b>Perception</b>
+                    </li>
+                    Help our robots understand their environment by sensing their surrounding and
+                    locating themselves on the field.
+                    <li>
+                      <b>Planning</b>
+                    </li>
+                    Help our robots make decisions based on what they perceive by creating a
+                    strategy and reacting to interference.
+                    <li>
+                      <b>Controls</b>
+                    </li>
+                    Help our robots execute their chosen strategy by navigating across the field and
+                    manipulating the game elements.
+                  </ul>
+                  <li>
+                    <b>Mechanical</b>
+                  </li>
+                  <ul>
+                    <li>
+                      <b>Design</b>
+                    </li>
+                    Design mechanisms, iterate upon prototypes, and improve our robots using
+                    Computer Aided Design tools.
+                    <li>
+                      <b>Manufacturing</b>
+                    </li>
+                    Construct prototypes, manufacture parts, and assemble our robots using
+                    industrial materials.
+                  </ul>
+                  <li>
+                    <b>Business</b>
+                  </li>
+                  <ul>
+                    <li>
+                      <b>Sponsorship</b>
+                    </li>
+                    Approach sponsors and secure funding for our robots.
+                    <li>
+                      <b>Logistics</b>
+                    </li>
+                    Ensure all teams have the resources they need to function efficiently.
+                    <li>
+                      <b>Outreach</b>
+                    </li>
+                    Recruit new team members and host events to give back to the community.
+                  </ul>
+                </ul>
+                {details && (
+                  <React.Fragment>
+                    <Field label="Primary Team">
+                      <Select
+                        options={teams}
+                        selected={details.primaryTeam}
+                        onChange={primaryTeam => this.updateDetails({ primaryTeam })}
+                        placeholder="Search for a primary team."
+                      />
+                    </Field>
+                    <Field label="Secondary Team (optional)">
+                      <Select
+                        options={teams}
+                        selected={details.secondaryTeam}
+                        onChange={secondaryTeam => this.updateDetails({ secondaryTeam })}
+                        placeholder="Search for a secondary team (optional)."
+                      />
+                    </Field>
+                  </React.Fragment>
+                )}
+              </div>
+            </Step>
+            <Step
+              name="Short Answer Questions"
+              unlocked={selectedTeams}
+              completed={answeredQuestions}
+            >
+              <div className={styles.step}>
+                {details && (
+                  <React.Fragment>
+                    <Field
+                      label={`Tell us about something you've worked on in the past 6 months. It doesn't have to be technical! What were you working on? Why were you working on it? How did it end up? (${
+                        (details.projectQuestion || '').length
+                      } / 200 minimum, 2000 maximum)`}
+                    >
+                      <TextArea
+                        value={details.projectQuestion}
+                        onChange={projectQuestion => this.updateDetails({ projectQuestion })}
+                        maxLength={2000}
+                        rows={5}
+                        placeholder="For the past few months, I've been working on..."
+                      />
+                    </Field>
+                    <Field
+                      label={`Teach us something new. It can be anything! (${
+                        (details.teachUsQuestion || '').length
+                      } / 200 minimum, 2000 maximum)`}
+                    >
+                      <TextArea
+                        value={details.teachUsQuestion}
+                        onChange={teachUsQuestion => this.updateDetails({ teachUsQuestion })}
+                        maxLength={2000}
+                        rows={5}
+                        placeholder="Go grab a standard deck of playing cards, I'm teaching you a magic trick..."
+                      />
+                    </Field>
+                  </React.Fragment>
+                )}
+              </div>
+            </Step>
+            {answeredQuestions &&
+              details && (
+                <div className={styles.completed}>
+                  Thank you for applying, {details.name}! Please keep an eye on your email for your
+                  application results.
+                </div>
+              )}
           </div>
         </div>
       </div>

@@ -58,8 +58,20 @@
 
 .step {
   padding: 10px 0;
+
+  ul {
+    @include for-phone-only {
+      padding-left: 20px;
+    }
+  }
 }
 
 .consent {
   padding-bottom: 10px;
+}
+
+.completed {
+  text-align: center;
+  max-width: 380px;
+  padding: 10px 0;
 }

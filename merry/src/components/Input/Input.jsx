@@ -28,7 +28,7 @@ const Input = props => {
 Input.propTypes = {
   className: PropTypes.string,
   override: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
   type: PropTypes.oneOf([
     'button',
@@ -57,6 +57,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  value: '',
   className: '',
   override: false,
   type: 'text',

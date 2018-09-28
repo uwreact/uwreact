@@ -1,3 +1,5 @@
 import majors from './majors';
+import teams from './teams';
+import years from './years';
 
-export { majors };
+export { majors, teams, years };

@@ -66,8 +66,11 @@ const onCall = async (data, context) => {
 
   await pendingDoc.delete();
 
-  const firstName = accessToken.payload.given_name;
-  const lastName = accessToken.payload.family_name;
+  const { name } = accessToken.payload;
+
+  if (!name) {
+    throw new functions.https.HttpsError(httpsErrors.PERMISSION_DENIED);
+  }
 
   const userDoc = admin
     .firestore()
@@ -75,15 +78,14 @@ const onCall = async (data, context) => {
     .doc(uid);
 
   await verificationDoc.set({
-    firstName,
-    lastName,
+    name,
+    schoolEmail,
     user: userDoc,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
   });
 
   await userDoc.update({
-    firstName,
-    lastName,
+    name,
     schoolEmail,
     student: true,
     verification: verificationDoc,
