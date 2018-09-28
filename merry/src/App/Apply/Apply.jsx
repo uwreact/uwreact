@@ -149,7 +149,7 @@ class Apply extends React.Component {
             <img src={logo} alt="Logo" className={styles.logo} />
             <div className={styles.prompt}>
               Thank you for your interest in joining our team! Please fill out the application form
-              below before 9:00am on October 1st, 2018.
+              below before 9:00am on October 8th, 2018.
             </div>
             <Step name="Account Creation" unlocked={loaded} completed={!!auth}>
               <div className={styles.step}>
@@ -343,7 +343,8 @@ class Apply extends React.Component {
                               value={details.firstTeam}
                               onChange={firstTeam => this.updateDetails({ firstTeam })}
                               maxLength={100}
-                              placeholder="Enter your team number(s)"
+                              placeholder="Enter your team number"
+                              type="number"
                             />
                           </Field>
                           <Field label="Role">
