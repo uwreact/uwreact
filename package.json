@@ -1,11 +1,10 @@
 {
   "name": "uwreact",
-  "description": "UW REACT monorepo",
+  "description": "Web app for team and project management",
   "author": "UW REACT <director@uwreact.com>",
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "cli",
     "merry",
     "pippin"
   ]
