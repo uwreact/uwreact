@@ -137,9 +137,9 @@ class Apply extends React.Component {
     const answeredQuestions = !!(
       details &&
       details.projectQuestion &&
-      details.projectQuestion.length > 200 &&
+      details.projectQuestion.length >= 200 &&
       details.teachUsQuestion &&
-      details.teachUsQuestion.length > 200
+      details.teachUsQuestion.length >= 200
     );
 
     return (
