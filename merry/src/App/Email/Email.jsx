@@ -7,13 +7,16 @@ import { trimQuery } from 'utilities';
 
 const verifyEmail = async (oobCode, history, path) => {
   const firebase = await Firebase.import();
-  await firebase.auth().applyActionCode(oobCode);
 
-  if (user.state.auth) {
-    await user.state.auth.reload();
+  try {
+    await firebase.auth().applyActionCode(oobCode);
+
+    if (user.state.auth) {
+      await user.state.auth.reload();
+    }
+  } finally {
+    history.push(path);
   }
-
-  history.push(path);
 };
 
 const Email = props => {
