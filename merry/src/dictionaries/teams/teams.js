@@ -4,7 +4,6 @@ const teams = [
   'Software - Controls',
   'Mechanical - Design',
   'Mechanical - Manufacturing',
-  'Business - Sponsorship',
   'Business - Logistics',
   'Business - Outreach',
 ];

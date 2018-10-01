@@ -430,13 +430,9 @@ class Apply extends React.Component {
                   </li>
                   <ul>
                     <li>
-                      <b>Sponsorship</b>
-                    </li>
-                    Approach sponsors and secure funding for our robots.
-                    <li>
                       <b>Logistics</b>
                     </li>
-                    Ensure all teams have the resources they need to function efficiently.
+                    Approach sponsors and ensure all teams have the resources they need to function efficiently.
                     <li>
                       <b>Outreach</b>
                     </li>
