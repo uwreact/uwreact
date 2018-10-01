@@ -126,7 +126,7 @@ class Select extends React.Component {
     const { open, search } = this.state;
     const { options, selected, placeholder } = this.props;
 
-    const option = selected === undefined ? '' : options[selected];
+    const option = selected === undefined ? '' : options[selected] || '';
 
     return (
       <div className={styles.container} ref={this.select}>
