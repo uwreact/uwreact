@@ -502,7 +502,7 @@ class Apply extends React.Component {
             </Step>
             {answeredQuestions &&
               details && (
-                <div className={styles.completed}>
+                <div className={styles.prompt}>
                   Thank you for applying, {details.name}! {"You've"} completed the minimum
                   requirements for our application, but you can continue to edit your answers until
                   the due date. Please keep an eye on your email for your application results.
