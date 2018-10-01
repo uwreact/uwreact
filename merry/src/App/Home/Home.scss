@@ -43,18 +43,19 @@
   top: 0;
   left: 0;
 
-  width: 80vw;
+  width: calc(80vw - 20px);
 
   padding: 10px;
 
   color: $white-text;
+  text-decoration: none;
   text-align: right;
   font-family: $montserrat;
   font-weight: 700;
   font-size: 5vh;
 
   @include portrait {
-    width: 100vw;
+    width: calc(100vw - 20px);
     font-size: 5vw;
   }
 }
