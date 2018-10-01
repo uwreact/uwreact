@@ -111,7 +111,10 @@ class Login extends React.Component {
           </div>
           <div className={styles.switchCard}>
             <span>{signUp ? 'Already have an account? ' : "Don't have an account? "}</span>
-            <TextButton onClick={() => this.setState(state => ({ signUp: !state.signUp }))}>
+            <TextButton
+              className={styles.switchButton}
+              onClick={() => this.setState(state => ({ signUp: !state.signUp }))}
+            >
               {signUp ? 'Log In' : 'Sign Up'}
             </TextButton>
           </div>
