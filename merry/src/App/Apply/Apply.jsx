@@ -432,7 +432,8 @@ class Apply extends React.Component {
                     <li>
                       <b>Logistics</b>
                     </li>
-                    Approach sponsors and ensure all teams have the resources they need to function efficiently.
+                    Approach sponsors and ensure all teams have the resources they need to function
+                    efficiently.
                     <li>
                       <b>Outreach</b>
                     </li>
@@ -502,8 +503,9 @@ class Apply extends React.Component {
             {answeredQuestions &&
               details && (
                 <div className={styles.completed}>
-                  Thank you for applying, {details.name}! Please keep an eye on your email for your
-                  application results.
+                  Thank you for applying, {details.name}! {"You've"} completed the minimum
+                  requirements for our application, but you can continue to edit your answers until
+                  the due date. Please keep an eye on your email for your application results.
                 </div>
               )}
           </div>
