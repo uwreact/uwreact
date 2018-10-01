@@ -41,17 +41,20 @@
 .interested {
   position: fixed;
   top: 0;
-  right: 20vw;
+  left: 0;
+
+  width: 80vw;
 
   padding: 10px;
 
-  color: inherit;
+  color: $white-text;
+  text-align: right;
   font-family: $montserrat;
   font-weight: 700;
   font-size: 5vh;
 
   @include portrait {
-    right: 0;
+    width: 100vw;
     font-size: 5vw;
   }
 }

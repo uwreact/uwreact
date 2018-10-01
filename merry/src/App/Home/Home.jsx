@@ -28,15 +28,15 @@ class Home extends React.Component {
         <div className={bigSmall}>
           <div className={classNames(bigYellow, styles.heroText)}>
             WE BUILD FULLY AUTONOMOUS FIRST ROBOTS.
-            <BlankButton className={styles.interested} onClick={() => history.push('/apply')}>
-              INTERESTED? APPLY NOW!
-            </BlankButton>
           </div>
           <div className={classNames(smallWhite, styles.heroLogo)}>
             <img src={horizontalLogo} alt="Logo" className={styles.horizontalLogo} />
             <img src={verticalLogo} alt="Logo" className={styles.verticalLogo} />
           </div>
         </div>
+        <BlankButton className={styles.interested} onClick={() => history.push('/apply')}>
+          INTERESTED? APPLY NOW!
+        </BlankButton>
       </div>
     );
   }
