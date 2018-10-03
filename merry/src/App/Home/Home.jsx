@@ -12,10 +12,8 @@ const Home = () => (
       <div className={classNames(styles.primary, styles.heroText)}>
         WE BUILD FULLY AUTONOMOUS FIRST ROBOTS.
       </div>
-      <div className={styles.white}>
-        <div className={styles.contentLogo}>
-          <img src={horizontalLogo} alt="UW REACT Logo" />
-        </div>
+      <div className={classNames(styles.white, styles.contentLogo)}>
+        <img src={horizontalLogo} alt="UW REACT Logo" />
       </div>
     </div>
     <div className={styles.menu}>
