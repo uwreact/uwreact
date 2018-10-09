@@ -13,16 +13,6 @@ import logo from 'resources/svg/logos/react-horizontal.svg';
 
 import styles from './Apply.scss';
 
-/**
- * 5. FIRST Robotics Competition
- *  5a. Participated in FRC
- *  5b. Team Number
- *  5c. Role
- * 6. UW REACT
- *  6a. Primary Role
- *  6b. Optional secondary role
- */
-
 class Apply extends React.Component {
   constructor(props) {
     super(props);
