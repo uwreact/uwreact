@@ -391,6 +391,10 @@ class Apply extends React.Component {
                     </li>
                     Help our robots execute their chosen strategy by navigating across the field and
                     manipulating the game elements.
+                    <li>
+                      <b>Infrastructure</b>
+                    </li>
+                    Develop web applications and manage cloud infrastructure (not robot focused!)
                   </ul>
                   <li>
                     <b>Mechanical</b>
