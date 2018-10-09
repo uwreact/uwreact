@@ -139,18 +139,9 @@ class Apply extends React.Component {
             <Link to="/">
               <img src={logo} alt="Logo" className={styles.logo} />
             </Link>
-            <div className={styles.prompt}>Thank you for your interest in joining our team!</div>
-            <div className={styles.info}>
-              UW REACT keeps the spirit of the{' '}
-              <a href="https://www.firstinspires.org/">FIRST Robotics Competition</a> alive after
-              high school by building fully autonomous FRC robots. We design, manufacture, program,
-              and compete against other FRC teams, but without using a human driver. We also host
-              the worlds largest Robot in 3 Days event every year, where two teams of students build
-              FRC robots in just 72 hours, completing the entire FRC challenge 40 days before bag
-              and tag.
-            </div>
             <div className={styles.prompt}>
-              Please fill out the application form below before 9:00am on October 8th, 2018.
+              Thank you for your interest in joining our team! Please fill out the application form
+              below before 9:00am on October 8th, 2018.
             </div>
             <Step name="Account Creation" unlocked={loaded} completed={!!auth}>
               <div className={styles.step}>
