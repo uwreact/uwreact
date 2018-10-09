@@ -96,41 +96,41 @@ class Apply extends React.Component {
 
     const emailVerified = !!(auth && auth.emailVerified);
 
-    const studentVerifiedOrNotStudent = !!(
+    const studentVerifiedOrNotStudent =
       details &&
       'student' in details &&
-      (!details.student || details.verification)
-    );
+      (!details.student || details.verification) &&
+      emailVerified;
 
-    const profileComplete = !!(
+    const profileComplete =
       details &&
       details.name &&
       (details.student
         ? details.schoolEmail && details.major !== undefined && details.graduationYear !== undefined
-        : true)
-    );
+        : true) &&
+      studentVerifiedOrNotStudent;
 
-    const acknowledgedRelease = !!(
+    const acknowledgedRelease =
       details &&
       'mediaRelease' in details &&
-      (!details.mediaRelease || details.consent)
-    );
+      (!details.mediaRelease || details.consent) &&
+      profileComplete;
 
-    const firstExperienceOrNotAlum = !!(
+    const firstExperienceOrNotAlum =
       details &&
       'firstAlum' in details &&
-      (details.firstAlum ? details.firstTeam && details.firstRole : true)
-    );
+      (details.firstAlum ? details.firstTeam && details.firstRole : true) &&
+      acknowledgedRelease;
 
-    const selectedTeams = !!(details && details.primaryTeam !== undefined);
+    const selectedTeams = details && details.primaryTeam !== undefined && firstExperienceOrNotAlum;
 
-    const answeredQuestions = !!(
+    const answeredQuestions =
       details &&
       details.projectQuestion &&
       details.projectQuestion.length >= 200 &&
       details.teachUsQuestion &&
-      details.teachUsQuestion.length >= 200
-    );
+      details.teachUsQuestion.length >= 200 &&
+      selectedTeams;
 
     return (
       <div className={styles.apply}>
