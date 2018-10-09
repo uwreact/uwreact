@@ -140,8 +140,9 @@ class Apply extends React.Component {
               <img src={logo} alt="Logo" className={styles.logo} />
             </Link>
             <div className={styles.prompt}>
-              Thank you for your interest in joining our team! Please fill out the application form
-              below before 9:00am on October 8th, 2018.
+              Thank you for your interest in joining our team! We are always recruiting; please fill
+              out the form below until all sections are green. We will process your application as
+              soon as possible and notify you via email.
             </div>
             <Step name="Account Creation" unlocked={loaded} completed={!!auth}>
               <div className={styles.step}>
@@ -483,11 +484,7 @@ class Apply extends React.Component {
             </Step>
             {answeredQuestions &&
               details && (
-                <div className={styles.prompt}>
-                  Thank you for applying, {details.name}! {"You've"} completed the minimum
-                  requirements for our application, but you can continue to edit your answers until
-                  the due date. Please keep an eye on your email for your application results.
-                </div>
+                <div className={styles.prompt}>Thank you for applying, {details.name}!</div>
               )}
           </div>
         </div>
