@@ -32,4 +32,16 @@
   height: 100%;
 
   display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $montserrat;
+  font-weight: 500;
+  font-size: 32px;
+  color: $black-text;
+
+  a {
+    text-decoration: none;
+  }
 }

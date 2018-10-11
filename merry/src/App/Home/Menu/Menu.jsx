@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import { IconButton } from 'components';
@@ -32,7 +33,11 @@ class Menu extends React.Component {
           icon={bars}
           onClick={() => this.setState(state => ({ open: !state.open }))}
         />
-        {open && <div className={styles.items}>Items</div>}
+        {open && (
+          <div className={styles.items}>
+            <Link to="/apply">APPLY</Link>
+          </div>
+        )}
       </div>
     );
   }
