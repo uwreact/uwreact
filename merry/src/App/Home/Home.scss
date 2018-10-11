@@ -2,7 +2,7 @@
   height: 100%;
 
   display: grid;
-  grid-template: 'content menu' auto / 3fr 1fr;
+  grid-template: 'content side' auto / 3fr 1fr;
 
   @include portrait {
     grid-template: 'content' auto / auto;
@@ -15,8 +15,8 @@
   overflow: auto;
 }
 
-.menu {
-  grid-area: menu;
+.side {
+  grid-area: side;
 
   @include portrait {
     display: none;
@@ -71,7 +71,7 @@
   }
 }
 
-.menuLogo {
+.sideLogo {
   display: flex;
   justify-content: center;
   align-items: center;

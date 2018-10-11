@@ -16,8 +16,8 @@ const Home = () => (
         <img src={horizontalLogo} alt="UW REACT Logo" />
       </div>
     </div>
-    <div className={styles.menu}>
-      <div className={styles.menuLogo}>
+    <div className={styles.side}>
+      <div className={styles.sideLogo}>
         <img src={verticalLogo} alt="UW REACT Logo" />
       </div>
     </div>
