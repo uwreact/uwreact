@@ -16,7 +16,9 @@
 }
 
 .side {
+  z-index: 10;
   grid-area: side;
+  @include drop-shadow(0.1);
 
   @include portrait {
     display: none;
@@ -31,6 +33,18 @@
 .primary {
   background-color: $primary;
   color: $white-text;
+}
+
+.written {
+  padding: 30px;
+  font-size: 18px;
+}
+
+.header {
+  padding: 15px 0;
+  font-family: $montserrat;
+  font-weight: 500;
+  font-size: 36px;
 }
 
 .heroText {

@@ -1,10 +1,10 @@
 .menu {
+  z-index: 20;
   position: fixed;
   top: 0;
   right: 0;
 
   width: 25%;
-  height: 100%;
 
   @include portrait {
     width: 100%;
@@ -17,11 +17,11 @@
 
 .open {
   background-color: white;
+  height: 100%;
 }
 
 .icon {
-  width: 9vw;
-  max-width: 50px;
+  width: 30px;
 
   padding: 10px 15px;
   color: $black-text;

@@ -18,6 +18,12 @@ const Home = () => (
       <div className={classNames(styles.white, styles.contentLogo)}>
         <img src={horizontalLogo} alt="UW REACT Logo" />
       </div>
+      <div className={classNames(styles.white, styles.written)}>
+        <div className={styles.header}>WHO WE ARE</div>
+        The University of Waterloo Robotics Engineering and Autonomous Controls Team (UW REACT) is a
+        student design team composed primarily of undergraduate students at the University of
+        Waterloo.
+      </div>
     </div>
     <div className={styles.side}>
       <div className={styles.sideLogo}>
