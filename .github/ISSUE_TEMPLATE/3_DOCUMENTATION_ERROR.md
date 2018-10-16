@@ -11,7 +11,7 @@ project's current roadmap. If you believe this error fits within
 the scope of this project's current roadmap, please detail why.
 -->
 
-# Documentation Error
+# 📖 Documentation Error
 
 <!-- Put an 'x' in the boxes that apply. -->
 

@@ -11,7 +11,7 @@ project's current roadmap. If you believe this bug fits within
 the scope of this project's current roadmap, please detail why.
 -->
 
-# Bug Report
+# 🐛 Bug Report
 
 <!-- Put an 'x' in the boxes that apply. -->
 

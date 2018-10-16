@@ -11,7 +11,7 @@ project's current roadmap. If you believe this feature fits within
 the scope of this project's current roadmap, please detail why.
 -->
 
-# Feature Request
+# 🚀 Feature Request
 
 <!-- Put an 'x' in the boxes that apply. -->
 
