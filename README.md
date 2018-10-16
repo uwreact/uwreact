@@ -4,11 +4,11 @@ The shire project is our single page website and custom project management appli
 
 ## Contributing
 
-UW REACT facilitates an open source environment for all of our projects, and we are always welcoming contributors.
+We facilitate a completely open source environment for all of our projects, and are always welcoming contributors.
 
 ### Contributing Guide
 
-Before opening your editor, read this project's [contributing guide](https://github.com/uwreact/shire/blob/master/CONTRIBUTING.md) to learn about our development and contribution process.
+Before opening your editor, read this project's [contributing guide](https://github.com/uwreact/shire/blob/master/CONTRIBUTING.md) to learn about its development and contribution process.
 
 ### License
 

@@ -1,10 +1,10 @@
 # Contributing Guide
 
-Thank you for your interest in contributing to this project!
+Thank you for your interest in contributing to this project! We're excited to work with you; please review the entirety of this document before opening an issue or submitting a pull request.
 
-## Getting Started
+## Getting Started with UW REACT
 
-Before you contribute, there's some information
+This project is just one in a collection
 
 ### What is UW REACT?
 
@@ -12,7 +12,14 @@ The [University of Waterloo Robotics Engineering and Autonomous Controls Team (U
 
 ### How can I help?
 
-- **Help wherever you can:** Just like any open source project, we maintain an email list that allows anyone to jump into our conversation.
+Depending on your situation, there are two main ways to help:
+
+- **Help wherever you can:** Just like any open source team, we maintain an email list that allows anyone to jump into the conversation for any of our projects.
+- **Join our team:** If you are a student at the University of Waterloo, you can [apply to join our core team](https://uwreact.ca) to gain access to our slack 
+
+## Getting Started with this project
+
+
 
 ### Good First Issues
 
@@ -20,15 +27,15 @@ If you're not sure where to start, we maintain a list of [good first issues](htt
 
 ## Setup
 
-These instructions will set up your local machine for developing, testing, and deploying the project.
+These instructions will set up your local machine for developing, testing, and deploying this project.
 
 ### Prerequisites
 
-Install [Yarn](https://yarnpkg.com/en/) on your machine. 
+Install [Yarn](https://yarnpkg.com/en/) on your machine.
 
 Create a project on [Firebase](https://firebase.google.com/) and copy the configuration variables into `merry/.env.development`.
 
-Create an application on the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) and copy the ID into `pippin/.env.developmnent`
+Create an application on the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) and copy the ID into `pippin/.env.developmnent`.
 
 ### Installation
 
@@ -49,7 +56,7 @@ yarn start
 
 ### Testing
 
-Test the application with jest
+Test the application with jest:
 
 ```bash
 cd [merry/pippin]
@@ -59,9 +66,9 @@ yarn test
 ### Deployment
 
 Modify `[merry/pippin]/package.json` to include your Firebase project,
-then deploy the application to your Firebase project
+then deploy the application to your Firebase project:
 
 ```bash
 cd [merry/pippin]
-yarn test
+yarn deploy
 ```
