@@ -4,7 +4,7 @@ The shire project is our single page website and custom project management appli
 
 ## Contributing
 
-UW REACT facilitates a completely open source environment for all of our projects, and we are always welcoming contributors.
+UW REACT facilitates a open source environment for all of our projects, and we are always welcoming contributors.
 
 ### Contributing Guide
 
