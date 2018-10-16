@@ -1,19 +1,28 @@
-## Proposed changes
+<!--
+Thank you for submitting a pull request!
 
-_Describe your change here. If it is relevant to any other pull requests or issues, be sure to to link to them._
+While we look over every pull request, we maintain a focus on
+this project's current roadmap. If your pull request does not
+fit within this project's current roadmap or fix an open issue,
+it may be closed. Please reference any relevant issues.
+-->
 
-## Types of changes
+# Pull Request
 
-_Put an `x` in the boxes that apply._
+<!-- Put an 'x' in the boxes that apply. -->
 
-- [ ] Bugfix (non-breaking change which fixes an issue).
-- [ ] New feature (non-breaking change which adds functionality).
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected).
+- [ ] Bug fix.
+- [ ] New feature.
+- [ ] Documentation fix.
 
 ## Checklist
 
-_Put an `x` in the boxes that apply._
+<!-- Put an 'x' in the boxes that apply. -->
 
 - [ ] I have read the [contributing](https://github.com/uwreact/shire/blob/master/CONTRIBUTING.md) guide.
 - [ ] I have added tests.
 - [ ] I have added necessary documentation.
+
+## Details
+
+<!-- Provide more details below this comment. -->

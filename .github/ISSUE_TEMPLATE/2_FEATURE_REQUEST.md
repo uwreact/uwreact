@@ -1,19 +1,22 @@
 ---
 name: 🚀 Feature Request
-about: Suggest a feature within the scope of this project's roadmap.
+about: Suggest a feature for this project.
 ---
 
 <!--
-Thank you for suggesting an idea to make Node.js better.
+Thank you for suggesting a feature!
 
-Please fill in as much of the template below as you're able.
+While we try to get to every issue, we maintain a focus on this
+project's current roadmap. If you believe this feature fits within
+the scope of this project's current roadmap, please detail why.
 -->
 
-**Is your feature request related to a problem? Please describe.**
-Please describe the problem you are trying to solve.
+# Feature Request
 
-**Describe the solution you'd like**
-Please describe the desired behavior.
+<!-- Put an 'x' in the boxes that apply. -->
 
-**Describe alternatives you've considered**
-Please describe alternative solutions or features you have considered.
+- [ ] In current roadmap.
+
+## Details
+
+<!-- Provide more details below this comment. -->

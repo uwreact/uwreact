@@ -1,13 +1,18 @@
 # Contributing Guide
 
-The University of Waterloo Robotics Engineering and Autonomous Controls Team (UW REACT) is a student design team composed primarily of undergraduate students at the University of Waterloo. We design, manufacture, program, and train fully autonomous FIRST Robotics Competition (FRC) robots. We field a new robot each year to compete against high school FRC teams without using a human driver.
+Thank you for your interest in contributing to this project!
 
 ## Getting Started
 
-There are two ways to contribute to our projects:
+Before you contribute, there's some information
 
-- **Joining our team**
-- **Solving Issues**
+### What is UW REACT?
+
+The [University of Waterloo Robotics Engineering and Autonomous Controls Team (UW REACT)](https://uwreact.ca) is a student design team composed primarily of undergraduate students at the University of Waterloo. We design, manufacture, program, and train fully autonomous FIRST Robotics Competition (FRC) robots. We field a new robot each year to compete against high school FRC teams without using a human driver.
+
+### How can I help?
+
+- **Help wherever you can:** Just like any open source project, we maintain an email list that allows anyone to jump into our conversation.
 
 ### Good First Issues
 
