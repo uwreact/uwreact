@@ -1,6 +1,8 @@
 # Contributing Guide
 
-Thank you for your interest in contributing to this project! We're excited to work with you; please review the entirety of this document before opening an issue or submitting a pull request.
+Thank you for your interest in contributing to this project! We're excited to work with you.
+
+Please review the entirety of this document before opening an issue or submitting a pull request; doing so ensures an easy and effective process for everyone involved.
 
 ## Getting Started with UW REACT
 
@@ -15,17 +17,13 @@ The [University of Waterloo Robotics Engineering and Autonomous Controls Team (U
 Depending on your situation, there are two main ways to help:
 
 - **Help wherever you can:** Just like any open source team, we maintain an email list that allows anyone to jump into the conversation for any of our projects.
-- **Join our team:** If you are a student at the University of Waterloo, you can [apply to join our core team](https://uwreact.ca) to gain access to our slack 
-
-## Getting Started with this project
-
-
+- **Join our team:** If you are a student at the University of Waterloo, you can [apply to join our core team](https://uwreact.ca) to gain access to our slack
 
 ### Good First Issues
 
-If you're not sure where to start, we maintain a list of [good first issues](https://github.com/uwreact/shire/labels/good%20first%20issue) with a limited scope that will introduce you to this project.
+If you're not sure where to start, we maintain a list of [good first issues](https://github.com/uwreact/shire/labels/good%20first%20issue) with a limited scope for each of our projects.
 
-## Setup
+## Getting Started with this project
 
 These instructions will set up your local machine for developing, testing, and deploying this project.
 
