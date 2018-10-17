@@ -2,11 +2,11 @@
 
 Thank you for your interest in contributing to this project! We're excited to work with you.
 
-Please review the entirety of this document before opening an issue or submitting a pull request; doing so ensures an easy and effective process for everyone involved.
+Please review the entirety of this document before opening an issue or submitting a pull request; doing so ensures the process is easy and effective for everyone involved.
 
 ## Getting Started with UW REACT
 
-This project is just one in a collection
+This project is just one of many autonomous robotics endeavours undertaken by UW REACT.
 
 ### What is UW REACT?
 
@@ -14,10 +14,62 @@ The [University of Waterloo Robotics Engineering and Autonomous Controls Team (U
 
 ### How can I help?
 
-Depending on your situation, there are two main ways to help:
+Depending on your situation, there are two main ways to collaborate:
 
-- **Help wherever you can:** Just like any open source team, we maintain an email list that allows anyone to jump into the conversation for any of our projects.
-- **Join our team:** If you are a student at the University of Waterloo, you can [apply to join our core team](https://uwreact.ca) to gain access to our slack
+- **Like normal:** Just like any open source team, we maintain an active issue tracker and review pull requests as often as possible, allowing anyone to collaborate on GitHub.
+- **Join our team:** If you are a student at the University of Waterloo, you can [apply to join our core team](https://uwreact.ca/apply) to gain access to Slack and push permissions to this repository.
+
+### Opening Issues
+
+The [issue tracker](https://github.com/uwreact/shire/issues) is our preferred method for reporting bugs and suggesting features. We ask that you:
+
+- **DO** check if a similar issue has already been reported.
+- **DO** use the issue templates for the type of issue you are opening.
+- **DO** label the issue with the labels specified in the template.
+- **DO NOT** use the issue tracker for personal support requests. Email [support@uwreact.ca](mailto:support@uwreact.ca).
+- **DO NOT** derail or troll issues. Keep discussion on topic.
+- **DO NOT** post '+1' or '👍' comments. Use GitHub reactions for this.
+
+### Submitting Pull Requests
+
+The easiest way to get started once you've selected an issue is:
+
+1. [Fork the project](https://help.github.com/articles/fork-a-repo/).
+
+2. Clone your fork:
+
+```bash
+git clone https://github.com/<your-username>/<project>.git
+```
+
+3. Configure your remotes:
+
+```bash
+git remote add upstream https://github.com/uwreact/<project>.git
+```
+
+4. Get the latest changes:
+
+```bash
+git checkout master
+git pull upstream master
+```
+
+5. Create a new branch off of master:
+
+```bash
+git checkout -b <branch-name>
+```
+
+6. Commit your changes.
+
+7. Locally merge the upstream branch into your branch:
+
+```bash
+git pull upstream master
+```
+
+8. [Open a pull request](https://help.github.com/articles/about-pull-requests/)
 
 ### Good First Issues
 
