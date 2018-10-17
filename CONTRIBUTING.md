@@ -26,11 +26,13 @@ The [issue tracker](https://github.com/uwreact/shire/issues) is our preferred me
 - **DO** check if a similar issue has already been reported.
 - **DO** use the issue templates for the type of issue you are opening.
 - **DO** label the issue with the labels specified in the template.
-- **DO NOT** use the issue tracker for personal support requests. Email [support@uwreact.ca](mailto:support@uwreact.ca).
+- **DO NOT** use the issue tracker for personal support requests. Email [hello@uwreact.ca](mailto:hello@uwreact.ca).
 - **DO NOT** derail or troll issues. Keep discussion on topic.
 - **DO NOT** post '+1' or '👍' comments. Use GitHub reactions for this.
 
 ### Submitting Pull Requests
+
+Never embark on a pull request before selecting an issue to solve. If no similar issue exists, please open one first and wait for feedback before proceeding. If you submit a pull request that does not address an open issue, you may spend a lot of time writing changes that we may not merge into the project.
 
 The easiest way to get started once you've selected an issue is:
 
