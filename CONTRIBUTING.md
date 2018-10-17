@@ -24,7 +24,7 @@ Depending on your situation, there are two main ways to collaborate:
 The [issue tracker](https://github.com/uwreact/shire/issues) is our preferred method for reporting bugs and suggesting features. We ask that you:
 
 - **DO** check if a similar issue has already been reported.
-- **DO** use the issue templates for the type of issue you are opening.
+- **DO** follow the issue templates for the type of issue you are opening.
 - **DO** label the issue with the labels specified in the template.
 - **DO NOT** use the issue tracker for personal support requests. Email [hello@uwreact.ca](mailto:hello@uwreact.ca).
 - **DO NOT** derail or troll issues. Keep discussion on topic.
