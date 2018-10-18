@@ -41,13 +41,13 @@ The easiest way to get started once you've selected an issue is:
 2. Clone your fork:
 
 ```bash
-git clone https://github.com/<your-username>/<project>.git
+git clone https://github.com/<your-username>/shire.git
 ```
 
 3. Configure your remotes:
 
 ```bash
-git remote add upstream https://github.com/uwreact/<project>.git
+git remote add upstream https://github.com/uwreact/shire.git
 ```
 
 4. Get the latest changes:
@@ -57,7 +57,7 @@ git checkout master
 git pull upstream master
 ```
 
-5. Create a new branch off of master:
+5. Create a new branch off of `master`:
 
 ```bash
 git checkout -b <branch-name>
