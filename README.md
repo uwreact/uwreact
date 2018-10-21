@@ -1,6 +1,6 @@
 # [shire](https://uwreact.ca)
 
-The shire project is our single page website and custom project management application.
+The `shire` project is our single page website and custom project management application.
 
 ## Contributing
 
@@ -12,4 +12,4 @@ Before opening your editor, read this project's [contributing guide](https://git
 
 ### License
 
-The shire project is [BSD 3-Clause licensed](https://github.com/uwreact/shire/blob/master/LICENSE).
+The `shire` project is [BSD 3-Clause licensed](https://github.com/uwreact/shire/blob/master/LICENSE).
