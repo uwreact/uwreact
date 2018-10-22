@@ -1,15 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
+import { NotFound } from 'components';
 import { user } from 'state';
 
 import Drawer from './Drawer';
 import Header from './Header';
 
-import Home from './Home';
 import Apply from '../Apply';
-import NotFound from '../NotFound';
 
 import styles from './Dashboard.scss';
 
@@ -33,8 +31,8 @@ class Dashboard extends React.Component {
           <Header />
           <div className={styles.content}>
             <Switch>
-              <Route exact path="/dashboard" component={Home} />
               <Route exact path="/dashboard/apply" component={Apply} />
+              <Route exact path="/dashboard" component={() => <div>Home</div>} />
               <Route component={NotFound} />
             </Switch>
           </div>
@@ -45,11 +43,5 @@ class Dashboard extends React.Component {
     );
   }
 }
-
-Dashboard.propTypes = {
-  match: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default Dashboard;
