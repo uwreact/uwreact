@@ -17,6 +17,8 @@ While we look over every pull request, we maintain a focus on this project's cur
 
 ## Change Checklist
 
+<!-- Put an 'x' in the boxes that apply. -->
+
 - [ ] I have added tests.
 - [ ] I have added necessary documentation.
 
