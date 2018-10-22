@@ -1,13 +1,13 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
+import { NotFound } from 'components';
 import { user } from 'state';
 
 import Drawer from './Drawer';
 import Header from './Header';
 
 import Apply from '../Apply';
-import NotFound from '../NotFound';
 
 import styles from './Dashboard.scss';
 
@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
           <Header />
           <div className={styles.content}>
             <Switch>
-              <Route path="/dashboard/apply" component={Apply} />
+              <Route exact path="/dashboard/apply" component={Apply} />
               <Route exact path="/dashboard" component={() => <div>Home</div>} />
               <Route component={NotFound} />
             </Switch>

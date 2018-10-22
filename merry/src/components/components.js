@@ -6,6 +6,7 @@ import FullScreenModal from './FullScreenModal';
 import Input from './Input';
 import IconButton from './IconButton';
 import Modal from './Modal';
+import NotFound from './NotFound';
 import RelativeModal from './RelativeModal';
 import Select from './Select';
 import SelectModal from './SelectModal';
@@ -23,6 +24,7 @@ export {
   Input,
   IconButton,
   Modal,
+  NotFound,
   RelativeModal,
   Select,
   SelectModal,
