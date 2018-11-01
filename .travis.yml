@@ -6,8 +6,8 @@ install:
 deploy:
   provider: firebase
   skip_cleanup: true
-  on:
-    branch: master
+#  on:
+#    branch: master
   token:
     secure: "wJytIaP01n2NMUfpJSHIQNUBLlTcMsXAppOIRTuV62cv/+psJStn3dK7TFivTBsVCyMYJ1eAy0fnyP8/oWQqJVdHvNFlz8EQb713pYVOS1RP6IP5fqGs8X6oxe6+4jAyO21xvEMW514rI/Ppdu3YH9of56jBJdjkNBR6s77eC0bzs7T1wwjROd5Y47QXyZG5vAMvjkoyYIGfhUwTQmP2d2qiIqpKj7/ZibiD1gACN4KZWKgB2t6Aiu5qLiPzHFKHyj8fxzXKC9wCNDxAfH78NaN4WIjHfst9lWgG4/pkLLhKt/givcnhDwGM21efw6HtZOfrpRpUw3NhUjhRD3gjbK52tKoVFDzTiixN9TcBBtbGuXmxEFFmDF3TG04rPrkSnbn8h4NxWybEFS3AdLdZf4ypl6Db4PxgvJFCjbhFGd0/ggDkgWnyY7EG1uh7oJX14RW/TzKu68fJ/v1kiZBE2AnzInbX/Y1ZN/1OnZt4MpEA0TFTxJgVFmKjJcEKUX232/8cHtH5tYwDoCVnheTmj96mpEnRfVqUMmb8lJoQ06PHOZlpvcxHyTGl6W/vRJxWUEjs2xVq5z88Q5PScOanykQ3nau9rJUfUONmZneCITkA+Yi7/LuiiHjyl1bJDQyMIydjSDi6r3Qu+X/G8QAXP1TmtDUaTI65ri9+Y+WcbD0="
   project: "shire-production"
