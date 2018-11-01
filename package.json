@@ -17,7 +17,7 @@
     "deploy": "yarn deploy:development",
     "deploy:development": "concurrently \"cd merry && yarn deploy:development\" \"cd pippin && yarn deploy:development\"",
     "deploy:staging": "concurrently \"cd merry && yarn deploy:staging\" \"cd pippin && yarn deploy:staging\"",
-    "deploy:production": "concurrently \"cd merry && yarn deploy:production\" \"cd pippin && yarn deploy:production\"",
+    "deploy:production": "concurrently \"cd merry && yarn deploy:production\" \"cd pippin && yarn deploy:production\""
   },
   "devDependencies": {
     "concurrently": "~4.0.1"
