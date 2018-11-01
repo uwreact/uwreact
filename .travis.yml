@@ -1,14 +1,15 @@
 language: node_js
 node_js:
-  - '10.10.0'
+  - 10.10.0
 install:
-  - 'yarn'
-before_deploy: 'openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in .env.production.enc -out .env.production -d && yarn build:production'
+  - yarn
+before_deploy: openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv
+  -in .env.production.enc -out .env.production -d && yarn build:production
 deploy:
   provider: firebase
-  project: 'shire-production'
+  project: shire-production
   on:
-    branch: 'set-up-travis'
+    branch: set-up-travis
   skip_cleanup: true
   token:
-    secure: 'wJytIaP01n2NMUfpJSHIQNUBLlTcMsXAppOIRTuV62cv/+psJStn3dK7TFivTBsVCyMYJ1eAy0fnyP8/oWQqJVdHvNFlz8EQb713pYVOS1RP6IP5fqGs8X6oxe6+4jAyO21xvEMW514rI/Ppdu3YH9of56jBJdjkNBR6s77eC0bzs7T1wwjROd5Y47QXyZG5vAMvjkoyYIGfhUwTQmP2d2qiIqpKj7/ZibiD1gACN4KZWKgB2t6Aiu5qLiPzHFKHyj8fxzXKC9wCNDxAfH78NaN4WIjHfst9lWgG4/pkLLhKt/givcnhDwGM21efw6HtZOfrpRpUw3NhUjhRD3gjbK52tKoVFDzTiixN9TcBBtbGuXmxEFFmDF3TG04rPrkSnbn8h4NxWybEFS3AdLdZf4ypl6Db4PxgvJFCjbhFGd0/ggDkgWnyY7EG1uh7oJX14RW/TzKu68fJ/v1kiZBE2AnzInbX/Y1ZN/1OnZt4MpEA0TFTxJgVFmKjJcEKUX232/8cHtH5tYwDoCVnheTmj96mpEnRfVqUMmb8lJoQ06PHOZlpvcxHyTGl6W/vRJxWUEjs2xVq5z88Q5PScOanykQ3nau9rJUfUONmZneCITkA+Yi7/LuiiHjyl1bJDQyMIydjSDi6r3Qu+X/G8QAXP1TmtDUaTI65ri9+Y+WcbD0='
+    secure: jWQ4HMsK8fMgG9b66ouHcH5Ms96Tc2ZWmpGMtSQXWv1LXzlHrDuz21wNWcLEogwEdLMYbz9uctgh7dN5h6zz6YnzVJWk+O0TkyY2kfNedHdDphlL8WOBLmCmm1u90KLjQc10kC776VLqPBnmh57XYoqIZ1q6YufyvH74aiFkD57vcv30H6k23qvayqe5E6mG4q81ntDtQLh15Y3ilkrRJleEGosNubOPGUdnWMM0MU67NgNQahiKozj5nU+rVe6+SvGINC7ZZOh3TWz2IJuFaQIYv2FN56NdwGwSHe828q7T7FWxN1w+UyvPZgjjjD2tADcTGMhNxMVyd8Js3y/jx0/Bl5zUYJKxs5Cj/asJAL3x/78RHHO06Jaz/OpG0JIrzxJ1QnGcOqPeAXyzkiDRgxNA3bqy9+F4MUyYWjIxp9V9XcXKS8yjJV82Bl339twtn83svXT2ej3/V/YyCv3v2aYkXZ0tEXCFBAhhY4lIeBRs7mHqO/CLO1v/zfK+LjpTjS2ZduoyfymMqeXSeYLNuvIvNfWOgi83L052ZXmdPXpBLMYOdsvvuWGGvLtfoZQtutDvkZF2L7wpFxRxR1lUpGd8KcS0ER2J2WMKb0lvTF6yArK6kFf1gsYK3u3LGcLyHOjmVPSUIvOY7ZbKo1Iefmlu2ghDtFOQy6f59pWBA0I=
