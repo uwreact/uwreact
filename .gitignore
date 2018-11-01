@@ -5,6 +5,7 @@
 build/
 
 .env.*
+!.env.*.enc
 !.env.example
 
 ### Node ###
