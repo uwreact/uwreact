@@ -5,8 +5,10 @@
 build/
 
 .env.*
-!.env.*.enc
 !.env.example
+
+### Travis ###
+!*.enc
 
 ### Node ###
 node_modules/
