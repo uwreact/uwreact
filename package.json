@@ -9,6 +9,7 @@
     "pippin"
   ],
   "scripts": {
+    "test": "concurrently \"cd merry\" \"cd pippin\"",
     "build:staging": "concurrently \"cd merry && yarn build:staging\" \"cd pippin && yarn build:staging\"",
     "build:production": "concurrently \"cd merry && yarn build:production\" \"cd pippin && yarn build:production\""
   },
