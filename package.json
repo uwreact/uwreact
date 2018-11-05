@@ -15,9 +15,9 @@
     "build:staging": "concurrently \"cd merry && yarn build:staging\" \"cd pippin && yarn build:staging\"",
     "build:production": "concurrently \"cd merry && yarn build:production\" \"cd pippin && yarn build:production\"",
     "deploy": "yarn deploy:development",
-    "deploy:development": "concurrently \"cd merry && yarn deploy:development\" \"cd pippin && yarn deploy:development\"",
-    "deploy:staging": "concurrently \"cd merry && yarn deploy:staging\" \"cd pippin && yarn deploy:staging\"",
-    "deploy:production": "concurrently \"cd merry && yarn deploy:production\" \"cd pippin && yarn deploy:production\""
+    "deploy:development": "yarn build:development && firebase use shire-development && firebase deploy",
+    "deploy:staging": "yarn build:staging && firebase use shire-staging && firebase deploy",
+    "deploy:production": "yarn build:production && firebase use shire-production && firebase deploy"
   },
   "devDependencies": {
     "concurrently": "~4.0.1"

@@ -8,6 +8,7 @@ build/
 !.env.example
 
 ### Travis ###
+secrets.zip
 !*.enc
 
 ### Node ###
