@@ -7,6 +7,10 @@ build/
 .env.*
 !.env.example
 
+### Travis ###
+secrets.zip
+!*.enc
+
 ### Node ###
 node_modules/
 
