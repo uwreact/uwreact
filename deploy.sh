@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo HELLO
 echo "HELLO"
 echo "$TRAVIS_BRANCH"
 
