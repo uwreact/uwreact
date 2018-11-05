@@ -23,4 +23,4 @@ While we look over every pull request, we maintain a focus on this project's cur
 
 - [ ] I have added tests.
 - [ ] I have added necessary documentation.
-- [ ] I have done QA using the staging server.
+- [ ] I have QA'd using the staging server.
