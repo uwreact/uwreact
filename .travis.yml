@@ -1,12 +1,15 @@
 language: node_js
 node_js:
-  - 10.10.0
+- 10.10.0
 install:
-  - yarn
+- yarn
 deploy:
   provider: script
   script: deploy.sh
   skip_cleanup: true
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^staging|master|set-up-travis$
+    condition: "$TRAVIS_BRANCH =~ ^staging|master|set-up-travis$"
+env:
+  global:
+    secure: RQLMq5Caf4kXjslvH5i6A8ETOpbbedBVPK3SmfFoYf8tIHRWLlcKeKOpOar+gLPO+qUPYZmUJcEHxRJQwwLKoz1jCK1keFv6yv7PGSX5Fo6z0KhjUGCI1BJuACSTitSpdJkhCXzfBY2BzPuv1X4d5dc8C+A46gnEFXAJ3Bf9xJTv85CP8O51FPu/UKzM8gwh1R22Q57eXhq1MpjrGDzTAOlTZvhES34V52maYNO7XCXu4g1J3Zue3eHnexBmO7gTAVjdtrRTBBVDaIVKDjxV7WQemewhh8Eq7/MeWDVbnC6QgtAEJWIegpiHiXuWGb/MARhECj2KQ3UMpkIFAuLQPtvkxE/cauPwWtpSPezYoU7TPO/ur4/oMDGdg/3V5H+5FAQ3rcKw9eXKHYjSgFgQehnIBI06Dxp+oKD251nNgZwEEJ4+z8RQFaKQSAdCeGoViGQiOk/APhSCAvpLW+c5d9Blql25ohrK3nT2l3cFNGGbsoGWpnU8gg/+tQTplj/0UaZR1JT62UZFqxUhPKiL5WgYG/weuBdqI3+dy5l+N85yL/yFtksA5Trr27jQR2O34G0j+H9br+0IYstAer83qTb5Oa65xx/sUKIH8a1WNlVGGjyYWc/DOVwW49KmpQQP0+uw5dOImU1KogSrL3VgRS9jfnhfXxZ3d71Xe2yBfDs=
