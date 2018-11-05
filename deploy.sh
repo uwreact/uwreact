@@ -2,8 +2,12 @@
 
 set -euo pipefail
 
-echo HELLO
-echo "HELLO"
-echo "$TRAVIS_BRANCH"
-
-yarn deploy
+if [ $TRAVIS_BRANCH == "master" ]
+then
+  echo "mast"
+  yarn deploy:production
+elif [ $TRAVIS_BRANCH == "set-up-travis" ]
+then
+  echo "set-up"
+  yarn deploy
+fi
