@@ -44,10 +44,10 @@ const App = () => (
                       <img src={horizontalRi3DLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <div className={styles.header}>
+                      <h1>
                         The world
                         {"'"}s largest Ri3D team.
-                      </div>
+                      </h1>
                       <p>
                         With 40 students at the University of Waterloo, we inspire FIRST Robotics
                         Competition teams around the world by building a robot in 3 days. For 72
@@ -79,9 +79,7 @@ const App = () => (
                       <img src={horizontalReactLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <div className={styles.header}>
-                        We bring FIRST back to university students.
-                      </div>
+                      <h1>We bring the FIRST experience to university students.</h1>
                       <p>
                         The University of Waterloo Robotics Engineering and Autonomous Controls Team
                         (UW REACT) is a student design team composed primarily of undergraduate
@@ -100,7 +98,7 @@ const App = () => (
                         alumni have the opportunity to experience the vigorous joys of FIRST all
                         over again.
                       </p>
-                      <div className={styles.header}>Join us.</div>
+                      <h1>Join us.</h1>
                       <p>
                         UW REACT is always looking for anyone who has the passion and drive to help
                         us make fully autonomous FIRST robots a reality. If you are interested in
