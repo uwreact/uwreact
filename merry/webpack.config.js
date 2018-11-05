@@ -131,6 +131,9 @@ module.exports = (env, options) => {
             new OfflinePlugin({
               appShell: '/',
               externals: ['/'],
+              ServiceWorker: {
+                events: true,
+              },
             }),
           ]),
     ],
