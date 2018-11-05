@@ -4,10 +4,8 @@ set -euo pipefail
 
 if [ $TRAVIS_BRANCH == "master" ]
 then
-  echo "master"
   yarn deploy:production
-elif [ $TRAVIS_BRANCH == "set-up-travis" ]
+elif [ $TRAVIS_BRANCH == "staging" ]
 then
-  echo "set-up"
-  yarn deploy
+  yarn deploy:staging
 fi
