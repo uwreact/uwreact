@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import { NotFound } from 'components';
@@ -45,7 +45,7 @@ const App = () => (
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
                       <h1>
-                        The world
+                        We are the world
                         {"'"}s largest Ri3D team.
                       </h1>
                       <p>
@@ -79,7 +79,7 @@ const App = () => (
                       <img src={horizontalReactLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <h1>We bring the FIRST experience to university students.</h1>
+                      <h1>We bring competitive robotics to university students.</h1>
                       <p>
                         The University of Waterloo Robotics Engineering and Autonomous Controls Team
                         (UW REACT) is a student design team composed primarily of undergraduate
@@ -87,22 +87,6 @@ const App = () => (
                         train fully autonomous FIRST Robotics Competition (FRC) robots. We field a
                         new robot each year to compete against high school FRC teams without using a
                         human driver.
-                      </p>
-                      <p>
-                        For many University of Waterloo students, FIRST Robotics was a high school
-                        lifestyle. Entering university, many FIRST alumni search for a way to stay
-                        engaged in the FRC community. Through alumni groups and volunteering at
-                        local events, they are able to continue their passion for robotics
-                        throughout their university careers. However, these events lack the same
-                        intense experience as the authentic FIRST Robotics Competition. On UW REACT,
-                        alumni have the opportunity to experience the vigorous joys of FIRST all
-                        over again.
-                      </p>
-                      <h1>Join us.</h1>
-                      <p>
-                        UW REACT is always looking for anyone who has the passion and drive to help
-                        us make fully autonomous FIRST robots a reality. If you are interested in
-                        joining us, please <Link to="/apply">apply online</Link>.
                       </p>
                     </div>
                   </div>
