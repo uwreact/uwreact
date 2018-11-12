@@ -79,14 +79,14 @@ const App = () => (
                       <img src={horizontalReactLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <h1>We bring competitive robotics to university students.</h1>
+                      <h1>We bring competitive robotics to the University of Waterloo.</h1>
                       <p>
                         The University of Waterloo Robotics Engineering and Autonomous Controls Team
                         (UW REACT) is a student design team composed primarily of undergraduate
-                        students at the University of Waterloo. We design, manufacture, program, and
-                        train fully autonomous FIRST Robotics Competition (FRC) robots. We field a
-                        new robot each year to compete against high school FRC teams without using a
-                        human driver.
+                        students at the University of Waterloo (UW). We design, manufacture,
+                        program, and train fully autonomous FIRST Robotics Competition (FRC) robots.
+                        We field a new robot each year to compete against high school FRC teams
+                        without using a human driver.
                       </p>
                     </div>
                   </div>
