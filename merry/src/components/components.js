@@ -4,6 +4,7 @@ import Button from './Button';
 import Field from './Field';
 import FullScreenModal from './FullScreenModal';
 import Input from './Input';
+import Icon from './Icon';
 import IconButton from './IconButton';
 import Modal from './Modal';
 import NotFound from './NotFound';
@@ -22,6 +23,7 @@ export {
   Field,
   FullScreenModal,
   Input,
+  Icon,
   IconButton,
   Modal,
   NotFound,

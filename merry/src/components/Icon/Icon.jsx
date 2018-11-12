@@ -16,11 +16,7 @@ const Icon = props => {
     inverted,
   });
 
-  return (
-    <div className={styles.wrapper}>
-      <ParsedIcon className={classNames(iconStyles, className)} />
-    </div>
-  );
+  return <ParsedIcon className={classNames(iconStyles, className)} />;
 };
 
 Icon.propTypes = {
