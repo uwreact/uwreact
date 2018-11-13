@@ -48,7 +48,6 @@ class Menu extends React.Component {
           {open && (
             <div className={styles.items}>
               <Link to="/apply">APPLY</Link>
-              <Link to="/dashboard">DASHBOARD</Link>
             </div>
           )}
         </div>
