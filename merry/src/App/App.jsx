@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import { NotFound } from 'components';
@@ -87,6 +87,12 @@ const App = () => (
                         program, and train fully autonomous FIRST Robotics Competition (FRC) robots.
                         We field a new robot each year to compete against high school FRC teams
                         without using a human driver.
+                      </p>
+                      <h1>Join us.</h1>
+                      <p>
+                        UW REACT is always looking for anyone who has the passion and drive to help
+                        us make fully autonomous FIRST robots a reality. If you are interested in
+                        joining us, please <Link to="/apply">apply online</Link>.
                       </p>
                     </div>
                   </div>
