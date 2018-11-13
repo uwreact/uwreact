@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-import { BlankButton } from 'components';
+import { BlankButton, Icon } from 'components';
 
 import styles from './IconButton.scss';
 
@@ -11,8 +11,6 @@ const boundStyles = classNames.bind(styles);
 const IconButton = props => {
   const { className, icon, inverted, ...other } = props;
 
-  const Icon = icon;
-
   const iconStyles = boundStyles({
     icon: true,
     inverted,
@@ -20,7 +18,7 @@ const IconButton = props => {
 
   return (
     <BlankButton className={styles.button} {...other}>
-      <Icon className={classNames(iconStyles, className)} />
+      <Icon icon={icon} className={classNames(iconStyles, className)} inverted={inverted} />
     </BlankButton>
   );
 };

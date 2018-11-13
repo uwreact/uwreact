@@ -1,0 +1,16 @@
+.icon {
+  fill: $black-text;
+  width: 18px;
+}
+
+.icon:hover {
+  fill: lighten($black-text, 20%);
+}
+
+.inverted {
+  fill: $white-text;
+}
+
+.inverted:hover {
+  fill: darken($white-text, 20%);
+}

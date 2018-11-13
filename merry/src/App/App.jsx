@@ -13,8 +13,8 @@ import Apply from './Apply';
 import Dashboard from './Dashboard';
 import Email from './Email';
 import Loading from './Loading';
-import Menu from './Menu';
 import Login from './Login';
+import Menu from './Menu';
 
 import styles from './App.scss';
 
@@ -44,10 +44,10 @@ const App = () => (
                       <img src={horizontalRi3DLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <div className={styles.header}>
-                        The world
+                      <h1>
+                        We are the world
                         {"'"}s largest Ri3D team.
-                      </div>
+                      </h1>
                       <p>
                         With 40 students at the University of Waterloo, we inspire FIRST Robotics
                         Competition teams around the world by building a robot in 3 days. For 72
@@ -79,28 +79,16 @@ const App = () => (
                       <img src={horizontalReactLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <div className={styles.header}>
-                        We bring FIRST back to university students.
-                      </div>
+                      <h1>We bring competitive robotics to the University of Waterloo.</h1>
                       <p>
                         The University of Waterloo Robotics Engineering and Autonomous Controls Team
                         (UW REACT) is a student design team composed primarily of undergraduate
-                        students at the University of Waterloo. We design, manufacture, program, and
-                        train fully autonomous FIRST Robotics Competition (FRC) robots. We field a
-                        new robot each year to compete against high school FRC teams without using a
-                        human driver.
+                        students at the University of Waterloo (UW). We design, manufacture,
+                        program, and train fully autonomous FIRST Robotics Competition (FRC) robots.
+                        We field a new robot each year to compete against high school FRC teams
+                        without using a human driver.
                       </p>
-                      <p>
-                        For many University of Waterloo students, FIRST Robotics was a high school
-                        lifestyle. Entering university, many FIRST alumni search for a way to stay
-                        engaged in the FRC community. Through alumni groups and volunteering at
-                        local events, they are able to continue their passion for robotics
-                        throughout their university careers. However, these events lack the same
-                        intense experience as the authentic FIRST Robotics Competition. On UW REACT,
-                        alumni have the opportunity to experience the vigorous joys of FIRST all
-                        over again.
-                      </p>
-                      <div className={styles.header}>Join us.</div>
+                      <h1>Join us.</h1>
                       <p>
                         UW REACT is always looking for anyone who has the passion and drive to help
                         us make fully autonomous FIRST robots a reality. If you are interested in

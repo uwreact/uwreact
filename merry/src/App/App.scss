@@ -36,15 +36,23 @@
 }
 
 .written {
-  padding: 30px;
+  padding: 0 30px 30px;
   font-size: 16px;
-}
 
-.header {
-  padding: 15px 0;
-  font-family: $montserrat;
-  font-weight: 500;
-  font-size: 32px;
+  @include for-tablet-landscape-up {
+    padding: 30px;
+  }
+
+  h1 {
+    width: 100%;
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 24px;
+
+    @include for-tablet-landscape-up {
+      font-size: 32px;
+    }
+  }
 }
 
 .heroText {
