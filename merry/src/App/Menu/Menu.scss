@@ -16,11 +16,12 @@
 }
 
 .open {
+  display: flex !important;
+  height: calc(100% - 84px);
   background-color: white;
-  height: 100%;
 }
 
-.icon {
+.bars {
   width: 30px;
 
   padding: 10px 15px;
@@ -44,4 +45,30 @@
   a {
     text-decoration: none;
   }
+}
+
+.social {
+  z-index: 21;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  padding: 30px;
+  width: calc(25% - 60px);
+  height: 24px;
+
+  @include portrait {
+    display: none;
+    width: calc(100% - 60px);
+  }
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icon {
+  width: auto;
+  height: 24px;
 }

@@ -13,8 +13,8 @@ import Apply from './Apply';
 import Dashboard from './Dashboard';
 import Email from './Email';
 import Loading from './Loading';
-import Menu from './Menu';
 import Login from './Login';
+import Menu from './Menu';
 
 import styles from './App.scss';
 
