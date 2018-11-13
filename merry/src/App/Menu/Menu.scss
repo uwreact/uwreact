@@ -43,6 +43,7 @@
   color: $black-text;
 
   a {
+    color: $black-text;
     text-decoration: none;
   }
 }
@@ -66,6 +67,10 @@
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
+
+  a {
+    color: $black-text;
+  }
 }
 
 .icon {
