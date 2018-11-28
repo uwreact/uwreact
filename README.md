@@ -1,4 +1,6 @@
-# [shire](https://uwreact.ca) [![Build Status](https://travis-ci.com/uwreact/shire.svg?branch=master)](https://travis-ci.com/uwreact/shire)
+# [shire](https://uwreact.ca) 
+
+[![Build Status](https://travis-ci.com/uwreact/shire.svg?branch=master)](https://travis-ci.com/uwreact/shire)
 
 The `shire` project is our single page website and custom project management application.
 
