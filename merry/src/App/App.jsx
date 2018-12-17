@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import { NotFound } from 'components';
@@ -84,7 +84,7 @@ const App = () => (
                       <p>
                         UW REACT is always looking for anyone who has the passion and drive to help
                         us make fully autonomous FIRST robots a reality. If you are interested in
-                        joining us, please <Link to="/apply">apply online</Link>.
+                        joining us, please apply online.
                       </p>
                     </div>
                   </div>
