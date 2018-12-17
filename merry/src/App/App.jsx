@@ -36,10 +36,10 @@ const App = () => (
                       <img src={horizontalRi3DLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <h1>
+                      <h2>
                         We are the world
                         {"'"}s largest Ri3D team.
-                      </h1>
+                      </h2>
                       <p>
                         With 40 students at the University of Waterloo, we inspire FIRST Robotics
                         Competition teams around the world by building a robot in 3 days. For 72
@@ -71,7 +71,7 @@ const App = () => (
                       <img src={horizontalReactLogo} alt="UW REACT Logo" />
                     </div>
                     <div className={classNames(styles.white, styles.written)}>
-                      <h1>We bring competitive robotics to the University of Waterloo.</h1>
+                      <h2>We bring competitive robotics to the University of Waterloo.</h2>
                       <p>
                         The University of Waterloo Robotics Engineering and Autonomous Controls Team
                         (UW REACT) is a student design team composed primarily of undergraduate
@@ -80,13 +80,14 @@ const App = () => (
                         We field a new robot each year to compete against high school FRC teams
                         without using a human driver.
                       </p>
-                      <h1>Join us.</h1>
+                      <h2>Join us.</h2>
                       <p>
                         UW REACT is always looking for anyone who has the passion and drive to help
                         us make fully autonomous FIRST robots a reality. If you are interested in
                         joining us, please apply online.
                       </p>
                     </div>
+                    <h1>OUR SPONSORS</h1>
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>

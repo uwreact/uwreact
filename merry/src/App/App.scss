@@ -13,6 +13,24 @@
   grid-area: content;
 
   overflow: auto;
+
+  h1 {
+    width: calc(100% - 40px);
+    padding: 20px;
+    margin: 0;
+
+    background-color: $primary;
+    color: $white-text;
+    text-align: center;
+
+    font-family: $montserrat;
+    font-weight: 700;
+    font-size: 9vh;
+
+    @include portrait {
+      font-size: 9vw;
+    }
+  }
 }
 
 .side {
@@ -43,7 +61,7 @@
     padding: 30px;
   }
 
-  h1 {
+  h2 {
     width: 100%;
     font-family: $montserrat;
     font-weight: 500;
