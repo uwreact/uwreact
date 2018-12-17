@@ -9,11 +9,7 @@ import verticalReactLogo from 'resources/svg/logos/react-vertical.svg';
 import horizontalRi3DLogo from 'resources/svg/logos/ri3d-horizontal.svg';
 import verticalRi3DLogo from 'resources/svg/logos/ri3d-vertical.svg';
 
-import Apply from './Apply';
-import Dashboard from './Dashboard';
-import Email from './Email';
 import Loading from './Loading';
-import Login from './Login';
 import Menu from './Menu';
 
 import styles from './App.scss';
@@ -22,10 +18,6 @@ const App = () => (
   <React.Fragment>
     <Loading />
     <Switch>
-      <Route path="/email" component={Email} />
-      <Route path="/apply" component={Apply} />
-      <Route path="/login" component={Login} />
-      <Route path="/dashboard" component={Dashboard} />
       <Route
         path="/"
         component={() => (
