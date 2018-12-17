@@ -27,7 +27,7 @@ const App = () => (
               path="/ri3d"
               component={() => (
                 <div className={styles.home}>
-                  <Menu />
+                  <Menu ri3d />
                   <div className={styles.content}>
                     <div className={classNames(styles.primary, styles.heroText)}>
                       WE BUILD ROBOTS IN THREE DAYS.

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
@@ -17,6 +18,14 @@ import youtube from '../../resources/svg/icons/youtube.svg';
 const boundStyles = classNames.bind(styles);
 
 class Menu extends React.Component {
+  static propTypes = {
+    ri3d: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    ri3d: false,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -25,6 +34,7 @@ class Menu extends React.Component {
   }
 
   render() {
+    const { ri3d } = this.props;
     const { open } = this.state;
 
     const menuStyles = boundStyles({
@@ -37,6 +47,8 @@ class Menu extends React.Component {
       open,
     });
 
+    // TODO: Add links to google forms
+
     return (
       <React.Fragment>
         <div className={menuStyles}>
@@ -47,7 +59,29 @@ class Menu extends React.Component {
           />
           {open && (
             <div className={styles.items}>
-              <Link to="/apply">APPLY</Link>
+              {ri3d ? (
+                <React.Fragment>
+                  <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                    ATTEND UW Ri3D 2019
+                  </a>
+                  <div />
+                  <Link to="/">LEARN ABOUT UW REACT</Link>
+                  <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                    JOIN UW REACT
+                  </a>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                    JOIN UW REACT
+                  </a>
+                  <div />
+                  <Link to="/ri3d">LEARN ABOUT UW Ri3D</Link>
+                  <a href="https://google.com" target="_blank" rel="noopener noreferrer">
+                    ATTEND UW Ri3D
+                  </a>
+                </React.Fragment>
+              )}
             </div>
           )}
         </div>
