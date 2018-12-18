@@ -48,7 +48,25 @@ const App = () => (
                       chassis, wire electromechanical systems, and program an entire FRC robot - 40
                       days before bag and tag.
                     </p>
-                    <h2>ATTEND UW Ri3D</h2>
+                    <h2>OUR SPONSORS</h2>
+                    <div className={styles.sponsors}>
+                      <div>
+                        <div>
+                          <img src={engSocLogo} alt="AndyMark Logo" />
+                        </div>
+                        <div>
+                          <img src={weefLogo} alt="AndyMark Logo" />
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <img src={firstCanadaLogo} alt="AndyMark Logo" />
+                        </div>
+                        <div>
+                          <img src={solidWorksLogo} alt="AndyMark Logo" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>
@@ -103,7 +121,6 @@ const App = () => (
                         </div>
                       </div>
                     </div>
-                    <h2>JOIN UW REACT</h2>
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>
