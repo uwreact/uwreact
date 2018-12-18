@@ -8,6 +8,11 @@ import verticalReactLogo from 'resources/svg/logos/react-vertical.svg';
 import horizontalRi3DLogo from 'resources/svg/logos/ri3d-horizontal.svg';
 import verticalRi3DLogo from 'resources/svg/logos/ri3d-vertical.svg';
 
+import engSocLogo from 'resources/png/sponsors/engSoc.png';
+import firstCanadaLogo from 'resources/png/sponsors/firstCanada.png';
+import solidWorksLogo from 'resources/png/sponsors/solidWorks.png';
+import weefLogo from 'resources/png/sponsors/weef.png';
+
 import Loading from './Loading';
 import Menu from './Menu';
 
@@ -43,6 +48,7 @@ const App = () => (
                       chassis, wire electromechanical systems, and program an entire FRC robot - 40
                       days before bag and tag.
                     </p>
+                    <h2>ATTEND UW Ri3D</h2>
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>
@@ -79,6 +85,17 @@ const App = () => (
                       us, please apply online.
                     </p>
                     <h2>OUR SPONSORS</h2>
+                    <div className={styles.sponsors}>
+                      <div>
+                        <img src={engSocLogo} alt="AndyMark Logo" />
+                        <img src={firstCanadaLogo} alt="AndyMark Logo" />
+                      </div>
+                      <div>
+                        <img src={solidWorksLogo} alt="AndyMark Logo" />
+                        <img src={weefLogo} alt="AndyMark Logo" />
+                      </div>
+                    </div>
+                    <h2>JOIN UW REACT</h2>
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>

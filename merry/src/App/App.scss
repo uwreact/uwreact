@@ -44,9 +44,9 @@
   }
 
   h2 {
-    width: calc(100% - 40px);
+    width: calc(100% - 30px);
 
-    padding: 20px;
+    padding: 15px;
     margin: 0;
 
     background-color: $primary;
@@ -97,15 +97,6 @@
   }
 }
 
-.written {
-  padding: 0 30px 30px;
-  font-size: 16px;
-
-  @include for-tablet-landscape-up {
-    padding: 30px;
-  }
-}
-
 .contentLogo {
   height: 30px;
 
@@ -124,6 +115,32 @@
 
     img {
       display: unset;
+    }
+  }
+}
+
+.sponsors {
+  width: calc(100% - 60px);
+
+  padding: 30px;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  div {
+    width: calc(100% - 60px);
+
+    padding: 30px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      max-height: 100px;
+      max-width: 48%;
     }
   }
 }
