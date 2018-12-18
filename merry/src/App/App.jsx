@@ -87,12 +87,20 @@ const App = () => (
                     <h2>OUR SPONSORS</h2>
                     <div className={styles.sponsors}>
                       <div>
-                        <img src={engSocLogo} alt="AndyMark Logo" />
-                        <img src={firstCanadaLogo} alt="AndyMark Logo" />
+                        <div>
+                          <img src={engSocLogo} alt="AndyMark Logo" />
+                        </div>
+                        <div>
+                          <img src={weefLogo} alt="AndyMark Logo" />
+                        </div>
                       </div>
                       <div>
-                        <img src={solidWorksLogo} alt="AndyMark Logo" />
-                        <img src={weefLogo} alt="AndyMark Logo" />
+                        <div>
+                          <img src={firstCanadaLogo} alt="AndyMark Logo" />
+                        </div>
+                        <div>
+                          <img src={solidWorksLogo} alt="AndyMark Logo" />
+                        </div>
                       </div>
                     </div>
                     <h2>JOIN UW REACT</h2>
