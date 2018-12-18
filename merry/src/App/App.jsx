@@ -9,7 +9,7 @@ import horizontalRi3DLogo from 'resources/svg/logos/ri3d-horizontal.svg';
 import verticalRi3DLogo from 'resources/svg/logos/ri3d-vertical.svg';
 
 import engSocLogo from 'resources/png/sponsors/engSoc.png';
-import firstCanadaLogo from 'resources/png/sponsors/firstCanada.png';
+import firstRoboticsCanadaLogo from 'resources/png/sponsors/firstRoboticsCanada.png';
 import solidWorksLogo from 'resources/png/sponsors/solidWorks.png';
 import weefLogo from 'resources/png/sponsors/weef.png';
 
@@ -52,18 +52,18 @@ const App = () => (
                     <div className={styles.sponsors}>
                       <div>
                         <div>
-                          <img src={engSocLogo} alt="AndyMark Logo" />
+                          <img src={engSocLogo} alt="EngSoc Logo" />
                         </div>
                         <div>
-                          <img src={weefLogo} alt="AndyMark Logo" />
+                          <img src={weefLogo} alt="WEEF Logo" />
                         </div>
                       </div>
                       <div>
                         <div>
-                          <img src={firstCanadaLogo} alt="AndyMark Logo" />
+                          <img src={firstRoboticsCanadaLogo} alt="FIRST Robotics Canada Logo" />
                         </div>
                         <div>
-                          <img src={solidWorksLogo} alt="AndyMark Logo" />
+                          <img src={solidWorksLogo} alt="SolidWorks Logo" />
                         </div>
                       </div>
                     </div>
@@ -106,18 +106,18 @@ const App = () => (
                     <div className={styles.sponsors}>
                       <div>
                         <div>
-                          <img src={engSocLogo} alt="AndyMark Logo" />
+                          <img src={engSocLogo} alt="EngSoc Logo" />
                         </div>
                         <div>
-                          <img src={weefLogo} alt="AndyMark Logo" />
+                          <img src={weefLogo} alt="WEEF Logo" />
                         </div>
                       </div>
                       <div>
                         <div>
-                          <img src={firstCanadaLogo} alt="AndyMark Logo" />
+                          <img src={firstRoboticsCanadaLogo} alt="FIRST Robotics Canada Logo" />
                         </div>
                         <div>
-                          <img src={solidWorksLogo} alt="AndyMark Logo" />
+                          <img src={solidWorksLogo} alt="SolidWorks Logo" />
                         </div>
                       </div>
                     </div>
