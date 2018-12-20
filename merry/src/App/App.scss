@@ -117,7 +117,7 @@
   }
 }
 
-.sponsors {
+.rowGrid {
   width: 100%;
 
   padding: 30px 0;
@@ -146,11 +146,27 @@
         max-width: 100%;
         max-height: 100px;
       }
-
-      @include for-tablet-portrait-up {
-        width: calc(50% - 60px);
-      }
     }
+  }
+}
+
+.col2 {
+  @include for-tablet-portrait-up {
+    width: calc(50% - 60px) !important;
+  }
+}
+
+.col4 {
+  @include for-phone-only {
+    width: calc(50% - 60px) !important;
+  }
+
+  @include for-tablet-portrait-up {
+    width: calc(50% - 60px) !important;
+  }
+
+  @include for-desktop-up {
+    width: calc(25% - 60px) !important;
   }
 }
 

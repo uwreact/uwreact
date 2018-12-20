@@ -8,10 +8,15 @@ import verticalReactLogo from 'resources/svg/logos/react-vertical.svg';
 import horizontalRi3DLogo from 'resources/svg/logos/ri3d-horizontal.svg';
 import verticalRi3DLogo from 'resources/svg/logos/ri3d-vertical.svg';
 
-import engSocLogo from 'resources/png/sponsors/engSoc.png';
+import andyMarkLogo from 'resources/png/sponsors/andyMark.png';
 import firstRoboticsCanadaLogo from 'resources/png/sponsors/firstRoboticsCanada.png';
+import phdLogo from 'resources/png/sponsors/phd.png';
 import solidWorksLogo from 'resources/png/sponsors/solidWorks.png';
-import weefLogo from 'resources/png/sponsors/weef.png';
+import studicaLogo from 'resources/png/sponsors/studica.png';
+import uwEngLogo from 'resources/png/sponsors/uwEng.png';
+import uwEngIdeasClinicLogo from 'resources/png/sponsors/uwEngIdeasClinic.png';
+import uwEngSocLogo from 'resources/png/sponsors/uwEngSoc.png';
+import uwWEEFLogo from 'resources/png/sponsors/uwWEEF.png';
 
 import Loading from './Loading';
 import Menu from './Menu';
@@ -49,21 +54,45 @@ const App = () => (
                       days before bag and tag.
                     </p>
                     <h2>OUR SPONSORS</h2>
-                    <div className={styles.sponsors}>
+                    <div className={styles.rowGrid}>
                       <div>
                         <div>
-                          <img src={engSocLogo} alt="EngSoc Logo" />
+                          <img src={uwEngLogo} alt="UW Engineering Logo" />
                         </div>
-                        <div>
-                          <img src={weefLogo} alt="WEEF Logo" />
+                      </div>
+                      <div>
+                        <div className={styles.col2}>
+                          <img src={uwEngSocLogo} alt="UW EngSoc Logo" />
+                        </div>
+                        <div className={styles.col2}>
+                          <img src={uwWEEFLogo} alt="WEEF Logo" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className={styles.col2}>
+                          <img src={firstRoboticsCanadaLogo} alt="FIRST Robotics Canada Logo" />
+                        </div>
+                        <div className={styles.col2}>
+                          <img src={solidWorksLogo} alt="SolidWorks Logo" />
                         </div>
                       </div>
                       <div>
                         <div>
-                          <img src={firstRoboticsCanadaLogo} alt="FIRST Robotics Canada Logo" />
+                          <h3>Past Sponsors</h3>
                         </div>
-                        <div>
-                          <img src={solidWorksLogo} alt="SolidWorks Logo" />
+                      </div>
+                      <div>
+                        <div className={styles.col4}>
+                          <img src={andyMarkLogo} alt="AndyMark Logo" />
+                        </div>
+                        <div className={styles.col4}>
+                          <img src={phdLogo} alt="PHD Logo" />
+                        </div>
+                        <div className={styles.col4}>
+                          <img src={studicaLogo} alt="Studica Logo" />
+                        </div>
+                        <div className={styles.col4}>
+                          <img src={uwEngIdeasClinicLogo} alt="UW Eng Ideas Clinic Logo" />
                         </div>
                       </div>
                     </div>
@@ -103,21 +132,45 @@ const App = () => (
                       us, please apply online.
                     </p>
                     <h2>OUR SPONSORS</h2>
-                    <div className={styles.sponsors}>
+                    <div className={styles.rowGrid}>
                       <div>
                         <div>
-                          <img src={engSocLogo} alt="EngSoc Logo" />
+                          <img src={uwEngLogo} alt="UW Engineering Logo" />
                         </div>
-                        <div>
-                          <img src={weefLogo} alt="WEEF Logo" />
+                      </div>
+                      <div>
+                        <div className={styles.col2}>
+                          <img src={uwEngSocLogo} alt="UW EngSoc Logo" />
+                        </div>
+                        <div className={styles.col2}>
+                          <img src={uwWEEFLogo} alt="WEEF Logo" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className={styles.col2}>
+                          <img src={firstRoboticsCanadaLogo} alt="FIRST Robotics Canada Logo" />
+                        </div>
+                        <div className={styles.col2}>
+                          <img src={solidWorksLogo} alt="SolidWorks Logo" />
                         </div>
                       </div>
                       <div>
                         <div>
-                          <img src={firstRoboticsCanadaLogo} alt="FIRST Robotics Canada Logo" />
+                          <h3>Past Sponsors</h3>
                         </div>
-                        <div>
-                          <img src={solidWorksLogo} alt="SolidWorks Logo" />
+                      </div>
+                      <div>
+                        <div className={styles.col4}>
+                          <img src={andyMarkLogo} alt="AndyMark Logo" />
+                        </div>
+                        <div className={styles.col4}>
+                          <img src={phdLogo} alt="PHD Logo" />
+                        </div>
+                        <div className={styles.col4}>
+                          <img src={studicaLogo} alt="Studica Logo" />
+                        </div>
+                        <div className={styles.col4}>
+                          <img src={uwEngIdeasClinicLogo} alt="UW Eng Ideas Clinic Logo" />
                         </div>
                       </div>
                     </div>
