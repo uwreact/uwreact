@@ -96,6 +96,7 @@ const App = () => (
                         </div>
                       </div>
                     </div>
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>
@@ -132,45 +133,113 @@ const App = () => (
                       us, please apply online.
                     </p>
                     <h2>OUR SPONSORS</h2>
-                    <div className={styles.rowGrid}>
+                    <div className={styles.grid}>
                       <div>
                         <div>
                           <img src={uwEngLogo} alt="UW Engineering Logo" />
                         </div>
                       </div>
-                      <div>
-                        <div className={styles.col2}>
+                      <div className={styles.twoSponsors}>
+                        <div>
                           <img src={uwEngSocLogo} alt="UW EngSoc Logo" />
                         </div>
-                        <div className={styles.col2}>
+                        <div>
                           <img src={uwWEEFLogo} alt="WEEF Logo" />
                         </div>
                       </div>
-                      <div>
-                        <div className={styles.col2}>
+                      <div className={styles.twoSponsors}>
+                        <div>
                           <img src={firstRoboticsCanadaLogo} alt="FIRST Robotics Canada Logo" />
                         </div>
-                        <div className={styles.col2}>
+                        <div>
                           <img src={solidWorksLogo} alt="SolidWorks Logo" />
                         </div>
                       </div>
-                      <div>
+                      <h3>Past Sponsors</h3>
+                      <div className={styles.fourSponsors}>
                         <div>
-                          <h3>Past Sponsors</h3>
-                        </div>
-                      </div>
-                      <div>
-                        <div className={styles.col4}>
                           <img src={andyMarkLogo} alt="AndyMark Logo" />
                         </div>
-                        <div className={styles.col4}>
+                        <div>
                           <img src={phdLogo} alt="PHD Logo" />
                         </div>
-                        <div className={styles.col4}>
+                        <div>
                           <img src={studicaLogo} alt="Studica Logo" />
                         </div>
-                        <div className={styles.col4}>
+                        <div>
                           <img src={uwEngIdeasClinicLogo} alt="UW Eng Ideas Clinic Logo" />
+                        </div>
+                      </div>
+                    </div>
+                    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+                    <div className={styles.grid}>
+                      <h3>About FIRST and the FIRST Robotics Competition</h3>
+                      <div className={styles.questions}>
+                        <div>
+                          <h4>What is FIRST?</h4>
+                          <p>
+                            <a
+                              href="https://firstinspires.org/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              For Inspiration and Recognition of Science and Technology
+                            </a>{' '}
+                            (FIRST) is a Manchester, NH-based 501(c)(3) not-for-profit public
+                            charity that operates programs designed to inspire young people{"'"}s
+                            interest in science and technology.
+                          </p>
+                        </div>
+                        <div>
+                          <h4>What is FRC?</h4>
+                          <p>
+                            The{' '}
+                            <a
+                              href="https://www.firstinspires.org/robotics/frc"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              FIRST Robotics Competition
+                            </a>{' '}
+                            (FRC) is one of four international robotics competitions organized by
+                            FIRST. In only six weeks, high school-aged teams build and program
+                            robots to perform challenging tasks against a field of competitors.
+                          </p>
+                        </div>
+                      </div>
+                      <div className={styles.questions}>
+                        <div>
+                          <h4>Why FRC?</h4>
+                          <p>
+                            Unlike many science and technology-based competitions available to
+                            students, FRC brings a fresh challenge each year that combines the
+                            excitement of sport with the rigors of science and technology. In doing
+                            so, FRC creates an environment that inspires students to become leaders
+                            and innovators while they enjoy an engaging spectator sport.
+                          </p>
+                        </div>
+                        <div>
+                          <h4>Why UW REACT?</h4>
+                          <p>
+                            Unfortunately, once high school students graduate and attend a
+                            post-secondary institution, they are left without a replacement for FRC.
+                            Many FIRST Alumni groups do little more than reminisce about {'"'}the
+                            good old days{'"'}, and as a result, alumni lose touch with FRC in
+                            University. UW REACT brings an FRC-like challenge back to FIRST Alumni.
+                          </p>
+                        </div>
+                      </div>
+                      <h3>About UW REACT</h3>
+                      <div className={styles.questions}>
+                        <div>
+                          <h4>What makes it challenging?</h4>
+                          <p>
+                            UW REACT brings the FRC challenge to a post-secondary level by
+                            introducing one key limitation: the robot cannot be controlled by a
+                            human driver. Aside from this limitation, UW REACT robots are completely
+                            FRC legal, using the same standard parts and following the same budget
+                            rules.
+                          </p>
                         </div>
                       </div>
                     </div>

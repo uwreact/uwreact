@@ -59,23 +59,39 @@ class Menu extends React.Component {
             <div className={styles.items}>
               {ri3d ? (
                 <React.Fragment>
-                  <a href="https://goo.gl/forms/P1RTwR22GwMpRFYs2" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://goo.gl/forms/P1RTwR22GwMpRFYs2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     ATTEND UW Ri3D 2019
                   </a>
                   <div />
                   <Link to="/">LEARN ABOUT UW REACT</Link>
-                  <a href="https://goo.gl/forms/LUAJ8S9F0B5TangU2" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://goo.gl/forms/LUAJ8S9F0B5TangU2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     JOIN UW REACT
                   </a>
                 </React.Fragment>
               ) : (
                 <React.Fragment>
-                  <a href="https://goo.gl/forms/LUAJ8S9F0B5TangU2" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://goo.gl/forms/LUAJ8S9F0B5TangU2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     JOIN UW REACT
                   </a>
                   <div />
                   <Link to="/ri3d">LEARN ABOUT UW Ri3D</Link>
-                  <a href="https://goo.gl/forms/P1RTwR22GwMpRFYs2" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://goo.gl/forms/P1RTwR22GwMpRFYs2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     ATTEND UW Ri3D 2019
                   </a>
                 </React.Fragment>

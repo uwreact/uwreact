@@ -47,7 +47,7 @@
     width: calc(100% - 30px);
 
     padding: 15px;
-    margin: 0;
+    margin: 30px 0 0;
 
     background-color: $primary;
     color: $white-text;
@@ -64,7 +64,7 @@
 
   h3 {
     padding: 0 30px;
-    margin: 0;
+    margin: 30px 0 0;
 
     font-family: $montserrat;
     font-weight: 500;
@@ -75,9 +75,22 @@
     }
   }
 
+  h4 {
+    padding: 0 30px;
+    margin: 15px 0 0;
+
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 16px;
+
+    @include for-tablet-landscape-up {
+      font-size: 24px;
+    }
+  }
+
   p {
-    padding: 30px;
-    margin: 0;
+    padding: 0 30px;
+    margin: 15px 0 0;
 
     font-size: 16px;
   }
@@ -96,28 +109,22 @@
 }
 
 .contentLogo {
-  height: 30px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 25%;
+  display: none;
 
   img {
     height: 60%;
     max-width: 60vw;
-    display: none;
   }
 
   @include portrait {
-    height: 25%;
-
-    img {
-      display: unset;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
-.rowGrid {
+.grid {
   width: 100%;
 
   padding: 30px 0;
@@ -125,6 +132,13 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+
+  h3 {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 30px !important;
+    margin: 0 !important;
+  }
 
   div {
     width: 100%;
@@ -150,23 +164,47 @@
   }
 }
 
-.col2 {
-  @include for-tablet-portrait-up {
-    width: calc(50% - 60px) !important;
+.twoSponsors {
+  div {
+    @include for-tablet-portrait-up {
+      width: calc(50% - 60px) !important;
+    }
   }
 }
 
-.col4 {
-  @include for-phone-only {
-    width: calc(50% - 60px) !important;
+.fourSponsors {
+  div {
+    @include for-phone-only {
+      width: calc(50% - 60px) !important;
+    }
+
+    @include for-tablet-portrait-up {
+      width: calc(50% - 60px) !important;
+    }
+
+    @include for-desktop-up {
+      width: calc(25% - 60px) !important;
+    }
+  }
+}
+
+.questions {
+  align-items: flex-start !important;
+
+  h3 {
+    margin: 0 !important;
   }
 
-  @include for-tablet-portrait-up {
-    width: calc(50% - 60px) !important;
-  }
+  div {
+    width: 100% !important;
 
-  @include for-desktop-up {
-    width: calc(25% - 60px) !important;
+    padding: 0 !important;
+
+    justify-content: flex-start !important;
+
+    @include for-tablet-portrait-up {
+      width: 50% !important;
+    }
   }
 }
 

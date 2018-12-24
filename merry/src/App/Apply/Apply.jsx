@@ -486,10 +486,9 @@ class Apply extends React.Component {
                 )}
               </div>
             </Step>
-            {answeredQuestions &&
-              details && (
-                <div className={styles.prompt}>Thank you for applying, {details.name}!</div>
-              )}
+            {answeredQuestions && details && (
+              <div className={styles.prompt}>Thank you for applying, {details.name}!</div>
+            )}
           </div>
         </div>
       </div>
