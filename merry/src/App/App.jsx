@@ -53,6 +53,19 @@ const App = () => (
                       chassis, wire electromechanical systems, and program an entire FRC robot - 40
                       days before bag and tag.
                     </p>
+                    <h3>Attend the event.</h3>
+                    <p>
+                      UW Ri3D 2019 is open to anyone looking who has the passion and drive to help
+                      us make build robots in three days. If you are interested in attending, please{' '}
+                      <a
+                        href="https://goo.gl/forms/P1RTwR22GwMpRFYs2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        apply online
+                      </a>
+                      .
+                    </p>
                     <h2>OUR SPONSORS</h2>
                     <div className={styles.grid}>
                       <div>
@@ -258,7 +271,15 @@ const App = () => (
                     <p>
                       UW REACT is always looking for anyone who has the passion and drive to help us
                       make fully autonomous FIRST robots a reality. If you are interested in joining
-                      us, please apply online.
+                      us, please{' '}
+                      <a
+                        href="https://goo.gl/forms/LUAJ8S9F0B5TangU2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        apply online
+                      </a>
+                      .
                     </p>
                     <h2>OUR SPONSORS</h2>
                     <div className={styles.grid}>
