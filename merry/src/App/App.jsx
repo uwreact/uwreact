@@ -219,6 +219,12 @@ const App = () => (
                         </div>
                       </div>
                     </div>
+                    <h2>CONTACT US</h2>
+                    <p>
+                      If you have any questions, please send us an email at{' '}
+                      <a href="mailto:hello@uwreact.ca">hello@uwreact.ca</a>.
+                    </p>
+                    <p />
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>
@@ -419,6 +425,12 @@ const App = () => (
                         </div>
                       </div>
                     </div>
+                    <h2>CONTACT US</h2>
+                    <p>
+                      If you have any questions, please send us an email at{' '}
+                      <a href="mailto:hello@uwreact.ca">hello@uwreact.ca</a>.
+                    </p>
+                    <p />
                   </div>
                   <div className={styles.side}>
                     <div className={styles.sideLogo}>
