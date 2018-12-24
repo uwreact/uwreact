@@ -39,13 +39,32 @@
 
   font-family: $montserrat;
   font-weight: 500;
-  font-size: 32px;
+  font-size: 16px;
   color: $black-text;
+
+  @include landscape {
+    @include for-desktop-up {
+      font-size: 24px;
+    }
+  }
+
+  @include portrait {
+    font-size: 24px;
+  }
 
   a {
     color: $black-text;
     text-decoration: none;
     padding: 8px 0;
+  }
+
+  div {
+    width: 90%;
+
+    margin: 10px;
+
+    height: 3px;
+    background-color: currentColor;
   }
 }
 
@@ -65,7 +84,6 @@
   }
 
   display: flex;
-  flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
 

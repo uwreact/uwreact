@@ -20,6 +20,6 @@
     "deploy:production": "yarn build:production && firebase use shire-production && firebase deploy"
   },
   "devDependencies": {
-    "concurrently": "~4.0.1"
+    "concurrently": "~4.1.0"
   }
 }

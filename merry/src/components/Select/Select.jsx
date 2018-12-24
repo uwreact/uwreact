@@ -46,8 +46,8 @@ class Select extends React.Component {
         state.index + change > -1 && state.index + change < state.search
           ? state.searchMap.length
           : options.length
-            ? state.index + change
-            : state.index,
+          ? state.index + change
+          : state.index,
     }));
   };
 

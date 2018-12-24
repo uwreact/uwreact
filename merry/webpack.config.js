@@ -67,7 +67,7 @@ module.exports = (env, options) => {
           use: [styleLoader, cssLoader, postcssLoader, 'sass-loader', sassResourcesLoader],
         },
         {
-          test: /\.(svg)$/,
+          test: /\.(svg|png)$/,
           use: ['file-loader', 'image-webpack-loader'],
         },
       ],

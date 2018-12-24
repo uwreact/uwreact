@@ -33,7 +33,7 @@ module.exports = () => {
     output: {
       filename: 'index.js',
       path: buildPath,
-      library: 'blue',
+      library: 'pippin',
       libraryTarget: 'umd',
     },
     optimization: {
