@@ -1,6 +1,7 @@
 import AbsoluteModal from './AbsoluteModal';
 import BlankButton from './BlankButton';
 import Button from './Button';
+import ExternalRedirect from './ExternalRedirect';
 import Field from './Field';
 import FullScreenModal from './FullScreenModal';
 import Input from './Input';
@@ -20,6 +21,7 @@ export {
   AbsoluteModal,
   BlankButton,
   Button,
+  ExternalRedirect,
   Field,
   FullScreenModal,
   Input,
