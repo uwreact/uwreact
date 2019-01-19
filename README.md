@@ -1,6 +1,6 @@
 # [shire](https://uwreact.ca) 
 
-[![Build Status](https://travis-ci.com/uwreact/shire.svg?branch=master)](https://travis-ci.com/uwreact/shire)
+[![Build Status](https://travis-ci.com/uwreact/shire.svg?branch=master)](https://travis-ci.com/uwreact/shire) [![Greenkeeper badge](https://badges.greenkeeper.io/uwreact/shire.svg)](https://greenkeeper.io/)
 
 The `shire` project is our single page website and custom project management application.
 
