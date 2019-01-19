@@ -19,6 +19,7 @@ const Field = props => {
 Field.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 Field.defaultProps = {
