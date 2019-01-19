@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "merry/package.json",
+        "package.json",
+        "pippin/package.json"
+      ]
+    }
+  }
+}
