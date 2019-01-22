@@ -78,7 +78,7 @@
     "classnames": "~2.2.5",
     "firebase": "~5.8.0",
     "fuse.js": "~3.3.0",
-    "importable": "~0.0.16",
+    "importable": "~0.0.17",
     "offline-plugin": "~5.0.6",
     "prop-types": "~15.6.1",
     "qs": "~6.6.0",

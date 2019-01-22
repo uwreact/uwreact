@@ -6844,10 +6844,10 @@ import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
-importable@~0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/importable/-/importable-0.0.16.tgz#f15d5c76476e16327ae06c5cc9bfc01d61a0765e"
-  integrity sha512-u862nwqeqrUynf4EmpCBhQDsE8/ypHO5cRJlAJhPKG+Zv813Fg07QJkg0ab/gsqDgY5h6lZckRjoJgv4vw4apw==
+importable@~0.0.17:
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/importable/-/importable-0.0.17.tgz#c418f6f28f1346fadf0fee7460e73e6d6d1e9b2d"
+  integrity sha512-b0HlWjg7PC05rTw8/ik2e8D5WPp/iiuPktfCD+tH78MxtZdVSBTxe+MfdzQo4FknTp25RDWCaNIYRWXwdq18fA==
 
 imurmurhash@^0.1.4:
   version "0.1.4"
