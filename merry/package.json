@@ -87,7 +87,7 @@
     "react": "~16.7.0",
     "react-dom": "~16.7.0",
     "react-router-dom": "~4.3.1",
-    "restatable": "~0.0.18"
+    "restatable": "~0.0.19"
   },
   "sideEffects": [
     "*.scss"

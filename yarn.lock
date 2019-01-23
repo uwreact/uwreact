@@ -11418,10 +11418,10 @@ responselike@1.0.2:
   dependencies:
     lowercase-keys "^1.0.0"
 
-restatable@~0.0.18:
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/restatable/-/restatable-0.0.18.tgz#167d663788fdbab9d86298353865c124fd640e36"
-  integrity sha512-WHhKb7MlkxBx/XBdyk49pyQfiy3crkwWPL0Cko/dul817fJpIhIzrx9P3z237TEchElD+eELPO5iU8eDOovlDQ==
+restatable@~0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/restatable/-/restatable-0.0.19.tgz#2567141961ae255b98d6e755e2a3a275b65aecd8"
+  integrity sha512-SgjetHp3v7mTWpABTI4BF9D47Ux90rrLhBkZ4NhYBroLBIzOfOIg6tykYtzXAz6ar7x91n4np6wUrVoohxeGPQ==
 
 restore-cursor@^1.0.1:
   version "1.0.1"
