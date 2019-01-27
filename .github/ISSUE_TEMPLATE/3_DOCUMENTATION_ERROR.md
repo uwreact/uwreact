@@ -1,6 +1,10 @@
 ---
-name: 📖 Documentation Error
+name: "\U0001F4D6 Documentation Error"
 about: Report an error in this project's documentation.
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 <!--

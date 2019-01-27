@@ -1,6 +1,10 @@
 ---
-name: 📚 Meta Issue
+name: "\U0001F4DA Meta Issue"
 about: Keep track of multiple issues with this project.
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 <!--

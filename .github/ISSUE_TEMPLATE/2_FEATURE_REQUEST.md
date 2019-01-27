@@ -1,6 +1,10 @@
 ---
-name: 🚀 Feature Request
+name: "\U0001F680 Feature Request"
 about: Suggest a feature for this project.
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 <!--
