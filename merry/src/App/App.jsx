@@ -55,7 +55,7 @@ const App = () => (
                     </p>
                     <h3>Attend the event.</h3>
                     <p>
-                      UW Ri3D 2019 is open to anyone looking who has the passion and drive to help
+                      UW Ri3D 2020 is open to anyone looking who has the passion and drive to help
                       us make build robots in three days. If you are interested in attending, please{' '}
                       <a
                         href="https://goo.gl/forms/P1RTwR22GwMpRFYs2"
@@ -169,11 +169,11 @@ const App = () => (
                           <h4>Who can attend?</h4>
                           <p>
                             Any current student at the University of Waterloo with a passion for
-                            robotics is welcome to attend UW Ri3D 2019, whether or not they have
+                            robotics is welcome to attend UW Ri3D 2020, whether or not they have
                             previously participated in FRC. If you are interested in attending,
                             please{' '}
                             <a
-                              href="https://goo.gl/forms/P1RTwR22GwMpRFYs2"
+                              href="https://docs.google.com/forms/d/e/1FAIpQLSdjtvWgt786jHEhOUnmPS178oUoWZn9jhEOUyd_j3pJBUE_Zw/viewform?usp=sf_link"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -185,8 +185,8 @@ const App = () => (
                         <div>
                           <h4>When is it?</h4>
                           <p>
-                            UW Ri3D 2019 will begin on Saturday, January 5th, 2019 at 9:00am EST and
-                            end 73 hours later on Tuesday, January 8th, 2019 at 11:00am EST.
+                            UW Ri3D 2020 will begin on Saturday, January 4th, 2020 at 9:00am EST and
+                            end 73 hours later on Tuesday, January 7th, 2020 at 11:00am EST.
                           </p>
                         </div>
                       </div>
@@ -194,7 +194,7 @@ const App = () => (
                         <div>
                           <h4>Where is it?</h4>
                           <p>
-                            UW Ri3D 2019 will be held in the{' '}
+                            UW Ri3D 2020 will be held in the{' '}
                             <a
                               href="https://uwaterloo.ca/sedra-student-design-centre/"
                               target="_blank"
@@ -209,7 +209,7 @@ const App = () => (
                           <h4>Will food be provided?</h4>
                           <p>
                             A breakfast, lunch, and dinner will be provided each day of UW Ri3D
-                            2019, and any dietary restrictions will be accommodated.
+                            2020, and any dietary restrictions will be accommodated.
                           </p>
                         </div>
                       </div>
